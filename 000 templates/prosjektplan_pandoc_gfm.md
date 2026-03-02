@@ -353,17 +353,16 @@ som arbeidet kan gå videre til neste steg. Når denne tilnærmingen
 vurderes som hensiktsmessig, skal QA samarbeide med prosjektgruppen og
 kunde-/brukergrupper for å etablere kriterier etter følgende struktur:
 
--   Det må være null kategori 1-saker – som påvirker
-    kjernefunksjonalitet.
+- Det må være null kategori 1-saker – som påvirker kjernefunksjonalitet.
 
--   Det må være færre enn N (f.eks. 3) kategori 2-saker – der det finnes
-    en workaround som er akseptabel for kunderepresentanten inntil saken
-    er rettet innen rimelig tid.
+- Det må være færre enn N (f.eks. 3) kategori 2-saker – der det finnes
+  en workaround som er akseptabel for kunderepresentanten inntil saken
+  er rettet innen rimelig tid.
 
--   Det må være færre enn M (f.eks. 5) kategori 3-saker – mindre
-    brukervennlighetsavvik som ikke hindrer bruk, og som
-    kunderepresentanten godtar kan håndteres i støtte/driftsfasen eller
-    i neste prosjektfase.
+- Det må være færre enn M (f.eks. 5) kategori 3-saker – mindre
+  brukervennlighetsavvik som ikke hindrer bruk, og som
+  kunderepresentanten godtar kan håndteres i støtte/driftsfasen eller i
+  neste prosjektfase.
 
 Der tersklene over vurderes som nyttige for vurdering av leveranser,
 skal de avtales og dokumenteres under testplanleggingen før
@@ -470,13 +469,13 @@ kalenderen, er vist i figuren nedenfor.
 Denne seksjonen dokumenterer baselinet budsjett for \[ABC\] og beskriver
 alle kostnader som planlegges brukt i løpet av prosjektet.
 
-Total planlagt kostnad for prosjektet er \[$$$\]. Ytterligere
+Total planlagt kostnad for prosjektet er \[\$\$\$\]. Ytterligere
 informasjon gis i de følgende seksjonene, inkludert en kostnadsfordeling
 per hovedleveranse, en oppsummering av ressurskostnader etter type, og
 en kostnadskurve som viser planlagt forbruk over tid.
 
 Baseline-budsjettet oppfyller den økonomiske rammen spesifisert i
-prosjektcharteret fra initieringen ved å være mindre enn \[$$$\]:
+prosjektcharteret fra initieringen ved å være mindre enn \[\$\$\$\]:
 
 Aktuell status for budsjettutviklingen skal rapporteres hver måned til
 sponsor, kunde og andre relevante interessenter i den månedlige
@@ -530,7 +529,7 @@ er gitt nedenfor.
 
 Denne seksjonen beskriver risikostyringsprosessen for \[ABC\] og gir en
 kopi av risikoregisteret som baseline. Totalt planlagt risikobudsjett er
-\[DD\] dager og \[$$$\], og er inkludert i prosjektets baseline for
+\[DD\] dager og \[\$\$\$\], og er inkludert i prosjektets baseline for
 budsjett og fremdrift.
 
 ## Prosess for risikostyring
@@ -594,7 +593,7 @@ Endringskontrollprosess.
 \[ABC\] sitt risikoregister, som viser kjente prosjektrisikoer,
 estimerte konsekvenser for tid og kostnad, eier, utløsere, tiltak og
 beredskapsplan, finnes på de følgende sidene. Totalt planlagt
-risikobudsjett på \[DD\] dager og \[$$$\] er gitt i siste rad i
+risikobudsjett på \[DD\] dager og \[\$\$\$\] er gitt i siste rad i
 risikoregisteret, som summerer beløpene som er estimert nødvendig for
 hver enkelt risiko.
 
@@ -994,37 +993,11 @@ Kunden er representert i dette prosjektet av følgende interessenter, som
 skal koordinere deltakelse fra de respektive brukergruppene, og bidra
 til å lede og delta i reviews som beskrevet nedenfor:
 
-<table>
-<colgroup>
-<col style="width: 26%" />
-<col style="width: 36%" />
-<col style="width: 36%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Leder for brukergruppe</strong></th>
-<th><strong>Lede Reviews</strong></th>
-<th><strong>Delta i reviews</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>[Kundegruppe- representant]</td>
-<td>[Reviews de vil lede]</td>
-<td>[Reviews de vil delta i]</td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+| **Leder for brukergruppe**    | **Lede Reviews**        | **Delta i reviews**        |
+|-------------------------------|-------------------------|----------------------------|
+| \[Kundegruppe- representant\] | \[Reviews de vil lede\] | \[Reviews de vil delta i\] |
+|                               |                         |                            |
+|                               |                         |                            |
 
 Prosessen for gjennomføring av brukerreviews er oppsummert nedenfor:
 
@@ -1050,21 +1023,21 @@ Prosessen for gjennomføring av brukerreviews er oppsummert nedenfor:
 >
 > 3 = For senere vurdering; utilstrekkelig informasjon tilgjengelig nå.
 
-1.  I et separat møte, ledet av leveranse-eier og med deltakelse fra
+4.  I et separat møte, ledet av leveranse-eier og med deltakelse fra
     delprosjektleder og prosjektleder ved behov, vil prosjektgruppen
     gjennomgå brukerprioriteringene og fylle inn kolonnen
     «Prosjektprioritet» etter samme prioritetsskala, for å bidra med
     prosjektets vurdering av beste prioritering sett i lys av
     sannsynlige omfangs-, fremdrifts- og budsjettkonsekvenser.
 
-2.  Prosjektgruppen skal levere brukertabellen tilbake til
+5.  Prosjektgruppen skal levere brukertabellen tilbake til
     brukergruppeleder. Tilleggsdialog som kreves for å etablere
     (baseline) bruker- og prosjektprioriteringer skal gjennomføres ved
     behov. Tabellen skal deretter sendes til prosjektsponsor for å
     ferdigstille kolonnen «Sponsorbeslutning», som viser hvilke punkter
     som skal vurderes for mulig inkludering i prosjektet.
 
-3.  Prioritet 1-punktene som sponsoren identifiserer, skal deretter
+6.  Prioritet 1-punktene som sponsoren identifiserer, skal deretter
     føres inn i endringskontrollprosessen for å gjennomføre en full
     konsekvensanalyse av foreslått endring. Endringen skal inkluderes i
     prosjektet, og arbeid igangsettes, bare dersom
@@ -1073,7 +1046,7 @@ Prosessen for gjennomføring av brukerreviews er oppsummert nedenfor:
     kostnadskonsekvenser, og nødvendig kommunikasjon til alle berørte
     parter er gjennomført.
 
-4.  Prosjektgruppen og brukergruppene skal gjennomføre hver iterasjon av
+7.  Prosjektgruppen og brukergruppene skal gjennomføre hver iterasjon av
     brukerreview så raskt som mulig for å minimere konsekvensene av
     nødvendige endringer. Målet er å ha en ferdigstilt brukertabell for
     presentasjon til sponsor innen fire dager etter avsluttet review, og
@@ -1181,68 +1154,13 @@ Tildelingen av testprosedyrer er for øyeblikket på prosedyrenivå, og vil
 bli raffinert til enkeltstående testtilfeller etter hvert som
 testdokumentasjonen utvikles.
 
-<table>
-<colgroup>
-<col style="width: 7%" />
-<col style="width: 16%" />
-<col style="width: 35%" />
-<col style="width: 14%" />
-<col style="width: 15%" />
-<col style="width: 11%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>ID</strong></th>
-<th><strong>Type</strong></th>
-<th><strong>Requirement</strong></th>
-<th><strong>Owner</strong></th>
-<th><strong>Leveranse</strong></th>
-<th><strong>Test Case</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+| **ID** | **Type** | **Requirement** | **Owner** | **Leveranse** | **Test Case** |
+|--------|----------|-----------------|-----------|---------------|---------------|
+|        |          |                 |           |               |               |
+|        |          |                 |           |               |               |
+|        |          |                 |           |               |               |
+|        |          |                 |           |               |               |
+|        |          |                 |           |               |               |
 
 ######### Vedlegg B - WBS-ordliste
 
@@ -1251,61 +1169,13 @@ om leveransene som er dokumentert i seksjon 2.4 –
 Arbeidsnedbrytningsstruktur, inkludert unik identifikator, beskrivelse,
 eier og kostnadskonto.
 
-<table>
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 18%" />
-<col style="width: 40%" />
-<col style="width: 13%" />
-<col style="width: 14%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>WBS ID</strong></th>
-<th><strong>Leveranse</strong></th>
-<th><strong>Description</strong></th>
-<th><strong>Owner</strong></th>
-<th><strong>Cost Account</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+| **WBS ID** | **Leveranse** | **Description** | **Owner** | **Cost Account** |
+|------------|---------------|-----------------|-----------|------------------|
+|            |               |                 |           |                  |
+|            |               |                 |           |                  |
+|            |               |                 |           |                  |
+|            |               |                 |           |                  |
+|            |               |                 |           |                  |
 
 ######### Vedlegg C - Format for prosjektets saksliste
 
@@ -1323,96 +1193,20 @@ Ansvarlig.
 
 **<u>Prosjekt ABC - Saksliste</u>**
 
-<table>
-<colgroup>
-<col style="width: 18%" />
-<col style="width: 50%" />
-<col style="width: 16%" />
-<col style="width: 14%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Issue</strong></th>
-<th><strong>Status</strong></th>
-<th><strong>Lead</strong></th>
-<th><strong>Due</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Plassmangel</td>
-<td>Ombygging av møterom 5 til arbeidsområde med skrivebord.</td>
-<td>Andersen</td>
-<td>2050-01-15</td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+| **Issue**   | **Status**                                               | **Lead** | **Due**    |
+|-------------|----------------------------------------------------------|----------|------------|
+| Plassmangel | Ombygging av møterom 5 til arbeidsområde med skrivebord. | Andersen | 2050-01-15 |
+|             |                                                          |          |            |
+|             |                                                          |          |            |
+|             |                                                          |          |            |
+|             |                                                          |          |            |
+|             |                                                          |          |            |
+|             |                                                          |          |            |
+|             |                                                          |          |            |
+|             |                                                          |          |            |
+|             |                                                          |          |            |
+|             |                                                          |          |            |
+|             |                                                          |          |            |
 
 Bruk:
 
@@ -1452,132 +1246,26 @@ fagfellevurderinger.
 
 **<u>Brukeranmeldelse: \[Leveranse ABC Draft 1\]</u>**
 
-<table>
-<colgroup>
-<col style="width: 62%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 12%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Problem</strong></th>
-<th><strong>Bruker-prioritet</strong></th>
-<th><strong>Prosjekt Team prioritet</strong></th>
-<th><strong>Sponsor- beslutning</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Legg til dette...</td>
-<td><mark>1</mark></td>
-<td><mark>1</mark></td>
-<td><mark>1</mark></td>
-</tr>
-<tr class="even">
-<td>Endre på dette...</td>
-<td><mark>1</mark></td>
-<td>2</td>
-<td><mark>1</mark></td>
-</tr>
-<tr class="odd">
-<td>Fjern dette...</td>
-<td><mark>1</mark></td>
-<td><mark>1</mark></td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td>Oppgrader dette...</td>
-<td><mark>1</mark></td>
-<td><mark>1</mark></td>
-<td><mark>1</mark></td>
-</tr>
-<tr class="odd">
-<td>Legg til dette...</td>
-<td>2</td>
-<td>2</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td>Endre på dette...</td>
-<td>2</td>
-<td>2</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td>Fjern dette...</td>
-<td>2</td>
-<td>2</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td>Oppgrader dette...</td>
-<td>3</td>
-<td>3</td>
-<td>3</td>
-</tr>
-<tr class="odd">
-<td>Endre på dette...</td>
-<td>3</td>
-<td>3</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+| **Problem**        | **Bruker-prioritet**        | **Prosjekt Team prioritet** | **Sponsor- beslutning**     |
+|--------------------|-----------------------------|-----------------------------|-----------------------------|
+| Legg til dette...  | <span class="mark">1</span> | <span class="mark">1</span> | <span class="mark">1</span> |
+| Endre på dette...  | <span class="mark">1</span> | 2                           | <span class="mark">1</span> |
+| Fjern dette...     | <span class="mark">1</span> | <span class="mark">1</span> | 2                           |
+| Oppgrader dette... | <span class="mark">1</span> | <span class="mark">1</span> | <span class="mark">1</span> |
+| Legg til dette...  | 2                           | 2                           | 2                           |
+| Endre på dette...  | 2                           | 2                           | 2                           |
+| Fjern dette...     | 2                           | 2                           | 3                           |
+| Oppgrader dette... | 3                           | 3                           | 3                           |
+| Endre på dette...  | 3                           | 3                           | 3                           |
+|                    |                             |                             |                             |
+|                    |                             |                             |                             |
+|                    |                             |                             |                             |
+|                    |                             |                             |                             |
+|                    |                             |                             |                             |
+|                    |                             |                             |                             |
+|                    |                             |                             |                             |
+|                    |                             |                             |                             |
+|                    |                             |                             |                             |
 
 Prioriteter:
 
@@ -1605,84 +1293,24 @@ uansett hvor liten endringen er, og sendes via prosjektleder for korrekt
 vurdering av alle konsekvenser og nødvendig kommunikasjon med alle
 berørte parter.**
 
-<table>
-<colgroup>
-<col style="width: 21%" />
-<col style="width: 78%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Prosjekt:</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Forespørsel fra:</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Dato for forespørsel:</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+| Prosjekt:             |     |
+|-----------------------|-----|
+| Forespørsel fra:      |     |
+| Dato for forespørsel: |     |
 
-<table>
-<colgroup>
-<col style="width: 21%" />
-<col style="width: 78%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>Ønsket endring:</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Begrunnelse / gevinst:</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+|                        |     |
+|------------------------|-----|
+| Ønsket endring:        |     |
+| Begrunnelse / gevinst: |     |
 
-<table>
-<colgroup>
-<col style="width: 24%" />
-<col style="width: 75%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>Kjente leveranser påvirket:</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Kjente krav påvirket:</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Kjente kontrakter påvirket:</td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Kjente fremdrift-påvirkninger:</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Kjente kostnadspåvirkninger:</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+|                                |     |
+|--------------------------------|-----|
+| Kjente leveranser påvirket:    |     |
+| Kjente krav påvirket:          |     |
+| Kjente kontrakter påvirket:    |     |
+| Kjente fremdrift-påvirkninger: |     |
+| Kjente kostnadspåvirkninger:   |     |
 
-<table>
-<colgroup>
-<col style="width: 21%" />
-<col style="width: 78%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>Andre kommentarer:</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+|                    |     |
+|--------------------|-----|
+| Andre kommentarer: |     |
