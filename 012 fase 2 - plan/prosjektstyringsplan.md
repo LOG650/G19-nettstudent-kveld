@@ -1,55 +1,65 @@
 # Prosjektstyringsplan
 
-## for Daglivare 
+## for Daglivare  
 
-2026-03-09
+2026-03-10
 
 **Utarbeidet av:**  
-Erik Brendehaug   
-Joseph James   
+Erik Brendehaug  
+Joseph James  
 Pål Rånes  
 Marthe Slåtta Bjerke
 
 **Autorisert av:**  
-BIP
+Bård Inge Peterson (BIP)
 
 ## Innhold
 
-- [Prosjektstyringsplan](#prosjektstyringsplan)  
-  - [Innhold](#innhold)  
-  - [Sammendrag](#sammendrag)  
-    - [Behov](#behov)   
-  - [Omfang](#omfang)   
-    - [Mål](#mål)   
-    - [Krav](#krav)   
-    - [Løsning](#løsning)   
-    - [Arbeidsnedbrytningsstruktur](#arbeidsnedbrytningsstruktur)   
-    - [Omfangsverifikasjon](#omfangsverifikasjon)   
-  - [Fremdrift](#fremdrift)   
-    - [Avhengighetsdiagram](#avhengighetsdiagram)  
-    - [Gantt-plan](#gantt-plan)   
-    - [Kritisk linje](#kritisk-linje)  
-    - [Milepæler](#milepæler)  
-  - [Risiko](#risiko)   
-    - [Prosess for risikostyring](#prosess-for-risikostyring)  
-    - [Risikoregister](#risikoregister)  
-  - [Interessenter](#interessenter)   
-  - [Ressurser](#ressurser)   
-    - [Prosjektteam](#prosjektteam)   
-  - [Kommunikasjon](#kommunikasjon)   
-    - [Ukentlige saksstatusmøter](#ukentlige-saksstatusmøter)   
-    - [Månedlige prosjektgjennomganger](#månedlige-prosjektgjennomganger)   
-    - [Møter i endringskontrollstyret](#møter-i-endringskontrollstyret)   
-    - [\[Other Kommunikasjon\]](#other-kommunikasjon)   
-  - [Kvalitet](#kvalitet)   
-    - [Fagfellevurderinger](#fagfellevurderinger)   
-      - [Uformelle fagfellevurderinger](#uformelle-fagfellevurderinger) f  
-      - [Formelle fagfellevurderinger](#formelle-fagfellevurderinger)   
-  - [Anskaffelser](#anskaffelser)   
-  - [Endringskontrollprosess](#endringskontrollprosess)   
-  - [Vedlegg A – Krav](#vedlegg-a--krav)  
-  - [Vedlegg B – WBS](#vedlegg-b--wbs-ordliste)  
-  - [Vedlegg C – Format for prosjektets saksliste](#vedlegg-c--format-for-prosjektets-saksliste)
+- [Prosjektstyringsplan](#prosjektstyringsplan)
+  - [for Daglivare](#for-daglivare)
+  - [Innhold](#innhold)
+  - [Sammendrag](#sammendrag)
+    - [Behov](#behov)
+  - [Omfang](#omfang)
+    - [Mål](#mål)
+    - [Krav](#krav)
+    - [Løsning](#løsning)
+    - [Arbeidsnedbrytningsstruktur](#arbeidsnedbrytningsstruktur)
+    - [Omfangsverifikasjon](#omfangsverifikasjon)
+  - [Fremdrift](#fremdrift)
+    - [Avhengighetsdiagram (AOA)](#avhengighetsdiagram-aoa)
+    - [Gantt-plan](#gantt-plan)
+    - [Kritisk linje](#kritisk-linje)
+    - [Milepæler](#milepæler)
+  - [Risiko](#risiko)
+    - [Prosess for risikostyring](#prosess-for-risikostyring)
+    - [Risikoregister](#risikoregister)
+  - [Interessenter](#interessenter)
+  - [Ressurser](#ressurser)
+    - [Prosjektteam](#prosjektteam)
+  - [Kommunikasjon](#kommunikasjon)
+  - [Kvalitet](#kvalitet)
+    - [Fagfellevurderinger](#fagfellevurderinger)
+      - [Uformelle fagfellevurderinger](#uformelle-fagfellevurderinger)
+      - [Formelle fagfellevurderinger](#formelle-fagfellevurderinger)
+  - [Anskaffelser](#anskaffelser)
+    - [Oversikt over anskaffelser](#oversikt-over-anskaffelser)
+      - [Datasett](#datasett)
+      - [Programvare for dataanalyse](#programvare-for-dataanalyse)
+      - [Utviklingsmiljø](#utviklingsmiljø)
+      - [Kunstig intelligens-verktøy](#kunstig-intelligens-verktøy)
+      - [Versjonskontroll og samarbeid](#versjonskontroll-og-samarbeid)
+      - [Dokumentasjon og rapportskriving](#dokumentasjon-og-rapportskriving)
+      - [Anskaffelsesstrategi](#anskaffelsesstrategi)
+      - [Leverandører og teknologiplattformer](#leverandører-og-teknologiplattformer)
+      - [Risiko knyttet til anskaffelser](#risiko-knyttet-til-anskaffelser)
+  - [Endringskontrollprosess](#endringskontrollprosess)
+    - [Prosess for håndtering av endringer](#prosess-for-håndtering-av-endringer)
+    - [Formål med endringskontroll](#formål-med-endringskontroll)
+  - [Vedlegg](#vedlegg)
+    - [Vedlegg A – Krav](#vedlegg-a--krav)
+    - [Vedlegg B – WBS og UML-kode](#vedlegg-b--wbs-og-uml-kode)
+    - [Vedlegg C – Format for prosjektets saksliste](#vedlegg-c--format-for-prosjektets-saksliste)
 
 ## Sammendrag
 
@@ -59,7 +69,7 @@ Dette er et levende dokument, og skal oppdateres av prosjektleder ved behov gjen
 
 ### Behov
 
-Dette prosjektet svarer på behovet for mer presise etterspørselsprognoser i dagligvarehandel, slik at virksomheten kan ta bedre beslutninger knyttet til innkjøp, kampanjer og ressursplanlegging. Mer treffsikre prognoser kan bidra til redusert svinn, færre utsolgte varer og mer effektiv drift. 
+Dette prosjektet svarer på behovet for mer presise etterspørselsprognoser i dagligvarehandel, slik at virksomheten kan ta bedre beslutninger knyttet til innkjøp, kampanjer og ressursplanlegging. Mer treffsikre prognoser kan bidra til redusert svinn, færre utsolgte varer og mer effektiv drift.  
 
 ## Omfang
 
@@ -119,7 +129,7 @@ Videre vil løsningen inkludere evaluering av modellene ved hjelp av målemetode
 
 Et overordnet diagram er gitt nedenfor.
 
-![][image1]
+![Overordnet diagram for løsningen][image1]
 
 ### Arbeidsnedbrytningsstruktur
 
@@ -127,7 +137,7 @@ Daglivare sin arbeidsnedbrytningsstruktur (WBS) utgjør den formelle baselinen f
 
 WBS er vist nedenfor (se Vedlegg B for UML-Kode).
 
-![][image2]
+![WBS-diagram for prosjektet][image2]
 
 Leveransene i arbeidsnedbrytningsstrukturen kan også finnes som flytskjema over rekkefølgen de utføres i, i seksjon 3.1 – Avhengighetsdiagram, og som planlagt over kalenderen i seksjon 3.2 – Gantt-plan.
 
@@ -173,7 +183,7 @@ For å strukturere prosjektets logiske rekkefølge av hovedaktiviteter er det ut
 
 ### Gantt-plan
 
-**![][image3]**
+**![Gantt-plan for prosjektfremdrift][image3]**
 
 ### Kritisk linje
 
@@ -232,12 +242,12 @@ Dagligvare-prosjektet sitt risikoregister, som viser kjente prosjektrisikoer, es
 
 ## Interessenter
 
-For å sikre at alle interessenter forstår fremdriften og verdien av maskinlæringsmodellene, følger vi denne planen:Interne møter: Fokus på teknisk utvikling, feilsøking i datasettet (2022-2024) og koding av Linear Regression vs. Random Forest. 
+For å sikre at alle interessenter forstår fremdriften og verdien av maskinlæringsmodellene, følger vi denne planen:Interne møter: Fokus på teknisk utvikling, feilsøking i datasettet (2022-2024) og koding av Linear Regression vs. Random Forest.  
 
-**Teknisk til forretning:**   
+**Teknisk til forretning:**  
 Vi skal ikke bare rapportere at $RMSE$ har sunket. Vi skal forklare at en reduksjon i RMSE på 15 % betyr at vi kan treffe bedre på bestilling av ferskvarer, noe som reduserer svinn i simulerte butikker.
 
-**Visualisering:**   
+**Visualisering:**  
 Vi bruker enkle grafer som sammenligner faktiske salgsdata mot modellens prediksjoner for 2025, slik at avviket (prognosefeilen) blir visuelt tydelig for ikke-teknikere.
 
 | Interessent | Rolle | Behov/Forventning | Prioritet |
@@ -265,8 +275,8 @@ Roller og ansvar for prosjektsponsor, prosjektleder og delprosjektledere er besk
 | Name | Role | Responsibilities |
 | :---- | :---- | :---- |
 | Bård Inge P. | Prosjektsponsor | Godkjenning av prosjektplanen, omfang, fremdriftsplan, budsjett og risikobudsjett. Godkjenning av endringer i planens baseline når prosjektet er i gang. Lede de månedlige prosjektgjennomgangene. Sikre fortsatt støtte i virksomheten. Løse saker som prosjektleder ikke kan løse. |
-| Erik Brendehaug | Prosjektleder | Lead Data Scientist & Modellansvarlig (Lineær Regresjon). Ansvarlig for datavasking og klargjøring av Kaggle-datasettet (2022-2024). Utvikler benchmark-modellen (Lineær Regresjon). • Lede prosjektet for å oppnå best mulig måloppnåelse mht. omfang, fremdrift, budsjett og risiko. • Lede delprosjektlederne. • Sikre at prosjektresultatet er egnet for formålet og fullt ut oppfyller interessentenes forventninger. • Formell statusrapportering av prosjektets fremdrift én gang per måned. • Gjennomføre de månedlige prosjektgjennomgangene og presentere prosjektstatus for  |
-| Joseph James  | Modellansvarlig / Teknisk ansvarlig | Fremdriftsplanlegger & Modellansvarlig (Random Forest).Implementering av Random Forest Regressor. Sikre at tidsseriedataene håndteres riktig i trenings og testfasen. |
+| Erik Brendehaug | Prosjektleder | Lead Data Scientist & Modellansvarlig (Lineær Regresjon). Ansvarlig for datavasking og klargjøring av Kaggle-datasettet (2022-2024). Utvikler benchmark-modellen (Lineær Regresjon). • Lede prosjektet for å oppnå best mulig måloppnåelse mht. omfang, fremdrift, budsjett og risiko. • Lede delprosjektlederne. • Sikre at prosjektresultatet er egnet for formålet og fullt ut oppfyller interessentenes forventninger. • Formell statusrapportering av prosjektets fremdrift én gang per måned. • Gjennomføre de månedlige prosjektgjennomgangene og presentere prosjektstatus for |
+| Joseph James | Modellansvarlig / Teknisk ansvarlig | Fremdriftsplanlegger & Modellansvarlig (Random Forest).Implementering av Random Forest Regressor. Sikre at tidsseriedataene håndteres riktig i trenings og testfasen. |
 | Pål Rånes | Kvalitetsleder | Kvalitetsansvarlig & Logistikkanalytiker (Evaluering av MAPE/RMSE). Definere og beregne feilmarginer (RMSE/MAPE). Kontrollere at modellene ikke er "overfitted" og at resultatene er logistikkfaglig logiske. |
 | Marthe S.Bjerke | Prosjektstyring | Ressurs og kommunikasjonsleder & Interessentkontakt.Koordinering av gruppen, dokumentasjon av fremdrift og oversettelse av tekniske resultater til rapporter for interessenter.  Ivareta sponsor og nøkkelinteressenter. Lede det ukentlige saksstatusmøtet. |
 
@@ -279,12 +289,12 @@ Prosjektteamet i Daglivare-prosjektet er vist i organisasjonskartet og tabellen 
 
 | Kommunikasjonsform | Formål | Møteleder/ansvar | Deltakere | Hovedfokus | Tid |
 | :---- | :---- | :---- | :---- | :---- | :---- |
-| Ukentlige saksstatusmøter | Sikre at teamet er samkjørt på tekniske aktiviteter og fremdrift i modelleringen | Erik Brendehaug | Hele prosjektteamet  | Gjennomgang av ukesoppgaver (f.eks. vasking av historiske data 2022–2024) Tekniske hindringer i koding av Linear Regression og Random Forest Oppdatering av prosjektets saksliste (Issue Log) | Hver mandag morgen kl. 09:00. Varighet inntil  én time.  |
-| Månedlige prosjektgjennomganger | Formålet med de månedlige gjennomgangene er å presentere status for sponsor (BIP) og eventuelle andre interessenter. Her oversettes tekniske beregninger til logistikkfaglig verdi. | Bård Inge P. (sponsor) | Hele prosjektteamet  | Teknisk til Forretning**:** Vi forklarer hvordan endringer i RMSE/MAPE påvirker simulert lagerstyring (f.eks. "Modellen har nå 10% lavere feilmargin, som reduserer risiko for svinn"). Visualisering: Presentasjon av grafer som viser faktiske salgsdata mot modellens prediksjoner for 2025\.  |  Holdes kl.13:00 den første tirsdagen i hver måned i styrerommet Varighet: Inntil én time  |
-| Møter i endringskontrollstyret (CCB) | Formålet med CCB er å håndtere endringer som påvirker prosjektets omfang eller metodikk etter at baselinen er satt. | Pål Rånes | Hele prosjekt-teamet | Dersom vi for eksempel oppdager at Kaggle-datasettet mangler kritiske variabler for 2025-prognosen, må en endring i metodikk.   | Ved behov |
-| Annen kommunikasjon (Prosjektverktøy) | Effektiv daglig koordinering og trygg deling av kode og dokumentasjon | Joseph James  | Hele prosjektteamet | Samhandlingsplattform**:** Teams for daglig koordinering av koding og skriving. Versjonskontroll**:**  GitHub for deling av Python-scripts og dokumentasjon, slik at alle alltid jobber på nyeste versjon av modellene. | kontinuerlig  |
+| Ukentlige saksstatusmøter | Sikre at teamet er samkjørt på tekniske aktiviteter og fremdrift i modelleringen | Erik Brendehaug | Hele prosjektteamet  | Gjennomgang av ukesoppgaver (f.eks. vasking av historiske data 2022–2024) Tekniske hindringer i koding av Linear Regression og Random Forest Oppdatering av prosjektets saksliste (Issue Log) | Hver mandag morgen kl. 09:00. Varighet inntil  én time. |
+| Månedlige prosjektgjennomganger | Formålet med de månedlige gjennomgangene er å presentere status for sponsor (BIP) og eventuelle andre interessenter. Her oversettes tekniske beregninger til logistikkfaglig verdi. | Bård Inge P. (sponsor) | Hele prosjektteamet | Teknisk til Forretning**:** Vi forklarer hvordan endringer i RMSE/MAPE påvirker simulert lagerstyring (f.eks. "Modellen har nå 10% lavere feilmargin, som reduserer risiko for svinn"). Visualisering: Presentasjon av grafer som viser faktiske salgsdata mot modellens prediksjoner for 2025\. | Holdes kl.13:00 den første tirsdagen i hver måned i styrerommet Varighet: Inntil én time |
+| Møter i endringskontrollstyret (CCB) | Formålet med CCB er å håndtere endringer som påvirker prosjektets omfang eller metodikk etter at baselinen er satt. | Pål Rånes | Hele prosjekt-teamet | Dersom vi for eksempel oppdager at Kaggle-datasettet mangler kritiske variabler for 2025-prognosen, må en endring i metodikk. | Ved behov |
+| Annen kommunikasjon (Prosjektverktøy) | Effektiv daglig koordinering og trygg deling av kode og dokumentasjon | Joseph James | Hele prosjektteamet | Samhandlingsplattform**:** Teams for daglig koordinering av koding og skriving. Versjonskontroll**:**  GitHub for deling av Python-scripts og dokumentasjon, slik at alle alltid jobber på nyeste versjon av modellene. | kontinuerlig |
 
-## Kvalitet 
+## Kvalitet  
 
 Denne seksjonen beskriver tilnærmingen til kvalitetsstyring gjennom hele prosjektet. Kvaliteten på prosjektets leveranser er avgjørende for at analysen, modellene og rapporten skal være faglig solide og pålitelige. Prosjektgruppen vil derfor følge etablerte prinsipper for kvalitetsstyring gjennom hele prosjektperioden.
 
@@ -316,21 +326,21 @@ Fagfellevurderinger er en viktig metode for å sikre at prosjektets leveranser h
 
 Det finnes to typer fagfellevurderinger: uformelle fagfellevurderinger og formelle fagfellevurderinger. 
 
-#### **Uformelle fagfellevurderinger**
+#### Uformelle fagfellevurderinger
 
 I dette prosjektet vil det hovedsakelig gjennomføres uformelle fagfellevurderinger. Disse vurderingene har mindre administrasjon enn formelle vurderinger, men gir likevel viktig kvalitetssikring av arbeidet.
 
 Prosessen for uformelle fagfellevurderinger gjennomføres på følgende måte:
 
-1\.	Ansvarlig for en leveranse skal sørge for at arbeidet gjennomgås av minst ett eller to andre gruppemedlemmer før leveransen ferdigstilles.
+1\. Ansvarlig for en leveranse skal sørge for at arbeidet gjennomgås av minst ett eller to andre gruppemedlemmer før leveransen ferdigstilles.
 
-2\.	Ved større arbeidspakker kan det gjennomføres flere fagfellevurderinger underveis i utviklingsprosessen for å sikre at arbeidet holder riktig kvalitet.
+2\. Ved større arbeidspakker kan det gjennomføres flere fagfellevurderinger underveis i utviklingsprosessen for å sikre at arbeidet holder riktig kvalitet.
 
-3\.	Fagfellene vurderer analyser, kode, metodevalg og resultater, og gir tilbakemeldinger på forbedringsmuligheter.
+3\. Fagfellene vurderer analyser, kode, metodevalg og resultater, og gir tilbakemeldinger på forbedringsmuligheter.
 
-4\.	Leveranse-eier samler inn kommentarer og vurderer hvilke forbedringer som bør implementeres i arbeidet.
+4\. Leveranse-eier samler inn kommentarer og vurderer hvilke forbedringer som bør implementeres i arbeidet.
 
-5\.	Kommentarene brukes til å forbedre leveransen før den inkluderes i den endelige rapporten.
+5\. Kommentarene brukes til å forbedre leveransen før den inkluderes i den endelige rapporten.
 
 Denne prosessen bidrar til å oppdage feil tidlig, forbedre kvaliteten på analysen og sikre at prosjektets resultater er faglig solide.
 
@@ -362,10 +372,10 @@ For å utvikle og teste maskinlæringsmodellene vil prosjektet benytte programme
 
 Følgende Python-biblioteker vil bli brukt i prosjektet:
 
-* Pandas for databehandling og analyse  
-* NumPy for numeriske beregninger  
-* Scikit-learn for implementering av maskinlæringsmodeller  
-* Matplotlib og Seaborn for datavisualisering
+- Pandas for databehandling og analyse  
+- NumPy for numeriske beregninger  
+- Scikit-learn for implementering av maskinlæringsmodeller  
+- Matplotlib og Seaborn for datavisualisering
 
 Disse bibliotekene er open-source og kan installeres gratis via Python-pakkebehandlere.
 
@@ -383,10 +393,10 @@ I prosjektet vil det også benyttes kunstig intelligens-verktøy for å støtte 
 
 Kunstig intelligens kan bidra til:
 
-* generering og forbedring av kode  
-* feilsøking og debugging  
-* forslag til optimalisering av algoritmer  
-* støtte til dokumentasjon av kode og analyser
+- generering og forbedring av kode  
+- feilsøking og debugging  
+- forslag til optimalisering av algoritmer  
+- støtte til dokumentasjon av kode og analyser
 
 Bruken av slike verktøy kan bidra til mer effektiv utvikling og bedre kvalitet på prosjektets tekniske løsninger.
 
@@ -396,10 +406,10 @@ Prosjektet vil bruke GitHub som plattform for versjonskontroll og samarbeid mell
 
 Følgende funksjoner i GitHub vil bli brukt:
 
-* lagring av prosjektkode i et repository  
-* versjonskontroll av kode og dokumenter  
-* samarbeid gjennom pull requests og commits  
-* sikker lagring av prosjektets utviklingshistorikk
+- lagring av prosjektkode i et repository  
+- versjonskontroll av kode og dokumenter  
+- samarbeid gjennom pull requests og commits  
+- sikker lagring av prosjektets utviklingshistorikk
 
 Ved å bruke GitHub kan prosjektgruppen sikre at alle endringer i prosjektet blir dokumentert og at arbeidet kan spores over tid.
 
@@ -415,10 +425,10 @@ Prosjektets anskaffelsesstrategi er basert på bruk av tilgjengelige og kostnads
 
 Denne strategien gir flere fordeler:
 
-* redusert økonomisk risiko  
-* enkel tilgang til nødvendige verktøy  
-* fleksibilitet i valg av analysemetoder  
-* mulighet for etterprøvbarhet og reproduksjon av analysen
+- redusert økonomisk risiko  
+- enkel tilgang til nødvendige verktøy  
+- fleksibilitet i valg av analysemetoder  
+- mulighet for etterprøvbarhet og reproduksjon av analysen
 
 Alle verktøy og ressurser som benyttes i prosjektet vil bli dokumentert tydelig i rapporten.
 
@@ -426,11 +436,11 @@ Alle verktøy og ressurser som benyttes i prosjektet vil bli dokumentert tydelig
 
 Prosjektets digitale ressurser leveres gjennom følgende plattformer:
 
-* Kaggle – leverandør av datasett  
-* GitHub – plattform for versjonskontroll og samarbeid  
-* Visual Studio Code – utviklingsmiljø  
-* Python og open-source biblioteker – analyseverktøy  
-* Gemini CLI – kunstig intelligens-verktøy for programmeringsstøtte
+- Kaggle – leverandør av datasett  
+- GitHub – plattform for versjonskontroll og samarbeid  
+- Visual Studio Code – utviklingsmiljø  
+- Python og open-source biblioteker – analyseverktøy  
+- Gemini CLI – kunstig intelligens-verktøy for programmeringsstøtte
 
 Disse plattformene er bredt brukt innen forskning og programvareutvikling og anses som stabile og pålitelige teknologier.
 
@@ -440,9 +450,9 @@ Selv om prosjektet hovedsakelig bruker gratis og åpne ressurser, finnes det noe
 
 Mulige utfordringer kan være: 
 
-* tekniske problemer med installasjon av programvare  
-* kompatibilitetsproblemer mellom ulike verktøy  
-* begrensninger i datasettets kvalitet eller struktur
+- tekniske problemer med installasjon av programvare  
+- kompatibilitetsproblemer mellom ulike verktøy  
+- begrensninger i datasettets kvalitet eller struktur
 
 For å redusere disse risikoene vil prosjektgruppen teste datasettet og analyseverktøyene tidlig i prosjektperioden. Eventuelle problemer kan dermed identifiseres og håndteres før hovedanalysen starter.
 
@@ -504,9 +514,9 @@ Endringskontrollprosessen bidrar til å sikre at prosjektet gjennomføres på en
 
 Ved å dokumentere og evaluere endringer systematisk kan prosjektgruppen opprettholde kontroll over prosjektets fremdrift og sikre at prosjektets mål fortsatt oppnås.
 
-# Vedlegg
+## Vedlegg
 
-## Vedlegg A – Krav
+### Vedlegg A – Krav
 
 Dette vedlegget gir en oversikt over prosjektkravene for \[ABC\], inkludert unik identifikator, type, eier av hvert krav og foreløpig sporbarhet til leveranser og testtilfeller som skal oppfylle kravene.
 
@@ -515,16 +525,16 @@ Sporbarheten mellom krav og leveranser vil bli raffinert til et mer detaljert ni
 | ID | Type | Requirement | Owner | Leveranse | Test Case |
 | :---- | :---- | :---- | :---- | :---- | :---- |
 
-## Vedlegg B – WBS og UML-kode
+### Vedlegg B – WBS og UML-kode
 
 Dette vedlegget gir en WBS-ordliste (WBS-ordliste) med mer informasjon om leveransene som er dokumentert i seksjon 2.4 – Arbeidsnedbrytningsstruktur, inkludert unik identifikator, beskrivelse, eier og kostnadskonto.
 
-![][image4]
+![WBS-illustrasjon i vedlegg B][image4]
 
 | @startwbs \* Dagligvare Prognoseprosjekt \*\* 1\. Prosjektplanlegging \*\*\* 1.1 Definere problemstilling og prosjektmål \*\*\* 1.2 Lage prosjektplan og rollefordeling \*\* 2\. Datainnsamling og forståelse \*\*\* 2.1 Finne og laste ned datasett \*\*\* 2.2 Utforske datastruktur og variabler \*\*\* 2.3 Identifisere relevante variabler \*\*\* 2.4 Dokumentere datasett \*\* 3\. Datapreprosessering \*\*\* 3.1 Rense data \*\*\* 3.2 Feature engineering \*\*\* 3.3 Splitte trenings- og testdata \*\*\* 3.4 Eksplorativ analyse og visualisering \*\* 4\. Modellutvikling \*\*\* 4.1 Implementere lineær regresjon \*\*\* 4.2 Implementere Random Forest Regressor \*\*\* 4.3 Trene modellene \*\*\* 4.4 Justere modellparametere \*\* 5\. Modelltesting og evaluering \*\*\* 5.1 Generere prognoser for 2025 \*\*\* 5.2 Beregne RMSE og MAPE \*\*\* 5.3 Sammenligne modellresultater \*\*\* 5.4 Analysere viktige variabler \*\* 6\. Resultatanalyse \*\*\* 6.1 Tolke modellresultater \*\*\* 6.2 Diskutere styrker og svakheter \*\*\* 6.3 Vurdere praktisk nytte \*\* 7\. Rapport og dokumentasjon \*\*\* 7.1 Skrive metode og dokumentasjon \*\*\* 7.2 Lage figurer og visualiseringer \*\*\* 7.3 Første utkast av rapport \*\* 8\. Ferdigstillelse \*\*\* 8.1 Revisjon av rapport \*\*\* 8.2 Skrive endelig konklusjon \*\*\* 8.3 Forberede presentasjon \*\*\* 8.4 Presentasjon / prosjektslutt @endwbs |
 | :---- |
 
-## Vedlegg C – Format for prosjektets saksliste
+### Vedlegg C – Format for prosjektets saksliste
 
 For enkel referanse gir dette vedlegget en kopi av formatet for Prosjektets saksliste (Saker List) som brukes til koordinering av det ukentlige saksstatusmøtet beskrevet i seksjon 9.1 – Ukentlige saksstatusmøter. Sakslisten skal spore sakens navn, status, ansvarlig og forventet dato for løsning for hver sak. Dette Microsoft Word-tabellformatet kan enkelt sorteres med kommandoen Layout / Sort etter at nye punkter er lagt til eller oppdatert, slik at sakene kan settes i ønsket rekkefølge etter Ansvarlig / Frist eller Frist / Ansvarlig.
 
@@ -536,8 +546,8 @@ For enkel referanse gir dette vedlegget en kopi av formatet for Prosjektets saks
 
 **Bruk:**
 
-* Legg til rader for nye elementer etter behov, og samle deretter sammen etter Lead eller Forfallsdato med menyelementet Tabell / Sorter.  
-* Skriv inn datoer i formatet ÅÅÅÅ-MM-DD slik at Layout / Sorter-kommandoen fungerer konsekvent.
+- Legg til rader for nye elementer etter behov, og samle deretter sammen etter Lead eller Forfallsdato med menyelementet Tabell / Sorter.  
+- Skriv inn datoer i formatet ÅÅÅÅ-MM-DD slik at Layout / Sorter-kommandoen fungerer konsekvent.
 
 [image1]: <data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfIAAAJ6CAYAAADTmsD4AABZWklEQVR4Xu29O7bVRvd+7diZM/eAgAY4dEhASkROQEZID+wOMAYdIHJEBwhJSImI3AECt2B/3zzvf/m3vCjd9pG0VVtzjvGMc7ZUN5WkelSlS/10ERERkW75qS4QERGRftDIRUREOkYjFxER6RiNXEREpGM0chERkY7RyEVERDpGIxcREekYjVxERKRjNHIREZGO0chFREQ6RiMXERHpmKuN/PPnz5cPHz486MuXL3V197x///7y8uXLy5s3b+qqm/D27duH8lCuW3GEMrRo7aujlvUIfPv27eGcDX39+vXy/fv3GmwTWvultUzkFlx7LF4bby0WG/lff/11+fXXXy8//fTTf/TkyZMHc78XXr169e92bcEff/xxefr06eX58+d1VRPCUh4OlltxhDK0aO2ro5b1CDx79uyH8zfq7927dzX4qrT2S2uZyC249licG29puz+XRUb+8ePHf0/6X3755aEBpeA///zzv8vvpXfeMoc1WZr+3AMl+Pvvv+uiR8P+ZwTmaBdsrbo8almPQDby33777aHe4jd68eJFjbIarePYfSVH4dpjsXVct2i1VWuwyMjjhMe4GZ4LMO9oBGgkgCt7GgSGHDKt5VQey6iM33///WFdHepj2JQwxGdUgHBxVZPj0zC9fv36P+Wbig9cKRGX5axvVXhOgzzZVuIQtzK2TaST65JwaOzgGTpQaj6kTV78Dwybsi2UE1FmwuT6nbtdOVxr2VjcqF/WU78MQRGv3rqYU96l+yqIPInX2i/BnLKOHU9z8snxaTgIg6hDiDKQ5thxcQ1h5FyMB5wv5B/nMWWCOdsSzKm31nHc2ldTabXakdbyueUf259Qz7NWGpVWmq1zoxVuKO+h9g2m6gzmnq8wle+ccxWm6q61/a0ytcItraepMreORZjahrHjmnL8888/D7+XtvtzmW3kVEic5FREJV/lU2gqOn7nDabxYNmff/758JudFeHYyFjP/62Kyr0H/s/x88gA6bDTpuIDFR3LQnH7IJtDpNG6tRDbA1PbFOlUjd1faR0oQ9uOODjIK/KmzKQR4Vp1M7VdrTLMiTu3fueUd25arbJyjJIe6/I+4IQOlqbfOp7m5BPxYnuz8rmESGvNEZaWkUM+x6OBnLMtsLTeWsdQLJuT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>
 
