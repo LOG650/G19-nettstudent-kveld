@@ -289,7 +289,7 @@ Prosjektteamet i Daglivare-prosjektet er vist i organisasjonskartet og tabellen 
 
 | Kommunikasjonsform | Formål | Møteleder/ansvar | Deltakere | Hovedfokus | Tid |
 | :---- | :---- | :---- | :---- | :---- | :---- |
-| Ukentlige saksstatusmøter | Sikre at teamet er samkjørt på tekniske aktiviteter og fremdrift i modelleringen | Erik Brendehaug | Hele prosjektteamet  | Gjennomgang av ukesoppgaver (f.eks. vasking av historiske data 2022–2024) Tekniske hindringer i koding av Linear Regression og Random Forest Oppdatering av prosjektets saksliste (Issue Log) | Hver mandag morgen kl. 09:00. Varighet inntil  én time. |
+| Ukentlige saksstatusmøter | Sikre at teamet er samkjørt på tekniske aktiviteter og fremdrift i modelleringen | Erik Brendehaug | Hele prosjektteamet | Gjennomgang av ukesoppgaver (f.eks. vasking av historiske data 2022–2024) Tekniske hindringer i koding av Linear Regression og Random Forest Oppdatering av prosjektets saksliste (Issue Log) | Hver mandag morgen kl. 09:00. Varighet inntil  én time. |
 | Månedlige prosjektgjennomganger | Formålet med de månedlige gjennomgangene er å presentere status for sponsor (BIP) og eventuelle andre interessenter. Her oversettes tekniske beregninger til logistikkfaglig verdi. | Bård Inge P. (sponsor) | Hele prosjektteamet | Teknisk til Forretning**:** Vi forklarer hvordan endringer i RMSE/MAPE påvirker simulert lagerstyring (f.eks. "Modellen har nå 10% lavere feilmargin, som reduserer risiko for svinn"). Visualisering: Presentasjon av grafer som viser faktiske salgsdata mot modellens prediksjoner for 2025\. | Holdes kl.13:00 den første tirsdagen i hver måned i styrerommet Varighet: Inntil én time |
 | Møter i endringskontrollstyret (CCB) | Formålet med CCB er å håndtere endringer som påvirker prosjektets omfang eller metodikk etter at baselinen er satt. | Pål Rånes | Hele prosjekt-teamet | Dersom vi for eksempel oppdager at Kaggle-datasettet mangler kritiske variabler for 2025-prognosen, må en endring i metodikk. | Ved behov |
 | Annen kommunikasjon (Prosjektverktøy) | Effektiv daglig koordinering og trygg deling av kode og dokumentasjon | Joseph James | Hele prosjektteamet | Samhandlingsplattform**:** Teams for daglig koordinering av koding og skriving. Versjonskontroll**:**  GitHub for deling av Python-scripts og dokumentasjon, slik at alle alltid jobber på nyeste versjon av modellene. | kontinuerlig |
@@ -300,7 +300,7 @@ Denne seksjonen beskriver tilnærmingen til kvalitetsstyring gjennom hele prosje
 
 Kvalitet sikres gjennom god planlegging, strukturert arbeid, kontinuerlig evaluering av analyser og gjennomganger av arbeidet underveis i prosjektet.
 
-Følgende fire kvalitetsprinsipper ligger til grunn for prosjektet: 
+Følgende fire kvalitetsprinsipper ligger til grunn for prosjektet:  
 
 **1\.**   **Planlegging**
 
@@ -324,7 +324,7 @@ Alle prosjektmedlemmer skal bruke beste praksis innen dataanalyse, programmering
 
 Fagfellevurderinger er en viktig metode for å sikre at prosjektets leveranser holder høy kvalitet og oppfyller prosjektets mål. Gjennom fagfellevurderinger blir arbeidet gjennomgått av andre medlemmer i prosjektgruppen for å identifisere feil, forbedringsmuligheter og metodiske svakheter.
 
-Det finnes to typer fagfellevurderinger: uformelle fagfellevurderinger og formelle fagfellevurderinger. 
+Det finnes to typer fagfellevurderinger: uformelle fagfellevurderinger og formelle fagfellevurderinger.  
 
 #### Uformelle fagfellevurderinger
 
@@ -378,8 +378,6 @@ Følgende Python-biblioteker vil bli brukt i prosjektet:
 - Matplotlib og Seaborn for datavisualisering
 
 Disse bibliotekene er open-source og kan installeres gratis via Python-pakkebehandlere.
-
- 
 
 #### Utviklingsmiljø
 
@@ -448,7 +446,7 @@ Disse plattformene er bredt brukt innen forskning og programvareutvikling og ans
 
 Selv om prosjektet hovedsakelig bruker gratis og åpne ressurser, finnes det noen potensielle risikoer knyttet til anskaffelser og teknologibruk.
 
-Mulige utfordringer kan være: 
+Mulige utfordringer kan være:  
 
 - tekniske problemer med installasjon av programvare  
 - kompatibilitetsproblemer mellom ulike verktøy  
