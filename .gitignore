@@ -1,0 +1,104 @@
+############################
+# Python
+############################
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+# virtual environments
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# uv
+.uv/
+uv.lock
+
+# packaging / build
+build/
+dist/
+.eggs/
+*.egg-info/
+pip-wheel-metadata/
+
+# test / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# notebooks
+.ipynb_checkpoints/
+
+
+############################
+# Node / pnpm
+############################
+
+node_modules/
+.pnpm-store/
+.pnpm-debug.log*
+
+# build outputs
+dist/
+build/
+out/
+.next/
+.nuxt/
+coverage/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+
+
+############################
+# Environment variables
+############################
+
+.env
+.env.*
+!.env.example
+
+
+############################
+# AI / CLI tools
+############################
+
+.claude/
+.codex/
+.gemini/
+.ai/
+
+
+############################
+# Editor / IDE
+############################
+
+.vscode/
+.idea/
+*.swp
+*.swo
+
+
+############################
+# OS files
+############################
+
+.DS_Store
+Thumbs.db
+
+
+############################
+# Misc
+############################
+
+*.tmp
+*.temp
+.cache/
