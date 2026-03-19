@@ -1,0 +1,65 @@
+# Swap Sections
+
+Exchanges the positions of two sections within the same chapter.
+
+## Required Information
+
+| Field | Description | Ask if missing |
+|-------|-------------|----------------|
+| `index1` | First section index (e.g., `2.1.2`) | Yes |
+| `index2` | Second section index (e.g., `2.1.5`) | Yes |
+
+Note: Both sections must be in the same chapter (first two digits of index must match).
+
+## Workflow
+
+1. **Locate both sections** - Find by index
+2. **Temporary rename** - Use `.tmp` suffix to avoid conflicts
+3. **Swap files** - Exchange numbers
+4. **Update labels** - If they include numbers
+5. **Update aggregator** - Reorder entries in chapter file
+6. **Compile the whole book**: `book compile` if any compilation error:
+   1. Understand and locate the error
+   2. Make changes to fix the error
+   3. Recompile the book
+   4. Repeat until the error is fixed
+7. **Check cross-references** - Search the compilation log to see if there are any broken cross-references due to this change
+
+## LaTeX Implementation
+
+### 1. Use Temporary Names to Avoid Conflicts
+
+```
+sec02-<slug-a>.tex -> sec02-<slug-a>.tex.tmp
+sec05-<slug-b>.tex -> sec02-<slug-b>.tex
+sec02-<slug-a>.tex.tmp -> sec05-<slug-a>.tex
+```
+
+### 2. Update Labels (if using numeric labels)
+
+Usually labels use slugs, so no update needed:
+```latex
+\label{sec:<chapter>:<slug>}  % stays the same
+```
+
+### 3. Update Chapter Aggregator
+
+Reorder `\subfile{}` lines to match new numeric order:
+
+```latex
+% Before
+\subfile{sec02-<slug-a>.tex}
+...
+\subfile{sec05-<slug-b>.tex}
+
+% After
+\subfile{sec02-<slug-b>.tex}
+...
+\subfile{sec05-<slug-a>.tex}
+```
+
+## Important Notes
+
+- The `\documentclass` path stays the same (`../../../main.tex`)
+- The `\graphicspath` stays the same (`\subfix{../figures/}`)
+- No renumbering of other sections is required (items exchange positions)
