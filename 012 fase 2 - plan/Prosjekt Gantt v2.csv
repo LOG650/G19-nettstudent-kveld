@@ -1,7 +1,7 @@
 ID;Active;Task_Mode;Task_Name;Duration;Start_Date;Finish_Date;Percent_Complete
-1;Yes;Manually Scheduled;Definere problemstilling og prosjektmål;5 days;Wed 25.02.26;Sun 01.03.26;0%
-2;Yes;Manually Scheduled;Lage prosjektplan og rollefordeling;5 days;Mon 02.03.26;Fri 06.03.26;0%
-3;Yes;Manually Scheduled;Finne og laste ned datasett;1 day;Sat 07.03.26;Sat 07.03.26;0%
+1;Yes;Manually Scheduled;Definere problemstilling og prosjektmï¿½l;5 days;Wed 25.02.26;Sun 01.03.26;100%
+2;Yes;Manually Scheduled;Lage prosjektplan og rollefordeling;5 days;Mon 02.03.26;Fri 06.03.26;100%
+3;Yes;Manually Scheduled;Finne og laste ned datasett;1 day;Sat 07.03.26;Sat 07.03.26;100%
 4;Yes;Manually Scheduled;Utforske datastruktur og variabler;1 day;Sun 08.03.26;Sun 08.03.26;0%
 5;Yes;Manually Scheduled;Identifisere relevante variabler;1 day;Mon 09.03.26;Mon 09.03.26;0%
 6;Yes;Manually Scheduled;Dokumentere datasett;1 day;Tue 10.03.26;Tue 10.03.26;0%
@@ -9,7 +9,7 @@ ID;Active;Task_Mode;Task_Name;Duration;Start_Date;Finish_Date;Percent_Complete
 8;Yes;Manually Scheduled;Feature engineering;1 day;Thu 12.03.26;Thu 12.03.26;0%
 9;Yes;Manually Scheduled;Splitte trenings- og testdata;1 day;Fri 13.03.26;Fri 13.03.26;0%
 10;Yes;Manually Scheduled;Eksplorativ analyse og visualisering;1 day;Sat 14.03.26;Sat 14.03.26;0%
-11;Yes;Manually Scheduled;Implementere lineær regresjon;3 days;Sun 15.03.26;Tue 17.03.26;0%
+11;Yes;Manually Scheduled;Implementere lineï¿½r regresjon;3 days;Sun 15.03.26;Tue 17.03.26;0%
 12;Yes;Manually Scheduled;Implementere Random Forest Regressor;3 days;Wed 18.03.26;Fri 20.03.26;0%
 13;Yes;Manually Scheduled;Trene modellene;1 day;Sat 21.03.26;Sat 21.03.26;0%
 14;Yes;Manually Scheduled;Justere modellparametere;1 day;Sun 22.03.26;Sun 22.03.26;0%
@@ -22,7 +22,7 @@ ID;Active;Task_Mode;Task_Name;Duration;Start_Date;Finish_Date;Percent_Complete
 21;Yes;Manually Scheduled;Vurdere praktisk nytte;2 days;Wed 01.04.26;Thu 02.04.26;0%
 22;Yes;Manually Scheduled;Skrive metode og dokumentasjon;12 days;Fri 03.04.26;Tue 14.04.26;0%
 23;Yes;Manually Scheduled;Lage figurer og visualiseringer;6 days;Wed 15.04.26;Mon 20.04.26;0%
-24;Yes;Manually Scheduled;Første utkast av rapport ferdig;1 day;Tue 21.04.26;Tue 21.04.26;0%
+24;Yes;Manually Scheduled;Fï¿½rste utkast av rapport ferdig;1 day;Tue 21.04.26;Tue 21.04.26;0%
 25;Yes;Manually Scheduled;Revisjon av rapport;12 days;Wed 22.04.26;Sun 03.05.26;0%
 26;Yes;Manually Scheduled;Skrive endelig konklusjon;5 days;Mon 04.05.26;Fri 08.05.26;0%
 27;Yes;Manually Scheduled;Forberede presentasjon;10 days;Sat 09.05.26;Mon 18.05.26;0%
