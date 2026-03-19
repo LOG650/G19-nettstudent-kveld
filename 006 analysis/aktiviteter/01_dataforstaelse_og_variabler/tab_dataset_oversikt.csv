@@ -1,0 +1,12 @@
+kolonne,datatype,manglende_verdier,manglende_andel_pct,antall_unike
+Order ID,str,0,0.0,9994
+Customer Name,str,0,0.0,50
+Category,str,0,0.0,7
+Sub Category,str,0,0.0,23
+City,str,0,0.0,24
+Order Date,str,0,0.0,1236
+Region,str,0,0.0,5
+Sales,int64,0,0.0,1989
+Discount,float64,0,0.0,26
+Profit,float64,0,0.0,8380
+State,str,0,0.0,1

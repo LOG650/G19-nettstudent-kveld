@@ -50,7 +50,7 @@
           "duration": "1 day",
           "start_date": "Sun 08.03.26",
           "finish_date": "Sun 08.03.26",
-          "percent_complete": "0%"
+          "percent_complete": "100%"
         },
         {
           "id": "2.3",
@@ -59,7 +59,7 @@
           "duration": "1 day",
           "start_date": "Mon 09.03.26",
           "finish_date": "Mon 09.03.26",
-          "percent_complete": "0%"
+          "percent_complete": "100%"
         },
         {
           "id": "2.4",
@@ -68,7 +68,7 @@
           "duration": "1 day",
           "start_date": "Tue 10.03.26",
           "finish_date": "Tue 10.03.26",
-          "percent_complete": "0%"
+          "percent_complete": "100%"
         }
       ]
     },

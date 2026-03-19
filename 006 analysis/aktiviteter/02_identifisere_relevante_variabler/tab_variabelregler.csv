@@ -1,0 +1,8 @@
+anbefaling,regel,beskrivelse
+target,Målvariabel,Sales settes som målvariabel.
+ekskluder,ID/navn,Kolonner med id/name ekskluderes.
+vurder,Manglende > 40%,Krever særskilt databehandling.
+inkluder,Dato (>=90% parsebar),Brukes til sesong/features.
+inkluder,Numerisk,Brukes direkte som kandidatfeature.
+ekskluder,Unik-andel > 95%,Svak generalisering.
+inkluder,Kategorisk <= 50 unike,Håndterbar kardinalitet.

@@ -1,0 +1,12 @@
+variabel,anbefaling,begrunnelse,datatype,manglende_pct,unike,unik_andel
+Sales,target,Målvariabel for prognose.,int64,0.0,1989,0.199
+Category,inkluder,Kategorisk variabel med håndterbar kardinalitet.,str,0.0,7,0.0007
+City,inkluder,Kategorisk variabel med håndterbar kardinalitet.,str,0.0,24,0.0024
+Discount,inkluder,Numerisk variabel egner seg direkte for modellering.,float64,0.0,26,0.0026
+Region,inkluder,Kategorisk variabel med håndterbar kardinalitet.,str,0.0,5,0.0005
+State,inkluder,Kategorisk variabel med håndterbar kardinalitet.,str,0.0,1,0.0001
+Sub Category,inkluder,Kategorisk variabel med håndterbar kardinalitet.,str,0.0,23,0.0023
+Order Date,vurder,"Middels/høy kardinalitet, vurder koding og nytte.",str,0.0,1236,0.1237
+Profit,vurder,"Kan være informativ, men bør sjekkes for lekkasje før modellering.",float64,0.0,8380,0.8385
+Customer Name,ekskluder,Navn-kolonne har høy kardinalitet og høy risiko for overtilpasning.,str,0.0,50,0.005
+Order ID,ekskluder,ID-variabel gir vanligvis lite generaliserbar prediksjonsverdi.,str,0.0,9994,1.0

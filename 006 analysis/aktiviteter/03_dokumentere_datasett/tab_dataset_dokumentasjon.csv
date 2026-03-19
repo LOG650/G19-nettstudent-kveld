@@ -1,0 +1,12 @@
+kolonne,datatype,manglende_verdier,manglende_andel_pct,antall_unike,min,max,eksempelverdier
+Order ID,str,0,0.0,9994,,,OD1 | OD2 | OD3
+Customer Name,str,0,0.0,50,,,Harish | Sudha | Hussain
+Category,str,0,0.0,7,,,Oil & Masala | Beverages | Food Grains
+Sub Category,str,0,0.0,23,,,Masalas | Health Drinks | Atta & Flour
+City,str,0,0.0,24,,,Vellore | Krishnagiri | Perambalur
+Order Date,str,0,0.0,1236,,,11-08-2017 | 11-08-2017 | 06-12-2017
+Region,str,0,0.0,5,,,North | South | West
+Sales,int64,0,0.0,1989,500,2500,1254 | 749 | 2360
+Discount,float64,0,0.0,26,0.1,0.35,0.12 | 0.18 | 0.21
+Profit,float64,0,0.0,8380,25.25,1120.95,401.28 | 149.8 | 165.2
+State,str,0,0.0,1,,,Tamil Nadu | Tamil Nadu | Tamil Nadu

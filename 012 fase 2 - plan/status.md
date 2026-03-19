@@ -16,7 +16,7 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 
 - [x] A: Problemdefinisjon og prosjektplan er gjennomført eller langt på vei ferdigstilt, siden prosjektforslag og prosjektstyringsplan foreligger. `verifisert delvis gjennom artefakter`
 - [x] B: Datainnsamling og dokumentasjon ser ut til å være påbegynt eller gjennomført, siden datasettet finnes i prosjektet. `verifisert delvis gjennom artefakter`
-- [ ] C: Dataforståelse og variabelanalyse er ikke dokumentert i repoet ennå. `må bekreftes`
+- [x] C: Dataforståelse, variabelanalyse og datasettdokumentasjon er dokumentert for WBS 2.2-2.4 i analyseområdet. `verifisert`
 - [ ] D: Datapreprosessering er ikke dokumentert i repoet ennå. `må bekreftes`
 - [ ] E: Feature engineering er ikke dokumentert i repoet ennå. `må bekreftes`
 - [ ] F: Modellbygging og trening er ikke dokumentert i repoet ennå. `må bekreftes`
@@ -37,6 +37,9 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 
 - [ ] Bekrefte om datasettet er renset og validert, siden dette er en sentral risiko i planen.
 - [x] Opprette eller dokumentere analysearbeid i strukturert analysemiljø, slik planen og arbeidsreglene legger opp til. `fullført 2026-03-19`
+- [x] Dokumentasjon for WBS 2.2 (utforske datastruktur og variabler) er etablert med skript, tabeller og figur. `fullført 2026-03-19`
+- [x] Dokumentasjon for WBS 2.3 (identifisere relevante variabler) er etablert med skript, tabeller og figur. `fullført 2026-03-19`
+- [x] Dokumentasjon for WBS 2.4 (dokumentere datasett) er etablert med tabellprofil og markdown-oppsummering. `fullført 2026-03-19`
 - [ ] Dokumentere status for lineær regresjon og Random Forest separat.
 - [ ] Etablere sporbar status for MAPE, RMSE og modelltesting før milepæl M3.
 - [ ] Starte løpende rapportskriving parallelt med analysearbeidet, i tråd med arbeidsreglene i prosjektet.
@@ -44,4 +47,4 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 
 ## Anbefalt kort prosjektstatus
 
-Prosjektet fremstår per 2026-03-19 som værende ferdig med planfasen og delvis i gang med datagrunnlaget. Neste kritiske behov er å dokumentere dataforståelse, preprocessing og modelltesting slik at milepæl M3 kan følges opp med faktisk status, ikke bare planstatus.
+Prosjektet fremstår per 2026-03-19 som værende ferdig med planfasen, med dataforståelse og datasettdokumentasjon dokumentert for WBS 2.2-2.4. Neste kritiske behov er å dokumentere preprocessing og modelltesting slik at milepæl M3 kan følges opp med faktisk status, ikke bare planstatus.
