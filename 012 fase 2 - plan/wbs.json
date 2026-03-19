@@ -1,0 +1,310 @@
+{
+  "project": "Dagligvare Prognoseprosjekt",
+  "source": {
+    "file": "012 fase 2 - plan/Prosjekt Gantt v2.csv",
+    "delimiter": ";",
+    "generated_from_rows": 28
+  },
+  "work_packages": [
+    {
+      "id": "1",
+      "name": "Prosjektplanlegging",
+      "children": [
+        {
+          "id": "1.1",
+          "task_id": 1,
+          "name": "Definere problemstilling og prosjektmål",
+          "duration": "5 days",
+          "start_date": "Wed 25.02.26",
+          "finish_date": "Sun 01.03.26",
+          "percent_complete": "0%"
+        },
+        {
+          "id": "1.2",
+          "task_id": 2,
+          "name": "Lage prosjektplan og rollefordeling",
+          "duration": "5 days",
+          "start_date": "Mon 02.03.26",
+          "finish_date": "Fri 06.03.26",
+          "percent_complete": "0%"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Datainnsamling og forståelse",
+      "children": [
+        {
+          "id": "2.1",
+          "task_id": 3,
+          "name": "Finne og laste ned datasett",
+          "duration": "1 day",
+          "start_date": "Sat 07.03.26",
+          "finish_date": "Sat 07.03.26",
+          "percent_complete": "0%"
+        },
+        {
+          "id": "2.2",
+          "task_id": 4,
+          "name": "Utforske datastruktur og variabler",
+          "duration": "1 day",
+          "start_date": "Sun 08.03.26",
+          "finish_date": "Sun 08.03.26",
+          "percent_complete": "0%"
+        },
+        {
+          "id": "2.3",
+          "task_id": 5,
+          "name": "Identifisere relevante variabler",
+          "duration": "1 day",
+          "start_date": "Mon 09.03.26",
+          "finish_date": "Mon 09.03.26",
+          "percent_complete": "0%"
+        },
+        {
+          "id": "2.4",
+          "task_id": 6,
+          "name": "Dokumentere datasett",
+          "duration": "1 day",
+          "start_date": "Tue 10.03.26",
+          "finish_date": "Tue 10.03.26",
+          "percent_complete": "0%"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Datapreprosessering",
+      "children": [
+        {
+          "id": "3.1",
+          "task_id": 7,
+          "name": "Rense data",
+          "duration": "1 day",
+          "start_date": "Wed 11.03.26",
+          "finish_date": "Wed 11.03.26",
+          "percent_complete": "0%"
+        },
+        {
+          "id": "3.2",
+          "task_id": 8,
+          "name": "Feature engineering",
+          "duration": "1 day",
+          "start_date": "Thu 12.03.26",
+          "finish_date": "Thu 12.03.26",
+          "percent_complete": "0%"
+        },
+        {
+          "id": "3.3",
+          "task_id": 9,
+          "name": "Splitte trenings- og testdata",
+          "duration": "1 day",
+          "start_date": "Fri 13.03.26",
+          "finish_date": "Fri 13.03.26",
+          "percent_complete": "0%"
+        },
+        {
+          "id": "3.4",
+          "task_id": 10,
+          "name": "Eksplorativ analyse og visualisering",
+          "duration": "1 day",
+          "start_date": "Sat 14.03.26",
+          "finish_date": "Sat 14.03.26",
+          "percent_complete": "0%"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Modellutvikling",
+      "children": [
+        {
+          "id": "4.1",
+          "task_id": 11,
+          "name": "Implementere lineær regresjon",
+          "duration": "3 days",
+          "start_date": "Sun 15.03.26",
+          "finish_date": "Tue 17.03.26",
+          "percent_complete": "0%"
+        },
+        {
+          "id": "4.2",
+          "task_id": 12,
+          "name": "Implementere Random Forest Regressor",
+          "duration": "3 days",
+          "start_date": "Wed 18.03.26",
+          "finish_date": "Fri 20.03.26",
+          "percent_complete": "0%"
+        },
+        {
+          "id": "4.3",
+          "task_id": 13,
+          "name": "Trene modellene",
+          "duration": "1 day",
+          "start_date": "Sat 21.03.26",
+          "finish_date": "Sat 21.03.26",
+          "percent_complete": "0%"
+        },
+        {
+          "id": "4.4",
+          "task_id": 14,
+          "name": "Justere modellparametere",
+          "duration": "1 day",
+          "start_date": "Sun 22.03.26",
+          "finish_date": "Sun 22.03.26",
+          "percent_complete": "0%"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Modelltesting og evaluering",
+      "children": [
+        {
+          "id": "5.1",
+          "task_id": 15,
+          "name": "Generere prognoser for 2025",
+          "duration": "1 day",
+          "start_date": "Mon 23.03.26",
+          "finish_date": "Mon 23.03.26",
+          "percent_complete": "0%"
+        },
+        {
+          "id": "5.2",
+          "task_id": 16,
+          "name": "Beregne RMSE og MAPE",
+          "duration": "1 day",
+          "start_date": "Tue 24.03.26",
+          "finish_date": "Tue 24.03.26",
+          "percent_complete": "0%"
+        },
+        {
+          "id": "5.3",
+          "task_id": 17,
+          "name": "Sammenligne modellresultater",
+          "duration": "1 day",
+          "start_date": "Wed 25.03.26",
+          "finish_date": "Wed 25.03.26",
+          "percent_complete": "0%"
+        },
+        {
+          "id": "5.4",
+          "task_id": 18,
+          "name": "Analysere viktige variabler",
+          "duration": "2 days",
+          "start_date": "Thu 26.03.26",
+          "finish_date": "Fri 27.03.26",
+          "percent_complete": "0%"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Resultatanalyse",
+      "children": [
+        {
+          "id": "6.1",
+          "task_id": 19,
+          "name": "Tolke modellresultater",
+          "duration": "2 days",
+          "start_date": "Sat 28.03.26",
+          "finish_date": "Sun 29.03.26",
+          "percent_complete": "0%"
+        },
+        {
+          "id": "6.2",
+          "task_id": 20,
+          "name": "Diskutere styrker og svakheter",
+          "duration": "2 days",
+          "start_date": "Mon 30.03.26",
+          "finish_date": "Tue 31.03.26",
+          "percent_complete": "0%"
+        },
+        {
+          "id": "6.3",
+          "task_id": 21,
+          "name": "Vurdere praktisk nytte",
+          "duration": "2 days",
+          "start_date": "Wed 01.04.26",
+          "finish_date": "Thu 02.04.26",
+          "percent_complete": "0%"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Rapport og dokumentasjon",
+      "children": [
+        {
+          "id": "7.1",
+          "task_id": 22,
+          "name": "Skrive metode og dokumentasjon",
+          "duration": "12 days",
+          "start_date": "Fri 03.04.26",
+          "finish_date": "Tue 14.04.26",
+          "percent_complete": "0%"
+        },
+        {
+          "id": "7.2",
+          "task_id": 23,
+          "name": "Lage figurer og visualiseringer",
+          "duration": "6 days",
+          "start_date": "Wed 15.04.26",
+          "finish_date": "Mon 20.04.26",
+          "percent_complete": "0%"
+        },
+        {
+          "id": "7.3",
+          "task_id": 24,
+          "name": "Første utkast av rapport ferdig",
+          "duration": "1 day",
+          "start_date": "Tue 21.04.26",
+          "finish_date": "Tue 21.04.26",
+          "percent_complete": "0%"
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "name": "Ferdigstillelse",
+      "children": [
+        {
+          "id": "8.1",
+          "task_id": 25,
+          "name": "Revisjon av rapport",
+          "duration": "12 days",
+          "start_date": "Wed 22.04.26",
+          "finish_date": "Sun 03.05.26",
+          "percent_complete": "0%"
+        },
+        {
+          "id": "8.2",
+          "task_id": 26,
+          "name": "Skrive endelig konklusjon",
+          "duration": "5 days",
+          "start_date": "Mon 04.05.26",
+          "finish_date": "Fri 08.05.26",
+          "percent_complete": "0%"
+        },
+        {
+          "id": "8.3",
+          "task_id": 27,
+          "name": "Forberede presentasjon",
+          "duration": "10 days",
+          "start_date": "Sat 09.05.26",
+          "finish_date": "Mon 18.05.26",
+          "percent_complete": "0%"
+        },
+        {
+          "id": "8.4",
+          "task_id": 28,
+          "name": "Presentasjon / prosjektslutt",
+          "duration": "1 day",
+          "start_date": "Tue 19.05.26",
+          "finish_date": "Tue 19.05.26",
+          "percent_complete": "0%"
+        }
+      ]
+    }
+  ]
+}

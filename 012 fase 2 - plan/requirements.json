@@ -1,0 +1,58 @@
+{
+  "project": "Dagligvare Prognoseprosjekt",
+  "source": {
+    "file": "012 fase 2 - plan/prosjektstyringsplan.md",
+    "section": "Krav"
+  },
+  "requirements": [
+    {
+      "id": "KR-001",
+      "category": "funksjonalitet",
+      "description": "Løsningen skal kunne generere salgsprognoser for 2025 basert på historiske data fra 2022-2024.",
+      "priority": "høy",
+      "status": "baseline"
+    },
+    {
+      "id": "KR-002",
+      "category": "funksjonalitet",
+      "description": "Det skal utvikles og evalueres minst to modeller: multippel lineær regresjon og Random Forest Regressor.",
+      "priority": "høy",
+      "status": "baseline"
+    },
+    {
+      "id": "KR-003",
+      "category": "kapasitet",
+      "description": "Modellenes ytelse skal måles og dokumenteres ved bruk av MAPE og RMSE.",
+      "priority": "høy",
+      "status": "baseline"
+    },
+    {
+      "id": "KR-004",
+      "category": "funksjonalitet",
+      "description": "Løsningen skal identifisere og rangere hvilke variabler som har størst påvirkning på salget.",
+      "priority": "høy",
+      "status": "baseline"
+    },
+    {
+      "id": "KR-005",
+      "category": "dokumentasjon",
+      "description": "Datagrunnlaget skal være strukturert, kvalitetssikret og dokumentert.",
+      "priority": "høy",
+      "status": "baseline"
+    },
+    {
+      "id": "KR-006",
+      "category": "dokumentasjon",
+      "description": "Resultater, metodevalg og modellforutsetninger skal dokumenteres slik at analysen kan etterprøves.",
+      "priority": "høy",
+      "status": "baseline"
+    },
+    {
+      "id": "KR-007",
+      "category": "kapasitet",
+      "description": "Prosjektet skal gjennomføres innenfor avtalte tids- og ressursrammer.",
+      "priority": "høy",
+      "status": "baseline"
+    }
+  ]
+}

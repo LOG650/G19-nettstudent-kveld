@@ -1,0 +1,98 @@
+{
+  "project": {
+    "name": "Dagligvare Prognoseprosjekt",
+    "domain": "Etterspørselsprognoser",
+    "document_date": "2026-03-10",
+    "status": "planlagt",
+    "team": [
+      "Erik Brendehaug",
+      "Joseph James",
+      "Pål Rånes",
+      "Marthe Slåtta Bjerke"
+    ],
+    "sponsor": "Bård Inge Peterson (BIP)"
+  },
+  "problem_statement": "Hvordan kan lineær regresjon og Random Forest Regressor brukes til å forutsi salg i 2025 for en simulert dagligvarekjede, og hvilke faktorer påvirker salget mest?",
+  "need": "Mer presise etterspørselsprognoser for bedre beslutninger om innkjøp, kampanjer og ressursplanlegging, med mål om redusert svinn og færre utsolgte varer.",
+  "objectives": [
+    "Utvikle og evaluere minst to prognosemodeller: multippel lineær regresjon og Random Forest Regressor.",
+    "Predikere salg for 2025 basert på historiske data fra 2022-2024.",
+    "Identifisere og rangere hvilke variabler som påvirker salget mest.",
+    "Dokumentere metode og resultater slik at analysen kan etterprøves."
+  ],
+  "scope": {
+    "in_scope": [
+      "Datainnsamling fra valgt Kaggle-datasett.",
+      "Dataforståelse, datapreprosessering og feature engineering.",
+      "Modellering med lineær regresjon og Random Forest Regressor.",
+      "Evaluering med MAPE og RMSE.",
+      "Resultatanalyse, visualiseringer og rapportering."
+    ],
+    "out_of_scope": [
+      "Kausal analyse.",
+      "Lageroptimalisering og operative beslutningsmodeller.",
+      "Inkludering av makroøkonomiske variabler som inflasjon, rente og konjunkturer.",
+      "Analyse av flere virksomheter eller flere datasett utover valgt case."
+    ]
+  },
+  "assumptions": [
+    "Kaggle-datasettet er representativt for en simulert dagligvarekjede.",
+    "Data fra 2022-2024 er egnet som treningsgrunnlag og 2025 som testperiode.",
+    "Sentrale forklaringsvariabler som sesong, rabatt, region og produktkategori finnes og har tilstrekkelig kvalitet.",
+    "Historiske etterspørselsmønstre er relevante for prediksjon av fremtidig salg."
+  ],
+  "constraints": [
+    "Prosjektet skal gjennomføres innenfor avtalte tids- og ressursrammer.",
+    "Modellvalget er begrenset til multippel lineær regresjon og Random Forest Regressor.",
+    "Prosjektet omfatter én simulert virksomhet og ett hoveddatasett."
+  ],
+  "approach": {
+    "data_source": "Supermart Grocery Sales - Retail Analytics Dataset (Kaggle)",
+    "modeling_strategy": [
+      "Bruk lineær regresjon som benchmark-modell.",
+      "Bruk Random Forest Regressor som alternativ modell.",
+      "Sammenlign modellene på RMSE og MAPE.",
+      "Analyser variabelpåvirkning som del av resultatvurderingen."
+    ],
+    "verification_principles": [
+      "Egenverifikasjon i team før QA-gjennomgang.",
+      "Løpende verifikasjon gjennom inspeksjon, analyse og tester.",
+      "Dokumenterte avvik og re-verifikasjon ved korrigering."
+    ]
+  },
+  "success_metrics": [
+    "Prognoser for 2025 er generert med begge modeller.",
+    "Ytelse er dokumentert med RMSE og MAPE.",
+    "Viktige forklaringsvariabler er identifisert og rangert.",
+    "Resultater og metode er dokumentert med tilstrekkelig sporbarhet og etterprøvbarhet.",
+    "Leveranser er ferdigstilt innen planlagt tidsramme."
+  ],
+  "stakeholders": {
+    "high_priority": [
+      "Prosjektsponsor (Bård Inge Peterson)",
+      "Kategorisjefer (simulert brukergruppe)",
+      "Prosjektteamet"
+    ],
+    "other": [
+      "Logistikkdirektør",
+      "Butikksjefer"
+    ]
+  },
+  "governance": {
+    "change_control": "Endringer i omfang, tidsplan, metodevalg eller leveranser skal vurderes og godkjennes gjennom prosjektets endringskontrollprosess.",
+    "communication": [
+      "Ukentlige saksstatusmøter i teamet.",
+      "Månedlige prosjektgjennomganger med sponsor."
+    ],
+    "quality": [
+      "Uformelle fagfellevurderinger av leveranser.",
+      "Kontinuerlig forbedring gjennom løpende evaluering."
+    ]
+  },
+  "source_documents": [
+    "011 fase 1 - proposal/proposal.md",
+    "012 fase 2 - plan/prosjektstyringsplan.md",
+    "012 fase 2 - plan/requirements.json",
+    "012 fase 2 - plan/wbs.json"
+  ]
+}

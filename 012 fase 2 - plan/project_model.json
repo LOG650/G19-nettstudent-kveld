@@ -1,0 +1,122 @@
+{
+  "model": {
+    "name": "Dagligvare Project Model",
+    "version": "1.0.0",
+    "created_date": "2026-03-19",
+    "description": "Samlet modell som binder sammen prosjektets kjerneinformasjon, krav og WBS."
+  },
+  "project": {
+    "name": "Dagligvare Prognoseprosjekt",
+    "domain": "Etterspørselsprognoser",
+    "problem_statement": "Hvordan kan lineær regresjon og Random Forest Regressor brukes til å forutsi salg i 2025 for en simulert dagligvarekjede, og hvilke faktorer påvirker salget mest?"
+  },
+  "modules": {
+    "core": {
+      "path": "012 fase 2 - plan/core.json",
+      "primary_keys": [
+        "project",
+        "objectives",
+        "scope",
+        "assumptions",
+        "constraints",
+        "approach",
+        "success_metrics"
+      ]
+    },
+    "requirements": {
+      "path": "012 fase 2 - plan/requirements.json",
+      "primary_keys": [
+        "requirements"
+      ],
+      "id_prefix": "KR-"
+    },
+    "wbs": {
+      "path": "012 fase 2 - plan/wbs.json",
+      "primary_keys": [
+        "work_packages"
+      ],
+      "id_format": "Hovedpakke.nivå2 (f.eks. 4.2)"
+    }
+  },
+  "integration": {
+    "traceability_rules": [
+      "Hvert krav i requirements.json skal kunne spores til én eller flere relevante WBS-aktiviteter.",
+      "WBS-aktiviteter skal støtte minst ett mål eller omfangspunkt definert i core.json.",
+      "Prosjektets suksesskriterier i core.json skal kunne evalueres med leveranser fra WBS og oppfyllelse av krav."
+    ],
+    "recommended_links": [
+      {
+        "requirement_id": "KR-001",
+        "wbs_ids": [
+          "5.1"
+        ],
+        "rationale": "Generering av prognoser for 2025."
+      },
+      {
+        "requirement_id": "KR-002",
+        "wbs_ids": [
+          "4.1",
+          "4.2",
+          "4.3"
+        ],
+        "rationale": "Utvikling og trening av begge modeller."
+      },
+      {
+        "requirement_id": "KR-003",
+        "wbs_ids": [
+          "5.2",
+          "5.3"
+        ],
+        "rationale": "Måling og sammenligning av ytelse med RMSE og MAPE."
+      },
+      {
+        "requirement_id": "KR-004",
+        "wbs_ids": [
+          "5.4",
+          "6.1"
+        ],
+        "rationale": "Identifisering og tolkning av viktige variabler."
+      },
+      {
+        "requirement_id": "KR-005",
+        "wbs_ids": [
+          "2.4",
+          "3.1",
+          "3.2",
+          "3.3"
+        ],
+        "rationale": "Dokumentert og kvalitetssikret datagrunnlag."
+      },
+      {
+        "requirement_id": "KR-006",
+        "wbs_ids": [
+          "7.1",
+          "7.2",
+          "7.3",
+          "8.1"
+        ],
+        "rationale": "Dokumentasjon for etterprøvbar analyse."
+      },
+      {
+        "requirement_id": "KR-007",
+        "wbs_ids": [
+          "1.2",
+          "8.4"
+        ],
+        "rationale": "Planstyring og ferdigstillelse innen rammer."
+      }
+    ]
+  },
+  "summary": {
+    "requirement_count": 7,
+    "wbs_work_package_count": 8,
+    "wbs_activity_count": 28,
+    "source_files": [
+      "012 fase 2 - plan/core.json",
+      "012 fase 2 - plan/requirements.json",
+      "012 fase 2 - plan/wbs.json",
+      "012 fase 2 - plan/prosjektstyringsplan.md",
+      "011 fase 1 - proposal/proposal.md"
+    ]
+  }
+}
