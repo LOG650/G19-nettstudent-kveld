@@ -1,6 +1,6 @@
 # Statusliste
 
-Oppdatert: 2026-03-16
+Oppdatert: 2026-03-19
 
 Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/home/erikb/himolde/log650/G19-nettstudent-kveld/012 fase 2 - plan/prosjektstyringsplan.md) og tilgjengelige prosjektartefakter i repoet. Punkter er merket som `verifisert` når de kan knyttes til eksisterende filer eller mappestruktur. Øvrige punkter er vurdert som planstatus per dato og må bekreftes av prosjektgruppen.
 
@@ -9,7 +9,7 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 - [x] Prosjektstyringsplan er etablert og datert 2026-03-10. `verifisert`
 - [x] Prosjektforslag finnes i fase 1. `verifisert`
 - [x] Datasett er tilgjengelig i prosjektmappen. `verifisert`
-- [ ] Analysearbeid i egen `006 analysis`-mappe er ikke synlig i repoet per nå. `ikke verifisert / ser ikke etablert ut`
+- [x] Analysearbeid i egen `006 analysis`-mappe er etablert med felles Python/uv-oppsett. `verifisert`
 - [ ] Statusgrunnlaget for modellutvikling, evaluering og rapportarbeid er ikke dokumentert i repoet ennå. `må bekreftes`
 
 ## Status per hovedaktivitet
@@ -28,7 +28,7 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 
 - [x] M1: Prosjektforslag godkjent, planlagt i februar. Prosjektforslag finnes i repoet. `verifisert delvis gjennom artefakt`
 - [x] M2: Datagrunnlag klargjort, planlagt 10. mars. Datasett finnes, men graden av klargjøring bør bekreftes. `delvis verifisert`
-- [ ] M3: Testing av modellene, planlagt 23. mars. Ikke dokumentert som fullført per 2026-03-16. `forventet neste milepæl`
+- [ ] M3: Testing av modellene, planlagt 23. mars. Ikke dokumentert som fullført per 2026-03-19. `forventet neste milepæl`
 - [ ] M4: Modelloptimalisering ferdig, planlagt 22. april. `ikke startet / ikke bekreftet`
 - [ ] M5: Hovedutkast av rapport, planlagt 8. april. `ikke startet / ikke bekreftet`
 - [ ] M6: Endelig rapport levert, planlagt 19. mai. `ikke startet / ikke bekreftet`
@@ -36,7 +36,7 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 ## Risiko- og oppfølgingspunkter
 
 - [ ] Bekrefte om datasettet er renset og validert, siden dette er en sentral risiko i planen.
-- [ ] Opprette eller dokumentere analysearbeid i strukturert analysemiljø, slik planen og arbeidsreglene legger opp til.
+- [x] Opprette eller dokumentere analysearbeid i strukturert analysemiljø, slik planen og arbeidsreglene legger opp til. `fullført 2026-03-19`
 - [ ] Dokumentere status for lineær regresjon og Random Forest separat.
 - [ ] Etablere sporbar status for MAPE, RMSE og modelltesting før milepæl M3.
 - [ ] Starte løpende rapportskriving parallelt med analysearbeidet, i tråd med arbeidsreglene i prosjektet.
@@ -44,4 +44,4 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 
 ## Anbefalt kort prosjektstatus
 
-Prosjektet fremstår per 2026-03-16 som værende ferdig med planfasen og delvis i gang med datagrunnlaget. Neste kritiske behov er å dokumentere dataforståelse, preprocessing og modelltesting slik at milepæl M3 kan følges opp med faktisk status, ikke bare planstatus.
+Prosjektet fremstår per 2026-03-19 som værende ferdig med planfasen og delvis i gang med datagrunnlaget. Neste kritiske behov er å dokumentere dataforståelse, preprocessing og modelltesting slik at milepæl M3 kan følges opp med faktisk status, ikke bare planstatus.
