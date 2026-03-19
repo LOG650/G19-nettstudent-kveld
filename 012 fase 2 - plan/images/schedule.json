@@ -1,0 +1,32 @@
+[
+  {
+    "milestone": "M1",
+    "description": "Prosjektforslag godkjent",
+    "date": "2026-02-28"
+  },
+  {
+    "milestone": "M2",
+    "description": "Datagrunnlag klargjort",
+    "date": "2026-03-10"
+  },
+  {
+    "milestone": "M3",
+    "description": "Testing av modellene",
+    "date": "2026-03-23"
+  },
+  {
+    "milestone": "M4",
+    "description": "Modelloptimalisering ferdig",
+    "date": "2026-04-22"
+  },
+  {
+    "milestone": "M5",
+    "description": "Hovedutkast av rapport",
+    "date": "2026-04-08"
+  },
+  {
+    "milestone": "M6",
+    "description": "Endelig rapport levert",
+    "date": "2026-05-19"
+  }
+]

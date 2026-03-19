@@ -1,0 +1,37 @@
+[
+  {
+    "id": "R1",
+    "description": "Løsningen skal kunne generere salgsprognoser for 2025 basert på historiske data fra 2022–2024.",
+    "type": "Funksjonell"
+  },
+  {
+    "id": "R2",
+    "description": "Det skal utvikles og evalueres minst to modeller (multippel lineær regresjon og Random Forest Regressor).",
+    "type": "Funksjonell"
+  },
+  {
+    "id": "R3",
+    "description": "Modellenes ytelse skal måles og dokumenteres ved bruk av MAPE og RMSE.",
+    "type": "Kvalitet"
+  },
+  {
+    "id": "R4",
+    "description": "Løsningen skal identifisere og rangere hvilke variabler som har størst påvirkning på salget.",
+    "type": "Funksjonell"
+  },
+  {
+    "id": "R5",
+    "description": "Datagrunnlaget skal være strukturert, kvalitetssikret og dokumentert.",
+    "type": "Data"
+  },
+  {
+    "id": "R6",
+    "description": "Resultater, metodevalg og modellforutsetninger skal dokumenteres slik at analysen kan etterprøves.",
+    "type": "Dokumentasjon"
+  },
+  {
+    "id": "R7",
+    "description": "Prosjektet skal gjennomføres innenfor avtalte tids- og ressursrammer.",
+    "type": "Prosjekt"
+  }
+]

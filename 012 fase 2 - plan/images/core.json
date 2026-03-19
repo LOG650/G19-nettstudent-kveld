@@ -1,0 +1,25 @@
+{
+  "project_name": "Daglivare",
+  "objective": "Utvikle og evaluere prediksjonsmodeller (multippel lineær regresjon og Random Forest Regressor) for å forutsi salg i 2025 for en simulert dagligvarekjede, samt identifisere hvilke faktorer som påvirker salget mest.",
+  "group_members": [
+    "Marthe Slåtta Bjerke",
+    "Erik Brendehaug",
+    "Joseph James",
+    "Pål Arne Rånes"
+  ],
+  "authorized_by": "Bård Inge Peterson (BIP)",
+  "date": "2026-03-10",
+  "models": [
+    "Multippel lineær regresjon",
+    "Random Forest Regressor"
+  ],
+  "metrics": [
+    "MAPE",
+    "RMSE"
+  ],
+  "data_source": "Supermart Grocery Sales - Retail Analytics Dataset (Kaggle)",
+  "period": {
+    "training": "2022-2024",
+    "testing": "2025"
+  }
+}

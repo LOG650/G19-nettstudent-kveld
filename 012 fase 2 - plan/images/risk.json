@@ -1,0 +1,52 @@
+[
+  {
+    "id": "R1",
+    "risk": "Datasettet inneholder manglende eller inkonsistente data",
+    "probability": "Middels",
+    "consequence": "Forsinkelse i analyse og modellutvikling",
+    "owner": "Dataansvarlig",
+    "trigger": "Mange manglende verdier eller feil i datasettet",
+    "mitigation": "Gjennomføre datarensing og datavalidering tidlig",
+    "contingency": "Bruke alternative variabler eller redusere datasettet"
+  },
+  {
+    "id": "R2",
+    "risk": "Modellene gir lav prediksjonsnøyaktighet",
+    "probability": "Middels",
+    "consequence": "Resultatene blir mindre nyttige",
+    "owner": "Kvalitetsleder",
+    "trigger": "Høy RMSE eller MAPE i evalueringen",
+    "mitigation": "Justere hyperparametere og teste flere features",
+    "contingency": "Velge den modellen som gir best resultat selv om forbedringen er liten"
+  },
+  {
+    "id": "R3",
+    "risk": "Manglende erfaring med verktøy eller metoder",
+    "probability": "Lav–Middels",
+    "consequence": "Forsinket fremdrift",
+    "owner": "Prosjektleder",
+    "trigger": "Problemer med implementering av modellene",
+    "mitigation": "Sette av tid til læring og testing",
+    "contingency": "Søke hjelp fra dokumentasjon eller veileder"
+  },
+  {
+    "id": "R4",
+    "risk": "Tidsmangel mot slutten av prosjektet",
+    "probability": "Middels",
+    "consequence": "Redusert kvalitet på rapport og analyse",
+    "owner": "Prosjektleder",
+    "trigger": "Milepæler ikke nådd til planlagt tid",
+    "mitigation": "Følge prosjektplan og fremdriftsmøter",
+    "contingency": "Prioritere kjerneoppgaver og redusere mindre viktige analyser"
+  },
+  {
+    "id": "R5",
+    "risk": "Teknisk feil i programvare eller miljø",
+    "probability": "Lav",
+    "consequence": "Midlertidig stopp i arbeidet",
+    "owner": "Teknisk ansvarlig",
+    "trigger": "Feil i Python-miljø eller bibliotek",
+    "mitigation": "Bruke versjonskontroll og dokumentere miljø",
+    "contingency": "Reinstallere miljø eller bruke alternativ maskin"
+  }
+]

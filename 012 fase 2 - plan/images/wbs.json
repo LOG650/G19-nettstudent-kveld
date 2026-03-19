@@ -1,0 +1,48 @@
+{
+  "wbs": {
+    "1. Prosjektplanlegging": [
+      "1.1 Definere problemstilling og prosjektmål",
+      "1.2 Lage prosjektplan og rollefordeling"
+    ],
+    "2. Datainnsamling og forståelse": [
+      "2.1 Finne og laste ned datasett",
+      "2.2 Utforske datastruktur og variabler",
+      "2.3 Identifisere relevante variabler",
+      "2.4 Dokumentere datasett"
+    ],
+    "3. Datapreprosessering": [
+      "3.1 Rense data",
+      "3.2 Feature engineering",
+      "3.3 Splitte trenings- og testdata",
+      "3.4 Eksplorativ analyse og visualisering"
+    ],
+    "4. Modellutvikling": [
+      "4.1 Implementere lineær regresjon",
+      "4.2 Implementere Random Forest Regressor",
+      "4.3 Trene modellene",
+      "4.4 Justere modellparametere"
+    ],
+    "5. Modelltesting og evaluering": [
+      "5.1 Generere prognoser for 2025",
+      "5.2 Beregne RMSE og MAPE",
+      "5.3 Sammenligne modellresultater",
+      "5.4 Analysere viktige variabler"
+    ],
+    "6. Resultatanalyse": [
+      "6.1 Tolke modellresultater",
+      "6.2 Diskutere styrker og svakheter",
+      "6.3 Vurdere praktisk nytte"
+    ],
+    "7. Rapport og dokumentasjon": [
+      "7.1 Skrive metode og dokumentasjon",
+      "7.2 Lage figurer og visualiseringer",
+      "7.3 Første utkast av rapport"
+    ],
+    "8. Ferdigstillelse": [
+      "8.1 Revisjon av rapport",
+      "8.2 Skrive endelig konklusjon",
+      "8.3 Forberede presentasjon",
+      "8.4 Presentasjon / prosjektslutt"
+    ]
+  }
+}
