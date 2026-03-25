@@ -74,7 +74,11 @@ yarn-error.log*
 !.claude/commands/**
 !.claude/skills/
 !.claude/skills/**
-.codex/
+.codex/*
+!.codex/commands/
+!.codex/commands/**
+!.codex/skills/
+!.codex/skills/**
 .gemini/
 .ai/
 
