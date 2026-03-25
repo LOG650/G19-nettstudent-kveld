@@ -1,4 +1,4 @@
-# Tittel (norsk og/eller engelsk)
+# Tittel (norsk og/eller engelsk) <!-- omit in toc -->
 
 ![Bilde 1](extracted_images/image_0.png)
 
@@ -12,7 +12,7 @@ Molde, Innleveringsdato:
 
 ---
 
-## Obligatorisk egenerklæring/gruppeerklæring
+## Obligatorisk egenerklæring/gruppeerklæring <!-- omit in toc -->
 
 Den enkelte student er selv ansvarlig for å sette seg inn i hva som er lovlige hjelpemidler, retningslinjer for bruk av disse og regler om kildebruk.
 
@@ -30,41 +30,41 @@ Du/dere fyller ut erklæringen ved å klikke i ruten til høyre for den enkelte 
 <!-- markdownlint-enable MD033 -->
 ---
 
-## Personvern
+## Personvern <!-- omit in toc -->
 
-### Personopplysningsloven
+### Personopplysningsloven <!-- omit in toc -->
 
 | Spørsmål                          | Ja | Nei |
 | --------------------------------- | -- | --- |
 | Har oppgaven vært vurdert av NSD? | ☐  | ☐   |
 
-* Hvis ja:
+- Hvis ja:  
   Referansenummer:
 
-* Hvis nei:
-  Jeg/vi erklærer at oppgaven ikke omfattes av Personopplysningsloven
+- Hvis nei:  
+Jeg/vi erklærer at oppgaven ikke omfattes av Personopplysningsloven  ☐
 
 ---
 
-### Helseforskningsloven
+### Helseforskningsloven <!-- omit in toc -->
 
 | Spørsmål                                  | Ja | Nei |
 | ----------------------------------------- | -- | --- |
 | Har oppgaven vært til behandling hos REK? | ☐  | ☐   |
 
-* Hvis ja:
+- Hvis ja:  
   Referansenummer:
 
 ---
 
-## Publiseringsavtale
+## Publiseringsavtale <!-- omit in toc -->
 
 | Felt        | Verdi |
 | ----------- | ----- |
 | Studiepoeng |       |
 | Veileder    |       |
 
-### Fullmakt til elektronisk publisering
+### Fullmakt til elektronisk publisering <!-- omit in toc -->
 
 | Spørsmål                                                | Ja | Nei |
 | ------------------------------------------------------- | -- | --- |
@@ -84,40 +84,42 @@ Dato:
 
 ---
 
-## Antall ord
+## Antall ord <!-- omit in toc -->
 
 Marker denne setningen og skriv inn antall ord dersom nødvendig.
 
-## Forfattererklæring
+## Forfattererklæring <!-- omit in toc -->
 
 Marker denne setningen og skriv inn forfattererklæring dersom nødvendig.
 
 ---
 
-## Sammendrag
+## Sammendrag <!-- omit in toc -->
 
-## Abstract
+## Abstract <!-- omit in toc -->
 
 ---
 
-## Innhold
+## Innhold <!-- omit in toc -->
 
-1.0 Innledning
-1.1 Problemstilling
-1.2 Delproblemer
-1.3 Avgrensinger
-1.4 Antagelser
-2.0 Litteratur
-3.0 Teori
-4.0 Casebeskrivelse
-5.0 Metode og data
-6.0 Modellering
-7.0 Analyse
-8.0 Resultat
-9.0 Diskusjon
-10.0 Konklusjon
-11.0 Bibliografi
-12.0 Vedlegg
+- [Innledning](#innledning)
+- [Problemstilling](#problemstilling)
+- [Delproblemer (valgfri)](#delproblemer-valgfri)
+- [Avgrensinger](#avgrensinger)
+- [Antagelser](#antagelser)
+- [Litteratur](#litteratur)
+- [Teori](#teori)
+- [Casebeskrivelse](#casebeskrivelse)
+- [Metode og data](#metode-og-data)
+  - [Metode](#metode)
+  - [Data](#data)
+- [Modellering](#modellering)
+- [Analyse](#analyse)
+- [Resultat](#resultat)
+- [Diskusjon](#diskusjon)
+- [Konklusjon](#konklusjon)
+- [Bibliografi](#bibliografi)
+- [Vedlegg](#vedlegg)
 
 ---
 
