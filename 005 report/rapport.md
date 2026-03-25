@@ -74,7 +74,7 @@ Jeg/vi erklærer at oppgaven ikke omfattes av Personopplysningsloven  ☐
 | ------------------------------------- | -- | --- |
 | Er oppgaven båndlagt (konfidensiell)? | ☐  | ☐   |
 
-* Hvis ja:
+- Hvis ja:
 
 | Spørsmål                                 | Ja | Nei |
 | ---------------------------------------- | -- | --- |
@@ -131,11 +131,11 @@ Introduksjonen bør ikke være for lang (1–4 sider)...
 
 **Svar på spørsmål:**
 
-* Hvilket tema handler oppgaven om?
-* Hvorfor er tema aktuelt?
-* Hva har blitt gjort tidligere?
-* Hva er problemstillingen?
-* Hvilke avgrensninger gjøres?
+- Hvilket tema handler oppgaven om?
+- Hvorfor er tema aktuelt?
+- Hva har blitt gjort tidligere?
+- Hva er problemstillingen?
+- Hvilke avgrensninger gjøres?
 
 ---
 
@@ -145,9 +145,9 @@ Problemstillingen skal være et *hvordan* eller *hvorfor*-spørsmål.
 
 Viktige krav:
 
-* Vær spesifikk
-* Vær presis
-* Ikke svar på noe utenfor problemstillingen
+- Vær spesifikk
+- Vær presis
+- Ikke svar på noe utenfor problemstillingen
 
 ---
 
@@ -194,17 +194,17 @@ Beskriv case/bedrift og relevant kontekst.
 
 Beskriv:
 
-* Forskningsdesign
-* Datainnsamling
-* Analysemetoder
+- Forskningsdesign
+- Datainnsamling
+- Analysemetoder
 
 ### Data
 
 Beskriv:
 
-* Datakilder
-* Innsamling
-* Utvalg
+- Datakilder
+- Innsamling
+- Utvalg
 
 ---
 
@@ -216,9 +216,9 @@ Beskriv:
 
 Velg metode:
 
-* Kvalitativ
-* Kvantitativ
-* Dokumentanalyse
+- Kvalitativ
+- Kvantitativ
+- Dokumentanalyse
 
 ---
 
@@ -226,9 +226,9 @@ Velg metode:
 
 Presenter funn:
 
-* Tabeller
-* Figurer
-* Forklarende tekst
+- Tabeller
+- Figurer
+- Forklarende tekst
 
 ---
 
@@ -236,10 +236,10 @@ Presenter funn:
 
 Diskuter:
 
-* Resultater
-* Metode
-* Pålitelighet
-* Generaliserbarhet
+- Resultater
+- Metode
+- Pålitelighet
+- Generaliserbarhet
 
 ---
 
