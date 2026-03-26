@@ -1,0 +1,19 @@
+input_kolonne,handling,output_kolonne,begrunnelse
+Sales,behold,Sales,Målvariabel for prognose.
+Discount,behold,Discount,Numerisk forklaringsvariabel.
+Category,behold,Category,Kategorisk feature med håndterbar kardinalitet.
+Sub Category,behold,Sub Category,Kategorisk feature med håndterbar kardinalitet.
+City,behold,City,Kategorisk feature med håndterbar kardinalitet.
+Region,behold,Region,Kategorisk feature med håndterbar kardinalitet.
+Order Date,behold,Order Date,Beholdes for sporbarhet og tidsbasert splitt.
+Order Date,transformer,year,Utledet kalenderår etter remapping.
+Order Date,transformer,month,Utledet måned.
+Order Date,transformer,quarter,Utledet kvartal.
+Order Date,transformer,weekofyear,Utledet uke i året.
+Order Date,transformer,dayofweek,Utledet ukedag.
+Order Date,transformer,dayofmonth,Utledet dag i måneden.
+Order Date,transformer,is_weekend,Indikator for helg.
+Order ID,ekskluder,,ID-kolonne uten generaliserbar prediksjonsverdi.
+Customer Name,ekskluder,,Navn-kolonne med høy risiko for overtilpasning.
+Profit,ekskluder,,Ekskludert som potensiell lekkasjevariabel.
+State,ekskluder,,Kolonnen er konstant i datasettet og gir ingen forklaringskraft.

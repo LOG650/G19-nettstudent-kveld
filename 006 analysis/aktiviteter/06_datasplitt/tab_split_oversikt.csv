@@ -1,0 +1,8 @@
+delsett,år,antall_rader,antall_features
+hele_dataset,alle,9994,67
+train,alle,6682,67
+test,alle,3312,67
+train,2022,1993,67
+train,2023,2102,67
+train,2024,2587,67
+test,2025,3312,67

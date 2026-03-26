@@ -7,6 +7,11 @@ datoformat_dd_mm_yyyy,4042,Tolket fra verdier med bindestrek
 datoformat_mm_dd_yyyy,5952,Tolket fra verdier med skråstrek
 datoformat_annet,0,Verdier uten kjent mønster
 ugyldige_datoer_etter_tolkning,0,Datoer som ikke lot seg parse
+opprinnelig_periode_start,2015-01-02,Tidligste dato i original dataserie
+opprinnelig_periode_slutt,2018-12-30,Siste dato i original dataserie
+år_forskyvning,7,Kalenderforskyvning brukt for prosjektets arbeidsgrunnlag
+prosjekt_periode_start,2022-01-02,Tidligste dato etter remapping
+prosjekt_periode_slutt,2025-12-30,Siste dato etter remapping
 rader_fjernet_manglende_kritisk_felt,0,Rader fjernet etter kontroll av dato og numeriske nøkkelfelt
 dubletter_fjernet,0,Fjernet etter standardisering
 antall_rader_ut,9994,Observasjoner i renset datasett

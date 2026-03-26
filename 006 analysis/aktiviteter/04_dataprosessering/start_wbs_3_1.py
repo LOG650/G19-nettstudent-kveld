@@ -6,6 +6,7 @@ import pandas as pd
 DATO_KOLONNE = "Order Date"
 NUMERISKE_KOLONNER = ["Sales", "Discount", "Profit"]
 KRITISKE_KOLONNER = [DATO_KOLONNE, *NUMERISKE_KOLONNER]
+AAR_FORSKYVNING = 7
 
 
 def les_dataset(csv_path: Path) -> pd.DataFrame:
@@ -101,6 +102,10 @@ def lag_renselogg(
     ugyldige_datoer: int,
     rader_fjernet_kritisk: int,
     dubletter_fjernet: int,
+    opprinnelig_start: str,
+    opprinnelig_slutt: str,
+    prosjekt_start: str,
+    prosjekt_slutt: str,
 ) -> pd.DataFrame:
     data = [
         ("antall_rader_inn", len(df_inn), "Observasjoner i rådata"),
@@ -111,6 +116,11 @@ def lag_renselogg(
         ("datoformat_mm_dd_yyyy", datoformat["mm/dd/yyyy"], "Tolket fra verdier med skråstrek"),
         ("datoformat_annet", datoformat["annet"], "Verdier uten kjent mønster"),
         ("ugyldige_datoer_etter_tolkning", ugyldige_datoer, "Datoer som ikke lot seg parse"),
+        ("opprinnelig_periode_start", opprinnelig_start, "Tidligste dato i original dataserie"),
+        ("opprinnelig_periode_slutt", opprinnelig_slutt, "Siste dato i original dataserie"),
+        ("år_forskyvning", AAR_FORSKYVNING, "Kalenderforskyvning brukt for prosjektets arbeidsgrunnlag"),
+        ("prosjekt_periode_start", prosjekt_start, "Tidligste dato etter remapping"),
+        ("prosjekt_periode_slutt", prosjekt_slutt, "Siste dato etter remapping"),
         (
             "rader_fjernet_manglende_kritisk_felt",
             rader_fjernet_kritisk,
@@ -133,6 +143,10 @@ def skriv_markdown(
     ugyldige_datoer: int,
     rader_fjernet_kritisk: int,
     dubletter_fjernet: int,
+    opprinnelig_start: str,
+    opprinnelig_slutt: str,
+    prosjekt_start: str,
+    prosjekt_slutt: str,
 ) -> None:
     state_unike = int(df_renset["State"].nunique(dropna=True)) if "State" in df_renset.columns else -1
 
@@ -143,6 +157,8 @@ def skriv_markdown(
         "",
         f"- Antall observasjoner inn: {len(df_inn)}",
         f"- Antall observasjoner ut: {len(df_renset)}",
+        f"- Opprinnelig periode i kildedata: {opprinnelig_start} til {opprinnelig_slutt}",
+        f"- Remappet prosjektperiode: {prosjekt_start} til {prosjekt_slutt}",
         f"- Rader fjernet på grunn av manglende kritiske felt: {rader_fjernet_kritisk}",
         f"- Dubletter fjernet: {dubletter_fjernet}",
         f"- Ugyldige datoer etter tolkning: {ugyldige_datoer}",
@@ -151,6 +167,7 @@ def skriv_markdown(
         "",
         "- Verdier med `-` tolkes som `dd-mm-yyyy`.",
         "- Verdier med `/` tolkes som `mm/dd/yyyy`.",
+        f"- Etter rens forskyves hele tidsaksen med `{AAR_FORSKYVNING}` år for å bruke datasettet som prosjektets 2022-2025-analog.",
         "- Renset datasett lagres med ISO-format `YYYY-MM-DD` i kolonnen `Order Date`.",
         "",
         "## Funn i rådata",
@@ -172,7 +189,8 @@ def skriv_markdown(
 
     lines.extend(
         [
-            "- Bruk `dataset_renset.csv` som grunnlag for datasplitt og videre feature engineering.",
+            "- `dataset_renset.csv` er arbeidsgrunnlaget for WBS 3.2 feature engineering.",
+            "- WBS 3.3 datasplitt skal bygge på feature-datasettet fra WBS 3.2, ikke direkte på denne fila.",
             "",
         ]
     )
@@ -206,6 +224,14 @@ def main() -> None:
     if dubletter_før:
         df_renset = df_renset.drop_duplicates().copy()
 
+    opprinnelig_start = df_renset[DATO_KOLONNE].min().date().isoformat()
+    opprinnelig_slutt = df_renset[DATO_KOLONNE].max().date().isoformat()
+
+    df_renset[DATO_KOLONNE] = df_renset[DATO_KOLONNE] + pd.DateOffset(years=AAR_FORSKYVNING)
+
+    prosjekt_start = df_renset[DATO_KOLONNE].min().date().isoformat()
+    prosjekt_slutt = df_renset[DATO_KOLONNE].max().date().isoformat()
+
     df_renset = df_renset.sort_values([DATO_KOLONNE, "Order ID"]).reset_index(drop=True)
 
     profil_df = lag_kolonneprofil(df_renset)
@@ -216,6 +242,10 @@ def main() -> None:
         ugyldige_datoer=ugyldige_datoer,
         rader_fjernet_kritisk=rader_fjernet_kritisk,
         dubletter_fjernet=dubletter_før,
+        opprinnelig_start=opprinnelig_start,
+        opprinnelig_slutt=opprinnelig_slutt,
+        prosjekt_start=prosjekt_start,
+        prosjekt_slutt=prosjekt_slutt,
     )
 
     dataset_path = aktivitetsmappe / "dataset_renset.csv"
@@ -238,10 +268,16 @@ def main() -> None:
         ugyldige_datoer=ugyldige_datoer,
         rader_fjernet_kritisk=rader_fjernet_kritisk,
         dubletter_fjernet=dubletter_før,
+        opprinnelig_start=opprinnelig_start,
+        opprinnelig_slutt=opprinnelig_slutt,
+        prosjekt_start=prosjekt_start,
+        prosjekt_slutt=prosjekt_slutt,
     )
 
     print("WBS 3.1 ferdig: dataprosessering dokumentert")
     print(f"- Rader inn: {len(df_inn)}, rader ut: {len(df_renset)}")
+    print(f"- Opprinnelig periode: {opprinnelig_start} til {opprinnelig_slutt}")
+    print(f"- Remappet prosjektperiode: {prosjekt_start} til {prosjekt_slutt}")
     print(f"- Datoer med bindestrek: {datoformat['dd-mm-yyyy']}")
     print(f"- Datoer med skråstrek: {datoformat['mm/dd/yyyy']}")
     print(f"- {dataset_path.name}")
