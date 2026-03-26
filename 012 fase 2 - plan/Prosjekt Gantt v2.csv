@@ -2,10 +2,10 @@ ID;Active;Task_Mode;Task_Name;Duration;Start_Date;Finish_Date;Percent_Complete
 1;Yes;Manually Scheduled;Definere problemstilling og prosjektm�l;5 days;Wed 25.02.26;Sun 01.03.26;100%
 2;Yes;Manually Scheduled;Lage prosjektplan og rollefordeling;5 days;Mon 02.03.26;Fri 06.03.26;100%
 3;Yes;Manually Scheduled;Finne og laste ned datasett;1 day;Sat 07.03.26;Sat 07.03.26;100%
-4;Yes;Manually Scheduled;Utforske datastruktur og variabler;1 day;Sun 08.03.26;Sun 08.03.26;0%
-5;Yes;Manually Scheduled;Identifisere relevante variabler;1 day;Mon 09.03.26;Mon 09.03.26;0%
-6;Yes;Manually Scheduled;Dokumentere datasett;1 day;Tue 10.03.26;Tue 10.03.26;0%
-7;Yes;Manually Scheduled;Rense data;1 day;Wed 11.03.26;Wed 11.03.26;0%
+4;Yes;Manually Scheduled;Utforske datastruktur og variabler;1 day;Sun 08.03.26;Sun 08.03.26;100%
+5;Yes;Manually Scheduled;Identifisere relevante variabler;1 day;Mon 09.03.26;Mon 09.03.26;100%
+6;Yes;Manually Scheduled;Dokumentere datasett;1 day;Tue 10.03.26;Tue 10.03.26;100%
+7;Yes;Manually Scheduled;Rense data;1 day;Wed 11.03.26;Wed 11.03.26;100%
 8;Yes;Manually Scheduled;Feature engineering;1 day;Thu 12.03.26;Thu 12.03.26;0%
 9;Yes;Manually Scheduled;Splitte trenings- og testdata;1 day;Fri 13.03.26;Fri 13.03.26;0%
 10;Yes;Manually Scheduled;Eksplorativ analyse og visualisering;1 day;Sat 14.03.26;Sat 14.03.26;0%
