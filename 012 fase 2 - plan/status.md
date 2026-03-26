@@ -10,14 +10,14 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 - [x] Prosjektforslag finnes i fase 1. `verifisert`
 - [x] Datasett er tilgjengelig i prosjektmappen. `verifisert`
 - [x] Analysearbeid i egen `006 analysis`-mappe er etablert med felles Python/uv-oppsett. `verifisert`
-- [ ] Statusgrunnlaget for modellutvikling er delvis dokumentert gjennom feature engineering og datasplitt, men evaluering og rapportarbeid er ikke dokumentert i repoet ennå. `delvis verifisert`
+- [ ] Statusgrunnlaget for modellutvikling er delvis dokumentert gjennom feature engineering, datasplitt og eksplorativ analyse, men evaluering og rapportarbeid er ikke dokumentert i repoet ennå. `delvis verifisert`
 
 ## Status per hovedaktivitet
 
 - [x] A: Problemdefinisjon og prosjektplan er gjennomført eller langt på vei ferdigstilt, siden prosjektforslag og prosjektstyringsplan foreligger. `verifisert delvis gjennom artefakter`
 - [x] B: Datainnsamling og dokumentasjon ser ut til å være påbegynt eller gjennomført, siden datasettet finnes i prosjektet. `verifisert delvis gjennom artefakter`
 - [x] C: Dataforståelse, variabelanalyse og datasettdokumentasjon er dokumentert for WBS 2.2-2.4 i analyseområdet. `verifisert`
-- [x] D: Datapreprosessering er dokumentert for WBS 3.1-3.3, mens eksplorativ analyse og visualisering fortsatt gjenstår. `verifisert delvis gjennom artefakter`
+- [x] D: Datapreprosessering og eksplorativ analyse er dokumentert for WBS 3.1-3.4 i analyseområdet. `verifisert`
 - [x] E: Feature engineering er dokumentert i analyseområdet med eget feature-datasett og dokumenterte featurevalg. `verifisert`
 - [ ] F: Modellbygging og trening er ikke dokumentert i repoet ennå. `må bekreftes`
 - [ ] G: Analyse og evaluering er ikke dokumentert i repoet ennå. `må bekreftes`
@@ -43,6 +43,7 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 - [x] Dokumentasjon for WBS 3.1 (rense data) er etablert med skript, renselogg, kolonneprofil og renset datasett. `fullført 2026-03-26`
 - [x] Dokumentasjon for WBS 3.2 (feature engineering) er etablert med feature-datasett, featurevalg og markdown-oppsummering. `fullført 2026-03-26`
 - [x] Dokumentasjon for WBS 3.3 (splitte trenings- og testdata) er etablert med train/test-filer og splittrapport som bygger på WBS 3.2. `fullført 2026-03-26`
+- [x] Dokumentasjon for WBS 3.4 (eksplorativ analyse og visualisering) er etablert med EDA-tabeller, figurer og markdown-oppsummering. `fullført 2026-03-26`
 - [ ] Dokumentere status for lineær regresjon og Random Forest separat.
 - [ ] Etablere sporbar status for MAPE, RMSE og modelltesting før milepæl M3.
 - [x] Bruke renset datasett som grunnlag for datasplitt og videre feature engineering. `fullført 2026-03-26`
@@ -51,4 +52,4 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 
 ## Anbefalt kort prosjektstatus
 
-Prosjektet fremstår per 2026-03-26 som værende ferdig med planfasen, med dataforståelse, datasettdokumentasjon, remappet datarensing, feature engineering og datasplitt dokumentert i analyseområdet. Neste kritiske behov er å bygge og trene de planlagte modellene, slik at videre status kan følges opp med faktiske modellresultater og ikke bare klargjort datagrunnlag.
+Prosjektet fremstår per 2026-03-26 som værende ferdig med planfasen, med dataforståelse, datasettdokumentasjon, remappet datarensing, feature engineering, datasplitt og eksplorativ analyse dokumentert i analyseområdet. Neste kritiske behov er å bygge og trene de planlagte modellene, slik at videre status kan følges opp med faktiske modellresultater og ikke bare klargjort datagrunnlag.

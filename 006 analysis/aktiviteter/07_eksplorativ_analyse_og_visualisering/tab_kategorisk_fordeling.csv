@@ -1,0 +1,177 @@
+variabel,periode,kategori,antall,andel_pct
+Category,alle,Snacks,1514,15.15
+Category,alle,"Eggs, Meat & Fish",1490,14.91
+Category,alle,Fruits & Veggies,1418,14.19
+Category,alle,Bakery,1413,14.14
+Category,alle,Beverages,1400,14.01
+Category,alle,Food Grains,1398,13.99
+Category,alle,Oil & Masala,1361,13.62
+Category,test,Snacks,509,15.37
+Category,test,"Eggs, Meat & Fish",498,15.04
+Category,test,Fruits & Veggies,473,14.28
+Category,test,Food Grains,470,14.19
+Category,test,Bakery,463,13.98
+Category,test,Beverages,462,13.95
+Category,test,Oil & Masala,437,13.19
+Category,trening,Snacks,1005,15.04
+Category,trening,"Eggs, Meat & Fish",992,14.85
+Category,trening,Bakery,950,14.22
+Category,trening,Fruits & Veggies,945,14.14
+Category,trening,Beverages,938,14.04
+Category,trening,Food Grains,928,13.89
+Category,trening,Oil & Masala,924,13.83
+City,alle,Kanyakumari,459,4.59
+City,alle,Tirunelveli,446,4.46
+City,alle,Bodi,442,4.42
+City,alle,Krishnagiri,440,4.4
+City,alle,Vellore,435,4.35
+City,alle,Perambalur,434,4.34
+City,alle,Chennai,432,4.32
+City,alle,Tenkasi,432,4.32
+City,alle,Salem,431,4.31
+City,alle,Karur,430,4.3
+City,alle,Pudukottai,430,4.3
+City,alle,Coimbatore,428,4.28
+City,alle,Ramanadhapuram,421,4.21
+City,alle,Cumbum,417,4.17
+City,alle,Virudhunagar,416,4.16
+City,alle,Madurai,408,4.08
+City,alle,Ooty,404,4.04
+City,alle,Namakkal,403,4.03
+City,alle,Viluppuram,397,3.97
+City,alle,Dindigul,396,3.96
+City,alle,Theni,387,3.87
+City,alle,Dharmapuri,376,3.76
+City,alle,Nagercoil,373,3.73
+City,alle,Trichy,357,3.57
+City,test,Kanyakumari,166,5.01
+City,test,Tirunelveli,153,4.62
+City,test,Tenkasi,152,4.59
+City,test,Bodi,151,4.56
+City,test,Krishnagiri,151,4.56
+City,test,Coimbatore,150,4.53
+City,test,Ramanadhapuram,148,4.47
+City,test,Pudukottai,146,4.41
+City,test,Karur,141,4.26
+City,test,Chennai,140,4.23
+City,test,Perambalur,140,4.23
+City,test,Viluppuram,140,4.23
+City,test,Vellore,137,4.14
+City,test,Madurai,136,4.11
+City,test,Namakkal,136,4.11
+City,test,Nagercoil,132,3.99
+City,test,Virudhunagar,132,3.99
+City,test,Dindigul,127,3.83
+City,test,Cumbum,125,3.77
+City,test,Dharmapuri,124,3.74
+City,test,Ooty,124,3.74
+City,test,Salem,124,3.74
+City,test,Theni,121,3.65
+City,test,Trichy,116,3.5
+City,trening,Salem,307,4.59
+City,trening,Vellore,298,4.46
+City,trening,Perambalur,294,4.4
+City,trening,Kanyakumari,293,4.38
+City,trening,Tirunelveli,293,4.38
+City,trening,Chennai,292,4.37
+City,trening,Cumbum,292,4.37
+City,trening,Bodi,291,4.35
+City,trening,Karur,289,4.33
+City,trening,Krishnagiri,289,4.33
+City,trening,Pudukottai,284,4.25
+City,trening,Virudhunagar,284,4.25
+City,trening,Ooty,280,4.19
+City,trening,Tenkasi,280,4.19
+City,trening,Coimbatore,278,4.16
+City,trening,Ramanadhapuram,273,4.09
+City,trening,Madurai,272,4.07
+City,trening,Dindigul,269,4.03
+City,trening,Namakkal,267,4.0
+City,trening,Theni,266,3.98
+City,trening,Viluppuram,257,3.85
+City,trening,Dharmapuri,252,3.77
+City,trening,Nagercoil,241,3.61
+City,trening,Trichy,241,3.61
+Region,alle,West,3203,32.05
+Region,alle,East,2848,28.5
+Region,alle,Central,2323,23.24
+Region,alle,South,1619,16.2
+Region,alle,North,1,0.01
+Region,test,West,1095,33.06
+Region,test,East,921,27.81
+Region,test,Central,778,23.49
+Region,test,South,518,15.64
+Region,trening,West,2108,31.55
+Region,trening,East,1927,28.84
+Region,trening,Central,1545,23.12
+Region,trening,South,1101,16.48
+Region,trening,North,1,0.01
+Sub Category,alle,Health Drinks,719,7.19
+Sub Category,alle,Soft Drinks,681,6.81
+Sub Category,alle,Cookies,520,5.2
+Sub Category,alle,Breads & Buns,502,5.02
+Sub Category,alle,Chocolates,499,4.99
+Sub Category,alle,Noodles,495,4.95
+Sub Category,alle,Masalas,463,4.63
+Sub Category,alle,Biscuits,459,4.59
+Sub Category,alle,Cakes,452,4.52
+Sub Category,alle,Edible Oil & Ghee,451,4.51
+Sub Category,alle,Spices,447,4.47
+Sub Category,alle,Mutton,394,3.94
+Sub Category,alle,Eggs,379,3.79
+Sub Category,alle,Organic Staples,372,3.72
+Sub Category,alle,Fish,369,3.69
+Sub Category,alle,Fresh Fruits,369,3.69
+Sub Category,alle,Fresh Vegetables,354,3.54
+Sub Category,alle,Atta & Flour,353,3.53
+Sub Category,alle,Chicken,348,3.48
+Sub Category,alle,Organic Fruits,348,3.48
+Sub Category,alle,Organic Vegetables,347,3.47
+Sub Category,alle,Dals & Pulses,343,3.43
+Sub Category,alle,Rice,330,3.3
+Sub Category,test,Health Drinks,237,7.16
+Sub Category,test,Soft Drinks,225,6.79
+Sub Category,test,Breads & Buns,181,5.46
+Sub Category,test,Chocolates,172,5.19
+Sub Category,test,Noodles,170,5.13
+Sub Category,test,Cookies,167,5.04
+Sub Category,test,Masalas,159,4.8
+Sub Category,test,Edible Oil & Ghee,144,4.35
+Sub Category,test,Cakes,143,4.32
+Sub Category,test,Biscuits,139,4.2
+Sub Category,test,Eggs,134,4.05
+Sub Category,test,Spices,134,4.05
+Sub Category,test,Mutton,133,4.02
+Sub Category,test,Fish,132,3.99
+Sub Category,test,Atta & Flour,124,3.74
+Sub Category,test,Fresh Fruits,123,3.71
+Sub Category,test,Organic Fruits,123,3.71
+Sub Category,test,Organic Staples,123,3.71
+Sub Category,test,Dals & Pulses,119,3.59
+Sub Category,test,Fresh Vegetables,117,3.53
+Sub Category,test,Organic Vegetables,110,3.32
+Sub Category,test,Rice,104,3.14
+Sub Category,test,Chicken,99,2.99
+Sub Category,trening,Health Drinks,482,7.21
+Sub Category,trening,Soft Drinks,456,6.82
+Sub Category,trening,Cookies,353,5.28
+Sub Category,trening,Chocolates,327,4.89
+Sub Category,trening,Noodles,325,4.86
+Sub Category,trening,Breads & Buns,321,4.8
+Sub Category,trening,Biscuits,320,4.79
+Sub Category,trening,Spices,313,4.68
+Sub Category,trening,Cakes,309,4.62
+Sub Category,trening,Edible Oil & Ghee,307,4.59
+Sub Category,trening,Masalas,304,4.55
+Sub Category,trening,Mutton,261,3.91
+Sub Category,trening,Chicken,249,3.73
+Sub Category,trening,Organic Staples,249,3.73
+Sub Category,trening,Fresh Fruits,246,3.68
+Sub Category,trening,Eggs,245,3.67
+Sub Category,trening,Fish,237,3.55
+Sub Category,trening,Fresh Vegetables,237,3.55
+Sub Category,trening,Organic Vegetables,237,3.55
+Sub Category,trening,Atta & Flour,229,3.43
+Sub Category,trening,Rice,226,3.38
+Sub Category,trening,Organic Fruits,225,3.37
+Sub Category,trening,Dals & Pulses,224,3.35
