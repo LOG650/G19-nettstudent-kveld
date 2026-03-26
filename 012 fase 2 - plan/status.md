@@ -1,6 +1,6 @@
 # Statusliste
 
-Oppdatert: 2026-03-19
+Oppdatert: 2026-03-26
 
 Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/home/erikb/himolde/log650/G19-nettstudent-kveld/012 fase 2 - plan/prosjektstyringsplan.md) og tilgjengelige prosjektartefakter i repoet. Punkter er merket som `verifisert` når de kan knyttes til eksisterende filer eller mappestruktur. Øvrige punkter er vurdert som planstatus per dato og må bekreftes av prosjektgruppen.
 
@@ -17,7 +17,7 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 - [x] A: Problemdefinisjon og prosjektplan er gjennomført eller langt på vei ferdigstilt, siden prosjektforslag og prosjektstyringsplan foreligger. `verifisert delvis gjennom artefakter`
 - [x] B: Datainnsamling og dokumentasjon ser ut til å være påbegynt eller gjennomført, siden datasettet finnes i prosjektet. `verifisert delvis gjennom artefakter`
 - [x] C: Dataforståelse, variabelanalyse og datasettdokumentasjon er dokumentert for WBS 2.2-2.4 i analyseområdet. `verifisert`
-- [ ] D: Datapreprosessering er ikke dokumentert i repoet ennå. `må bekreftes`
+- [x] D: Datapreprosessering er påbegynt og WBS 3.1 datarensing er dokumentert i repoet, men videre steg gjenstår. `verifisert delvis gjennom artefakter`
 - [ ] E: Feature engineering er ikke dokumentert i repoet ennå. `må bekreftes`
 - [ ] F: Modellbygging og trening er ikke dokumentert i repoet ennå. `må bekreftes`
 - [ ] G: Analyse og evaluering er ikke dokumentert i repoet ennå. `må bekreftes`
@@ -35,16 +35,18 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 
 ## Risiko- og oppfølgingspunkter
 
-- [ ] Bekrefte om datasettet er renset og validert, siden dette er en sentral risiko i planen.
+- [x] Bekrefte om datasettet er renset og grunnleggende validert, siden dette er en sentral risiko i planen. `fullført 2026-03-26`
 - [x] Opprette eller dokumentere analysearbeid i strukturert analysemiljø, slik planen og arbeidsreglene legger opp til. `fullført 2026-03-19`
 - [x] Dokumentasjon for WBS 2.2 (utforske datastruktur og variabler) er etablert med skript, tabeller og figur. `fullført 2026-03-19`
 - [x] Dokumentasjon for WBS 2.3 (identifisere relevante variabler) er etablert med skript, tabeller og figur. `fullført 2026-03-19`
 - [x] Dokumentasjon for WBS 2.4 (dokumentere datasett) er etablert med tabellprofil og markdown-oppsummering. `fullført 2026-03-19`
+- [x] Dokumentasjon for WBS 3.1 (rense data) er etablert med skript, renselogg, kolonneprofil og renset datasett. `fullført 2026-03-26`
 - [ ] Dokumentere status for lineær regresjon og Random Forest separat.
 - [ ] Etablere sporbar status for MAPE, RMSE og modelltesting før milepæl M3.
+- [ ] Bruke renset datasett som grunnlag for datasplitt og videre feature engineering.
 - [ ] Starte løpende rapportskriving parallelt med analysearbeidet, i tråd med arbeidsreglene i prosjektet.
 - [ ] Oppdatere denne statuslisten etter ukentlige statusmøter og ved milepæler.
 
 ## Anbefalt kort prosjektstatus
 
-Prosjektet fremstår per 2026-03-19 som værende ferdig med planfasen, med dataforståelse og datasettdokumentasjon dokumentert for WBS 2.2-2.4. Neste kritiske behov er å dokumentere preprocessing og modelltesting slik at milepæl M3 kan følges opp med faktisk status, ikke bare planstatus.
+Prosjektet fremstår per 2026-03-26 som værende ferdig med planfasen, med dataforståelse, datasettdokumentasjon og WBS 3.1 datarensing dokumentert i analyseområdet. Neste kritiske behov er å bruke det rensede datasettet til datasplitt, feature engineering og etterfølgende modelltesting slik at videre status kan følges opp med faktiske leveranser, ikke bare planstatus.

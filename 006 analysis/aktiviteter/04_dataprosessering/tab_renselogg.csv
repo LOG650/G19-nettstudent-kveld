@@ -1,0 +1,14 @@
+målepunkt,verdi,kommentar
+antall_rader_inn,9994,Observasjoner i rådata
+antall_kolonner_inn,11,Variabler i rådata
+manglende_verdier_inn,0,Totalt manglende i rådata
+dubletter_inn,0,Eksakte dublettrader i rådata
+datoformat_dd_mm_yyyy,4042,Tolket fra verdier med bindestrek
+datoformat_mm_dd_yyyy,5952,Tolket fra verdier med skråstrek
+datoformat_annet,0,Verdier uten kjent mønster
+ugyldige_datoer_etter_tolkning,0,Datoer som ikke lot seg parse
+rader_fjernet_manglende_kritisk_felt,0,Rader fjernet etter kontroll av dato og numeriske nøkkelfelt
+dubletter_fjernet,0,Fjernet etter standardisering
+antall_rader_ut,9994,Observasjoner i renset datasett
+manglende_verdier_ut,0,Totalt manglende etter rens
+dubletter_ut,0,Eksakte dublettrader etter rens
