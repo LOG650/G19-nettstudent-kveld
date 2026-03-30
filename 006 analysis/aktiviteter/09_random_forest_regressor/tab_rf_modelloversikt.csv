@@ -1,0 +1,2 @@
+modellnavn,input_features,input_target,antall_treningsrader,antall_features,target_kolonne,n_estimators,random_state,n_jobs,bootstrap,max_depth,min_samples_leaf,max_features,fit_seconds
+RandomForestRegressor,06_datasplitt/X_train.csv,06_datasplitt/y_train.csv,6682,67,Sales,200,42,-1,True,,1,1.0,0.766622

@@ -1,0 +1,68 @@
+feature,importance,importance_pct,rang_importance
+Discount,0.123926,12.3926,1
+dayofmonth,0.12236,12.236,2
+weekofyear,0.086338,8.6338,3
+dayofweek,0.06392,6.392,4
+year,0.038233,3.8233,5
+month,0.030664,3.0664,6
+Region_West,0.017276,1.7276,7
+Region_East,0.016967,1.6967,8
+Region_Central,0.016229,1.6229,9
+Region_South,0.014177,1.4177,10
+Category_Fruits & Veggies,0.010739,1.0739,11
+City_Cumbum,0.010687,1.0687,12
+City_Ramanadhapuram,0.010405,1.0405,13
+City_Chennai,0.010372,1.0372,14
+City_Ooty,0.010328,1.0328,15
+City_Karur,0.010309,1.0309,16
+City_Bodi,0.010266,1.0266,17
+City_Tirunelveli,0.010208,1.0208,18
+City_Salem,0.010062,1.0062,19
+City_Kanyakumari,0.010037,1.0037,20
+City_Virudhunagar,0.010035,1.0035,21
+City_Krishnagiri,0.009923,0.9923,22
+City_Tenkasi,0.009886,0.9886,23
+Category_Bakery,0.009879,0.9879,24
+City_Dharmapuri,0.009765,0.9765,25
+Category_Food Grains,0.009743,0.9743,26
+"Category_Eggs, Meat & Fish",0.009707,0.9707,27
+City_Perambalur,0.009682,0.9682,28
+City_Viluppuram,0.009659,0.9659,29
+City_Trichy,0.009478,0.9478,30
+Category_Snacks,0.009423,0.9423,31
+City_Vellore,0.00932,0.932,32
+Category_Oil & Masala,0.009273,0.9273,33
+Category_Beverages,0.009214,0.9214,34
+City_Madurai,0.009144,0.9144,35
+City_Coimbatore,0.00912,0.912,36
+quarter,0.009106,0.9106,37
+City_Pudukottai,0.009033,0.9033,38
+City_Theni,0.008887,0.8887,39
+City_Namakkal,0.00888,0.888,40
+City_Nagercoil,0.008313,0.8313,41
+Sub Category_Soft Drinks,0.007731,0.7731,42
+Sub Category_Health Drinks,0.007618,0.7618,43
+City_Dindigul,0.0075,0.75,44
+Sub Category_Biscuits,0.007495,0.7495,45
+Sub Category_Spices,0.007428,0.7428,46
+Sub Category_Breads & Buns,0.007413,0.7413,47
+is_weekend,0.007348,0.7348,48
+Sub Category_Cakes,0.007324,0.7324,49
+Sub Category_Edible Oil & Ghee,0.007166,0.7166,50
+Sub Category_Mutton,0.007045,0.7045,51
+Sub Category_Masalas,0.00701,0.701,52
+Sub Category_Organic Vegetables,0.006691,0.6691,53
+Sub Category_Organic Fruits,0.00662,0.662,54
+Sub Category_Cookies,0.006612,0.6612,55
+Sub Category_Chocolates,0.006607,0.6607,56
+Sub Category_Noodles,0.00636,0.636,57
+Sub Category_Eggs,0.006332,0.6332,58
+Sub Category_Organic Staples,0.006316,0.6316,59
+Sub Category_Fish,0.006289,0.6289,60
+Sub Category_Dals & Pulses,0.00624,0.624,61
+Sub Category_Fresh Fruits,0.006146,0.6146,62
+Sub Category_Fresh Vegetables,0.006058,0.6058,63
+Sub Category_Rice,0.005994,0.5994,64
+Sub Category_Atta & Flour,0.005925,0.5925,65
+Sub Category_Chicken,0.00574,0.574,66
+Region_North,1.8e-05,0.0018,67
