@@ -1,0 +1,2 @@
+modellnavn,input_features,input_target,antall_treningsrader,antall_features,target_kolonne,fit_intercept,intercept
+LinearRegression,06_datasplitt/X_train.csv,06_datasplitt/y_train.csv,6682,67,Sales,True,-3193.5519017483966

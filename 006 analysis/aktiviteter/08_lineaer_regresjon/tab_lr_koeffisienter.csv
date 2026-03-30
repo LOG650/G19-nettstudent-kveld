@@ -1,0 +1,68 @@
+feature,koeffisient,abs_koeffisient,fortegn,rang_abs
+Region_North,-277.199368,277.199368,negativ,1
+Discount,-166.350024,166.350024,negativ,2
+City_Dindigul,-86.223061,86.223061,negativ,3
+Region_South,84.226765,84.226765,positiv,4
+Region_East,65.651701,65.651701,positiv,5
+Region_West,64.082371,64.082371,positiv,6
+Region_Central,63.238531,63.238531,positiv,7
+City_Nagercoil,-63.1379,63.1379,negativ,8
+City_Vellore,57.593346,57.593346,positiv,9
+City_Dharmapuri,54.558989,54.558989,positiv,10
+City_Coimbatore,-50.497371,50.497371,negativ,11
+City_Virudhunagar,-43.469514,43.469514,negativ,12
+City_Trichy,41.686972,41.686972,positiv,13
+City_Perambalur,41.034534,41.034534,positiv,14
+Sub Category_Fish,-38.441224,38.441224,negativ,15
+Sub Category_Health Drinks,-37.037698,37.037698,negativ,16
+Sub Category_Mutton,34.747462,34.747462,positiv,17
+Sub Category_Organic Fruits,-33.354717,33.354717,negativ,18
+City_Salem,31.981579,31.981579,positiv,19
+City_Pudukottai,29.781645,29.781645,positiv,20
+Sub Category_Organic Vegetables,28.527158,28.527158,positiv,21
+Category_Snacks,-28.135509,28.135509,negativ,22
+Sub Category_Masalas,24.922636,24.922636,positiv,23
+"Category_Eggs, Meat & Fish",22.754082,22.754082,positiv,24
+Sub Category_Chicken,22.75349,22.75349,positiv,25
+City_Tenkasi,-22.105034,22.105034,negativ,26
+City_Karur,-21.679266,21.679266,negativ,27
+Sub Category_Breads & Buns,-21.077037,21.077037,negativ,28
+quarter,21.050673,21.050673,positiv,29
+City_Namakkal,-20.244095,20.244095,negativ,30
+Sub Category_Soft Drinks,20.238742,20.238742,positiv,31
+City_Madurai,20.068963,20.068963,positiv,32
+Sub Category_Fresh Vegetables,-19.75719,19.75719,negativ,33
+City_Kanyakumari,19.486631,19.486631,positiv,34
+City_Viluppuram,19.262825,19.262825,positiv,35
+Sub Category_Rice,-19.227769,19.227769,negativ,36
+Sub Category_Dals & Pulses,19.135654,19.135654,positiv,37
+Category_Beverages,-16.798956,16.798956,negativ,38
+Sub Category_Chocolates,-16.581974,16.581974,negativ,39
+Category_Food Grains,15.25878,15.25878,positiv,40
+Sub Category_Cookies,-15.024941,15.024941,negativ,41
+Category_Oil & Masala,14.59337,14.59337,positiv,42
+Sub Category_Cakes,13.798789,13.798789,positiv,43
+Category_Fruits & Veggies,-13.616031,13.616031,negativ,44
+Sub Category_Biscuits,13.222512,13.222512,positiv,45
+Sub Category_Fresh Fruits,10.968718,10.968718,positiv,46
+Sub Category_Atta & Flour,10.710127,10.710127,positiv,47
+Sub Category_Spices,-9.381573,9.381573,negativ,48
+City_Krishnagiri,-8.852768,8.852768,negativ,49
+is_weekend,8.200454,8.200454,positiv,50
+City_Tirunelveli,6.230439,6.230439,positiv,51
+City_Bodi,6.162354,6.162354,positiv,52
+Category_Bakery,5.944264,5.944264,positiv,53
+City_Ooty,-4.804998,4.804998,negativ,54
+Sub Category_Organic Staples,4.640768,4.640768,positiv,55
+dayofweek,-4.397095,4.397095,negativ,56
+Sub Category_Eggs,3.694353,3.694353,positiv,57
+Sub Category_Noodles,3.471406,3.471406,positiv,58
+City_Chennai,-3.36702,3.36702,negativ,59
+year,2.302056,2.302056,positiv,60
+weekofyear,-1.862439,1.862439,negativ,61
+City_Cumbum,-1.227818,1.227818,negativ,62
+City_Theni,-1.135117,1.135117,negativ,63
+City_Ramanadhapuram,-1.104315,1.104315,negativ,64
+month,-1.056611,1.056611,negativ,65
+dayofmonth,1.029437,1.029437,positiv,66
+Sub Category_Edible Oil & Ghee,-0.947693,0.947693,negativ,67

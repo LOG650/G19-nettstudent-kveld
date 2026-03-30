@@ -1,6 +1,6 @@
 # Statusliste
 
-Oppdatert: 2026-03-26
+Oppdatert: 2026-03-30
 
 Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/home/erikb/himolde/log650/G19-nettstudent-kveld/012 fase 2 - plan/prosjektstyringsplan.md) og tilgjengelige prosjektartefakter i repoet. Punkter er merket som `verifisert` når de kan knyttes til eksisterende filer eller mappestruktur. Øvrige punkter er vurdert som planstatus per dato og må bekreftes av prosjektgruppen.
 
@@ -10,7 +10,7 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 - [x] Prosjektforslag finnes i fase 1. `verifisert`
 - [x] Datasett er tilgjengelig i prosjektmappen. `verifisert`
 - [x] Analysearbeid i egen `006 analysis`-mappe er etablert med felles Python/uv-oppsett. `verifisert`
-- [ ] Statusgrunnlaget for modellutvikling er delvis dokumentert gjennom feature engineering, datasplitt og eksplorativ analyse, men evaluering og rapportarbeid er ikke dokumentert i repoet ennå. `delvis verifisert`
+- [ ] Statusgrunnlaget for modellutvikling er nå dokumentert gjennom feature engineering, datasplitt, eksplorativ analyse og lineær regresjon i WBS 4.1, men Random Forest, evaluering og større deler av rapportarbeidet mangler fortsatt. `delvis verifisert`
 
 ## Status per hovedaktivitet
 
@@ -19,9 +19,9 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 - [x] C: Dataforståelse, variabelanalyse og datasettdokumentasjon er dokumentert for WBS 2.2-2.4 i analyseområdet. `verifisert`
 - [x] D: Datapreprosessering og eksplorativ analyse er dokumentert for WBS 3.1-3.4 i analyseområdet. `verifisert`
 - [x] E: Feature engineering er dokumentert i analyseområdet med eget feature-datasett og dokumenterte featurevalg. `verifisert`
-- [ ] F: Modellbygging og trening er ikke dokumentert i repoet ennå. `må bekreftes`
+- [ ] F: Modellbygging er påbegynt med dokumentert lineær regresjon i WBS 4.1, men Random Forest og videre modelltrening er ikke dokumentert i repoet ennå. `delvis verifisert`
 - [ ] G: Analyse og evaluering er ikke dokumentert i repoet ennå. `må bekreftes`
-- [ ] H: Rapportskriving er ikke dokumentert i rapportmappen ennå utover tidligere faseleveranser. `må bekreftes`
+- [ ] H: Rapportskriving er påbegynt med kort metode- og modelleringsnotat om WBS 4.1, men hoveddelen av rapportarbeidet er fortsatt ikke dokumentert i rapportmappen. `delvis verifisert`
 - [ ] I: Konklusjon og presentasjon er ikke startet ifølge planlagt rekkefølge. `antatt`
 
 ## Milepælstatus mot plan
@@ -44,12 +44,13 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 - [x] Dokumentasjon for WBS 3.2 (feature engineering) er etablert med feature-datasett, featurevalg og markdown-oppsummering. `fullført 2026-03-26`
 - [x] Dokumentasjon for WBS 3.3 (splitte trenings- og testdata) er etablert med train/test-filer og splittrapport som bygger på WBS 3.2. `fullført 2026-03-26`
 - [x] Dokumentasjon for WBS 3.4 (eksplorativ analyse og visualisering) er etablert med EDA-tabeller, figurer og markdown-oppsummering. `fullført 2026-03-26`
-- [ ] Dokumentere status for lineær regresjon og Random Forest separat.
+- [x] Dokumentasjon for WBS 4.1 (implementere lineær regresjon) er etablert med skript, modellfil, modelloversikt, koeffisienttabell og markdown-oppsummering. `fullført 2026-03-30`
+- [ ] Dokumentere status for Random Forest separat.
 - [ ] Etablere sporbar status for MAPE, RMSE og modelltesting før milepæl M3.
 - [x] Bruke renset datasett som grunnlag for datasplitt og videre feature engineering. `fullført 2026-03-26`
-- [ ] Starte løpende rapportskriving parallelt med analysearbeidet, i tråd med arbeidsreglene i prosjektet.
+- [x] Starte løpende rapportskriving parallelt med analysearbeidet, i tråd med arbeidsreglene i prosjektet. `påbegynt 2026-03-30 med modellnotat for WBS 4.1`
 - [ ] Oppdatere denne statuslisten etter ukentlige statusmøter og ved milepæler.
 
 ## Anbefalt kort prosjektstatus
 
-Prosjektet fremstår per 2026-03-26 som værende ferdig med planfasen, med dataforståelse, datasettdokumentasjon, remappet datarensing, feature engineering, datasplitt og eksplorativ analyse dokumentert i analyseområdet. Neste kritiske behov er å bygge og trene de planlagte modellene, slik at videre status kan følges opp med faktiske modellresultater og ikke bare klargjort datagrunnlag.
+Prosjektet fremstår per 2026-03-30 som værende ferdig med planfasen, med dataforståelse, datasettdokumentasjon, remappet datarensing, feature engineering, datasplitt, eksplorativ analyse og lineær regresjon for WBS 4.1 dokumentert i analyseområdet. Neste kritiske behov er å implementere Random Forest og deretter etablere felles modelltrening, prognoser og evalueringsmål, slik at videre status kan følges opp med faktiske modellresultater og ikke bare klargjort datagrunnlag.
