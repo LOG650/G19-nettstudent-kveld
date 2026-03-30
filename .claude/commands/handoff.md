@@ -1,134 +1,146 @@
-# Handoff: Capture Session State for Continuation
+# Handoff: Lag prosjektspesifikk videreføringsstatus
 
-## Objective
+## Mål
 
-Create a structured handoff document that captures everything the next session (or agent) needs to seamlessly continue this work. This is the **Write + Compress** pattern — you're externalizing the session's memory into a persistent file AND compressing it into just the essentials.
+Lag et strukturert handoff-dokument som gjør at neste økt eller agent kan fortsette arbeidet uten å gjette hva som ble gjort, hva som gjenstår og hvilke valg som allerede er tatt. Dette er et `skriv + komprimer`-mønster: du lagrer øktens viktigste arbeidsminne i repoet og kutter det ned til det som faktisk er nyttig.
 
-## When to Use
+## Når brukes kommandoen
 
-* Before ending a long session where work will continue later
-* Before hitting context limits (proactive, not reactive)
-* When switching from one phase to another (research → implementation)
-* When handing off between human and AI, or between AI sessions
-* Instead of relying on `/compact` for critical ongoing work
+- Før du avslutter en lengre økt som skal videreføres senere
+- Før kontekstvinduet blir fullt
+- Når du går fra én prosjektfase til en annen, for eksempel analyse til rapportskriving
+- Når arbeid skal overtas av et annet menneske eller en ny agentøkt
+- Når du ikke vil stole på at muntlig kontekst alene er nok
 
-## Process
+## Prosess
 
-### 1. Analyze the Current Session
+### 1. Analyser den pågående økten
 
-Review everything that happened in this conversation:
+Gå gjennom hva som faktisk skjedde i økten:
 
-* What was the original goal or task?
-* What has been completed so far?
-* What is still in progress or blocked?
-* What key decisions were made and WHY?
-* What files were read, created, or modified?
-* What errors were encountered and how were they resolved?
-* What dead ends were explored (so the next session doesn't repeat them)?
+- Hva var den opprinnelige oppgaven?
+- Hva ble fullført?
+- Hva er pågående eller blokkert?
+- Hvilke viktige beslutninger ble tatt, og hvorfor?
+- Hvilke filer ble lest, opprettet eller endret?
+- Hvilke feil eller misforståelser oppstod, og hvordan ble de håndtert?
+- Hvilke blindspor bør neste økt unngå?
 
-### 2. Gather Current State
+### 2. Hent inn prosjektstatus
 
-```
-git status
+```bash
+git status --short
 git diff --stat HEAD
 git log --oneline -5
 git branch --show-current
-
 ```
 
-### 3. Write the Handoff Document
+Hvis økten berørte analysearbeid, les også relevante filer i `006 analysis/aktiviteter/...`.
 
-Save to: `HANDOFF.md` in the current working directory (or the worktree root if in a worktree).
+Hvis økten berørte rapport eller prosjektstyring, kontroller også relevante deler av:
 
-**Use this exact structure:**
+- `005 report/rapport.md`
+- `012 fase 2 - plan/status.md`
+- `012 fase 2 - plan/wbs.json`
+- `012 fase 2 - plan/prosjektstyringsplan.md`
 
-```
-# Handoff: [Brief Task Description]
+### 3. Skriv handoff-dokumentet
 
-**Date:** [current date]
-**Branch:** [current branch name]
-**Last Commit:** [hash + message, or "uncommitted changes"]
+Lagre til: `HANDOFF.md` i repo-roten.
 
-## Goal
-
-[1-2 sentences: what we're trying to accomplish. Include the original user request or plan reference.]
-
-## Completed
-
-- [x] [Task 1 — brief description of what was done]
-- [x] [Task 2 — brief description]
-  - [Sub-detail if non-obvious]
-
-## In Progress / Next Steps
-
-- [ ] [Task 3 — what needs to happen next, with enough detail to act on]
-- [ ] [Task 4 — include file paths and specific areas to focus on]
-- [ ] [Task 5 — any blocked items with explanation of the blocker]
-
-## Key Decisions
-
-Document WHY choices were made, not just what was chosen:
-
-- **[Decision]**: [What was chosen] — [Why, including alternatives rejected]
-- **[Decision]**: [What was chosen] — [Why]
-
-## Dead Ends (Don't Repeat These)
-
-- [Approach that was tried and didn't work] — [Why it failed]
-- [Investigation path that turned out to be irrelevant] — [What we found instead]
-
-## Files Changed
-
-- `path/to/file.ts` — [what changed and why, 1 line]
-- `path/to/new-file.ts` — [NEW: what this file does]
-- `path/to/deleted-file.ts` — [DELETED: why it was removed]
-
-## Current State
-
-- **Tests:** [passing/failing — which specific tests and why]
-- **Type-check:** [clean/N errors — what kind]
-- **Lint:** [clean/N warnings — what kind]
-- **Build:** [working/broken]
-- **Manual verification:** [what was tested manually, results]
-
-## Context for Next Session
-
-[2-4 sentences: the MOST IMPORTANT thing the next agent needs to know. What's the current situation? What's the biggest risk? What should they do first?]
-
-**Recommended first action:** [Exact command or step to take first]
+Bruk denne strukturen:
 
 ```
+# Handoff: [Kort oppgavebeskrivelse]
 
-### 4. Confirm and Advise
+**Dato:** [dagens dato]
+**Gren:** [gjeldende branch]
+**Siste commit:** [hash + melding, eller "ukommitterte endringer"]
 
-After writing the handoff:
+## Mål
 
-1. Confirm the file was written with its full path
-2. Suggest the next session command:
+[1-2 setninger om hva som skal oppnås. Ta med brukeroppgaven eller relevant WBS-/planreferanse.]
+
+## Ferdig
+
+- [x] [Oppgave 1 — kort beskrivelse av hva som ble gjort]
+- [x] [Oppgave 2 — kort beskrivelse]
+
+## Pågår / Neste steg
+
+- [ ] [Neste oppgave — konkret nok til at noen kan starte direkte]
+- [ ] [Videre arbeid — med filstier og fokusområder]
+- [ ] [Eventuelle blokkeringer — med forklaring]
+
+## Viktige beslutninger
+
+- **[Beslutning]**: [Hva som ble valgt] — [Hvorfor, gjerne med alternativ som ble forkastet]
+- **[Beslutning]**: [Hva som ble valgt] — [Hvorfor]
+
+## Blindspor (ikke gjenta disse)
+
+- [Forsøk eller spor som ikke fungerte] — [Hvorfor]
+- [Undersøkelse som viste seg irrelevant] — [Hva som viste seg å være riktig spor]
+
+## Filer endret
+
+- `sti/til/fil.md` — [hva som ble endret og hvorfor]
+- `sti/til/ny_fil.py` — [NY: hva filen gjør]
+- `sti/til/slettet_fil` — [SLETTET: hvorfor]
+
+## Nåværende status
+
+- **Tester/kjøring:** [hva som ble kjørt, og resultat]
+- **Analyseartefakter:** [hva som ble generert eller verifisert]
+- **Rapport:** [hvilke deler av `rapport.md` som ble oppdatert eller fortsatt henger etter]
+- **Plan/status:** [om `status.md`, `wbs.json` eller andre planfiler ble oppdatert]
+- **Manuell verifisering:** [kort resultat]
+
+## Kontekst for neste økt
+
+[2-4 setninger om den viktigste konteksten. Hva er situasjonen nå? Hva er den største risikoen? Hva bør gjøres først?]
+
+**Anbefalt første handling:** [eksakt kommando eller første steg]
+```
+
+### 4. Prosjektspesifikke krav til handoff
+
+- Skriv på norsk.
+- Bruk eksplisitte datoer når fremdrift eller forsinkelse omtales.
+- Merk antagelser som antagelser.
+- Hvis analysearbeid er fullført uten at rapport eller plan/status er oppdatert, skriv dette tydelig som et gjenstående avvik.
+- Hvis du fant rester fra eksempelprosjekter eller annen utdatert kontekst, skriv det under `Blindspor` eller `Viktige beslutninger`.
+- Hold handoffet kort og operativt. Det skal være lett å skanne.
+
+### 5. Bekreft og gi råd
+
+Etter at `HANDOFF.md` er skrevet:
+
+1. Bekreft full filsti til `HANDOFF.md`
+2. Foreslå neste oppstartskommando:
+   ```text
+   Les HANDOFF.md og fortsett fra forrige økt.
    ```
-   Read HANDOFF.md and continue from where the previous session left off.
-
-   ```
-3. If there are uncommitted changes, suggest committing first:
-   ```
+3. Hvis det finnes ukommitterte endringer, foreslå også:
+   ```text
    /commit
-
    ```
 
-## Quality Criteria
+## Kvalitetskriterier
 
-A good handoff document should:
+Et godt handoff-dokument skal:
 
-* Let a fresh agent continue without asking any clarifying questions
-* Be under 100 lines (concise, not comprehensive — link to files rather than duplicating content)
-* Include enough "why" context that the next agent makes the same decisions
-* Explicitly list dead ends to prevent wasted exploration
-* Have a concrete "first action" recommendation
+- gjøre det mulig å fortsette uten avklaringsspørsmål
+- være under 100 linjer
+- forklare nok `hvorfor` til at neste økt tar samme beslutninger
+- liste blindspor for å unngå dobbeltarbeid
+- ha en konkret anbefalt første handling
 
-## Anti-patterns
+## Unngå dette
 
-* Don't include full file contents — reference paths instead
-* Don't include conversation history or debugging transcripts — summarize findings
-* Don't be vague ("fix the bug") — be specific ("fix the SSE reconnection in `packages/web/src/hooks/useSSE.ts` by adding exponential backoff after the `onclose` handler")
-* Don't skip the "Dead Ends" section — this prevents the most common wasted effort
-* Don't forget the "Key Decisions" section — without it, the next agent may reverse your decisions
+- Ikke lim inn fulle filinnhold. Referer til filstier.
+- Ikke gjengi hele samtalen eller rå debuglogger. Oppsummer funnene.
+- Ikke vær vag. Skriv konkret hva som gjenstår og hvor.
+- Ikke hopp over `Blindspor`.
+- Ikke hopp over `Viktige beslutninger`.
+- Ikke glem å nevne hvis rapport, analyse og plan/status er ute av sync.
