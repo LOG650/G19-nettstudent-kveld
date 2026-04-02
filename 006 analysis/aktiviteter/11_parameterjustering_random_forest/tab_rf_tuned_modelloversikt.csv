@@ -1,0 +1,2 @@
+modellnavn,input_features,input_target,antall_treningsrader,antall_features,target_kolonne,n_estimators,max_depth,min_samples_leaf,max_features,bootstrap,random_state,n_jobs,selection_metric,baseline_rmse_validering,baseline_mape_validering_pct,vinner_rmse_validering,vinner_mape_validering_pct,fit_seconds_full_train
+RandomForestRegressor,06_datasplitt/X_train.csv,06_datasplitt/y_train.csv,6682,67,Sales,400,10,4,sqrt,True,42,-1,RMSE,590.303874,44.2211,577.26775,43.5554,0.509763

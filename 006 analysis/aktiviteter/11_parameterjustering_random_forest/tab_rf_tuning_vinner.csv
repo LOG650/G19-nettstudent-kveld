@@ -1,0 +1,2 @@
+kandidat_id,n_estimators,max_depth,min_samples_leaf,max_features,rmse_validering,mape_validering_pct,baseline_rmse_validering,baseline_mape_validering_pct,delta_rmse_mot_baseline,delta_mape_mot_baseline_pct,selection_metric
+rf_tune_30,400,10,4,sqrt,577.26775,43.5554,590.303874,44.2211,-13.036124,-0.6657,RMSE
