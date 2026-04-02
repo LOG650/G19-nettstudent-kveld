@@ -1,0 +1,3 @@
+modellnavn,input_features,input_target,antall_treningsrader,antall_features,target_kolonne,detaljtabell,markdown_fil,lokal_modellfil_funnet,felles_input_ok
+LinearRegression,06_datasplitt/X_train.csv,06_datasplitt/y_train.csv,6682,67,Sales,08_lineaer_regresjon/tab_lr_koeffisienter.csv,08_lineaer_regresjon/lineaer_regresjon.md,True,True
+RandomForestRegressor,06_datasplitt/X_train.csv,06_datasplitt/y_train.csv,6682,67,Sales,09_random_forest_regressor/tab_rf_feature_importance.csv,09_random_forest_regressor/random_forest_regressor.md,True,True

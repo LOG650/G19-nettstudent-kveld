@@ -1,0 +1,11 @@
+modellnavn,feature,signal_metrikk,signal_verdi,fortegn,rang
+LinearRegression,Region_North,abs_koeffisient,277.199368,negativ,1
+LinearRegression,Discount,abs_koeffisient,166.350024,negativ,2
+LinearRegression,City_Dindigul,abs_koeffisient,86.223061,negativ,3
+LinearRegression,Region_South,abs_koeffisient,84.226765,positiv,4
+LinearRegression,Region_East,abs_koeffisient,65.651701,positiv,5
+RandomForestRegressor,Discount,importance,0.123926,,1
+RandomForestRegressor,dayofmonth,importance,0.12236,,2
+RandomForestRegressor,weekofyear,importance,0.086338,,3
+RandomForestRegressor,dayofweek,importance,0.06392,,4
+RandomForestRegressor,year,importance,0.038233,,5

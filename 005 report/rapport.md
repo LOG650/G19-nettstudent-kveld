@@ -194,7 +194,7 @@ Beskriv case/bedrift og relevant kontekst.
 
 Analyseopplegget bygger på en trinnvis prosess der datasettet først ble renset, remappet til prosjektperioden 2022-2025, feature-engineered og splittet i treningsdata (2022-2024) og testdata (2025). Denne arbeidsflyten er dokumentert i analyseområdet og danner grunnlaget for modellutviklingen.
 
-Som første modellsteg er lineær regresjon implementert som benchmark-modell på den one-hot-kodede modellmatrisen fra WBS 3.3. Random Forest Regressor er deretter implementert på samme treningsgrunnlag som alternativ modell med eksplisitte baseline-parametre. Selve evalueringen mot 2025-data, samt beregning av `RMSE`, `MAPE` og sammenligning mellom modellene, gjennomføres i senere aktiviteter.
+Som første modellsteg er lineær regresjon implementert som benchmark-modell på den one-hot-kodede modellmatrisen fra WBS 3.3. Random Forest Regressor er deretter implementert på samme treningsgrunnlag som alternativ modell med eksplisitte baseline-parametre. Etter at begge modellene var etablert, ble WBS 4.3 brukt til å verifisere at modellene bygger på samme treningsgrunnlag og til å samle sentrale modellinterne signaler før videre evaluering. Selve evalueringen mot 2025-data, samt beregning av `RMSE`, `MAPE` og sammenligning mellom modellene, gjennomføres i senere aktiviteter.
 
 Beskriv:
 
@@ -214,7 +214,7 @@ Beskriv:
 
 ## Modellering
 
-WBS 4.1 etablerer lineær regresjon som prosjektets benchmark-modell ved å trene `LinearRegression` på `X_train.csv` og `y_train.csv` fra datasplitten. WBS 4.2 etablerer `RandomForestRegressor` på samme treningsmatrise og dokumenterer sentrale parameterverdier og foreløpige feature importance-signaler. Begge aktivitetene er avgrenset til implementering og trening, og omfatter ikke testprediksjoner, prognoser for 2025 eller modellvurdering.
+WBS 4.1 etablerer lineær regresjon som prosjektets benchmark-modell ved å trene `LinearRegression` på `X_train.csv` og `y_train.csv` fra datasplitten. WBS 4.2 etablerer `RandomForestRegressor` på samme treningsmatrise og dokumenterer sentrale parameterverdier og foreløpige feature importance-signaler. WBS 4.3 samler og verifiserer at begge modellene bygger på samme treningsgrunnlag før videre evaluering. Aktivitetene i kapittel 4 er avgrenset til implementering, trening og verifisering, og omfatter ikke testprediksjoner, prognoser for 2025 eller modellvurdering.
 
 ---
 
