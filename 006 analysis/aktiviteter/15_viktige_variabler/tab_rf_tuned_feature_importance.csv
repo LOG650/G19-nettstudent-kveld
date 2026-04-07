@@ -1,0 +1,68 @@
+feature,variabelgruppe,importance,importance_pct,rang_importance
+Discount,pris/kampanje,0.114781,11.4781,1
+dayofmonth,kalender,0.113529,11.3529,2
+weekofyear,kalender,0.104042,10.4042,3
+month,kalender,0.067353,6.7353,4
+dayofweek,kalender,0.065182,6.5182,5
+year,kalender,0.040225,4.0225,6
+quarter,kalender,0.029495,2.9495,7
+Region_East,region,0.020376,2.0376,8
+Region_West,region,0.019099,1.9099,9
+Region_Central,region,0.018355,1.8355,10
+is_weekend,kalender,0.015464,1.5464,11
+Region_South,region,0.014685,1.4685,12
+Category_Snacks,kategori,0.012448,1.2448,13
+City_Dindigul,by,0.011881,1.1881,14
+Sub Category_Health Drinks,underkategori,0.010707,1.0707,15
+Category_Bakery,kategori,0.0102,1.02,16
+Category_Beverages,kategori,0.010075,1.0075,17
+"Category_Eggs, Meat & Fish",kategori,0.009626,0.9626,18
+City_Dharmapuri,by,0.009383,0.9383,19
+City_Nagercoil,by,0.009372,0.9372,20
+Category_Fruits & Veggies,kategori,0.00918,0.918,21
+Category_Food Grains,kategori,0.00911,0.911,22
+Category_Oil & Masala,kategori,0.008866,0.8866,23
+City_Virudhunagar,by,0.008819,0.8819,24
+City_Vellore,by,0.008601,0.8601,25
+Sub Category_Mutton,underkategori,0.00838,0.838,26
+City_Krishnagiri,by,0.008245,0.8245,27
+City_Ramanadhapuram,by,0.00822,0.822,28
+City_Trichy,by,0.008054,0.8054,29
+City_Coimbatore,by,0.007928,0.7928,30
+City_Salem,by,0.007698,0.7698,31
+Sub Category_Cookies,underkategori,0.007672,0.7672,32
+City_Bodi,by,0.007669,0.7669,33
+City_Kanyakumari,by,0.007519,0.7519,34
+City_Cumbum,by,0.007441,0.7441,35
+City_Perambalur,by,0.007406,0.7406,36
+City_Chennai,by,0.00705,0.705,37
+Sub Category_Masalas,underkategori,0.006836,0.6836,38
+Sub Category_Organic Fruits,underkategori,0.006633,0.6633,39
+Sub Category_Soft Drinks,underkategori,0.006474,0.6474,40
+Sub Category_Breads & Buns,underkategori,0.006377,0.6377,41
+City_Karur,by,0.006353,0.6353,42
+City_Tenkasi,by,0.006345,0.6345,43
+Sub Category_Eggs,underkategori,0.006319,0.6319,44
+Sub Category_Cakes,underkategori,0.006257,0.6257,45
+Sub Category_Chocolates,underkategori,0.005858,0.5858,46
+City_Namakkal,by,0.005832,0.5832,47
+Sub Category_Spices,underkategori,0.005806,0.5806,48
+City_Viluppuram,by,0.005662,0.5662,49
+City_Pudukottai,by,0.005606,0.5606,50
+Sub Category_Edible Oil & Ghee,underkategori,0.005534,0.5534,51
+Sub Category_Noodles,underkategori,0.005469,0.5469,52
+City_Theni,by,0.00538,0.538,53
+City_Ooty,by,0.005305,0.5305,54
+City_Madurai,by,0.005078,0.5078,55
+Sub Category_Chicken,underkategori,0.005073,0.5073,56
+Sub Category_Biscuits,underkategori,0.00487,0.487,57
+Sub Category_Dals & Pulses,underkategori,0.004734,0.4734,58
+Sub Category_Fresh Vegetables,underkategori,0.004676,0.4676,59
+City_Tirunelveli,by,0.004591,0.4591,60
+Sub Category_Rice,underkategori,0.004406,0.4406,61
+Sub Category_Organic Vegetables,underkategori,0.004338,0.4338,62
+Sub Category_Fish,underkategori,0.004297,0.4297,63
+Sub Category_Atta & Flour,underkategori,0.004093,0.4093,64
+Sub Category_Fresh Fruits,underkategori,0.003848,0.3848,65
+Sub Category_Organic Staples,underkategori,0.003817,0.3817,66
+Region_North,region,0.0,0.0,67

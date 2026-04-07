@@ -1,0 +1,11 @@
+prioritet_5_4,feature,variabelgruppe,rang_tuned_rf,importance_tuned_rf_pct,rang_baseline_rf,importance_baseline_rf_pct,rang_lineaer_abs,koeffisient_lineaer,fortegn_lineaer,status_rf_topp10
+1,Discount,pris/kampanje,1,11.4781,1,12.3926,2,-166.350024,negativ,topp10 i begge
+2,dayofmonth,kalender,2,11.3529,2,12.236,66,1.029437,positiv,topp10 i begge
+3,weekofyear,kalender,3,10.4042,3,8.6338,61,-1.862439,negativ,topp10 i begge
+4,month,kalender,4,6.7353,6,3.0664,65,-1.056611,negativ,topp10 i begge
+5,dayofweek,kalender,5,6.5182,4,6.392,56,-4.397095,negativ,topp10 i begge
+6,year,kalender,6,4.0225,5,3.8233,60,2.302056,positiv,topp10 i begge
+7,quarter,kalender,7,2.9495,37,0.9106,29,21.050673,positiv,kun tuned topp10
+8,Region_East,region,8,2.0376,8,1.6967,5,65.651701,positiv,topp10 i begge
+9,Region_West,region,9,1.9099,7,1.7276,6,64.082371,positiv,topp10 i begge
+10,Region_Central,region,10,1.8355,9,1.6229,7,63.238531,positiv,topp10 i begge
