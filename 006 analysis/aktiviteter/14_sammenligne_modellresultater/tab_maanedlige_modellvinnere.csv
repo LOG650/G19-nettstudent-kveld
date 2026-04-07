@@ -1,0 +1,13 @@
+år_måned,month,rmse_vinner,rmse_vinner_verdi,mape_vinner,mape_vinner_verdi,samme_vinner
+2025-01,1,tuned RF,585.730965,baseline RF,46.5095,False
+2025-02,2,tuned RF,576.738537,baseline RF,42.1938,False
+2025-03,3,tuned RF,550.332638,benchmark lineær,42.142,False
+2025-04,4,tuned RF,575.630116,baseline RF,43.0356,False
+2025-05,5,tuned RF,589.742477,baseline RF,44.3634,False
+2025-06,6,tuned RF,552.250987,baseline RF,41.8668,False
+2025-07,7,tuned RF,569.228181,tuned RF,42.3281,True
+2025-08,8,benchmark lineær,586.601914,tuned RF,41.7083,False
+2025-09,9,tuned RF,581.471638,tuned RF,42.3648,True
+2025-10,10,tuned RF,593.089649,benchmark lineær,43.9593,False
+2025-11,11,tuned RF,595.247069,baseline RF,47.4613,False
+2025-12,12,tuned RF,574.66087,benchmark lineær,45.0963,False

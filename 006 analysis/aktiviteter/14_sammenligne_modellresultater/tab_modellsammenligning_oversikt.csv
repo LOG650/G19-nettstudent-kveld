@@ -1,0 +1,4 @@
+modellnavn,modellrolle,prediksjonskolonne,rmse_2025,mape_2025_pct,rang_rmse_2025,rang_mape_2025,delta_rmse_mot_benchmark,delta_mape_mot_benchmark_pctpoeng,delta_rmse_mot_anbefalt,delta_mape_mot_anbefalt_pctpoeng,samlet_vurdering_5_3
+LinearRegression,benchmark lineær,prognose_lineaer_regresjon,580.394322,44.184,2,3,0.0,0.0,2.134673,0.2134,sekundær
+RandomForestRegressor,baseline RF,prognose_random_forest_baseline,589.284744,44.1162,3,2,8.890422,-0.0678,11.025095,0.1456,ikke anbefalt
+RandomForestRegressor,tuned RF,prognose_random_forest_tuned,578.259649,43.9706,1,1,-2.134673,-0.2134,0.0,0.0,anbefalt

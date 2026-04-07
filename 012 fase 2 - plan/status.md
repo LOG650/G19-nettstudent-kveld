@@ -10,7 +10,7 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 - [x] Prosjektforslag finnes i fase 1. `verifisert`
 - [x] Datasett er tilgjengelig i prosjektmappen. `verifisert`
 - [x] Analysearbeid i egen `006 analysis`-mappe er etablert med felles Python/uv-oppsett. `verifisert`
-- [ ] Statusgrunnlaget for modellutvikling, prognoseleveranse og første evalueringsmetrikker er nå dokumentert gjennom feature engineering, datasplitt, eksplorativ analyse, lineær regresjon i WBS 4.1, Random Forest i WBS 4.2, et lett felles verifiseringssteg i WBS 4.3, parameterjustering av Random Forest i WBS 4.4, genererte 2025-prognoser i WBS 5.1 og beregnede 2025-`RMSE`/`MAPE` i WBS 5.2, men modellsammenligning, tolkning og større deler av rapportarbeidet mangler fortsatt. `delvis verifisert`
+- [ ] Statusgrunnlaget for modellutvikling, prognoseleveranse, evalueringsmetrikker og første modellsammenligning er nå dokumentert gjennom feature engineering, datasplitt, eksplorativ analyse, lineær regresjon i WBS 4.1, Random Forest i WBS 4.2, et lett felles verifiseringssteg i WBS 4.3, parameterjustering av Random Forest i WBS 4.4, genererte 2025-prognoser i WBS 5.1, beregnede 2025-`RMSE`/`MAPE` i WBS 5.2 og sammenligning av modellresultatene i WBS 5.3, men variabelanalyse, tolkning og større deler av rapportarbeidet mangler fortsatt. `delvis verifisert`
 
 ## Status per hovedaktivitet
 
@@ -20,15 +20,15 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 - [x] D: Datapreprosessering og eksplorativ analyse er dokumentert for WBS 3.1-3.4 i analyseområdet. `verifisert`
 - [x] E: Feature engineering er dokumentert i analyseområdet med eget feature-datasett og dokumenterte featurevalg. `verifisert`
 - [x] F: Modellbygging er dokumentert med lineær regresjon i WBS 4.1, Random Forest i WBS 4.2, et felles verifiserings- og oppsummeringssteg i WBS 4.3 og parameterjustering av Random Forest i WBS 4.4. Lineær regresjon står fortsatt som fast benchmark, mens tuned Random Forest er etablert som videre operativ modell. Selve planendringene for 4.3 og 4.4 er dokumentert i `endringslogg.md`. `verifisert`
-- [ ] G: Prognoser for 2025 er dokumentert i WBS 5.1, og `RMSE`/`MAPE` er nå dokumentert i WBS 5.2 for lineær regresjon, Random Forest-baseline og tuned Random Forest, men modellsammenligning, modellrangering og samlet vurdering mangler fortsatt. `delvis verifisert`
-- [ ] H: Rapportskriving er påbegynt med korte metode- og modelleringsnotater om WBS 4.1, 4.2, 4.3, 4.4, 5.1 og 5.2, men hoveddelen av rapportarbeidet er fortsatt ikke dokumentert i rapportmappen. `delvis verifisert`
+- [ ] G: Prognoser for 2025, `RMSE`/`MAPE` og modellsammenligning er nå dokumentert i WBS 5.1, 5.2 og 5.3 for lineær regresjon, Random Forest-baseline og tuned Random Forest. `tuned RF` fremstår samlet som anbefalt modell på 2025-data, men analyse av viktige variabler og videre tolkning mangler fortsatt. `delvis verifisert`
+- [ ] H: Rapportskriving er påbegynt med korte metode- og modelleringsnotater om WBS 4.1, 4.2, 4.3, 4.4, 5.1, 5.2 og 5.3, men hoveddelen av rapportarbeidet er fortsatt ikke dokumentert i rapportmappen. `delvis verifisert`
 - [ ] I: Konklusjon og presentasjon er ikke startet ifølge planlagt rekkefølge. `antatt`
 
 ## Milepælstatus mot plan
 
 - [x] M1: Prosjektforslag godkjent, planlagt i februar. Prosjektforslag finnes i repoet. `verifisert delvis gjennom artefakt`
 - [x] M2: Datagrunnlag klargjort, planlagt 10. mars. Datasett finnes, men graden av klargjøring bør bekreftes. `delvis verifisert`
-- [ ] M3: Testing av modellene, planlagt 23. mars. Prognoser for 2025 og evalueringsmetrikker (`RMSE`/`MAPE`) er nå dokumentert per 2026-04-07, men formell modellsammenligning gjenstår fortsatt. `delvis oppnådd`
+- [x] M3: Testing av modellene, planlagt 23. mars. Prognoser for 2025, evalueringsmetrikker (`RMSE`/`MAPE`) og formell modellsammenligning er dokumentert per 2026-04-07. `verifisert forsinket`
 - [x] M4: Modelloptimalisering ferdig, planlagt 22. april. WBS 4.4 dokumenterer parameterjustering av Random Forest med 2024 som intern validering. `verifisert 2026-04-02`
 - [ ] M5: Hovedutkast av rapport, planlagt 8. april. `ikke startet / ikke bekreftet`
 - [ ] M6: Endelig rapport levert, planlagt 19. mai. `ikke startet / ikke bekreftet`
@@ -50,13 +50,14 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 - [x] Dokumentasjon for WBS 4.4 (justere modellparametere) er etablert med kandidatgrid, valideringsmetrikker for 2024, vinneroversikt og retrent tuned Random Forest-modell. `fullført 2026-04-02`
 - [x] Dokumentasjon for WBS 5.1 (generere prognoser for 2025) er etablert med radvise prognoser, månedlig oppsummering og tre dokumenterte modellspor for 2025. `fullført 2026-04-02`
 - [x] Dokumentasjon for WBS 5.2 (beregne RMSE og MAPE) er etablert med samlet metrikktabell, månedlig metrikktabell, detaljert feilgrunnlag og markdown-oppsummering. `fullført 2026-04-07`
+- [x] Dokumentasjon for WBS 5.3 (sammenligne modellresultater) er etablert med samlet sammenligningstabell, månedlige modellvinnere, vinnertelling og markdown-oppsummering med `tuned RF` som samlet anbefalt modell. `fullført 2026-04-07`
 - [x] Planendringen for WBS 4.3 er dokumentert i egen endringslogg med begrunnelse og konsekvens for videre arbeid. `fullført 2026-04-02`
 - [x] Avgrensningen av WBS 4.4 til tuning av Random Forest er dokumentert i egen endringslogg med begrunnelse og konsekvens for videre arbeid. `fullført 2026-04-02`
-- [ ] Fullføre sporbar modelltesting og modellsammenligning; `RMSE` og `MAPE` er nå dokumentert i WBS 5.2, men WBS 5.3 gjenstår fortsatt.
+- [x] Fullføre sporbar modelltesting og modellsammenligning gjennom WBS 5.2 og WBS 5.3. `fullført 2026-04-07`
 - [x] Bruke renset datasett som grunnlag for datasplitt og videre feature engineering. `fullført 2026-03-26`
-- [x] Starte løpende rapportskriving parallelt med analysearbeidet, i tråd med arbeidsreglene i prosjektet. `påbegynt 2026-03-30, utvidet 2026-04-02 med modellnotater for WBS 4.1, 4.2, 4.3, 4.4 og 5.1, og utvidet 2026-04-07 med kort metrikknotat for WBS 5.2`
+- [x] Starte løpende rapportskriving parallelt med analysearbeidet, i tråd med arbeidsreglene i prosjektet. `påbegynt 2026-03-30, utvidet 2026-04-02 med modellnotater for WBS 4.1, 4.2, 4.3, 4.4 og 5.1, og utvidet 2026-04-07 med korte notater for WBS 5.2 og 5.3`
 - [ ] Oppdatere denne statuslisten etter ukentlige statusmøter og ved milepæler.
 
 ## Anbefalt kort prosjektstatus
 
-Prosjektet fremstår per 2026-04-07 som værende ferdig med planfasen, med dataforståelse, datasettdokumentasjon, remappet datarensing, feature engineering, datasplitt, eksplorativ analyse, lineær regresjon for WBS 4.1, Random Forest for WBS 4.2, felles verifisering av treningsgrunnlaget i WBS 4.3, parameterjustering av Random Forest i WBS 4.4, genererte 2025-prognoser i WBS 5.1 og beregnede 2025-`RMSE`/`MAPE` i WBS 5.2 dokumentert i analyseområdet. Neste kritiske behov er å sammenligne modellene på 2025-data og knytte metrikktabellene tydelig inn i videre analyse og rapport, slik at prosjektstatusen kan følges opp med faktisk modellprestasjon og ikke bare prognose- og metrikkfiler.
+Prosjektet fremstår per 2026-04-07 som værende ferdig med planfasen, med dataforståelse, datasettdokumentasjon, remappet datarensing, feature engineering, datasplitt, eksplorativ analyse, lineær regresjon for WBS 4.1, Random Forest for WBS 4.2, felles verifisering av treningsgrunnlaget i WBS 4.3, parameterjustering av Random Forest i WBS 4.4, genererte 2025-prognoser i WBS 5.1, beregnede 2025-`RMSE`/`MAPE` i WBS 5.2 og dokumentert modellsammenligning i WBS 5.3. `tuned RF` fremstår samlet som beste modell på 2025-data, men neste kritiske behov er å analysere viktige variabler og knytte modellresultatene tydelig inn i videre analyse, diskusjon og rapport.

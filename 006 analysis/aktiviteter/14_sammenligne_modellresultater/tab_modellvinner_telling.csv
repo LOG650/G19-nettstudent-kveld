@@ -1,0 +1,7 @@
+metric,modellrolle,antall_vinnermåneder,andel_vinnermåneder_pct
+RMSE,benchmark lineær,1,8.3333
+RMSE,baseline RF,0,0.0
+RMSE,tuned RF,11,91.6667
+MAPE,benchmark lineær,3,25.0
+MAPE,baseline RF,6,50.0
+MAPE,tuned RF,3,25.0
