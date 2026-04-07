@@ -1,0 +1,4 @@
+modellnavn,modellrolle,prediksjonskolonne,antall_observasjoner,rmse_2025,mape_2025_pct
+LinearRegression,benchmark lineær,prognose_lineaer_regresjon,3312,580.394322,44.184
+RandomForestRegressor,baseline RF,prognose_random_forest_baseline,3312,589.284744,44.1162
+RandomForestRegressor,tuned RF,prognose_random_forest_tuned,3312,578.259649,43.9706

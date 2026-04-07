@@ -194,7 +194,7 @@ Beskriv case/bedrift og relevant kontekst.
 
 Analyseopplegget bygger på en trinnvis prosess der datasettet først ble renset, remappet til prosjektperioden 2022-2025, feature-engineered og splittet i treningsdata (2022-2024) og testdata (2025). Denne arbeidsflyten er dokumentert i analyseområdet og danner grunnlaget for modellutviklingen.
 
-Som første modellsteg er lineær regresjon implementert som benchmark-modell på den one-hot-kodede modellmatrisen fra WBS 3.3. Random Forest Regressor er deretter implementert på samme treningsgrunnlag som alternativ modell med eksplisitte baseline-parametre. Etter at begge modellene var etablert, ble WBS 4.3 brukt til å verifisere at modellene bygger på samme treningsgrunnlag og til å samle sentrale modellinterne signaler før videre evaluering. I WBS 4.4 ble Random Forest-parametere deretter justert ved å trene på 2022-2023 og validere på 2024, slik at den valgte tuned-modellen kan tas videre til prognoser uten å bruke 2025-data i tuning. I WBS 5.1 er det nå generert prognoser for hele 2025 for lineær regresjon, Random Forest-baseline og tuned Random Forest, både på radnivå og som månedlig oppsummering. Selve evalueringen mot 2025-data, samt beregning av `RMSE`, `MAPE` og sammenligning mellom modellene, gjennomføres i senere aktiviteter.
+Som første modellsteg er lineær regresjon implementert som benchmark-modell på den one-hot-kodede modellmatrisen fra WBS 3.3. Random Forest Regressor er deretter implementert på samme treningsgrunnlag som alternativ modell med eksplisitte baseline-parametre. Etter at begge modellene var etablert, ble WBS 4.3 brukt til å verifisere at modellene bygger på samme treningsgrunnlag og til å samle sentrale modellinterne signaler før videre evaluering. I WBS 4.4 ble Random Forest-parametere deretter justert ved å trene på 2022-2023 og validere på 2024, slik at den valgte tuned-modellen kan tas videre til prognoser uten å bruke 2025-data i tuning. I WBS 5.1 er det generert prognoser for hele 2025 for lineær regresjon, Random Forest-baseline og tuned Random Forest, både på radnivå og som månedlig oppsummering. I WBS 5.2 er `RMSE` og `MAPE` deretter beregnet både samlet for hele 2025 og per måned med utgangspunkt i prognosene fra WBS 5.1. Selve sammenligningen mellom modellene og tolkningen av forskjellene gjennomføres i senere aktiviteter.
 
 Beskriv:
 
@@ -230,7 +230,7 @@ Velg metode:
 
 ## Resultat
 
-Det foreligger nå en første resultatleveranse i form av prognosefiler for 2025 på både radnivå og månedsnivå for tre modellspor, men uten at feilmetrikker og modellrangering er beregnet ennå.
+Det foreligger nå en første evalueringsleveranse i form av prognosefiler for 2025 og beregnede `RMSE`-/`MAPE`-tabeller for tre modellspor, både samlet for hele året og per måned. Modellrangering og nærmere tolkning av hva som skiller modellene er fortsatt utsatt til senere aktiviteter.
 
 Presenter funn:
 
