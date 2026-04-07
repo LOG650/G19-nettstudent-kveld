@@ -1,0 +1,15 @@
+segmentdimensjon,segmentverdi,rmse_vinner,rmse_verdi,mape_vinner,mape_verdi,samme_vinner
+quarter,1,tuned RF,569.102258,benchmark lineær,43.5756,False
+quarter,2,tuned RF,573.045877,baseline RF,43.1105,False
+quarter,3,tuned RF,579.593011,tuned RF,42.1674,True
+quarter,4,tuned RF,587.874387,benchmark lineær,45.8486,False
+discount_band,lav,tuned RF,581.124985,tuned RF,46.1414,True
+discount_band,middels,tuned RF,577.111097,tuned RF,44.3732,True
+discount_band,hoy,tuned RF,577.959937,baseline RF,42.3648,False
+Region,Central,tuned RF,584.916079,benchmark lineær,44.3635,False
+Region,East,tuned RF,575.295967,tuned RF,43.8567,True
+Region,South,tuned RF,587.023367,tuned RF,45.029,True
+Region,West,tuned RF,571.775849,baseline RF,43.1784,False
+sales_band,lavt salg,tuned RF,690.438613,baseline RF,89.3929,False
+sales_band,middels salg,tuned RF,192.505074,tuned RF,11.1981,True
+sales_band,hoyt salg,benchmark lineær,699.100729,benchmark lineær,30.3127,True

@@ -1,0 +1,15 @@
+segmentdimensjon,segmentverdi,definisjon
+quarter,1,Rader der `quarter = 1` i testdata for 2025.
+quarter,2,Rader der `quarter = 2` i testdata for 2025.
+quarter,3,Rader der `quarter = 3` i testdata for 2025.
+quarter,4,Rader der `quarter = 4` i testdata for 2025.
+discount_band,lav,Rader med `0.00 <= Discount < 0.15`.
+discount_band,middels,Rader med `0.15 <= Discount < 0.25`.
+discount_band,hoy,Rader med `0.25 <= Discount <= 0.35`.
+Region,Central,Rader der `Region = Central`.
+Region,East,Rader der `Region = East`.
+Region,South,Rader der `Region = South`.
+Region,West,Rader der `Region = West`.
+sales_band,lavt salg,Rader med `Sales_faktisk <= 1179.0` basert på tertiler i hele 2025-testsettet.
+sales_band,middels salg,Rader med `1179.0 < Sales_faktisk <= 1828.0` basert på tertiler i hele 2025-testsettet.
+sales_band,hoyt salg,Rader med `Sales_faktisk > 1828.0` basert på tertiler i hele 2025-testsettet.

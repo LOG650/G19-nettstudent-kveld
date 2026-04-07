@@ -1,0 +1,43 @@
+segmentdimensjon,segmentverdi,modellnavn,modellrolle,antall_rader,rmse_segment,mape_segment_pct
+quarter,1,LinearRegression,benchmark lineær,764,570.434903,43.5756
+quarter,1,RandomForestRegressor,baseline RF,764,580.734323,43.7347
+quarter,1,RandomForestRegressor,tuned RF,764,569.102258,43.6738
+quarter,2,LinearRegression,benchmark lineær,699,578.101576,44.6873
+quarter,2,RandomForestRegressor,baseline RF,699,576.408482,43.1105
+quarter,2,RandomForestRegressor,tuned RF,699,573.045877,43.8989
+quarter,3,LinearRegression,benchmark lineær,880,580.183014,42.4795
+quarter,3,RandomForestRegressor,baseline RF,880,591.949106,42.6677
+quarter,3,RandomForestRegressor,tuned RF,880,579.593011,42.1674
+quarter,4,LinearRegression,benchmark lineær,969,589.943316,45.8486
+quarter,4,RandomForestRegressor,baseline RF,969,602.58901,46.4581
+quarter,4,RandomForestRegressor,tuned RF,969,587.874387,45.894
+discount_band,lav,LinearRegression,benchmark lineær,648,583.012088,46.6607
+discount_band,lav,RandomForestRegressor,baseline RF,648,598.947838,46.9279
+discount_band,lav,RandomForestRegressor,tuned RF,648,581.124985,46.1414
+discount_band,middels,LinearRegression,benchmark lineær,1254,577.891978,44.5059
+discount_band,middels,RandomForestRegressor,baseline RF,1254,587.102137,44.6327
+discount_band,middels,RandomForestRegressor,tuned RF,1254,577.111097,44.3732
+discount_band,hoy,LinearRegression,benchmark lineær,1410,581.408356,42.7595
+discount_band,hoy,RandomForestRegressor,baseline RF,1410,586.739457,42.3648
+discount_band,hoy,RandomForestRegressor,tuned RF,1410,577.959937,42.615
+Region,Central,LinearRegression,benchmark lineær,778,585.829776,44.3635
+Region,Central,RandomForestRegressor,baseline RF,778,595.13275,44.4912
+Region,Central,RandomForestRegressor,tuned RF,778,584.916079,44.3856
+Region,East,LinearRegression,benchmark lineær,921,579.391235,44.1892
+Region,East,RandomForestRegressor,baseline RF,921,587.921203,44.2569
+Region,East,RandomForestRegressor,tuned RF,921,575.295967,43.8567
+Region,South,LinearRegression,benchmark lineær,518,587.587399,45.4848
+Region,South,RandomForestRegressor,baseline RF,518,599.42536,45.2857
+Region,South,RandomForestRegressor,tuned RF,518,587.023367,45.029
+Region,West,LinearRegression,benchmark lineær,1095,573.897094,43.4369
+Region,West,RandomForestRegressor,baseline RF,1095,581.363013,43.1784
+Region,West,RandomForestRegressor,tuned RF,1095,571.775849,43.2709
+sales_band,lavt salg,LinearRegression,benchmark lineær,1105,695.060461,90.786
+sales_band,lavt salg,RandomForestRegressor,baseline RF,1105,694.191153,89.3929
+sales_band,lavt salg,RandomForestRegressor,tuned RF,1105,690.438613,90.2738
+sales_band,middels salg,LinearRegression,benchmark lineær,1104,196.791602,11.3986
+sales_band,middels salg,RandomForestRegressor,baseline RF,1104,224.698056,12.3042
+sales_band,middels salg,RandomForestRegressor,tuned RF,1104,192.505074,11.1981
+sales_band,hoyt salg,LinearRegression,benchmark lineær,1103,699.100729,30.3127
+sales_band,hoyt salg,RandomForestRegressor,baseline RF,1103,713.725344,30.5984
+sales_band,hoyt salg,RandomForestRegressor,tuned RF,1103,699.571643,30.3856
