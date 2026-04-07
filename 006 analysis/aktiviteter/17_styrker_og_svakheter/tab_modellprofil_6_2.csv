@@ -1,0 +1,4 @@
+modellnavn,modellrolle,samlet_vurdering_5_3,samlet_rmse_2025,samlet_mape_2025_pct,rmse_vinnermåneder,mape_vinnermåneder,rmse_vinnersegmenter,mape_vinnersegmenter,tolkbarhet_niva,hovedstyrke,hovedsvakhet
+LinearRegression,benchmark lineær,sekundær,580.394322,44.184,1,3,1,4,høy,Høy tolkbarhet og konkurransedyktig i enkelte segmenter.,Multikollinearitet og manglende regularisering svekker robust koeffisienttolkning.
+RandomForestRegressor,baseline RF,ikke anbefalt,589.284744,44.1162,0,6,0,4,middels,Sterk lokal MAPE-ytelse og nyttig RF-sammenligningspunkt.,Svakest samlet og uten RMSE-seire i måneder eller segmenter.
+RandomForestRegressor,tuned RF,anbefalt,578.259649,43.9706,11,3,13,6,middels,Best samlet 2025 og sterkest på absolutt feil.,MAPE er mer ujevn enn RMSE mellom måneder og segmenter.
