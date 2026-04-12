@@ -1,5 +1,14 @@
 # Endringslogg
 
+## 2026-04-12 - WBS 7.x delt opp i operative rapportunderaktiviteter
+
+- Hva ble endret: Rapportfasen er delt opp fra grove aktivitetspakker til operative underaktiviteter i `7.1.1-7.3.3`. Endringen er synket i `Prosjekt Gantt v2.csv`, `wbs.json`, `project_model.json`, WBS-vedlegget i `prosjektstyringsplan.md` og `status.md`.
+- Hvorfor: Den opprinnelige oppdelingen i `7.1-7.3` var for grov til å gi god styring og sporbarhet mot faktisk arbeid i `rapport.md`. En finere oppdeling gjør det lettere å følge progresjon, fordele arbeid og oppdatere status uten å late som om store deler av rapporten er ferdige.
+- Innledningsstrategi: Innledningen er nå bevisst delt i to steg. `7.1.1` brukes til å skrive en grunninnledning med problemretning, problemstilling, avgrensinger og antagelser, mens `7.1.7` brukes til å ferdigstille innledningen etter at øvrig rapportskriving i `7.1` er gjort.
+- Konsekvens for videre arbeid: `8.1-8.4` har fått forskjøvede `task_id` til `36-39`, `project_model.json` er oppdatert til nivå-3-WBS og aktivitetstelling `39`, og `status.md` har fått åpne sjekkpunkter for hele den nye rapportstrukturen.
+- Avgrensning i denne endringen: `Prosjekt Gantt v2.mpp`, `images/LOG650_Gantt.png` og andre eksporterte planbilder er ikke oppdatert i samme steg, og må eventuelt regenereres manuelt senere.
+- Hvem/beslutningsgrunnlag: Endringen ble gjort i arbeidsøkten 2026-04-12 etter vurdering av at rapportarbeidet i praksis følger flere mindre skrive- og kvalitetssikringssteg enn det den opprinnelige 7.x-strukturen fanget opp.
+
 ## 2026-04-02 - WBS 4.4 avgrenset til tuning av Random Forest
 
 - Hva ble endret: Aktiviteten `4.4 Justere modellparametere` er gjennomført som parameterjustering av `RandomForestRegressor`, mens lineær regresjon beholdes som uendret benchmark-modell.

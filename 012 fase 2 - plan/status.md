@@ -21,7 +21,7 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 - [x] E: Feature engineering er dokumentert i analyseområdet med eget feature-datasett og dokumenterte featurevalg. `verifisert`
 - [x] F: Modellbygging er dokumentert med lineær regresjon i WBS 4.1, Random Forest i WBS 4.2, et felles verifiserings- og oppsummeringssteg i WBS 4.3 og parameterjustering av Random Forest i WBS 4.4. Lineær regresjon står fortsatt som fast benchmark, mens tuned Random Forest er etablert som videre operativ modell. Selve planendringene for 4.3 og 4.4 er dokumentert i `endringslogg.md`. `verifisert`
 - [x] G: Prognoser for 2025, `RMSE`/`MAPE`, modellsammenligning, analyse av viktige variabler, tolkning av modellmønstre, diskusjon av styrker og svakheter og praktisk nytte er nå dokumentert i WBS 5.1, 5.2, 5.3, 5.4, 6.1, 6.2 og 6.3 for lineær regresjon, Random Forest-baseline og tuned Random Forest. `tuned RF` fremstår samlet som anbefalt modell på 2025-data, vinner `RMSE` i de fleste måneder og segmenter, og er nå oversatt til praktisk beslutningsstøtte for innkjøp, lager, kampanjevurdering, ressursplanlegging og ledelsesrapportering. `verifisert`
-- [ ] H: Rapportskriving er påbegynt med korte metode-, modellerings-, analyse-, diskusjons- og praktisk-nytte-notater om WBS 4.1, 4.2, 4.3, 4.4, 5.1, 5.2, 5.3, 5.4, 6.1, 6.2 og 6.3, samt en kort konklusjonssetning, men hoveddelen av rapportarbeidet er fortsatt ikke dokumentert i rapportmappen. `delvis verifisert`
+- [ ] H: Rapportskriving er påbegynt med korte metode-, modellerings-, analyse-, diskusjons- og praktisk-nytte-notater om WBS 4.1, 4.2, 4.3, 4.4, 5.1, 5.2, 5.3, 5.4, 6.1, 6.2 og 6.3, samt en kort konklusjonssetning. Rapportfasen er nå brutt ned i WBS 7.1.1-7.3.3, der innledningen først skrives i grunnform i WBS 7.1.1 og ferdigstilles i WBS 7.1.7 etter at resten av 7.1 er skrevet. `delvis verifisert`
 - [ ] I: Konklusjon og presentasjon er ikke startet som egen avslutningsfase, selv om rapporten nå har fått en kort konklusjonssetning om praktisk bruk. `delvis verifisert`
 
 ## Milepælstatus mot plan
@@ -62,6 +62,23 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 - [x] Starte løpende rapportskriving parallelt med analysearbeidet, i tråd med arbeidsreglene i prosjektet. `påbegynt 2026-03-30, utvidet 2026-04-02 med modellnotater for WBS 4.1, 4.2, 4.3, 4.4 og 5.1, utvidet 2026-04-07 med korte notater for WBS 5.2, 5.3, 5.4, 6.1 og 6.2, og utvidet 2026-04-12 med praktisk nytte i WBS 6.3 og en kort konklusjonssetning`
 - [ ] Oppdatere denne statuslisten etter ukentlige statusmøter og ved milepæler.
 
+## Operativ oppdeling av rapportarbeid (WBS 7.x)
+
+- [ ] WBS 7.1.1: Skrive grunninnledning, problemstilling, avgrensinger og antagelser. Denne aktiviteten skal bare etablere en enkel og funksjonell start på rapporten, ikke ferdigstille innledningen.
+- [ ] WBS 7.1.2: Skrive litteratur og teori.
+- [ ] WBS 7.1.3: Skrive casebeskrivelse.
+- [ ] WBS 7.1.4: Skrive metode og data.
+- [ ] WBS 7.1.5: Skrive modellering, analyse og resultat.
+- [ ] WBS 7.1.6: Skrive diskusjon, konklusjon, sammendrag, abstract og bibliografi.
+- [ ] WBS 7.1.7: Ferdigstille innledning etter at øvrig rapportskriving i WBS 7.1 er gjort, slik at innledningen samsvarer med resten av rapporten.
+- [ ] WBS 7.2.1: Velge hvilke figurer og tabeller som faktisk skal inn i rapporten.
+- [ ] WBS 7.2.2: Lage case- og datakapitlets figurer og tabeller.
+- [ ] WBS 7.2.3: Lage analyse-, resultat- og diskusjonsfigurer og tabeller.
+- [ ] WBS 7.2.4: Sette inn, nummerere og formatere figurer og tabeller i rapporten.
+- [ ] WBS 7.3.1: Gjennomføre struktur- og kravsjekk av rapportutkastet.
+- [ ] WBS 7.3.2: Gjennomføre konsistenssjekk mot analyseartefakter.
+- [ ] WBS 7.3.3: Gjennomføre språkvask, rette henvisninger og låse førsteutkastet.
+
 ## Anbefalt kort prosjektstatus
 
-Prosjektet fremstår per 2026-04-12 som værende ferdig med planfasen, med dataforståelse, datasettdokumentasjon, remappet datarensing, feature engineering, datasplitt, eksplorativ analyse, lineær regresjon for WBS 4.1, Random Forest for WBS 4.2, felles verifisering av treningsgrunnlaget i WBS 4.3, parameterjustering av Random Forest i WBS 4.4, genererte 2025-prognoser i WBS 5.1, beregnede 2025-`RMSE`/`MAPE` i WBS 5.2, dokumentert modellsammenligning i WBS 5.3, analysert variabelprioritering i WBS 5.4, tolket modellmønstre i WBS 6.1, diskutert styrker og svakheter i WBS 6.2 og vurdert praktisk nytte i WBS 6.3. `tuned RF` fremstår samlet som beste modell på 2025-data, og WBS 6.3 viser at modellen kan brukes som standardprognose for innkjøp, lager og aggregert ressursplanlegging, mens rabattfølsomme og svært høye salgsnivåer fortsatt krever ekstra varsomhet. Neste kritiske behov er å ferdigstille større deler av rapporten, særlig casekapitlet, metode/data, figurintegrasjon, bibliografi og en mer fullstendig konklusjon.
+Prosjektet fremstår per 2026-04-12 som værende ferdig med planfasen, med dataforståelse, datasettdokumentasjon, remappet datarensing, feature engineering, datasplitt, eksplorativ analyse, lineær regresjon for WBS 4.1, Random Forest for WBS 4.2, felles verifisering av treningsgrunnlaget i WBS 4.3, parameterjustering av Random Forest i WBS 4.4, genererte 2025-prognoser i WBS 5.1, beregnede 2025-`RMSE`/`MAPE` i WBS 5.2, dokumentert modellsammenligning i WBS 5.3, analysert variabelprioritering i WBS 5.4, tolket modellmønstre i WBS 6.1, diskutert styrker og svakheter i WBS 6.2 og vurdert praktisk nytte i WBS 6.3. `tuned RF` fremstår samlet som beste modell på 2025-data, og WBS 6.3 viser at modellen kan brukes som standardprognose for innkjøp, lager og aggregert ressursplanlegging, mens rabattfølsomme og svært høye salgsnivåer fortsatt krever ekstra varsomhet. Neste kritiske behov er å bruke den nye oppdelingen i WBS 7.x til å skrive en grunninnledning først, fylle resten av rapportkapitlene, og deretter ferdigstille innledningen når øvrig rapporttekst er på plass.

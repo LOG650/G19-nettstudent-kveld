@@ -3,7 +3,7 @@
   "source": {
     "file": "012 fase 2 - plan/Prosjekt Gantt v2.csv",
     "delimiter": ";",
-    "generated_from_rows": 28
+    "generated_from_rows": 39
   },
   "work_packages": [
     {
@@ -237,30 +237,159 @@
       "children": [
         {
           "id": "7.1",
-          "task_id": 22,
-          "name": "Skrive metode og dokumentasjon",
+          "name": "Skrive rapportkapitler og dokumentasjon",
           "duration": "12 days",
           "start_date": "Fri 03.04.26",
           "finish_date": "Tue 14.04.26",
-          "percent_complete": "0%"
+          "percent_complete": "0%",
+          "children": [
+            {
+              "id": "7.1.1",
+              "task_id": 22,
+              "name": "Skrive grunninnledning, problemstilling, avgrensinger og antagelser",
+              "duration": "1 day",
+              "start_date": "Fri 03.04.26",
+              "finish_date": "Fri 03.04.26",
+              "percent_complete": "0%"
+            },
+            {
+              "id": "7.1.2",
+              "task_id": 23,
+              "name": "Litteratur og teori",
+              "duration": "2 days",
+              "start_date": "Sat 04.04.26",
+              "finish_date": "Sun 05.04.26",
+              "percent_complete": "0%"
+            },
+            {
+              "id": "7.1.3",
+              "task_id": 24,
+              "name": "Casebeskrivelse",
+              "duration": "2 days",
+              "start_date": "Mon 06.04.26",
+              "finish_date": "Tue 07.04.26",
+              "percent_complete": "0%"
+            },
+            {
+              "id": "7.1.4",
+              "task_id": 25,
+              "name": "Metode og data",
+              "duration": "2 days",
+              "start_date": "Wed 08.04.26",
+              "finish_date": "Thu 09.04.26",
+              "percent_complete": "0%"
+            },
+            {
+              "id": "7.1.5",
+              "task_id": 26,
+              "name": "Modellering, analyse og resultat",
+              "duration": "2 days",
+              "start_date": "Fri 10.04.26",
+              "finish_date": "Sat 11.04.26",
+              "percent_complete": "0%"
+            },
+            {
+              "id": "7.1.6",
+              "task_id": 27,
+              "name": "Diskusjon, konklusjon, sammendrag, abstract og bibliografi",
+              "duration": "2 days",
+              "start_date": "Sun 12.04.26",
+              "finish_date": "Mon 13.04.26",
+              "percent_complete": "0%"
+            },
+            {
+              "id": "7.1.7",
+              "task_id": 28,
+              "name": "Ferdigstille innledning etter at øvrig rapportskriving er gjort",
+              "duration": "1 day",
+              "start_date": "Tue 14.04.26",
+              "finish_date": "Tue 14.04.26",
+              "percent_complete": "0%"
+            }
+          ]
         },
         {
           "id": "7.2",
-          "task_id": 23,
-          "name": "Lage figurer og visualiseringer",
+          "name": "Lage og integrere figurer, tabeller og visualiseringer",
           "duration": "6 days",
           "start_date": "Wed 15.04.26",
           "finish_date": "Mon 20.04.26",
-          "percent_complete": "0%"
+          "percent_complete": "0%",
+          "children": [
+            {
+              "id": "7.2.1",
+              "task_id": 29,
+              "name": "Velge rapportfigurer og tabeller",
+              "duration": "1 day",
+              "start_date": "Wed 15.04.26",
+              "finish_date": "Wed 15.04.26",
+              "percent_complete": "0%"
+            },
+            {
+              "id": "7.2.2",
+              "task_id": 30,
+              "name": "Lage case- og datakapitlets figurer og tabeller",
+              "duration": "2 days",
+              "start_date": "Thu 16.04.26",
+              "finish_date": "Fri 17.04.26",
+              "percent_complete": "0%"
+            },
+            {
+              "id": "7.2.3",
+              "task_id": 31,
+              "name": "Lage analyse-, resultat- og diskusjonsfigurer og tabeller",
+              "duration": "2 days",
+              "start_date": "Sat 18.04.26",
+              "finish_date": "Sun 19.04.26",
+              "percent_complete": "0%"
+            },
+            {
+              "id": "7.2.4",
+              "task_id": 32,
+              "name": "Sette inn, nummerere og formatere figurer og tabeller i rapporten",
+              "duration": "1 day",
+              "start_date": "Mon 20.04.26",
+              "finish_date": "Mon 20.04.26",
+              "percent_complete": "0%"
+            }
+          ]
         },
         {
           "id": "7.3",
-          "task_id": 24,
-          "name": "Første utkast av rapport ferdig",
+          "name": "Kvalitetssikre og låse førsteutkast",
           "duration": "1 day",
           "start_date": "Tue 21.04.26",
           "finish_date": "Tue 21.04.26",
-          "percent_complete": "0%"
+          "percent_complete": "0%",
+          "children": [
+            {
+              "id": "7.3.1",
+              "task_id": 33,
+              "name": "Struktur- og kravsjekk av rapportutkast",
+              "duration": "0.25 days",
+              "start_date": "Tue 21.04.26",
+              "finish_date": "Tue 21.04.26",
+              "percent_complete": "0%"
+            },
+            {
+              "id": "7.3.2",
+              "task_id": 34,
+              "name": "Konsistenssjekk mot analyseartefakter",
+              "duration": "0.25 days",
+              "start_date": "Tue 21.04.26",
+              "finish_date": "Tue 21.04.26",
+              "percent_complete": "0%"
+            },
+            {
+              "id": "7.3.3",
+              "task_id": 35,
+              "name": "Språkvask, henvisninger og låsing av førsteutkast",
+              "duration": "0.5 days",
+              "start_date": "Tue 21.04.26",
+              "finish_date": "Tue 21.04.26",
+              "percent_complete": "0%"
+            }
+          ]
         }
       ]
     },
@@ -270,7 +399,7 @@
       "children": [
         {
           "id": "8.1",
-          "task_id": 25,
+          "task_id": 36,
           "name": "Revisjon av rapport",
           "duration": "12 days",
           "start_date": "Wed 22.04.26",
@@ -279,7 +408,7 @@
         },
         {
           "id": "8.2",
-          "task_id": 26,
+          "task_id": 37,
           "name": "Skrive endelig konklusjon",
           "duration": "5 days",
           "start_date": "Mon 04.05.26",
@@ -288,7 +417,7 @@
         },
         {
           "id": "8.3",
-          "task_id": 27,
+          "task_id": 38,
           "name": "Forberede presentasjon",
           "duration": "10 days",
           "start_date": "Sat 09.05.26",
@@ -297,7 +426,7 @@
         },
         {
           "id": "8.4",
-          "task_id": 28,
+          "task_id": 39,
           "name": "Presentasjon / prosjektslutt",
           "duration": "1 day",
           "start_date": "Tue 19.05.26",

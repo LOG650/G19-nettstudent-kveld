@@ -9,21 +9,32 @@ ID;Active;Task_Mode;Task_Name;Duration;Start_Date;Finish_Date;Percent_Complete
 8;Yes;Manually Scheduled;Feature engineering;1 day;Thu 12.03.26;Thu 12.03.26;100%
 9;Yes;Manually Scheduled;Splitte trenings- og testdata;1 day;Fri 13.03.26;Fri 13.03.26;100%
 10;Yes;Manually Scheduled;Eksplorativ analyse og visualisering;1 day;Sat 14.03.26;Sat 14.03.26;100%
-11;Yes;Manually Scheduled;Implementere line�r regresjon;3 days;Sun 15.03.26;Tue 17.03.26;0%
-12;Yes;Manually Scheduled;Implementere Random Forest Regressor;3 days;Wed 18.03.26;Fri 20.03.26;0%
-13;Yes;Manually Scheduled;Trene modellene;1 day;Sat 21.03.26;Sat 21.03.26;0%
-14;Yes;Manually Scheduled;Justere modellparametere;1 day;Sun 22.03.26;Sun 22.03.26;0%
-15;Yes;Manually Scheduled;Generere prognoser for 2025;1 day;Mon 23.03.26;Mon 23.03.26;0%
-16;Yes;Manually Scheduled;Beregne RMSE og MAPE;1 day;Tue 24.03.26;Tue 24.03.26;0%
-17;Yes;Manually Scheduled;Sammenligne modellresultater;1 day;Wed 25.03.26;Wed 25.03.26;0%
-18;Yes;Manually Scheduled;Analysere viktige variabler;2 days;Thu 26.03.26;Fri 27.03.26;0%
-19;Yes;Manually Scheduled;Tolke modellresultater;2 days;Sat 28.03.26;Sun 29.03.26;0%
-20;Yes;Manually Scheduled;Diskutere styrker og svakheter;2 days;Mon 30.03.26;Tue 31.03.26;0%
-21;Yes;Manually Scheduled;Vurdere praktisk nytte;2 days;Wed 01.04.26;Thu 02.04.26;0%
-22;Yes;Manually Scheduled;Skrive metode og dokumentasjon;12 days;Fri 03.04.26;Tue 14.04.26;0%
-23;Yes;Manually Scheduled;Lage figurer og visualiseringer;6 days;Wed 15.04.26;Mon 20.04.26;0%
-24;Yes;Manually Scheduled;F�rste utkast av rapport ferdig;1 day;Tue 21.04.26;Tue 21.04.26;0%
-25;Yes;Manually Scheduled;Revisjon av rapport;12 days;Wed 22.04.26;Sun 03.05.26;0%
-26;Yes;Manually Scheduled;Skrive endelig konklusjon;5 days;Mon 04.05.26;Fri 08.05.26;0%
-27;Yes;Manually Scheduled;Forberede presentasjon;10 days;Sat 09.05.26;Mon 18.05.26;0%
-28;Yes;Manually Scheduled;Presentasjon / prosjektslutt;1 day;Tue 19.05.26;Tue 19.05.26;0%
+11;Yes;Manually Scheduled;Implementere lineær regresjon;3 days;Sun 15.03.26;Tue 17.03.26;100%
+12;Yes;Manually Scheduled;Implementere Random Forest Regressor;3 days;Wed 18.03.26;Fri 20.03.26;100%
+13;Yes;Manually Scheduled;Trene modellene;1 day;Sat 21.03.26;Sat 21.03.26;100%
+14;Yes;Manually Scheduled;Justere modellparametere;1 day;Sun 22.03.26;Sun 22.03.26;100%
+15;Yes;Manually Scheduled;Generere prognoser for 2025;1 day;Mon 23.03.26;Mon 23.03.26;100%
+16;Yes;Manually Scheduled;Beregne RMSE og MAPE;1 day;Tue 24.03.26;Tue 24.03.26;100%
+17;Yes;Manually Scheduled;Sammenligne modellresultater;1 day;Wed 25.03.26;Wed 25.03.26;100%
+18;Yes;Manually Scheduled;Analysere viktige variabler;2 days;Thu 26.03.26;Fri 27.03.26;100%
+19;Yes;Manually Scheduled;Tolke modellresultater;2 days;Sat 28.03.26;Sun 29.03.26;100%
+20;Yes;Manually Scheduled;Diskutere styrker og svakheter;2 days;Mon 30.03.26;Tue 31.03.26;100%
+21;Yes;Manually Scheduled;Vurdere praktisk nytte;2 days;Wed 01.04.26;Thu 02.04.26;100%
+22;Yes;Manually Scheduled;Skrive grunninnledning, problemstilling, avgrensinger og antagelser;1 day;Fri 03.04.26;Fri 03.04.26;0%
+23;Yes;Manually Scheduled;Litteratur og teori;2 days;Sat 04.04.26;Sun 05.04.26;0%
+24;Yes;Manually Scheduled;Casebeskrivelse;2 days;Mon 06.04.26;Tue 07.04.26;0%
+25;Yes;Manually Scheduled;Metode og data;2 days;Wed 08.04.26;Thu 09.04.26;0%
+26;Yes;Manually Scheduled;Modellering, analyse og resultat;2 days;Fri 10.04.26;Sat 11.04.26;0%
+27;Yes;Manually Scheduled;Diskusjon, konklusjon, sammendrag, abstract og bibliografi;2 days;Sun 12.04.26;Mon 13.04.26;0%
+28;Yes;Manually Scheduled;Ferdigstille innledning etter at øvrig rapportskriving er gjort;1 day;Tue 14.04.26;Tue 14.04.26;0%
+29;Yes;Manually Scheduled;Velge rapportfigurer og tabeller;1 day;Wed 15.04.26;Wed 15.04.26;0%
+30;Yes;Manually Scheduled;Lage case- og datakapitlets figurer og tabeller;2 days;Thu 16.04.26;Fri 17.04.26;0%
+31;Yes;Manually Scheduled;Lage analyse-, resultat- og diskusjonsfigurer og tabeller;2 days;Sat 18.04.26;Sun 19.04.26;0%
+32;Yes;Manually Scheduled;Sette inn, nummerere og formatere figurer og tabeller i rapporten;1 day;Mon 20.04.26;Mon 20.04.26;0%
+33;Yes;Manually Scheduled;Struktur- og kravsjekk av rapportutkast;0.25 days;Tue 21.04.26;Tue 21.04.26;0%
+34;Yes;Manually Scheduled;Konsistenssjekk mot analyseartefakter;0.25 days;Tue 21.04.26;Tue 21.04.26;0%
+35;Yes;Manually Scheduled;Språkvask, henvisninger og låsing av førsteutkast;0.5 days;Tue 21.04.26;Tue 21.04.26;0%
+36;Yes;Manually Scheduled;Revisjon av rapport;12 days;Wed 22.04.26;Sun 03.05.26;0%
+37;Yes;Manually Scheduled;Skrive endelig konklusjon;5 days;Mon 04.05.26;Fri 08.05.26;0%
+38;Yes;Manually Scheduled;Forberede presentasjon;10 days;Sat 09.05.26;Mon 18.05.26;0%
+39;Yes;Manually Scheduled;Presentasjon / prosjektslutt;1 day;Tue 19.05.26;Tue 19.05.26;0%

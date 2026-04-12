@@ -599,9 +599,23 @@ Eval --> Result
 *** 6.3 Vurdere praktisk nytte
 
 ** 7. Rapport og dokumentasjon
-*** 7.1 Skrive metode og dokumentasjon
-*** 7.2 Lage figurer og visualiseringer
-*** 7.3 Første utkast av rapport
+*** 7.1 Skrive rapportkapitler og dokumentasjon
+**** 7.1.1 Skrive grunninnledning, problemstilling, avgrensinger og antagelser
+**** 7.1.2 Litteratur og teori
+**** 7.1.3 Casebeskrivelse
+**** 7.1.4 Metode og data
+**** 7.1.5 Modellering, analyse og resultat
+**** 7.1.6 Diskusjon, konklusjon, sammendrag, abstract og bibliografi
+**** 7.1.7 Ferdigstille innledning etter at øvrig rapportskriving er gjort
+*** 7.2 Lage og integrere figurer, tabeller og visualiseringer
+**** 7.2.1 Velge rapportfigurer og tabeller
+**** 7.2.2 Lage case- og datakapitlets figurer og tabeller
+**** 7.2.3 Lage analyse-, resultat- og diskusjonsfigurer og tabeller
+**** 7.2.4 Sette inn, nummerere og formatere figurer og tabeller i rapporten
+*** 7.3 Kvalitetssikre og låse førsteutkast
+**** 7.3.1 Struktur- og kravsjekk av rapportutkast
+**** 7.3.2 Konsistenssjekk mot analyseartefakter
+**** 7.3.3 Språkvask, henvisninger og låsing av førsteutkast
 
 ** 8. Ferdigstillelse
 *** 8.1 Revisjon av rapport

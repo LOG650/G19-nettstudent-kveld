@@ -35,7 +35,7 @@
       "primary_keys": [
         "work_packages"
       ],
-      "id_format": "Hovedpakke.nivå2 (f.eks. 4.2)"
+      "id_format": "Hovedpakke.nivå2.nivå3 ved behov (f.eks. 7.1.7)"
     }
   },
   "integration": {
@@ -110,7 +110,7 @@
   "summary": {
     "requirement_count": 7,
     "wbs_work_package_count": 8,
-    "wbs_activity_count": 28,
+    "wbs_activity_count": 39,
     "source_files": [
       "012 fase 2 - plan/core.json",
       "012 fase 2 - plan/requirements.json",
