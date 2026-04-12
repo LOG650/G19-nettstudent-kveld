@@ -228,7 +228,7 @@ Tolkningen knytter disse mønstrene til variabelsignalene fra WBS 5.4: `Discount
 
 ## Resultat
 
-Det foreligger nå en første evalueringsleveranse i form av prognosefiler for 2025, beregnede `RMSE`-/`MAPE`-tabeller, en eksplisitt modellsammenligning for tre modellspor, en første rangering av viktige variabler, en første tolkning av modellmønstrene og en første diskusjon av styrker og svakheter. Samlet for hele 2025 er tuned Random Forest best på både `RMSE` og `MAPE`, men månedsnivået viser at vinnermodellen varierer med valgt metrikk i store deler av året. Variabelanalysen peker samtidig på `Discount` og flere kalendervariabler som de tydeligste signalene i den anbefalte modellen, mens regionsignalene `Region_East`, `Region_West` og `Region_Central` også ligger høyt. WBS 6.1 viser videre at tuned Random Forest følger salgsnivå best på `RMSE` i lavt og middels salg, mens benchmark lineær er marginalt best i det høyeste salgssegmentet. WBS 6.2 viser i tillegg at modellvalget er robust på absoluttfeil innenfor dette prosjektoppsettet, men at generaliserbarheten er mer begrenset enn påliteligheten. Nærmere vurdering av praktisk nytte for caset er fortsatt utsatt til senere aktiviteter.
+Det foreligger nå en første evalueringsleveranse i form av prognosefiler for 2025, beregnede `RMSE`-/`MAPE`-tabeller, en eksplisitt modellsammenligning for tre modellspor, en første rangering av viktige variabler, en første tolkning av modellmønstrene, en første diskusjon av styrker og svakheter og en første vurdering av praktisk nytte. Samlet for hele 2025 er tuned Random Forest best på både `RMSE` og `MAPE`, men månedsnivået viser at vinnermodellen varierer med valgt metrikk i store deler av året. Variabelanalysen peker samtidig på `Discount` og flere kalendervariabler som de tydeligste signalene i den anbefalte modellen, mens regionsignalene `Region_East`, `Region_West` og `Region_Central` også ligger høyt. WBS 6.1 viser videre at tuned Random Forest følger salgsnivå best på `RMSE` i lavt og middels salg, mens benchmark lineær er marginalt best i det høyeste salgssegmentet. WBS 6.2 viser i tillegg at modellvalget er robust på absoluttfeil innenfor dette prosjektoppsettet, men at generaliserbarheten er mer begrenset enn påliteligheten. WBS 6.3 oversetter disse funnene videre til praktisk beslutningsstøtte for Dagligvare innen innkjøp og lager, kampanje og rabatt, bemanning og ressursplanlegging og ledelsesrapportering.
 
 Presenter funn:
 
@@ -242,13 +242,29 @@ Presenter funn:
 
 WBS 6.2 viser at tuned Random Forest er det mest robuste modellvalget når absolutte prognoseavvik prioriteres. Modellen er best samlet i 2025 og vinner `RMSE` i `11` av `12` måneder og `13` av `14` tolkingssegmenter. Samtidig har benchmark lineær høyere tolkbarhet og er fortsatt konkurransedyktig i enkelte segmenter, særlig på prosentfeil og i det høyeste salgssegmentet. Baseline Random Forest er svakest samlet, men har lokal styrke på `MAPE` og fungerer derfor som et nyttig sammenligningspunkt for å synliggjøre gevinsten av tuning.
 
-Påliteligheten i funnene styrkes av et renset og sporbart datagrunnlag med `9994` rader, `0` manglende verdier, `0` dubletter og et tydelig tidsdelt trenings- og testoppsett. Generaliserbarheten er likevel begrenset fordi analysen bygger på én simulert virksomhet, ett datasett, et smalt modellomfang og ingen eksterne makroøkonomiske faktorer. I tillegg er analysen prediktiv og ikke kausal, slik at variabelsignalene bør brukes som prognosestøtte og ikke som bevis for årsakssammenhenger. Praktiske implikasjoner for caset tas videre i WBS 6.3.
+Påliteligheten i funnene styrkes av et renset og sporbart datagrunnlag med `9994` rader, `0` manglende verdier, `0` dubletter og et tydelig tidsdelt trenings- og testoppsett. Generaliserbarheten er likevel begrenset fordi analysen bygger på én simulert virksomhet, ett datasett, et smalt modellomfang og ingen eksterne makroøkonomiske faktorer. I tillegg er analysen prediktiv og ikke kausal, slik at variabelsignalene bør brukes som prognosestøtte og ikke som bevis for årsakssammenhenger.
+
+### Praktisk nytte for innkjøp og lager
+
+For Dagligvare er den tydeligste praktiske nytten knyttet til innkjøp og overordnet lagerplanlegging. Når absolutte prognoseavvik prioriteres, fremstår tuned Random Forest som det mest relevante standardvalget fordi modellen er best samlet på `RMSE`, vinner `11` av `12` måneder på `RMSE` og `13` av `14` tolkingssegmenter. Det betyr ikke at rapporten dokumenterer lageroptimalisering, men at modellen gir det sterkeste grunnlaget i dette prosjektet for å treffe bedre på totalnivå i planlagte bestillinger og dermed redusere risikoen for for lave eller for høye volumanslag.
+
+### Praktisk nytte for kampanje og rabatt
+
+Kampanje- og rabattvurderinger krever mer varsom bruk. Variabelanalysen viser at `Discount` er det sterkeste signalet i den anbefalte modellen, og WBS 6.1 viser samtidig at prosentfeilen varierer mer enn absoluttfeilen i rabattutsatte segmenter. Det gjør tuned Random Forest relevant som hovedmodell også her, men med en ekstra kontroll mot `MAPE`, særlig i segmentet med høy rabatt der baseline Random Forest er best på prosentfeil. Praktisk betyr dette at Dagligvare kan bruke tuned Random Forest til hovedprognosen i kampanjeperioder, men bør tolke prosentavvik særskilt før tallene brukes direkte som støtte for rabattnære beslutninger.
+
+### Praktisk nytte for bemanning og ressursplanlegging
+
+Funnene har også nytte for aggregert bemannings- og ressursplanlegging fordi tuned Random Forest viser sterk stabilitet på `RMSE` både per måned og på tvers av kvartaler. Dette gir et mer robust bilde av forventet aktivitetsnivå gjennom året enn de svakere modellsporene. Samtidig viser tolkingssegmentene at benchmark lineær er best i segmentet for høyt salgsnivå, så toppbelastning bør behandles mer varsomt enn normal drift. Praktisk sett kan modellen derfor støtte overordnet kapasitetsplanlegging, men ikke leses som en ferdig løsning for butikkbemanning eller skiftoptimalisering.
+
+### Ledelsesrapportering og forbehold
+
+I ledelsesrapportering bør tuned Random Forest være hovedmodellen fordi den er best samlet på både `RMSE` og `MAPE`, mens benchmark lineær brukes som forklaringsstøtte når retningen i sentrale signaler må kommuniseres enkelt. Dette kan gjøre tekniske modellfunn mer forståelige for interessenter som er opptatt av innkjøp, kampanjer og ressursplanlegging. Samtidig må slike forklaringer holdes innenfor prosjektets avgrensning: analysen er prediktiv, ikke kausal, og verken rabatt-, region- eller kalendersignalene kan brukes som bevis for hvorfor salget endrer seg.
 
 ---
 
 ## Konklusjon
 
-Oppsummer hovedfunn i lys av problemstilling.
+Analysen viser at tuned Random Forest er det beste samlede modellvalget for å predikere salg i 2025 i dette caset, mens `Discount`, kalendervariabler og regionsignaler fremstår som de viktigste prediktive faktorene. I praksis kan Dagligvare bruke tuned Random Forest som standardprognose for innkjøp, lager og overordnet ressursplanlegging, mens benchmark lineær brukes som forklaringsstøtte og rabatt- eller toppbelastningssituasjoner kontrolleres særskilt.
 
 ---
 
