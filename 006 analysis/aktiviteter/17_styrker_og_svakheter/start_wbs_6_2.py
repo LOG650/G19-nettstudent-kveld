@@ -512,7 +512,7 @@ def lag_markdown(modellprofil_df: pd.DataFrame, begrensninger_df: pd.DataFrame) 
         "",
         "## Avgrensning mot WBS 6.3",
         "",
-        f"- WBS 6.2 vurderer kvalitet, robusthet og begrensninger. Spørsmålet om hva dette betyr for beslutningsstøtte, lager, kampanjer og praktisk bruk i PowerHorse tas videre i WBS 6.3.",
+        f"- WBS 6.2 vurderer kvalitet, robusthet og begrensninger. Spørsmålet om hva dette betyr for beslutningsstøtte, lager, kampanjer og praktisk bruk i Dagligvare tas videre i WBS 6.3.",
     ]
     return "\n".join(linjer) + "\n"
 

@@ -109,7 +109,7 @@ Marker denne setningen og skriv inn forfattererklæring dersom nødvendig.
 - [2 Litteratur](#2-litteratur)
 - [3 Teori](#3-teori)
 - [4 Casebeskrivelse](#4-casebeskrivelse)
-  - [4.1 PowerHorse og beslutningssituasjonen](#41-powerhorse-og-beslutningssituasjonen)
+  - [4.1 Dagligvare og beslutningssituasjonen](#41-dagligvare-og-beslutningssituasjonen)
   - [4.2 Historisk salgsutvikling](#42-historisk-salgsutvikling)
   - [4.3 Sesongmønster i salget](#43-sesongmønster-i-salget)
   - [4.4 Utfordringer dårlige prognoser medfører i bedriften](#44-utfordringer-dårlige-prognoser-medfører-i-bedriften)
@@ -161,7 +161,7 @@ Analysen bygger på følgende eksplisitte antagelser:
 
 ## 2 Litteratur
 
-I salgsprognose og etterspørselspredikering er to metodetrandisjoner spesielt relevante: klassisk statistisk regresjon og ensemble-basert maskinlæring. Begge er godt dokumenterte tilnærminger til prediktiv modellering i handels- og forretningskontekster.
+I salgsprognose og etterspørselspredikering er to metodetradisjoner spesielt relevante: klassisk statistisk regresjon og ensemble-basert maskinlæring. Begge er godt dokumenterte tilnærminger til prediktiv modellering i handels- og forretningskontekster.
 
 Multippel lineær regresjon er en veletablert statistisk metode for å predikere en kontinuerlig utfallsvariabel fra flere forklaringsvariabler. IBM (u.å.-a) framhever at metoden er godt egnet for å avdekke mønstre i salgs- og innkjøpsdata og hjelpe ledere med å forutsi etterspørselsperioder for produkter. GeeksforGeeks (2026a) understreker at lineær regresjon er effektiv beregningskostnadsvis og gir et solid utgangspunkt for modellsammenlikning. Et fellestrekk i litteraturen er at metoden krever at flere antagelser er oppfylt: residualene skal følge normalfordelingen, variansen skal være konstant over alle prediktornivåer (homoskedastisitet), og det skal ikke være perfekt multikollinearitet mellom forklaringsvariablene (IBM, u.å.-a; GeeksforGeeks, 2026a). Brudd på disse antagelsene svekker tolkningsvaliditeten, men ikke nødvendigvis prediksjonskraften.
 
@@ -177,7 +177,7 @@ De tilgjengelige kildene for dette prosjektet er webbaserte oppslagsverk fra IBM
 
 ### 3.1 Multippel lineær regresjon
 
-Multippel lineær regresjon er en supervísert læringsmetode som modellerer forholdet mellom en avhengig variabel og to eller flere uavhengige forklaringsvariabler. Modellen uttrykkes som:
+Multippel lineær regresjon er en supervisert læringsmetode som modellerer forholdet mellom en avhengig variabel og to eller flere uavhengige forklaringsvariabler. Modellen uttrykkes som:
 
 $\hat{y} = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_n x_n$
 
@@ -231,19 +231,19 @@ Når RMSE og MAPE peker på ulike vinnere, skyldes det at en modell kan ha lavt 
 
 **Data leakage** oppstår når variabler som ikke ville vært tilgjengelige på prediksjonstidspunktet inkluderes i modellen. I dette prosjektet er `Profit` ekskludert fordi den kun er kjent etter at salget er gjennomført.
 
-**Tidsbasert oppsplitting** er valgt fremfor tilfeldig oppsplitting. Treningsdata er 2022–2023, valideringsdata er 2024 og testdata er 2025. Tilfeldig oppsplitting ville tillate fremtidige observasjoner å inngå i treningen, noe som gir kunstig god ytelse og ikke reflekterer reell prediksjon fremover i tid.
+**Tidsbasert oppsplitting** er valgt fremfor tilfeldig oppsplitting. Treningsdata er 2022–2024 og testdata er 2025. Tilfeldig oppsplitting ville tillate fremtidige observasjoner å inngå i treningen, noe som gir kunstig god ytelse og ikke reflekterer reell prediksjon fremover i tid. I WBS 4.4 brukes 2024 i tillegg som intern valideringsperiode for hyperparametertuning av Random Forest, mens lineær regresjon beholdes med det fulle treningsgrunnlaget.
 
 ---
 
 ## 4 Casebeskrivelse
 
-### 4.1 PowerHorse og beslutningssituasjonen
+### 4.1 Dagligvare og beslutningssituasjonen
 
-PowerHorse er en simulert dagligvarekjede som opererer på tvers av fem regioner: West, East, Central, South og North. Kjeden fører syv produktkategorier – Snacks, Eggs/Meat/Fish, Fruits & Veggies, Bakery, Beverages, Food Grains og Oil & Masala – fordelt på 23 subkategorier. Datasettet som danner analysegrunnlaget inneholder 9 994 daglige salgstransaksjoner fra perioden 2022–2025, fordelt på 24 byer.
+Dagligvare er en simulert dagligvarekjede som opererer på tvers av fem regioner: West, East, Central, South og North. Kjeden fører syv produktkategorier – Snacks, Eggs/Meat/Fish, Fruits & Veggies, Bakery, Beverages, Food Grains og Oil & Masala – fordelt på 23 subkategorier. Datasettet som danner analysegrunnlaget inneholder 9 994 daglige salgstransaksjoner fra perioden 2022–2025, fordelt på 24 byer.
 
 Regionfordelingen i datasettet er skjev: West-regionen utgjør 32 % av observasjonene, East 28 %, Central 23 % og South 16 %. North-regionen er representert med bare én observasjon og er ikke et meningsfullt analysesegment. Produktkategoriene er jevnt fordelt med mellom 14 og 15 % av observasjonene hver, noe som betyr at ingen enkelt kategori dominerer datasettet.
 
-PowerHorses operative planlegging er avhengig av pålitelige etterspørselsprognoser. Salget varierer med sesong, rabatter og regionale forhold, og konsekvensene av dårlige prognoser er direkte synlige i driften: for høye bestillinger gir svinn og bundet kapital, mens for lave bestillinger fører til utsolgte varer og tapte inntekter. Behovet for mer presise prognoser er dermed sentralt for innkjøp, lager, kampanjevurdering og ressursplanlegging.
+Dagligvares operative planlegging er avhengig av pålitelige etterspørselsprognoser. Salget varierer med sesong, rabatter og regionale forhold, og konsekvensene av dårlige prognoser er direkte synlige i driften: for høye bestillinger gir svinn og bundet kapital, mens for lave bestillinger fører til utsolgte varer og tapte inntekter. Behovet for mer presise prognoser er dermed sentralt for innkjøp, lager, kampanjevurdering og ressursplanlegging.
 
 Figur 4.1 viser gjennomsnittlig salgsnivå per produktkategori. Eggs, Meat & Fish skiller seg ut med det høyeste gjennomsnittlige salgsnivået i datasettet.
 
@@ -276,11 +276,11 @@ Figur 4.3 viser gjennomsnittlig salg per måned for henholdsvis trenings- og tes
 
 ### 4.4 Utfordringer dårlige prognoser medfører i bedriften
 
-I dagligvarehandel er konsekvensene av unøyaktige prognoser direkte synlige i driften. For høye bestillinger fører til svinn av ferskvarer og bundet kapital i lager, noe som reduserer lønnsomhet og fleksibilitet. For lave bestillinger gir utsolgte varer, tapte inntekter og risiko for å svekke kundelojaliteten.
+For Dagligvare forsterkes planleggingsrisikoen av et sortiment som spenner fra ferske varer med kort holdbarhet til tørrvarer med lengre holdbarhetsperiode. Overskuddsbestillinger fører til direkte svinn og bundet kapital – konsekvenser som er særlig kostbare i kategorier som Eggs, Meat & Fish og Fruits & Veggies. Underestimering gir tomme hyller, tapte inntekter og risiko for å svekke kundelojaliteten.
 
-Disse utfordringene gjelder særlig for kategorier med kort holdbarhet og høy salgsrate, som Eggs, Meat & Fish og Fruits & Veggies, der feilmarginen i planleggingen er smalere enn for tørrvarer. Salgets sesongvariasjon og rabattavhengighet – slik de fremgår av det historiske mønsteret i figur 4.3 – gjør at enkle tommelfingerregler for innkjøp gir dårlige resultater gjennom året.
+Sesongvariasjonen i figur 4.3 viser at salget svinger markant gjennom året – med topp i oktober og bunnpunkt i juni. Kombinert med rabattavhengighet gjør dette at enkle tommelfingerregler for innkjøp gir dårlige resultater i perioder med høy kampanjeaktivitet eller sesongtopper.
 
-For PowerHorse er den praktiske konsekvensen at nøyaktige etterspørselsprognoser for 2025 kan forbedre innkjøpsplanlegging og lagerstyring, støtte vurderingen av kampanjeeffekter og gi grunnlag for mer presis ressursplanlegging i perioder med høy og lav etterspørsel.
+Nøyaktige etterspørselsprognoser for 2025 kan gi Dagligvare et bedre grunnlag for innkjøpsplanlegging og lagerstyring, støtte vurderingen av kampanjeeffekter og bidra til mer presis ressursplanlegging i perioder med høy og lav etterspørsel.
 
 ---
 

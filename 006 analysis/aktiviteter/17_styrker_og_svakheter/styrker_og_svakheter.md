@@ -37,4 +37,4 @@
 
 ## Avgrensning mot WBS 6.3
 
-- WBS 6.2 vurderer kvalitet, robusthet og begrensninger. Spørsmålet om hva dette betyr for beslutningsstøtte, lager, kampanjer og praktisk bruk i PowerHorse tas videre i WBS 6.3.
+- WBS 6.2 vurderer kvalitet, robusthet og begrensninger. Spørsmålet om hva dette betyr for beslutningsstøtte, lager, kampanjer og praktisk bruk i Dagligvare tas videre i WBS 6.3.

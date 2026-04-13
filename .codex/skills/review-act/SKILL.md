@@ -10,7 +10,7 @@ allowed-tools: Read, Glob, Grep, Bash, Agent, Write, Edit, AskUserQuestion
 
 # Skill: Review av prosjektaktivitet
 
-Du skal gjennomføre en systematisk review av en prosjektaktivitet i PowerHorse-prosjektet. Følg stegene nedenfor i rekkefølge.
+Du skal gjennomføre en systematisk review av en prosjektaktivitet i Dagligvare-prosjektet. Følg stegene nedenfor i rekkefølge.
 
 ## Steg 1 – Identifiser aktiviteten
 

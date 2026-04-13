@@ -33,7 +33,7 @@
 - `2 Litteratur`: relevante kilder og tidligere arbeid som knyttes direkte til problemstillingen.
 - `3 Teori`: teoretisk rammeverk og begreper som brukes senere i metode, analyse og diskusjon.
 - `4 Casebeskrivelse`: bedriften, beslutningssituasjonen og historiske fakta fra datasettet.
-- `4.1 PowerHorse og beslutningssituasjonen`: hva bedriften trenger beslutningsstøtte til.
+- `4.1 Dagligvare og beslutningssituasjonen`: hva bedriften trenger beslutningsstøtte til.
 - `4.2 Historisk salgsutvikling`: beskrivende figurer og tekst om utvikling over tid.
 - `4.3 Sesongmønster i salget`: sesongbeskrivelse med figur og eventuell tabell i tallform.
 - `4.4 Utfordringer dårlige prognoser medfører i bedriften`: konsekvenser for produksjon, lager og planlegging.

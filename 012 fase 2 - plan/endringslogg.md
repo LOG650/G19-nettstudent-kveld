@@ -1,5 +1,12 @@
 # Endringslogg
 
+## 2026-04-13 - Selskapsnavn rettet fra «PowerHorse» til «Dagligvare»
+
+- Hva ble endret: Navnet «PowerHorse» er erstattet med «Dagligvare» i `rapport.md` (kap. 4.1 overskrift, brødtekst og kap. 4.4), og AGENTS.md linje 36 (`4.1 PowerHorse og beslutningssituasjonen`) er identifisert som en mal-rest som ikke reflekterer prosjektets faktiske case.
+- Hvorfor: Caset i dette prosjektet gjelder en simulert dagligvarekjede kalt «Dagligvare», ikke «PowerHorse». «PowerHorse» stammer fra rapportmalen i AGENTS.md og ble ved en feil brukt som selskapsnavn da casebeskrivelsen ble skrevet i WBS 7.1.3.
+- Konsekvens for videre arbeid: Bruk alltid «Dagligvare» som selskapsnavn i rapport, planfiler og analyse. Seksjonsoverskriften «4.1 PowerHorse og beslutningssituasjonen» i AGENTS.md er en mal-plassholder og skal leses som «4.1 Dagligvare og beslutningssituasjonen» i det faktiske prosjektet.
+- Hvem/beslutningsgrunnlag: Rettet i arbeidsøkten 2026-04-13 etter at feilen ble oppdaget under gjennomgang av rapport.md.
+
 ## 2026-04-12 - WBS 7.x delt opp i operative rapportunderaktiviteter
 
 - Hva ble endret: Rapportfasen er delt opp fra grove aktivitetspakker til operative underaktiviteter i `7.1.1-7.3.3`. Endringen er synket i `Prosjekt Gantt v2.csv`, `wbs.json`, `project_model.json`, WBS-vedlegget i `prosjektstyringsplan.md` og `status.md`.

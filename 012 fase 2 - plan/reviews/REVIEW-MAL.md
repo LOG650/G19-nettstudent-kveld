@@ -1,7 +1,7 @@
 # Review av aktivitet X.X – «Aktivitetsnavn»
 
 <!--
-  Mal for aktivitetsreview i PowerHorse-prosjektet.
+  Mal for aktivitetsreview i Dagligvare-prosjektet.
   Basert på erfaringer fra review av aktivitet 3.1.
 
   Bruk:
