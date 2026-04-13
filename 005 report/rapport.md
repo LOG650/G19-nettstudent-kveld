@@ -102,95 +102,93 @@ Marker denne setningen og skriv inn forfattererklæring dersom nødvendig.
 
 ## Innhold <!-- omit in toc -->
 
-- [Innledning](#innledning)
-- [Problemstilling](#problemstilling)
-- [Delproblemer (valgfri)](#delproblemer-valgfri)
-- [Avgrensinger](#avgrensinger)
-- [Antagelser](#antagelser)
-- [Litteratur](#litteratur)
-- [Teori](#teori)
-- [Casebeskrivelse](#casebeskrivelse)
-- [Metode og data](#metode-og-data)
-  - [Metode](#metode)
-  - [Data](#data)
-- [Modellering](#modellering)
-- [Analyse](#analyse)
-- [Resultat](#resultat)
-- [Diskusjon](#diskusjon)
-- [Konklusjon](#konklusjon)
-- [Bibliografi](#bibliografi)
-- [Vedlegg](#vedlegg)
+- [1 Innledning](#1-innledning)
+  - [1.1 Problemstilling](#11-problemstilling)
+  - [1.3 Avgrensinger](#13-avgrensinger)
+  - [1.4 Antagelser](#14-antagelser)
+- [2 Litteratur](#2-litteratur)
+- [3 Teori](#3-teori)
+- [4 Casebeskrivelse](#4-casebeskrivelse)
+  - [4.1 PowerHorse og beslutningssituasjonen](#41-powerhorse-og-beslutningssituasjonen)
+  - [4.2 Historisk salgsutvikling](#42-historisk-salgsutvikling)
+  - [4.3 Sesongmønster i salget](#43-sesongmønster-i-salget)
+  - [4.4 Utfordringer dårlige prognoser medfører i bedriften](#44-utfordringer-dårlige-prognoser-medfører-i-bedriften)
+- [5 Metode og data](#5-metode-og-data)
+  - [5.1 Metode](#51-metode)
+  - [5.2 Data](#52-data)
+- [6 Modellering](#6-modellering)
+- [7 Analyse](#7-analyse)
+- [8 Resultat](#8-resultat)
+- [9 Diskusjon](#9-diskusjon)
+- [10 Konklusjon](#10-konklusjon)
+- [11 Bibliografi](#11-bibliografi)
+- [12 Vedlegg](#12-vedlegg)
 
 ---
 
-## Innledning
+## 1 Innledning
 
-(tekst beholdt, lett ryddet til markdown)
+Dagligvarehandel er preget av høy variabilitet i etterspørsel. Salget svinger med sesong, kampanjer, rabatter og regionale forhold, og konsekvensene av dårlige prognoser er direkte synlige i driften: for høye bestillinger fører til svinn og bundet kapital, mens for lave bestillinger gir utsolgte varer og tapte inntekter. Behovet for mer presise etterspørselsprognoser er derfor sentralt for virksomheter som ønsker å ta bedre beslutninger knyttet til innkjøp, lager, kampanjer og ressursplanlegging.
 
-Introduksjonen bør ikke være for lang (1–4 sider)...
+Maskinlæringsbaserte modeller som Random Forest Regressor gir nye muligheter for å fange opp komplekse mønstre i historiske salgsdata sammenlignet med tradisjonelle lineære tilnærminger. I dette prosjektet analyseres et datasett som simulerer en dagligvarekjede med 9 994 daglige salgsrader over perioden 2022–2025, med mål om å utvikle og evaluere prognosemodeller for salg i 2025.
 
-**Svar på spørsmål:**
+Rapporten er strukturert slik at casebeskrivelsen presenterer bedriften og det historiske salget i kapittel 4, metode og datagrunnlag beskrives i kapittel 5, modellvalg og spesifikasjon i kapittel 6, analyse og resultater i kapittel 7–8, og diskusjon og konklusjon i kapittel 9–10.
 
-- Hvilket tema handler oppgaven om?
-- Hvorfor er tema aktuelt?
-- Hva har blitt gjort tidligere?
-- Hva er problemstillingen?
-- Hvilke avgrensninger gjøres?
+## 1.1 Problemstilling
 
----
+Hvordan kan multippel lineær regresjon og Random Forest Regressor brukes til å forutsi salg for 2025 for en simulert dagligvarekjede, og hvilke faktorer påvirker salget mest?
 
-## Problemstilling
+## 1.3 Avgrensinger
 
-Problemstillingen skal være et *hvordan* eller *hvorfor*-spørsmål.
+Analysen er avgrenset på følgende punkter:
 
-Viktige krav:
+1. **Prediksjon, ikke kausal analyse.** Prosjektet undersøker hvilke variabler som predikerer salget best, ikke hvorfor salget endrer seg. Kausale slutninger forutsetter eksperimentelt design og ligger utenfor prosjektets rammer.
+2. **Ingen lageroptimalisering.** Rapporten dokumenterer ikke lageroptimalisering. Det krever kostnads- og volumparametere som ikke inngår i datasettet.
+3. **Ingen makroøkonomiske faktorer.** Eksterne variabler som inflasjon, rente og konjunkturer er ikke inkludert. Datasettet gir ikke grunnlag for dette, og inkludering av slike variabler ville kreve egne datakilder.
+4. **Én simulert virksomhet og ett datasett.** Analysen begrenses til det tilgjengelige datasettet. Generalisering til andre virksomheter eller bransjer forutsetter eget datagrunnlag og ny validering.
+5. **To modelltyper.** Modellvalget er begrenset til multippel lineær regresjon og Random Forest Regressor, i tråd med prosjektets faglige rammer og tilgjengelig treningsgrunnlag.
 
-- Vær spesifikk
-- Vær presis
-- Ikke svar på noe utenfor problemstillingen
+## 1.4 Antagelser
 
----
+Analysen bygger på følgende eksplisitte antagelser:
 
-## Delproblemer (valgfri)
-
-Del opp problemstillingen ved behov.
-
----
-
-## Avgrensinger
-
-Forklar hva som ikke inkluderes og hvorfor.
+1. **Representativitet.** Datasettet antas representativt for en realistisk dagligvarekjede med tanke på sesongmønstre, rabattbruk, regionfordeling og produktkategorier. *Konsekvens:* Funnene er gyldige innenfor dette caset, men ikke nødvendigvis overførbare til andre virksomheter eller reelle kjeder.
+2. **Tidsmessig relevans.** Historiske mønstre fra 2022–2024 antas relevante for å predikere 2025. *Konsekvens:* Strukturelle brudd som betydelige prissjokk, atferdsendringer eller endringer i sortiment vil svekke prediksjonens gyldighet.
+3. **Tilstrekkelig datakvalitet.** Datasettet antas å inneholde tilstrekkelig variasjon i nøkkeldimensjonene sesong, rabatt, region og produktkategori til å trene modellene. *Konsekvens:* Simulerte data kan undervurdere virkelig støy og sjeldne hendelser, noe som kan gi mer optimistiske målinger enn hva som er realistisk i produksjon.
+4. **Testsett som fremtidig periode.** 2025-dataene er holdt helt utenfor trening og brukes som testperiode. *Konsekvens:* Evalueringen gir et realistisk bilde av prognosekvalitet under antakelsen om at 2025 ligner de foregående årene i mønster og struktur.
 
 ---
 
-## Antagelser
-
-Presiser forutsetninger for analysen.
-
----
-
-## Litteratur
+## 2 Litteratur
 
 Diskuter relevante bidrag (siste 5 år).
 Unngå synsing – referer alltid.
 
 ---
 
-## Teori
+## 3 Teori
 
 Beskriv teoretisk grunnlag og tidligere forskning.
 
 ---
 
-## Casebeskrivelse
+## 4 Casebeskrivelse
+
+### 4.1 PowerHorse og beslutningssituasjonen
 
 Beskriv case/bedrift og relevant kontekst.
 
+### 4.2 Historisk salgsutvikling
+
+### 4.3 Sesongmønster i salget
+
+### 4.4 Utfordringer dårlige prognoser medfører i bedriften
+
 ---
 
-## Metode og data
+## 5 Metode og data
 
-### Metode
+### 5.1 Metode
 
 Analyseopplegget bygger på en trinnvis prosess der datasettet først ble renset, remappet til prosjektperioden 2022-2025, feature-engineered og splittet i treningsdata (2022-2024) og testdata (2025). Denne arbeidsflyten er dokumentert i analyseområdet og danner grunnlaget for modellutviklingen.
 
@@ -202,7 +200,7 @@ Beskriv:
 - Datainnsamling
 - Analysemetoder
 
-### Data
+### 5.2 Data
 
 Beskriv:
 
@@ -212,13 +210,13 @@ Beskriv:
 
 ---
 
-## Modellering
+## 6 Modellering
 
 WBS 4.1 etablerer lineær regresjon som prosjektets benchmark-modell ved å trene `LinearRegression` på `X_train.csv` og `y_train.csv` fra datasplitten. WBS 4.2 etablerer `RandomForestRegressor` på samme treningsmatrise og dokumenterer sentrale parameterverdier og foreløpige feature importance-signaler. WBS 4.3 samler og verifiserer at begge modellene bygger på samme treningsgrunnlag før videre evaluering. WBS 4.4 tuner deretter Random Forest videre med 2024 som intern valideringsperiode, mens lineær regresjon beholdes uendret som benchmark. WBS 5.1 genererer deretter 2025-prognoser for benchmark-modellen, Random Forest-baseline og tuned Random Forest som grunnlag for senere metrikkberegning og sammenligning. WBS 5.4 bygger videre på disse artefaktene ved å hente ut feature importance for den tunede modellen og rangere viktige variabler uten å trene modellene på nytt.
 
 ---
 
-## Analyse
+## 7 Analyse
 
 WBS 6.1 viser at tuned Random Forest er den mest stabile modellen på `RMSE` gjennom året og på tvers av kvartaler, rabattnivåer og regioner, men at `MAPE` oftere skifter vinner mellom modellene. Dette er særlig tydelig i segmentene for høy rabatt, vestlig region og høyt salgsnivå, der prosentfeil og absoluttfeil peker i ulik retning.
 
@@ -226,7 +224,7 @@ Tolkningen knytter disse mønstrene til variabelsignalene fra WBS 5.4: `Discount
 
 ---
 
-## Resultat
+## 8 Resultat
 
 Det foreligger nå en første evalueringsleveranse i form av prognosefiler for 2025, beregnede `RMSE`-/`MAPE`-tabeller, en eksplisitt modellsammenligning for tre modellspor, en første rangering av viktige variabler, en første tolkning av modellmønstrene, en første diskusjon av styrker og svakheter og en første vurdering av praktisk nytte. Samlet for hele 2025 er tuned Random Forest best på både `RMSE` og `MAPE`, men månedsnivået viser at vinnermodellen varierer med valgt metrikk i store deler av året. Variabelanalysen peker samtidig på `Discount` og flere kalendervariabler som de tydeligste signalene i den anbefalte modellen, mens regionsignalene `Region_East`, `Region_West` og `Region_Central` også ligger høyt. WBS 6.1 viser videre at tuned Random Forest følger salgsnivå best på `RMSE` i lavt og middels salg, mens benchmark lineær er marginalt best i det høyeste salgssegmentet. WBS 6.2 viser i tillegg at modellvalget er robust på absoluttfeil innenfor dette prosjektoppsettet, men at generaliserbarheten er mer begrenset enn påliteligheten. WBS 6.3 oversetter disse funnene videre til praktisk beslutningsstøtte for Dagligvare innen innkjøp og lager, kampanje og rabatt, bemanning og ressursplanlegging og ledelsesrapportering.
 
@@ -238,7 +236,7 @@ Presenter funn:
 
 ---
 
-## Diskusjon
+## 9 Diskusjon
 
 WBS 6.2 viser at tuned Random Forest er det mest robuste modellvalget når absolutte prognoseavvik prioriteres. Modellen er best samlet i 2025 og vinner `RMSE` i `11` av `12` måneder og `13` av `14` tolkingssegmenter. Samtidig har benchmark lineær høyere tolkbarhet og er fortsatt konkurransedyktig i enkelte segmenter, særlig på prosentfeil og i det høyeste salgssegmentet. Baseline Random Forest er svakest samlet, men har lokal styrke på `MAPE` og fungerer derfor som et nyttig sammenligningspunkt for å synliggjøre gevinsten av tuning.
 
@@ -262,12 +260,12 @@ I ledelsesrapportering bør tuned Random Forest være hovedmodellen fordi den er
 
 ---
 
-## Konklusjon
+## 10 Konklusjon
 
 Analysen viser at tuned Random Forest er det beste samlede modellvalget for å predikere salg i 2025 i dette caset, mens `Discount`, kalendervariabler og regionsignaler fremstår som de viktigste prediktive faktorene. I praksis kan Dagligvare bruke tuned Random Forest som standardprognose for innkjøp, lager og overordnet ressursplanlegging, mens benchmark lineær brukes som forklaringsstøtte og rabatt- eller toppbelastningssituasjoner kontrolleres særskilt.
 
 ---
 
-## Bibliografi
+## 11 Bibliografi
 
-## Vedlegg
+## 12 Vedlegg

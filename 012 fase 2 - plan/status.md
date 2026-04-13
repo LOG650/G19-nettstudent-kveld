@@ -1,6 +1,6 @@
 # Statusliste
 
-Oppdatert: 2026-04-12
+Oppdatert: 2026-04-13
 
 Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/home/erikb/himolde/log650/G19-nettstudent-kveld/012 fase 2 - plan/prosjektstyringsplan.md) og tilgjengelige prosjektartefakter i repoet. Punkter er merket som `verifisert` når de kan knyttes til eksisterende filer eller mappestruktur. Øvrige punkter er vurdert som planstatus per dato og må bekreftes av prosjektgruppen. Omtolkningen av WBS 4.3 er dokumentert i [endringslogg.md](endringslogg.md).
 
@@ -64,7 +64,7 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 
 ## Operativ oppdeling av rapportarbeid (WBS 7.x)
 
-- [ ] WBS 7.1.1: Skrive grunninnledning, problemstilling, avgrensinger og antagelser. Denne aktiviteten skal bare etablere en enkel og funksjonell start på rapporten, ikke ferdigstille innledningen.
+- [x] WBS 7.1.1: Skrive grunninnledning, problemstilling, avgrensinger og antagelser. Denne aktiviteten skal bare etablere en enkel og funksjonell start på rapporten, ikke ferdigstille innledningen. `fullført 2026-04-13`
 - [ ] WBS 7.1.2: Skrive litteratur og teori.
 - [ ] WBS 7.1.3: Skrive casebeskrivelse.
 - [ ] WBS 7.1.4: Skrive metode og data.
@@ -81,4 +81,4 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 
 ## Anbefalt kort prosjektstatus
 
-Prosjektet fremstår per 2026-04-12 som værende ferdig med planfasen, med dataforståelse, datasettdokumentasjon, remappet datarensing, feature engineering, datasplitt, eksplorativ analyse, lineær regresjon for WBS 4.1, Random Forest for WBS 4.2, felles verifisering av treningsgrunnlaget i WBS 4.3, parameterjustering av Random Forest i WBS 4.4, genererte 2025-prognoser i WBS 5.1, beregnede 2025-`RMSE`/`MAPE` i WBS 5.2, dokumentert modellsammenligning i WBS 5.3, analysert variabelprioritering i WBS 5.4, tolket modellmønstre i WBS 6.1, diskutert styrker og svakheter i WBS 6.2 og vurdert praktisk nytte i WBS 6.3. `tuned RF` fremstår samlet som beste modell på 2025-data, og WBS 6.3 viser at modellen kan brukes som standardprognose for innkjøp, lager og aggregert ressursplanlegging, mens rabattfølsomme og svært høye salgsnivåer fortsatt krever ekstra varsomhet. Neste kritiske behov er å bruke den nye oppdelingen i WBS 7.x til å skrive en grunninnledning først, fylle resten av rapportkapitlene, og deretter ferdigstille innledningen når øvrig rapporttekst er på plass.
+Prosjektet fremstår per 2026-04-13 som værende ferdig med all analyse (WBS 2.x–6.x) og nå inne i rapportfasen (WBS 7.x). WBS 7.1.1 er fullført: rapport.md har fått faktisk innledning, problemstilling, avgrensinger og antagelser, samt nummerert kapitelstruktur i tråd med CLAUDE.md. Neste steg er WBS 7.1.2 (litteratur og teori) og deretter WBS 7.1.3 (casebeskrivelse).
