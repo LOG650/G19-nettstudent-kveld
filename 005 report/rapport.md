@@ -239,13 +239,48 @@ Når RMSE og MAPE peker på ulike vinnere, skyldes det at en modell kan ha lavt 
 
 ### 4.1 PowerHorse og beslutningssituasjonen
 
-Beskriv case/bedrift og relevant kontekst.
+PowerHorse er en simulert dagligvarekjede som opererer på tvers av fem regioner: West, East, Central, South og North. Kjeden fører syv produktkategorier – Snacks, Eggs/Meat/Fish, Fruits & Veggies, Bakery, Beverages, Food Grains og Oil & Masala – fordelt på 23 subkategorier. Datasettet som danner analysegrunnlaget inneholder 9 994 daglige salgstransaksjoner fra perioden 2022–2025, fordelt på 24 byer.
+
+Regionfordelingen i datasettet er skjev: West-regionen utgjør 32 % av observasjonene, East 28 %, Central 23 % og South 16 %. North-regionen er representert med bare én observasjon og er ikke et meningsfullt analysesegment. Produktkategoriene er jevnt fordelt med mellom 14 og 15 % av observasjonene hver, noe som betyr at ingen enkelt kategori dominerer datasettet.
+
+PowerHorses operative planlegging er avhengig av pålitelige etterspørselsprognoser. Salget varierer med sesong, rabatter og regionale forhold, og konsekvensene av dårlige prognoser er direkte synlige i driften: for høye bestillinger gir svinn og bundet kapital, mens for lave bestillinger fører til utsolgte varer og tapte inntekter. Behovet for mer presise prognoser er dermed sentralt for innkjøp, lager, kampanjevurdering og ressursplanlegging.
+
+Figur 4.1 viser gjennomsnittlig salgsnivå per produktkategori. Eggs, Meat & Fish skiller seg ut med det høyeste gjennomsnittlige salgsnivået i datasettet.
+
+<div align="center">
+  <img src="../006 analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/fig_sales_per_category.png" alt="Gjennomsnittlig salgsnivå per produktkategori" width="80%">
+  <p align="center"><small><i>Figur 4.1 Gjennomsnittlig salgsnivå per produktkategori.</i></small></p>
+</div>
 
 ### 4.2 Historisk salgsutvikling
 
+Gjennomsnittlig daglig salg for hele perioden 2022–2025 er 1 497 med et spenn fra 500 til 2 500 og standardavvik på 578. Salgsnivået er stabilt over tid: gjennomsnittsnivået i treningsperioden 2022–2024 er 1 493, mot 1 503 i testperioden 2025. Ingen tydelig veksttrend er synlig i perioden – nivået holder seg relativt konstant med lokal variabilitet.
+
+Figur 4.2 viser salgsforløpet over tid med trenings- og testperioden markert. Den stabile fordelingen mellom periodene er et gunstig trekk ved datasettet, da det indikerer at historiske mønstre trolig er relevante for å predikere 2025.
+
+<div align="center">
+  <img src="../006 analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/fig_sales_over_tid_train_test.png" alt="Salgsutvikling over tid, trening og test" width="80%">
+  <p align="center"><small><i>Figur 4.2 Daglig salg over perioden 2022–2025, med treningsperiode (2022–2024) og testperiode (2025) vist.</i></small></p>
+</div>
+
 ### 4.3 Sesongmønster i salget
 
+Månedsmønsteret viser at oktober er måneden med det høyeste gjennomsnittlige salgsnivået, mens juni er den svakeste måneden. Mønsteret er konsistent mellom trenings- og testperioden, noe som tyder på et stabilt sesongmønster i datasettet. Fjerde kvartal fremstår samlet som den sterkeste perioden, mens andre og tredje kvartal er relativt svakere.
+
+Figur 4.3 viser gjennomsnittlig salg per måned for henholdsvis trenings- og testperioden.
+
+<div align="center">
+  <img src="../006 analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/fig_sales_per_month_split.png" alt="Gjennomsnittlig salg per måned" width="80%">
+  <p align="center"><small><i>Figur 4.3 Gjennomsnittlig daglig salg per måned for treningsperioden (2022–2024) og testperioden (2025).</i></small></p>
+</div>
+
 ### 4.4 Utfordringer dårlige prognoser medfører i bedriften
+
+I dagligvarehandel er konsekvensene av unøyaktige prognoser direkte synlige i driften. For høye bestillinger fører til svinn av ferskvarer og bundet kapital i lager, noe som reduserer lønnsomhet og fleksibilitet. For lave bestillinger gir utsolgte varer, tapte inntekter og risiko for å svekke kundelojaliteten.
+
+Disse utfordringene gjelder særlig for kategorier med kort holdbarhet og høy salgsrate, som Eggs, Meat & Fish og Fruits & Veggies, der feilmarginen i planleggingen er smalere enn for tørrvarer. Salgets sesongvariasjon og rabattavhengighet – slik de fremgår av det historiske mønsteret i figur 4.3 – gjør at enkle tommelfingerregler for innkjøp gir dårlige resultater gjennom året.
+
+For PowerHorse er den praktiske konsekvensen at nøyaktige etterspørselsprognoser for 2025 kan forbedre innkjøpsplanlegging og lagerstyring, støtte vurderingen av kampanjeeffekter og gi grunnlag for mer presis ressursplanlegging i perioder med høy og lav etterspørsel.
 
 ---
 

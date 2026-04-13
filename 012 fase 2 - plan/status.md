@@ -66,7 +66,7 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 
 - [x] WBS 7.1.1: Skrive grunninnledning, problemstilling, avgrensinger og antagelser. Denne aktiviteten skal bare etablere en enkel og funksjonell start på rapporten, ikke ferdigstille innledningen. `fullført 2026-04-13`
 - [x] WBS 7.1.2: Skrive litteratur og teori. `fullført 2026-04-13`
-- [ ] WBS 7.1.3: Skrive casebeskrivelse.
+- [x] WBS 7.1.3: Skrive casebeskrivelse. `fullført 2026-04-13`
 - [ ] WBS 7.1.4: Skrive metode og data.
 - [ ] WBS 7.1.5: Skrive modellering, analyse og resultat.
 - [ ] WBS 7.1.6: Skrive diskusjon, konklusjon, sammendrag, abstract og bibliografi.
@@ -81,4 +81,4 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 
 ## Anbefalt kort prosjektstatus
 
-Prosjektet fremstår per 2026-04-13 som værende ferdig med all analyse (WBS 2.x–6.x) og nå inne i rapportfasen (WBS 7.x). WBS 7.1.1 og 7.1.2 er fullført: rapport.md har fått innledning, problemstilling, avgrensinger, antagelser, litteraturkapittel og teorikapittel (3.1–3.4). Bibliografiseksjonen er oppdatert med fire APA-referanser. Neste steg er WBS 7.1.3 (casebeskrivelse).
+Prosjektet fremstår per 2026-04-13 som værende ferdig med all analyse (WBS 2.x–6.x) og nå inne i rapportfasen (WBS 7.x). WBS 7.1.1, 7.1.2 og 7.1.3 er fullført: rapport.md har fått innledning, problemstilling, avgrensinger, antagelser, litteraturkapittel, teorikapittel (3.1–3.4) og casebeskrivelse (4.1–4.4) med tre EDA-figurer. Neste steg er WBS 7.1.4 (metode og data).
