@@ -288,23 +288,26 @@ Nøyaktige etterspørselsprognoser for 2025 kan gi Dagligvare et bedre grunnlag 
 
 ### 5.1 Metode
 
-Analyseopplegget bygger på en trinnvis prosess der datasettet først ble renset, remappet til prosjektperioden 2022-2025, feature-engineered og splittet i treningsdata (2022-2024) og testdata (2025). Denne arbeidsflyten er dokumentert i analyseområdet og danner grunnlaget for modellutviklingen.
+Prosjektet er en kvantitativ, prediktiv studie der historiske salgsdata fra én simulert dagligvarekjede brukes til å bygge og evaluere prognosemodeller. Datagrunnlaget er ikke samlet inn, men stilt til disposisjon som en del av prosjektets faglige rammer. Problemstillingen besvares gjennom en trinnvis analytisk prosess: datasettet ble renset og gjort klart for modellering, deretter ble relevante variabler valgt og nye kalendervariabler utledet, og til slutt ble datasettet delt i en treningsperiode og en testperiode basert på tid.
 
-Som første modellsteg er lineær regresjon implementert som benchmark-modell på den one-hot-kodede modellmatrisen fra WBS 3.3. Random Forest Regressor er deretter implementert på samme treningsgrunnlag som alternativ modell med eksplisitte baseline-parametre. Etter at begge modellene var etablert, ble WBS 4.3 brukt til å verifisere at modellene bygger på samme treningsgrunnlag og til å samle sentrale modellinterne signaler før videre evaluering. I WBS 4.4 ble Random Forest-parametere deretter justert ved å trene på 2022-2023 og validere på 2024, slik at den valgte tuned-modellen kan tas videre til prognoser uten å bruke 2025-data i tuning. I WBS 5.1 er det generert prognoser for hele 2025 for lineær regresjon, Random Forest-baseline og tuned Random Forest, både på radnivå og som månedlig oppsummering. I WBS 5.2 er `RMSE` og `MAPE` deretter beregnet både samlet for hele 2025 og per måned med utgangspunkt i prognosene fra WBS 5.1. I WBS 5.3 er modellene sammenlignet med samlet 2025-`RMSE` som hovedregel og samlet `MAPE` som sekundær regel, der tuned Random Forest fremstår som samlet beste modell, samtidig som månedsnivået viser at metrikkene ikke alltid peker på samme vinner. I WBS 5.4 brukes denne anbefalte modellen som hovedgrunnlag for å rangere viktige variabler, med baseline-RF som stabilitetskontroll og lineær regresjon som støttespor for fortegn. I WBS 6.1 tolkes deretter modellresultatene videre ved å koble månedsbias og segmenterte `RMSE`-/`MAPE`-mønstre til kvartal, rabatt, region og salgsnivå. I WBS 6.2 diskuteres deretter modellstyrker, modellsvakheter og metodebegrensninger med eksplisitt skille mellom pålitelighet i dette oppsettet og generaliserbarhet utover caset.
+Lineær regresjon ble valgt som benchmark-modell fordi metoden er tolkbar og gir et stabilt sammenligningsgrunnlag. Random Forest Regressor ble valgt som alternativmodell fordi den kan fange opp ikke-lineære mønstre og gir en naturlig rangering av variabelenes prediksjonsverdi. Random Forest ble i tillegg tunet ved å trene på de to første treningsårene og validere på det tredje, slik at hyperparametere ble valgt uten å bruke testdataene. Alle tre modellspor – lineær regresjon, Random Forest baseline og tuned Random Forest – ble evaluert på 2025-data.
 
-Beskriv:
-
-- Forskningsdesign
-- Datainnsamling
-- Analysemetoder
+Evalueringen benytter RMSE som primær metrikk fordi absolutt presisjon er mest relevant for innkjøp og lagerstyring, og MAPE som sekundær metrikk for å gi et relativt bilde av prognosefeilen. Modellene sammenlignes samlet for hele 2025 og per måned, og resultatene tolkes videre etter kvartal, rabattnivå, region og salgsnivå for å gi praktisk beslutningsstøtte til Dagligvare.
 
 ### 5.2 Data
 
-Beskriv:
+Datagrunnlaget er filen `Dagligvare_Dataset.csv`, som inneholder 9 994 daglige salgstransaksjoner fra en simulert dagligvarekjede. Rådata dekker opprinnelig perioden 2015–2018 og er remappet med en syvårig kalenderforskyvning til prosjektperioden 2022–2025. Datasettet har 11 råkolonner og ingen manglende verdier eller dubletter. To ulike datoformater i kildedata – 4 042 rader med `dd-mm-yyyy` og 5 952 rader med `mm/dd/yyyy` – ble standardisert til ISO-format under rensingen.
 
-- Datakilder
-- Innsamling
-- Utvalg
+Målvariabelen er `Sales` (heltall, spenn 500–2 500). Forklaringsvariablene som inngår i modellene er `Discount` (desimaltall, 0,10–0,35) og de kategoriske variablene `Category`, `Sub Category`, `City` og `Region`. Fra `Order Date` er det i tillegg utledet sju kalendervariabler: `year`, `month`, `quarter`, `weekofyear`, `dayofweek`, `dayofmonth` og `is_weekend`. Fire variabler ble ekskludert: `Profit` fordi den er en lekkasjevariabel som kun er kjent etter gjennomført salg, `State` fordi kolonnen er konstant i datasettet, og `Order ID` og `Customer Name` fordi de ikke har generaliserbar prediksjonsverdi. Kategoriske variabler ble one-hot-encoded til binære dummyvariabler, slik at den endelige modellmatrisen inneholder 67 features.
+
+Datasettet er delt tidsmessig slik at treningsdata dekker 2022–2024 og testdata dekker 2025. Tilfeldig splitt ble ikke brukt, fordi det ville tillate fremtidige observasjoner å inngå i treningen og dermed gi kunstig god ytelse. Tabell 5.1 viser fordelingen mellom trenings- og testdata.
+
+| Delmengde | År | Antall rader | Andel |
+| --- | --- | --- | --- |
+| Treningsdata | 2022–2024 | 6 682 | ~67 % |
+| Testdata | 2025 | 3 312 | ~33 % |
+
+<p align="center"><small><i>Tabell 5.1 Fordeling av trenings- og testdata etter tidsmessig splitt.</i></small></p>
 
 ---
 
