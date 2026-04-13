@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Linear Regression in Machine Learning</title>
+</head>
+<body>
+    <h1>Linear Regression in Machine Learning</h1>
+    <p><strong>Last Updated:</strong> 6 Apr, 2026</p>
+
+    <h2>Overview</h2>
+    <p>Linear Regression is a fundamental supervised learning algorithm used to model the relationship between a dependent variable and one or more independent variables. It predicts continuous values by fitting a straight line that best represents the data.</p>
+    <ul>
+        <li>It assumes that there is a linear relationship between the input and output</li>
+        <li>Uses a best-fit line to make predictions</li>
+        <li>Commonly used in forecasting, trend analysis, and predictive modelling</li>
+    </ul>
+
+    <h2>Best Fit Line in Linear Regression</h2>
+    <p>The goal of linear regression is to find a straight line that minimizes the error (the difference) between the observed data points and the predicted values. This line helps us predict the dependent variable for new, unseen data.</p>
+    <p>In linear regression:</p>
+    <ul>
+        <li>Y is called a dependent or target variable</li>
+        <li>X is called an independent variable also known as the predictor of Y</li>
+        <li>θ₁ represents the intercept, which is the value of Y when X = 0</li>
+        <li>θ₂ represents the slope, which shows how much Y changes for a unit change in X</li>
+    </ul>
+
+    <h2>Equation of the Best-Fit Line</h2>
+    <p>For simple linear regression (with one independent variable):</p>
+    <p><code>y = mx + b</code></p>
+    <p>Where:</p>
+    <ul>
+        <li>y is the predicted value (dependent variable)</li>
+        <li>x is the input (independent variable)</li>
+        <li>m is the slope of the line</li>
+        <li>b is the intercept</li>
+    </ul>
+
+    <h2>Least Squares Method</h2>
+    <p>To find the best-fit line, we use the Least Squares method. The idea is to minimize the sum of squared differences between the actual values (data points) and the predicted values from the line.</p>
+    <p>The formula for residuals is: Residual = yᵢ - ŷᵢ</p>
+    <p>The method minimizes: Σ(yᵢ - ŷᵢ)²</p>
+
+    <h2>Types of Linear Regression</h2>
+    <h3>1. Simple Linear Regression</h3>
+    <p>Used when predicting a target value using only one input feature. Formula: ŷ = θ₀ + θ₁x</p>
+
+    <h3>2. Multiple Linear Regression</h3>
+    <p>Involves more than one independent variable and one dependent variable.</p>
+    <p>Formula: ŷ = θ₀ + θ₁x₁ + θ₂x₂ + ... + θₙxₙ</p>
+
+    <h2>Assumptions of Linear Regression</h2>
+    <ol>
+        <li><strong>Linearity:</strong> The relationship between inputs and output is a straight line.</li>
+        <li><strong>Independence of Errors:</strong> Errors in predictions should not affect each other.</li>
+        <li><strong>Homoscedasticity:</strong> Errors should have equal spread across all values of the input.</li>
+        <li><strong>Normality of Errors:</strong> Errors should follow a normal (bell-shaped) distribution.</li>
+        <li><strong>No Multicollinearity:</strong> Input variables shouldn't be too closely related to each other.</li>
+        <li><strong>No Autocorrelation:</strong> Errors shouldn't show repeating patterns.</li>
+        <li><strong>Additivity:</strong> The total effect on Y is the sum of effects from each X.</li>
+    </ol>
+
+    <h2>Cost Function for Linear Regression</h2>
+    <p>The cost function measures how far the predicted values are from the actual values. The most common cost function is Mean Squared Error (MSE):</p>
+    <p><code>Cost function (J) = (1/n) Σ(ŷᵢ - yᵢ)²</code></p>
+
+    <h2>Gradient Descent</h2>
+    <p>Gradient descent is an optimization technique used to minimize the cost function by iteratively updating the model parameters (slope and intercept) to reduce prediction error.</p>
+
+    <h2>Evaluation Metrics</h2>
+    <ul>
+        <li><strong>Mean Squared Error (MSE):</strong> Measures average squared difference between actual and predicted values.</li>
+        <li><strong>Root Mean Squared Error (RMSE):</strong> Square root of the average squared residuals.</li>
+        <li><strong>Mean Absolute Error (MAE):</strong> Average absolute difference between predicted and actual values.</li>
+        <li><strong>R-Squared (R²):</strong> Indicates how much variation the model can explain (range 0 to 1).</li>
+        <li><strong>Adjusted R-Square:</strong> Measures variance explained while adjusting for number of predictors.</li>
+    </ul>
+
+    <h2>Advantages</h2>
+    <ul>
+        <li>Simple and easy to implement with interpretable coefficients.</li>
+        <li>Computationally efficient, suitable for large datasets.</li>
+        <li>Serves as a good baseline model.</li>
+        <li>Provides insights into relationships between variables.</li>
+        <li>Widely available in ML libraries.</li>
+    </ul>
+
+    <h2>Limitations</h2>
+    <ul>
+        <li>Assumes a linear relationship between variables.</li>
+        <li>Sensitive to multicollinearity among features.</li>
+        <li>Requires proper feature engineering.</li>
+        <li>Can overfit or underfit depending on data.</li>
+        <li>Limited for modeling complex relationships.</li>
+    </ul>
+
+</body>
+</html>

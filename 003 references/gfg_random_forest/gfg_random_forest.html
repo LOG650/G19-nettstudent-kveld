@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Forest Algorithm in Machine Learning</title>
+</head>
+<body>
+    <h1>Random Forest Algorithm in Machine Learning</h1>
+    <p><strong>Last Updated:</strong> 6 Apr, 2026</p>
+
+    <h2>Overview</h2>
+    <p>Random Forest is a machine learning algorithm that uses many decision trees to make better predictions. Each tree looks at different random parts of the data and their results are combined by voting for classification or averaging for regression which makes it as ensemble learning technique. This helps in improving accuracy and reducing errors.</p>
+
+    <h2>Working of Random Forest Algorithm</h2>
+    <ul>
+        <li><strong>Create Many Decision Trees:</strong> The algorithm makes many decision trees each using a random part of the data. So every tree is a bit different.</li>
+        <li><strong>Pick Random Features:</strong> When building each tree it doesn't look at all the features (columns) at once. It picks a few at random to decide how to split the data. This helps the trees stay different from each other.</li>
+        <li><strong>Each Tree Makes a Prediction:</strong> Every tree gives its own answer or prediction based on what it learned from its part of the data.</li>
+        <li><strong>Combine the Predictions:</strong> For classification, the final answer is the category that most trees vote for (majority voting).</li>
+        <li><strong>Why It Works Well:</strong> Using random data and features for each tree helps avoid overfitting and makes the overall prediction more accurate and trustworthy.</li>
+    </ul>
+
+    <h2>Key Features of Random Forest</h2>
+    <ul>
+        <li><strong>Handles Missing Data:</strong> It can work even if some data is missing so you don't always need to fill in the gaps yourself.</li>
+        <li><strong>Shows Feature Importance:</strong> It tells you which features (columns) are most useful for making predictions which helps you understand your data better.</li>
+        <li><strong>Works Well with Big and Complex Data:</strong> It can handle large datasets with many features without slowing down or losing accuracy.</li>
+        <li><strong>Used for Different Tasks:</strong> You can use it for both classification like predicting types or labels and regression like predicting numbers or amounts.</li>
+    </ul>
+
+    <h2>Assumptions of Random Forest</h2>
+    <ul>
+        <li>Each tree makes its own decisions: Every tree in the forest makes its own predictions without relying on others.</li>
+        <li>Random parts of the data are used: Each tree is built using random samples and features to reduce mistakes.</li>
+        <li>Enough data is needed: Sufficient data ensures the trees are different and learn unique patterns and variety.</li>
+        <li>Different predictions improve accuracy: Combining the predictions from different trees leads to a more accurate final result.</li>
+    </ul>
+
+    <h2>Advantages of Random Forest</h2>
+    <ul>
+        <li>Random Forest provides very accurate predictions even with large datasets.</li>
+        <li>Random Forest can handle missing data well without compromising with accuracy.</li>
+        <li>It doesn't require normalization or standardization on dataset.</li>
+        <li>When we combine multiple decision trees it reduces the risk of overfitting of the model.</li>
+    </ul>
+
+    <h2>Limitations of Random Forest</h2>
+    <ul>
+        <li>It can be computationally expensive especially with a large number of trees.</li>
+        <li>It's harder to interpret the model compared to simpler models like decision trees.</li>
+    </ul>
+
+    <h2>Classification Implementation Example</h2>
+    <p>Predicting survival rate of a person in titanic dataset using Random Forest Classifier.</p>
+
+    <h2>Regression Implementation Example</h2>
+    <p>House price prediction using Random Forest Regressor on California housing dataset.</p>
+
+</body>
+</html>
