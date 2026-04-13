@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>What is Random Forest?</title>
+</head>
+<body>
+    <h1>What is Random Forest?</h1>
+    <p><strong>Source:</strong> IBM Think Topics</p>
+
+    <h2>Overview</h2>
+    <p>Random forest is a commonly-used machine learning algorithm, trademarked by Leo Breiman and Adele Cutler, that combines the output of multiple decision trees to reach a single result. Its ease of use and flexibility have fueled its adoption, as it handles both classification and regression problems.</p>
+
+    <h2>Decision Trees</h2>
+    <p>Since the random forest model is made up of multiple decision trees, it's helpful to understand decision tree algorithms. Decision trees start with a basic question and ask a series of follow-up questions to determine an answer. These questions make up the decision nodes in the tree, acting as a means to split the data.</p>
+    <p>Decision trees seek to find the best split to subset the data, typically trained through the Classification and Regression Tree (CART) algorithm. Metrics such as Gini impurity, information gain, or mean square error (MSE) can be used to evaluate the quality of the split.</p>
+    <p>While decision trees are common supervised learning algorithms, they can be prone to bias and overfitting. However, when multiple decision trees form an ensemble in the random forest algorithm, they predict more accurate results, particularly when the individual trees are uncorrelated with each other.</p>
+
+    <h2>Ensemble Methods</h2>
+    <p>Ensemble learning methods are made up of a set of classifiers—e.g. decision trees—and their predictions are aggregated to identify the most popular result. The most well-known ensemble methods are bagging (bootstrap aggregation) and boosting.</p>
+    <p>In the bagging method, a random sample of data in a training set is selected with replacement—meaning that individual data points can be chosen more than once. After several data samples are generated, these models are trained independently. Depending on the task type (regression or classification), the average or majority of those predictions yield a more accurate estimate. This approach is commonly used to reduce variance within a noisy dataset.</p>
+
+    <h2>Random Forest Algorithm</h2>
+    <p>The random forest algorithm is an extension of the bagging method as it utilizes both bagging and feature randomness to create an uncorrelated forest of decision trees. Feature randomness, also known as feature bagging or "the random subspace method", generates a random subset of features, ensuring low correlation among decision trees.</p>
+    <p>A key difference between decision trees and random forests is that while decision trees consider all possible feature splits, random forests only select a subset of those features. By accounting for all potential variability in the data, we can reduce the risk of overfitting, bias, and overall variance, resulting in more precise predictions.</p>
+
+    <h2>How It Works</h2>
+    <p>Random forest algorithms have three main hyperparameters that need to be set before training:</p>
+    <ul>
+        <li>Node size</li>
+        <li>Number of trees</li>
+        <li>Number of features sampled</li>
+    </ul>
+    <p>The random forest classifier is made up of a collection of decision trees. Each tree in the ensemble is comprised of a data sample drawn from a training set with replacement (called the bootstrap sample). One-third of the training sample is set aside as test data (known as the out-of-bag or OOB sample).</p>
+    <p>Feature bagging adds more diversity to the dataset and reduces correlation among decision trees. For regression tasks, individual decision trees are averaged. For classification tasks, a majority vote (the most frequent categorical variable) yields the predicted class.</p>
+
+    <h2>Benefits of Random Forest</h2>
+    <ul>
+        <li><strong>Reduced risk of overfitting:</strong> When there's a robust number of decision trees in a random forest, the classifier won't overfit the model since the averaging of uncorrelated trees lowers overall variance and prediction error.</li>
+        <li><strong>Provides flexibility:</strong> Random forest can handle both regression and classification tasks with high accuracy. Feature bagging makes it effective for estimating missing values.</li>
+        <li><strong>Easy to determine feature importance:</strong> Random forest makes it easy to evaluate variable importance or contribution to the model. Gini importance and mean decrease in impurity (MDI) are usually used to measure accuracy changes when a variable is excluded.</li>
+    </ul>
+
+    <h2>Challenges of Random Forest</h2>
+    <ul>
+        <li><strong>Time-consuming process:</strong> Random forest algorithms can be slow to process data as they compute data for each individual decision tree.</li>
+        <li><strong>Requires more resources:</strong> Larger data sets require more computational resources to store and process.</li>
+        <li><strong>More complex:</strong> The prediction of a single decision tree is easier to interpret compared to a forest of them.</li>
+    </ul>
+
+    <h2>Applications</h2>
+    <p>The random forest algorithm has been applied across numerous industries:</p>
+    <ul>
+        <li><strong>Finance:</strong> Reduces time spent on data management. Can evaluate credit risk, detect fraud, and solve option pricing problems.</li>
+        <li><strong>Healthcare:</strong> Applications in computational biology, gene expression classification, biomarker discovery, and drug response prediction.</li>
+        <li><strong>E-commerce:</strong> Used in recommendation engines for cross-sell purposes.</li>
+    </ul>
+
+</body>
+</html>
