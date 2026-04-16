@@ -146,10 +146,10 @@ I Sammendrag og Abstract er variabelnavnet `Discount` ikke inline-kodet, men skr
 
 | # | Tiltak | Kategori | Status | Kommentar |
 |:--|:-------|:---------|:-------|:----------|
-| V1 | Erstatte «I WBS 4.4» i kap. 3.4 med akademisk formulering | Språk og innhold | [ ] | Håndteres i 7.3.3 språkvask |
-| F1 | Vurdere å legge til kort henvisning til WBS 4.3-endringen i 9.4 | Språk og innhold | [ ] | Kan håndteres i 7.3.3 eller droppes |
+| V1 | Erstatte «I WBS 4.4» i kap. 3.4 med akademisk formulering | Språk og innhold | [x] | Rettet 2026-04-16: «I hyperparametertuningen av Random Forest brukes 2024 …» |
+| F1 | Vurdere å legge til kort henvisning til WBS 4.3-endringen i 9.4 | Språk og innhold | [x] | Rettet 2026-04-16: 9.4 nevner nå begge planendringene (verifiseringssteget og tuning-avgrensningen) med henvisning til endringsloggen, uten WBS-numre i brødtekst |
 | F2 | Utvide omtalen av høstbias som kandidat for tidsrekke-videre-arbeid i 9.5 | Språk og innhold | [ ] | Kan håndteres i 7.3.3 |
-| F3 | Dokumentere eller harmonisere inline-kode-stil for variabelnavn i Sammendrag/Abstract | Språk og innhold | [ ] | Kan håndteres i 7.3.3 |
+| F3 | Dokumentere eller harmonisere inline-kode-stil for variabelnavn i Sammendrag/Abstract | Språk og innhold | [x] | Løst 2026-04-16 etter alternativ (a): kort notasjonssetning lagt til etter `## 3 Teori` som forklarer at inline-kode refererer til faktiske features, mens Sammendrag/Abstract bevisst bruker prosa |
 
 ---
 
@@ -183,3 +183,50 @@ Kap. 9 er omformet fra skisse til akademisk diskusjon, kap. 10 svarer direkte p�
 1. **(Bør)** Rydde kap. 3.4 for WBS-referanse (V1) – håndteres i 7.3.3.
 2. **(Kan)** Vurdere tilleggsnevning av WBS 4.3-endringen i 9.4 (F1).
 3. **(Kan)** Harmonisere inline-kode-stil for variabelnavn i Sammendrag/Abstract (F3).
+
+---
+
+## Definisjon av F3 – inline-kode-stil for variabelnavn
+
+**Observasjon:** Rapporten har to ulike typografiske konvensjoner for de samme begrepene.
+
+- I kap. 3–10 er variabelnavn fra modellmatrisen konsekvent skrevet som inline kode, f.eks. `Discount`, `Region_North`, `dayofmonth`, `weekofyear`, `month`, `quarter`. Dette etablerer et visuelt signal om at teksten refererer til en *konkret kolonne/feature i modellen*, ikke til et hverdagsbegrep.
+- I Sammendrag og Abstract er de samme begrepene skrevet som vanlige ord i prosa: «rabatt», «discount», «kalendervariablene», «region». Det er gjort bevisst for å holde oppsummeringene lesbare for et bredt publikum som ikke nødvendigvis leser hele rapporten.
+
+**Hva F3 spør om:** Skal denne forskjellen beholdes som en bevisst stilregel, eller skal den harmoniseres slik at én form brukes konsekvent?
+
+**Tre mulige håndteringer:**
+
+| Alternativ | Hva det innebærer | Fordel | Ulempe |
+|:---|:---|:---|:---|
+| **(a) Behold mixed style, dokumentér den** | La Sammendrag/Abstract stå som ren prosa. Legg til én setning i kap. 3.4 eller i en kort «Notasjon»-bolk som forklarer at inline-kode (`Discount`) henviser til en konkret feature i modellmatrisen | Leservennlig oppsummering for ikke-tekniske lesere; teknisk presisjon beholdes i brødteksten; ingen omskriving | Krever én ekstra forklaringssetning; fortsatt to typografiske registre i samme dokument |
+| **(b) Bruk `Discount` overalt (kode-stil også i Sammendrag/Abstract)** | Endre «rabatt» → `Discount`, «discount» → `Discount`, «kalendervariablene» → `year`, `month`, `quarter` osv. også i oppsummeringene | Typografisk konsistens, ingen tvetydighet | Sammendrag/Abstract blir tettere og mindre tilgjengelig; engelsk Abstract får kode-stil på ett ord mens rundtliggende prosa er ren tekst |
+| **(c) Bruk prosa overalt (fjern inline-kode i kap. 9–10)** | Endre `Discount` → rabatt, `Region_North` → nord-regionen, osv. i kap. 9 og 10 | Jevn prosa overalt | Mister et nyttig visuelt signal om at en variabel refererer til en konkret modellfeature; risiko for sammenblanding mellom «rabatt» (begrep) og `Discount` (datasettets faktiske kolonnenavn som ikke er norsk) |
+
+**Min anbefaling: alternativ (a).** Den mixed styling er pedagogisk hensiktsmessig: Sammendrag og Abstract fungerer som «skannbare oppsummeringer» for bredt publikum, mens brødteksten i kap. 9 og 10 henvender seg til lesere som drar nytte av å kunne skille feature-navn fra hverdagsbegreper visuelt. En kort notasjonsbolk i kap. 3.4 – eller helt i starten av kap. 3 – vil gjøre valget eksplisitt og fjerner F3 som åpent punkt.
+
+Valget er likevel et redaksjonelt spørsmål og kan tas når 7.3.3 språkvask gjennomføres.
+
+---
+
+## Uavhengig verifisering 2026-04-16 (andre pass)
+
+Dette avsnittet dokumenterer en andre, uavhengig gjennomgang av 7.1.6 utført etter at arbeidet var committet (`2e12f06 Update project status and documentation for WBS 7.1.6 completion`). Verifiseringen kontrollerer ni spesifikke tallpåstander mot kildene i `006 analysis/aktiviteter/`.
+
+| # | Kontrollpunkt | Kilde | Status |
+|:--|:---|:---|:---|
+| 1 | Delta tuned RF vs. benchmark lineær: $-2{,}13$ RMSE og $-0{,}21$ pp MAPE (kap. 9.1) | `tab_rmse_mape_oversikt.csv` (578,26 vs. 580,39; 43,97 % vs. 44,18 %) | OK |
+| 2 | Bias-mønster konsistent for alle tre modellspor (aug/sept negativ, nov/des positiv) (kap. 9.1) | `tab_bias_maaned_modell.csv` viser samme fortegn for benchmark lineær, baseline RF og tuned RF i august, september, november og desember | OK |
+| 3 | Feature importance: Discount 11,48 %, dayofmonth 11,35 %, weekofyear 10,40 %, month 6,74 %, dayofweek 6,52 % (kap. 9.2) | `tab_rf_tuned_feature_importance.csv` | OK |
+| 4 | Kalendergruppe ~42 % av topp 10 (kap. 9.2) | `tab_variabelgrupper_tuned_top10.csv`: 41,9826 % | OK |
+| 5 | «De ni øverste variablene i tuned RF gjenfinnes også i topp 10 for baseline RF» (kap. 9.2) | `tab_rf_stabilitet_topp10.csv`: 9 av 11 unike topp-10-features er i begge modeller (`quarter` kun tuned, `Region_South` kun baseline) | OK |
+| 6 | 11 av 12 måneder på RMSE og 13 av 14 segmenter (kap. 10, Sammendrag, Abstract) | `tab_modellvinner_telling.csv` og `tab_segmentvinnere_tolkning.csv` | OK |
+| 7 | 9 994 rader, 6 682 trenings- og 3 312 testrader, 67 features (Sammendrag, Abstract) | `Dagligvare_Dataset.csv`, Tabell 5.1 og `tab_lr_modelloversikt.csv` | OK |
+| 8 | Benchmark lineær best i segment «høyt salg» på RMSE ($699{,}10$) og MAPE ($30{,}31\%$) (kap. 9.1) | `tab_segmentvinnere_tolkning.csv` | OK |
+| 9 | Tabell 8.4-tellingen gir 13 av 14 for tuned RF (kap. 7 L332) | Manuell telling mot Tabell 8.4: 4 kvartaler + 3 rabattband + 4 regioner + 2 av 3 salgsnivå = 13 | OK |
+
+**Funn fra andre pass:** Ingen nye avvik. Alle ni kontrollpunkter er verifisert mot kilde uten feil. Svakhetene V1 og forbedringsforslagene F1–F3 fra første pass står som før og skal håndteres i 7.3-fasen.
+
+### Samlet vurdering etter andre pass
+
+Aktiviteten WBS 7.1.6 anses som metodisk og innholdsmessig **godkjent**. De gjenværende tiltakene er alle kategorisert som 7.3-arbeid (språkvask og konsistenssjekk) og blokkerer ikke lukking av 7.1.6.

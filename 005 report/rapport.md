@@ -192,6 +192,8 @@ De tilgjengelige kildene for dette prosjektet er webbaserte oppslagsverk fra IBM
 
 ## 3 Teori
 
+Dette kapitlet gir det faglige grunnlaget for metodevalg, analyse og tolkning senere i rapporten. Notasjon: når en kolonne eller feature fra modellmatrisen refereres direkte, skrives navnet i inline kode, for eksempel `Discount`, `Region_North` eller `dayofmonth`. I Sammendrag og Abstract brukes vanlig prosa («rabatt», «discount», «kalendervariabler») for å holde oppsummeringene tilgjengelige for et bredere publikum.
+
 ### 3.1 Multippel lineær regresjon
 
 Multippel lineær regresjon er en supervisert læringsmetode som modellerer forholdet mellom en avhengig variabel og to eller flere uavhengige forklaringsvariabler. Modellen uttrykkes som:
@@ -248,7 +250,7 @@ Når RMSE og MAPE peker på ulike vinnere, skyldes det at en modell kan ha lavt 
 
 **Data leakage** oppstår når variabler som ikke ville vært tilgjengelige på prediksjonstidspunktet inkluderes i modellen. I dette prosjektet er `Profit` ekskludert fordi den kun er kjent etter at salget er gjennomført.
 
-**Tidsbasert oppsplitting** er valgt fremfor tilfeldig oppsplitting. Treningsdata er 2022–2024 og testdata er 2025. Tilfeldig oppsplitting ville tillate fremtidige observasjoner å inngå i treningen, noe som gir kunstig god ytelse og ikke reflekterer reell prediksjon fremover i tid. I WBS 4.4 brukes 2024 i tillegg som intern valideringsperiode for hyperparametertuning av Random Forest, mens lineær regresjon beholdes med det fulle treningsgrunnlaget.
+**Tidsbasert oppsplitting** er valgt fremfor tilfeldig oppsplitting. Treningsdata er 2022–2024 og testdata er 2025. Tilfeldig oppsplitting ville tillate fremtidige observasjoner å inngå i treningen, noe som gir kunstig god ytelse og ikke reflekterer reell prediksjon fremover i tid. I hyperparametertuningen av Random Forest brukes 2024 i tillegg som intern valideringsperiode, mens lineær regresjon beholdes med det fulle treningsgrunnlaget.
 
 ---
 
@@ -438,7 +440,7 @@ For kampanje- og rabattvurderinger anbefales tuned Random Forest som hovedmodell
 
 Flere metodiske forhold setter grenser for hvor langt funnene kan strekkes. Datagrunnlaget er representativt for det simulerte caset, men er bare ett datasett fra én simulert virksomhet. Generalisering til reelle dagligvarekjeder forutsetter eget datagrunnlag og ny validering. Analysen inkluderer ikke eksterne makroøkonomiske faktorer som inflasjon, rente eller konjunkturer, og kan derfor ikke belyse hvordan salget reagerer på slike eksterne sjokk. Modellomfanget er dessuten avgrenset til multippel lineær regresjon og Random Forest Regressor, slik at andre metodeklasser – tidsrekkemodeller, gradient boosting, nevrale nett – ikke er vurdert.
 
-Den lineære modellen brukes med uregularisert OLS på en modellmatrise med 67 features, inkludert mange one-hot-kodede dummyvariabler. Det gir en betydelig risiko for multikollinearitet, som svekker tolkningsvaliditeten av de enkelte koeffisientene selv om prediksjonskraften kan være upåvirket. Hyperparametertuningen av Random Forest er basert på ett valideringsår (2024), slik at valget av tuned konfigurasjon reflekterer mønstrene i ett år framfor en mer robust kryssvalidering over flere perioder. Planendringen som avgrenset tuningen til Random Forest-sporet alene, er dokumentert i endringsloggen og styrket modellens interne validering, men betyr at lineær regresjon ikke har gjennomgått tilsvarende optimalisering.
+Den lineære modellen brukes med uregularisert OLS på en modellmatrise med 67 features, inkludert mange one-hot-kodede dummyvariabler. Det gir en betydelig risiko for multikollinearitet, som svekker tolkningsvaliditeten av de enkelte koeffisientene selv om prediksjonskraften kan være upåvirket. Hyperparametertuningen av Random Forest er basert på ett valideringsår (2024), slik at valget av tuned konfigurasjon reflekterer mønstrene i ett år framfor en mer robust kryssvalidering over flere perioder. To planendringer i modellutviklingsfasen er dokumentert i endringsloggen: det felles treningssteget ble gjort om til en verifisering av treningsgrunnlag og modellsignaler siden begge modellene allerede var trent i forutgående aktiviteter, og hyperparametertuningen ble avgrenset til Random Forest-sporet alene. Samlet styrket disse endringene sporbarheten i modellutviklingen, men innebærer at lineær regresjon ikke har gjennomgått tilsvarende optimalisering.
 
 Funnene er i tillegg prediktive og ikke kausale. Variabelrangeringer og koeffisienter forteller hvilke signaler som er nyttige for å predikere salg, men ikke hvorfor salget endrer seg. Denne avgrensningen er viktig å holde fast ved når resultatene oversettes til beslutningsstøtte, for eksempel når rabattsignalet skal tolkes i kampanjearbeidet.
 
