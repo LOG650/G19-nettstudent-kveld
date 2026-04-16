@@ -313,27 +313,87 @@ Datasettet er delt tidsmessig slik at treningsdata dekker 2022–2024 og testdat
 
 ## 6 Modellering
 
-WBS 4.1 etablerer lineær regresjon som prosjektets benchmark-modell ved å trene `LinearRegression` på `X_train.csv` og `y_train.csv` fra datasplitten. WBS 4.2 etablerer `RandomForestRegressor` på samme treningsmatrise og dokumenterer sentrale parameterverdier og foreløpige feature importance-signaler. WBS 4.3 samler og verifiserer at begge modellene bygger på samme treningsgrunnlag før videre evaluering. WBS 4.4 tuner deretter Random Forest videre med 2024 som intern valideringsperiode, mens lineær regresjon beholdes uendret som benchmark. WBS 5.1 genererer deretter 2025-prognoser for benchmark-modellen, Random Forest-baseline og tuned Random Forest som grunnlag for senere metrikkberegning og sammenligning. WBS 5.4 bygger videre på disse artefaktene ved å hente ut feature importance for den tunede modellen og rangere viktige variabler uten å trene modellene på nytt.
+Prosjektet evaluerer tre modellspor for å predikere daglig salg i 2025. Benchmark-modellen er en multippel lineær regresjon som gir et tolkbart sammenligningsgrunnlag. Random Forest inngår i to varianter: en baseline med standardparametere som viser hva en utuned ensemble-modell leverer på det samme datagrunnlaget, og en tuned variant der hyperparametere er valgt gjennom et strukturert søk. Sammenstillingen gir både et grunnlag for å måle gevinsten av tuning og et tolkbart referansepunkt som er robust mot overfitting.
+
+Den multiple lineære regresjonen trenes som `LinearRegression` med `fit_intercept=True` og uten regularisering eller skalering. Modellen estimeres med OLS (se kap. 3.1) på 6 682 rader og 67 features – det vil si alle kalendervariabler, `Discount` og de one-hot-kodede kategoriske variablene. Estimert konstantledd er $-3193{,}55$. Modellen er tolkbar gjennom sine koeffisienter, men forutsetter at salget kan beskrives som en lineær kombinasjon av forklaringsvariablene, og den har ingen mekanisme for å fange opp interaksjoner eller ikke-lineære effekter utover de som eksplisitt er kodet inn.
+
+Random Forest Regressor trenes på samme treningsmatrise. Baselinen bruker standardkonfigurasjonen `n_estimators=200`, `max_depth=None`, `min_samples_leaf=1`, `max_features=1.0` (dvs. at alle 67 features vurderes ved hver split), `bootstrap=True` og `random_state=42`, jf. bagging og feature randomness i kap. 3.2. Den tunede varianten bygger på et rutenettsøk der hver kandidat trenes på 2022–2023 (4 095 rader) og valideres på 2024 (2 587 rader). 2025-data inngår ikke i modellutvelgelsen – denne tidsmessige isolasjonen forhindrer datalekkasje mellom tuning og evaluering (jf. kap. 3.4 og 5.2). Vinnerkonfigurasjonen ble `n_estimators=400`, `max_depth=10`, `min_samples_leaf=4` og `max_features='sqrt'` (som gir $\lfloor\sqrt{67}\rfloor = 8$ features per split), valgt med validerings-RMSE som primærkriterium. Vinnerkandidaten oppnådde validerings-RMSE $577{,}27$ og validerings-MAPE $43{,}56\%$, mot baseline-kandidatens $590{,}30$ og $44{,}22\%$ på samme valideringssett. Den tunede modellen retrenes deretter på hele treningsperioden (2022–2024) før evaluering på 2025. Alle tre modellene genererer prognoser på testperioden 2025 (3 312 rader), og det er disse prognosene som danner grunnlaget for analyse og resultat i de neste kapitlene.
 
 ---
 
 ## 7 Analyse
 
-WBS 6.1 viser at tuned Random Forest er den mest stabile modellen på `RMSE` gjennom året og på tvers av kvartaler, rabattnivåer og regioner, men at `MAPE` oftere skifter vinner mellom modellene. Dette er særlig tydelig i segmentene for høy rabatt, vestlig region og høyt salgsnivå, der prosentfeil og absoluttfeil peker i ulik retning.
+Samlet for 2025 leverer den tunede Random Forest-modellen både lavest RMSE og lavest MAPE (jf. Tabell 8.1), marginalt foran benchmark lineær og tydeligere foran baseline Random Forest. Gapet mellom modellene er lite i absolutt forstand – tuned Random Forest forbedrer RMSE med omtrent $11$ enheter sammenlignet med baseline Random Forest og $2$ enheter sammenlignet med benchmark lineær. Tuningeffekten tolkes som en kombinasjon av dybdebegrensningen (`max_depth=10`) og redusert `max_features`, som demper variansen i de enkelte trærne og gir mer stabile ensemble-prediksjoner på nye data (jf. kap. 3.2).
 
-Tolkningen knytter disse mønstrene til variabelsignalene fra WBS 5.4: `Discount`, `quarter` og flere regionsignaler ligger høyt i den anbefalte modellen, og de samme dimensjonene forklarer mye av variasjonen i segmenterte metrikker. Salgsnivå brukes her som et avledet tolkningssegment for å forstå hvorfor en modell kan være best på absolutt feil uten å være best på prosentfeil.
+Månedsnivået nyanserer bildet vesentlig (jf. Tabell 8.2). Tuned Random Forest vinner RMSE i 11 av 12 måneder, men vinner MAPE i bare 3 måneder. Baseline Random Forest vinner ikke en eneste måned på RMSE, men vinner MAPE i 6 av 12 måneder. RMSE og MAPE peker på samme vinner bare i juli og september. Mønsteret kan forklares med at absolutt feil og prosentfeil vekter observasjoner ulikt: RMSE straffer store avvik hardt og favoriserer dermed modellen som er mest treffsikker på de største salgsmålene, mens MAPE er mer sensitiv i måneder med mange lavvolumrader der små avvik gir utslag i høye prosenttall.
+
+Bias-analysen av den tunede modellen viser et systematisk sesongavvik. August og september er underestimerte med henholdsvis $-5{,}22\%$ ($-20\,548$ salgsenheter) og $-2{,}77\%$ ($-16\,334$ salgsenheter), mens november og desember er lett overestimerte med $+1{,}05\%$ og $+2{,}36\%$. En mulig forklaring er at kalenderfeaturene ikke fullt ut fanger en høstoppgang som skiller seg fra tidligere år – antakelsen er at treningsperioden (2022–2024) inneholder en annen august–september-profil enn 2025, og at modellen dermed glatter ut det virkelige nivået i disse månedene. Mønsteret er konsistent på tvers av alle tre modellsporene og peker på en begrensning i det tilgjengelige sesongsignalet, ikke bare på den tunede modellen.
+
+Segmentanalysen (jf. Tabell 8.4) forsterker forskjellen mellom de to metrikkene. Tuned Random Forest vinner RMSE i alle fire kvartaler, alle tre rabattband og alle fire regioner, men må vike for benchmark lineær og baseline Random Forest i flere av MAPE-segmentene – særlig i høyrabattsegmentet, vest-regionen og lavvolumssegmentet. I segmentet «høyt salg» er benchmark lineær best på begge metrikker (RMSE $699{,}10$, MAPE $30{,}31\%$), mens tuned Random Forest likevel gir lavest RMSE i segmentet «lavt salg» til tross for at MAPE der ligger på $89{,}39\%$.
+
+Feature importance (jf. Tabell 8.3) støtter tolkningen av hvilke dimensjoner som driver variasjonen: kalendervariablene utgjør samlet $\sim 42\%$ av importance i topp 10, `Discount` er sterkeste enkeltvariabel med $11{,}48\%$, og regionvariablene bidrar med $\sim 5{,}8\%$. Den lineære modellen gir negativt fortegn på `Discount` (koeffisient $-166{,}35$), mens Random Forest rangerer samme variabel øverst. Forskjellen tolkes som et mulig tegn på en ikke-lineær eller interaktiv sammenheng mellom rabatt og salg som en lineær spesifikasjon ikke klarer å fange opp.
 
 ---
 
 ## 8 Resultat
 
-Det foreligger nå en første evalueringsleveranse i form av prognosefiler for 2025, beregnede `RMSE`-/`MAPE`-tabeller, en eksplisitt modellsammenligning for tre modellspor, en første rangering av viktige variabler, en første tolkning av modellmønstrene, en første diskusjon av styrker og svakheter og en første vurdering av praktisk nytte. Samlet for hele 2025 er tuned Random Forest best på både `RMSE` og `MAPE`, men månedsnivået viser at vinnermodellen varierer med valgt metrikk i store deler av året. Variabelanalysen peker samtidig på `Discount` og flere kalendervariabler som de tydeligste signalene i den anbefalte modellen, mens regionsignalene `Region_East`, `Region_West` og `Region_Central` også ligger høyt. WBS 6.1 viser videre at tuned Random Forest følger salgsnivå best på `RMSE` i lavt og middels salg, mens benchmark lineær er marginalt best i det høyeste salgssegmentet. WBS 6.2 viser i tillegg at modellvalget er robust på absoluttfeil innenfor dette prosjektoppsettet, men at generaliserbarheten er mer begrenset enn påliteligheten. WBS 6.3 oversetter disse funnene videre til praktisk beslutningsstøtte for Dagligvare innen innkjøp og lager, kampanje og rabatt, bemanning og ressursplanlegging og ledelsesrapportering.
+Tabell 8.1 oppsummerer den samlede ytelsen på 2025 for de tre modellsporene. Tuned Random Forest har lavest RMSE og MAPE, mens baseline Random Forest er svakest på RMSE og benchmark lineær er svakest på MAPE.
 
-Presenter funn:
+| Modell | RMSE | MAPE |
+| --- | --- | --- |
+| Benchmark lineær | 580,39 | 44,18 % |
+| Baseline Random Forest | 589,28 | 44,12 % |
+| Tuned Random Forest | 578,26 | 43,97 % |
 
-- Tabeller
-- Figurer
-- Forklarende tekst
+<p align="center"><small><i>Tabell 8.1 Samlet prognoseytelse på 2025 (3 312 observasjoner).</i></small></p>
+
+Tabell 8.2 viser hvor mange av de tolv månedene i 2025 hver modell vinner på henholdsvis RMSE og MAPE.
+
+| Modell | RMSE-vinner (av 12) | MAPE-vinner (av 12) |
+| --- | --- | --- |
+| Benchmark lineær | 1 | 3 |
+| Baseline Random Forest | 0 | 6 |
+| Tuned Random Forest | 11 | 3 |
+
+<p align="center"><small><i>Tabell 8.2 Månedlig vinnertelling per metrikk i 2025.</i></small></p>
+
+Tabell 8.3 viser de ti variablene med høyest feature importance i den tunede Random Forest-modellen, gruppert etter variabelgruppe.
+
+| Rang | Variabel | Gruppe | Importance |
+| --- | --- | --- | --- |
+| 1 | Discount | Pris/kampanje | 11,48 % |
+| 2 | dayofmonth | Kalender | 11,35 % |
+| 3 | weekofyear | Kalender | 10,40 % |
+| 4 | month | Kalender | 6,74 % |
+| 5 | dayofweek | Kalender | 6,52 % |
+| 6 | year | Kalender | 4,02 % |
+| 7 | quarter | Kalender | 2,95 % |
+| 8 | Region_East | Region | 2,04 % |
+| 9 | Region_West | Region | 1,91 % |
+| 10 | Region_Central | Region | 1,84 % |
+
+<p align="center"><small><i>Tabell 8.3 Topp 10 feature importance for tuned Random Forest.</i></small></p>
+
+Tabell 8.4 oppsummerer vinnermodellen per segment på RMSE og MAPE, fordelt på kvartal, rabattband, region og salgsnivå.
+
+| Segmentdimensjon | Verdi | RMSE-vinner | MAPE-vinner |
+| --- | --- | --- | --- |
+| Kvartal | Q1 | Tuned RF | Benchmark lineær |
+| Kvartal | Q2 | Tuned RF | Baseline RF |
+| Kvartal | Q3 | Tuned RF | Tuned RF |
+| Kvartal | Q4 | Tuned RF | Benchmark lineær |
+| Rabatt | Lav | Tuned RF | Tuned RF |
+| Rabatt | Middels | Tuned RF | Tuned RF |
+| Rabatt | Høy | Tuned RF | Baseline RF |
+| Region | Central | Tuned RF | Benchmark lineær |
+| Region | East | Tuned RF | Tuned RF |
+| Region | South | Tuned RF | Tuned RF |
+| Region | West | Tuned RF | Baseline RF |
+| Salgsnivå | Lavt salg | Tuned RF | Baseline RF |
+| Salgsnivå | Middels salg | Tuned RF | Tuned RF |
+| Salgsnivå | Høyt salg | Benchmark lineær | Benchmark lineær |
+
+<p align="center"><small><i>Tabell 8.4 Vinnermodell per segment på RMSE og MAPE.</i></small></p>
 
 ---
 

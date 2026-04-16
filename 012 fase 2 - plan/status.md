@@ -1,6 +1,6 @@
 # Statusliste
 
-Oppdatert: 2026-04-13 (WBS 7.1.4)
+Oppdatert: 2026-04-16 (WBS 7.1.5)
 
 Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/home/erikb/himolde/log650/G19-nettstudent-kveld/012 fase 2 - plan/prosjektstyringsplan.md) og tilgjengelige prosjektartefakter i repoet. Punkter er merket som `verifisert` når de kan knyttes til eksisterende filer eller mappestruktur. Øvrige punkter er vurdert som planstatus per dato og må bekreftes av prosjektgruppen. Omtolkningen av WBS 4.3 er dokumentert i [endringslogg.md](endringslogg.md).
 
@@ -68,7 +68,7 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 - [x] WBS 7.1.2: Skrive litteratur og teori. `fullført 2026-04-13`
 - [x] WBS 7.1.3: Skrive casebeskrivelse. `fullført 2026-04-13`
 - [x] WBS 7.1.4: Skrive metode og data. `fullført 2026-04-13`
-- [ ] WBS 7.1.5: Skrive modellering, analyse og resultat.
+- [x] WBS 7.1.5: Skrive modellering, analyse og resultat. `fullført 2026-04-16`
 - [ ] WBS 7.1.6: Skrive diskusjon, konklusjon, sammendrag, abstract og bibliografi.
 - [ ] WBS 7.1.7: Ferdigstille innledning etter at øvrig rapportskriving i WBS 7.1 er gjort, slik at innledningen samsvarer med resten av rapporten.
 - [ ] WBS 7.2.1: Velge hvilke figurer og tabeller som faktisk skal inn i rapporten.
@@ -81,4 +81,4 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 
 ## Anbefalt kort prosjektstatus
 
-Prosjektet fremstår per 2026-04-13 som værende ferdig med all analyse (WBS 2.x–6.x) og nå inne i rapportfasen (WBS 7.x). WBS 7.1.1–7.1.4 er fullført: rapport.md har fått innledning, problemstilling, avgrensinger, antagelser, litteraturkapittel, teorikapittel (3.1–3.4), casebeskrivelse (4.1–4.4) med tre EDA-figurer og kapittel 5 Metode og data (5.1 Metode og 5.2 Data med Tabell 5.1). Neste steg er WBS 7.1.5 (modellering, analyse og resultat).
+Prosjektet fremstår per 2026-04-16 som værende ferdig med all analyse (WBS 2.x–6.x) og i gjennomføring av rapportfasen (WBS 7.x). WBS 7.1.1–7.1.5 er fullført: rapport.md har fått innledning, problemstilling, avgrensinger, antagelser, litteraturkapittel, teorikapittel (3.1–3.4), casebeskrivelse (4.1–4.4), kapittel 5 Metode og data (5.1 Metode og 5.2 Data med Tabell 5.1) og nå kapittel 6 Modellering, kapittel 7 Analyse og kapittel 8 Resultat med fire kjernetabeller (8.1–8.4). Neste steg er WBS 7.1.6 (diskusjon, konklusjon, sammendrag, abstract og bibliografi).
