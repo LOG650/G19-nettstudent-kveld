@@ -1,6 +1,6 @@
 # Statusliste
 
-Oppdatert: 2026-04-16 (WBS 7.1.5)
+Oppdatert: 2026-04-16 (WBS 7.1.6)
 
 Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/home/erikb/himolde/log650/G19-nettstudent-kveld/012 fase 2 - plan/prosjektstyringsplan.md) og tilgjengelige prosjektartefakter i repoet. Punkter er merket som `verifisert` når de kan knyttes til eksisterende filer eller mappestruktur. Øvrige punkter er vurdert som planstatus per dato og må bekreftes av prosjektgruppen. Omtolkningen av WBS 4.3 er dokumentert i [endringslogg.md](endringslogg.md).
 
@@ -21,8 +21,8 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 - [x] E: Feature engineering er dokumentert i analyseområdet med eget feature-datasett og dokumenterte featurevalg. `verifisert`
 - [x] F: Modellbygging er dokumentert med lineær regresjon i WBS 4.1, Random Forest i WBS 4.2, et felles verifiserings- og oppsummeringssteg i WBS 4.3 og parameterjustering av Random Forest i WBS 4.4. Lineær regresjon står fortsatt som fast benchmark, mens tuned Random Forest er etablert som videre operativ modell. Selve planendringene for 4.3 og 4.4 er dokumentert i `endringslogg.md`. `verifisert`
 - [x] G: Prognoser for 2025, `RMSE`/`MAPE`, modellsammenligning, analyse av viktige variabler, tolkning av modellmønstre, diskusjon av styrker og svakheter og praktisk nytte er nå dokumentert i WBS 5.1, 5.2, 5.3, 5.4, 6.1, 6.2 og 6.3 for lineær regresjon, Random Forest-baseline og tuned Random Forest. `tuned RF` fremstår samlet som anbefalt modell på 2025-data, vinner `RMSE` i de fleste måneder og segmenter, og er nå oversatt til praktisk beslutningsstøtte for innkjøp, lager, kampanjevurdering, ressursplanlegging og ledelsesrapportering. `verifisert`
-- [ ] H: Rapportskriving er påbegynt med korte metode-, modellerings-, analyse-, diskusjons- og praktisk-nytte-notater om WBS 4.1, 4.2, 4.3, 4.4, 5.1, 5.2, 5.3, 5.4, 6.1, 6.2 og 6.3, samt en kort konklusjonssetning. Rapportfasen er nå brutt ned i WBS 7.1.1-7.3.3, der innledningen først skrives i grunnform i WBS 7.1.1 og ferdigstilles i WBS 7.1.7 etter at resten av 7.1 er skrevet. `delvis verifisert`
-- [ ] I: Konklusjon og presentasjon er ikke startet som egen avslutningsfase, selv om rapporten nå har fått en kort konklusjonssetning om praktisk bruk. `delvis verifisert`
+- [ ] H: Rapportskriving er langt på vei fullført: WBS 7.1.1–7.1.6 er dokumentert med Sammendrag, Abstract, innledning, problemstilling, avgrensinger, antagelser, litteratur, teori, casebeskrivelse, metode og data, modellering, analyse, resultat, diskusjon (9.1–9.5), konklusjon og bibliografi. Rapportfasen er brutt ned i WBS 7.1.1–7.3.3, og gjenstående aktiviteter er WBS 7.1.7 (ferdigstille innledning), 7.2.x (figurer og tabeller) og 7.3.x (kvalitetssikring). `delvis verifisert`
+- [ ] I: Konklusjon og presentasjon er ikke startet som egen avslutningsfase, selv om rapporten nå har en ferdigskrevet konklusjon i WBS 7.1.6. `delvis verifisert`
 
 ## Milepælstatus mot plan
 
@@ -59,7 +59,7 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 - [x] Avgrensningen av WBS 4.4 til tuning av Random Forest er dokumentert i egen endringslogg med begrunnelse og konsekvens for videre arbeid. `fullført 2026-04-02`
 - [x] Fullføre sporbar modelltesting og modellsammenligning gjennom WBS 5.2 og WBS 5.3. `fullført 2026-04-07`
 - [x] Bruke renset datasett som grunnlag for datasplitt og videre feature engineering. `fullført 2026-03-26`
-- [x] Starte løpende rapportskriving parallelt med analysearbeidet, i tråd med arbeidsreglene i prosjektet. `påbegynt 2026-03-30, utvidet 2026-04-02 med modellnotater for WBS 4.1, 4.2, 4.3, 4.4 og 5.1, utvidet 2026-04-07 med korte notater for WBS 5.2, 5.3, 5.4, 6.1 og 6.2, og utvidet 2026-04-12 med praktisk nytte i WBS 6.3 og en kort konklusjonssetning`
+- [x] Starte løpende rapportskriving parallelt med analysearbeidet, i tråd med arbeidsreglene i prosjektet. `påbegynt 2026-03-30, utvidet 2026-04-02 med modellnotater for WBS 4.1, 4.2, 4.3, 4.4 og 5.1, utvidet 2026-04-07 med korte notater for WBS 5.2, 5.3, 5.4, 6.1 og 6.2, utvidet 2026-04-12 med praktisk nytte i WBS 6.3 og en kort konklusjonssetning, og utvidet 2026-04-16 med reorganisert diskusjon (9.1–9.5), utvidet konklusjon, Sammendrag og Abstract for WBS 7.1.6`
 - [ ] Oppdatere denne statuslisten etter ukentlige statusmøter og ved milepæler.
 
 ## Operativ oppdeling av rapportarbeid (WBS 7.x)
@@ -69,7 +69,7 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 - [x] WBS 7.1.3: Skrive casebeskrivelse. `fullført 2026-04-13`
 - [x] WBS 7.1.4: Skrive metode og data. `fullført 2026-04-13`
 - [x] WBS 7.1.5: Skrive modellering, analyse og resultat. `fullført 2026-04-16`
-- [ ] WBS 7.1.6: Skrive diskusjon, konklusjon, sammendrag, abstract og bibliografi.
+- [x] WBS 7.1.6: Skrive diskusjon, konklusjon, sammendrag, abstract og bibliografi. `fullført 2026-04-16`
 - [ ] WBS 7.1.7: Ferdigstille innledning etter at øvrig rapportskriving i WBS 7.1 er gjort, slik at innledningen samsvarer med resten av rapporten.
 - [ ] WBS 7.2.1: Velge hvilke figurer og tabeller som faktisk skal inn i rapporten.
 - [ ] WBS 7.2.2: Lage case- og datakapitlets figurer og tabeller.
@@ -81,4 +81,4 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
 
 ## Anbefalt kort prosjektstatus
 
-Prosjektet fremstår per 2026-04-16 som værende ferdig med all analyse (WBS 2.x–6.x) og i gjennomføring av rapportfasen (WBS 7.x). WBS 7.1.1–7.1.5 er fullført: rapport.md har fått innledning, problemstilling, avgrensinger, antagelser, litteraturkapittel, teorikapittel (3.1–3.4), casebeskrivelse (4.1–4.4), kapittel 5 Metode og data (5.1 Metode og 5.2 Data med Tabell 5.1) og nå kapittel 6 Modellering, kapittel 7 Analyse og kapittel 8 Resultat med fire kjernetabeller (8.1–8.4). Neste steg er WBS 7.1.6 (diskusjon, konklusjon, sammendrag, abstract og bibliografi).
+Prosjektet fremstår per 2026-04-16 som værende ferdig med all analyse (WBS 2.x–6.x) og i gjennomføring av rapportfasen (WBS 7.x). WBS 7.1.1–7.1.6 er fullført: rapport.md har fått Sammendrag (277 ord) og Abstract (298 ord), innledning, problemstilling, avgrensinger, antagelser, litteraturkapittel, teorikapittel (3.1–3.4), casebeskrivelse (4.1–4.4), kapittel 5 Metode og data (5.1 Metode og 5.2 Data med Tabell 5.1), kapittel 6 Modellering, kapittel 7 Analyse og kapittel 8 Resultat med fire kjernetabeller (8.1–8.4), kapittel 9 Diskusjon med fem underkapitler (9.1 Tolkning av hovedfunn, 9.2 Variablenes påvirkning, 9.3 Praktisk nytte for Dagligvare, 9.4 Metodiske begrensninger, 9.5 Videre arbeid), kapittel 10 Konklusjon og kapittel 11 Bibliografi. Samtidig er segmentantallet i kap. 7 rettet til «13 av 14 tolkningssegmenter» i tråd med analyseartefaktene. Neste steg er WBS 7.1.7 (ferdigstille innledning i lys av øvrig rapport).
