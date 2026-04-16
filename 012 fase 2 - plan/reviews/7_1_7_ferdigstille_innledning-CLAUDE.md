@@ -144,3 +144,91 @@ Innledningen er kalibrert mot ferdig rapport uten å spoile resultater, struktur
 2. **(Kan)** Vurdere ytterligere stramming av §1.3/§1.4 dersom ordtellingen skal mot 450 (V1) — håndteres i 7.3.3.
 
 Hele 7.1-blokken (rapportkapitler) er dermed lukket. Neste steg er 7.2.1 (velge rapportfigurer og tabeller).
+
+---
+
+## Uavhengig verifisering 2026-04-16 (andre pass)
+
+Dette avsnittet dokumenterer en andre, uavhengig gjennomgang av 7.1.7 utført etter at arbeidet var committet (`98bf9ee feat: Complete introduction section and update status for WBS 7.1.7`). Verifiseringen kontrollerer strukturelle og terminologiske forhold som ikke ble vurdert i første pass.
+
+### Verifisering av tiltak fra første pass
+
+| # | Kontrollpunkt | Kilde | Status |
+|:--|:---|:---|:---|
+| 1 | F3 fra 7.1.1 er lukket i rapport.md | Grep `9 994` gir treff kun på linje 101 (Sammendrag), 269 (kap. 4.1) og 324 (kap. 5.2) – ingen i §1 | OK |
+| 2 | §1-struktur 1, 1.1, 1.2, 1.3, 1.4 sammenhengende | Grep `^## 1` i rapport.md | OK |
+| 3 | Ingen WBS-referanser i §1 | Grep `WBS` i rapport.md: 0 treff i hele filen | OK |
+| 4 | Ingen resultatspoiling i §1 | Grep `578,26` / `43,97` / `11 av 12` / `13 av 14` / `Tuned Random Forest` i linje 146–184: 0 treff | OK |
+| 5 | TOC oppdatert med §1.2 Delproblemer | Linje 119 i rapport.md viser `[1.2 Delproblemer](#12-delproblemer)` | OK |
+| 6 | status.md viser 7.1.7 fullført | Linje 3 og 73 i status.md | OK |
+| 7 | wbs.json: 7.1.7 og 7.1 på 100 % | Linje 244 og 307 i wbs.json | OK |
+| 8 | F3 merket utført i 7.1.1-reviewfilen | Linje 196 i `7_1_innledning_litteratur_casebeskrivelse-CLAUDE.md` | OK |
+| 9 | Arbeidet er committet og git-tre er rent | `git status` gir «nothing to commit, working tree clean» | OK |
+
+### Ordtellinger fra andre pass (presis)
+
+Førstepass-anslagene for §1.3 Avgrensinger (~190 ord) og §1.4 Antagelser (~220 ord) var for høye. Reell telling:
+
+| Seksjon | Linjer | Ord |
+|:---|:---|:---|
+| §1 Innledning (motivasjon + bro) | 147–153 | ~150 |
+| §1.1 Problemstilling | 155–157 | ~33 |
+| §1.2 Delproblemer | 159–164 | ~70 |
+| §1.3 Avgrensinger | 170–174 | 122 |
+| §1.4 Antagelser | 180–183 | 142 |
+| **Totalt §1** | 147–184 | **516** |
+
+Konsekvens: V1 fra første pass (om at §1.3/§1.4 er «lange» og bærer ordtellingen over 450) er delvis feilformulert. §1.3 og §1.4 er i realiteten begge konsise. Den totale ordtellingen 516 er ikke drevet av unødig lange avgrensninger eller antagelser, men av at dokumentet i sin helhet presenterer problemstilling, delproblemer, avgrensninger og antagelser på et tilstrekkelig detaljnivå. 7.3.3 bør ikke «stramme §1.3/§1.4» — de er allerede stramme.
+
+**Oppdatering av V1:** V1 nedgraderes fra «stramming av §1.3/§1.4» til en ren konstatering om at 516 ord ≈ 1,5 side, innenfor CLAUDE.md-regelen 1–2 sider. Ingen tiltak anbefalt.
+
+### Nye funn fra andre pass
+
+**F2 (Lav) — Stilistisk: «og samtidig» i motivasjonsavsnittet.**
+Linje 151 avslutter: «… med mål om å utvikle og evaluere prognosemodeller for salg i 2025, og samtidig identifisere hvilke forklaringsvariabler som bærer mest prediksjonsverdi.» Uttrykket «og samtidig» er akseptabelt, men kan strammes til «og identifisere» for kortere og mer direkte prosa. Håndteres i 7.3.3.
+
+**F3 (Lav) — Terminologisk presisjon i delproblem 2.**
+§1.2 punkt 2 bruker «Random Forest» (generisk), mens §1.1 bruker «Random Forest Regressor» (presis). Konsistent terminologi ville være «Random Forest Regressor» eller bruk av kortformen «Random Forest» etter at fullformen er introdusert i §1.1. Begge er akseptable etter introduksjon; ingen faktisk feil. Håndteres i 7.3.3 hvis konsekvens prioriteres.
+
+**F4 (Lav) — Tidlig metodeprioritering i §1.2.**
+Delproblem 1 forankrer «RMSE som primær og MAPE som sekundær metrikk». Denne prioriteringen motiveres først i kap. 3.3 og 5.1. Plasseringen i §1.2 er ikke feil – den gir leseren tidlig orientering og speiler at valget er baseline for hele analysen. Alternativt kunne §1.2 punkt 1 vært mer nøytralt formulert («målt med RMSE og MAPE») og prioriteringen introduseres først i kap. 5.1. Beholdes som valgfri 7.3.3-vurdering.
+
+**F5 (Lav) — Terminologi på tvers av §1.1, §1.2 og §9.**
+§1.1 bruker «faktorer», §1.2 «forklaringsvariabler», motivasjonen «forklaringsvariabler», kap. 9.2 veksler mellom «variabler», «prediktorer» og «signaler». Alle er akseptable synonymer i denne konteksten, men en bevisst felles ordliste (f.eks. «forklaringsvariabler» som hovedbegrep, med «prediktor»/«signal» som kontekstuelle varianter) kunne styrke lesbarheten. Dette er en gjennomgående stilvurdering som hører i 7.3.3 språkvask.
+
+**F6 (Lav) — Harmonisering av delproblemer med §1.4 antagelse 4.**
+§1.4 antagelse 4 knytter seg til at 2025 er holdt utenfor trening. Delproblem 1 refererer til «2025-data» uten å nevne at dette er ubrukt test. Sammenhengen er intuitiv for den som leser §1 sekvensielt, men en eksplisitt kobling i §1.2 punkt 1 ville være overarbeid – F6 er en observasjon, ikke et tiltak.
+
+### Samsvar med krav (krav-matrise)
+
+Ny kobling mellom §1-innhold og KR-001 til KR-007:
+
+| Krav | Beskrivelse | §1-dekning | Status |
+|:---|:---|:---|:---|
+| KR-001 | Salgsprognoser for 2025 fra 2022–2024 | §1.1 + §1.2 punkt 1 | OK |
+| KR-002 | Minst to modeller (LR + RF) | §1.1 + §1.2 punkt 1 + §1.3 punkt 5 | OK |
+| KR-003 | MAPE og RMSE for ytelse | §1.2 punkt 1 | OK |
+| KR-004 | Identifisere og rangere viktige variabler | §1.1 + §1.2 punkt 2 + motivasjon | OK |
+| KR-005 | Strukturert, kvalitetssikret, dokumentert datagrunnlag | Ikke direkte i §1 (hører i kap. 5.2) | N/A for §1 |
+| KR-006 | Dokumentasjon av resultater og metodevalg | Ikke direkte i §1 (hører i kap. 5.1/6/8) | N/A for §1 |
+| KR-007 | Tids- og ressursrammer | Ikke relevant for §1 | N/A for §1 |
+
+Alle forskningskrav (KR-001–KR-004) er reflektert i §1.
+
+### Andre pass-sjekk av TOC-anker
+
+IDE-diagnostikken viste tidligere en `MD051/link-fragments` warning for `#12-delproblemer` før §1.2-overskriften ble lagt til. Etter endringen peker lenken mot en eksisterende overskrift, og warningen skal være løst. En manuell sjekk i VS Code Markdown-preview er anbefalt som sluttverifisering.
+
+### Samlet vurdering etter andre pass
+
+Aktiviteten WBS 7.1.7 anses som metodisk og innholdsmessig **godkjent**. De gjenværende tiltakene (V1 nedgradert, F1 fra første pass, F2–F5 fra andre pass) er alle kategorisert som Lav alvorlighetsgrad og som 7.3-arbeid (språkvask og konsistenssjekk). Ingen tiltak blokkerer lukking av 7.1.7.
+
+**Oppsummert lav-liste for 7.3.3 språkvask:**
+
+1. ~~F1: Harmonisere «delspørsmål» → «delproblem» i kap. 9.1/9.2.~~ **Utført 2026-04-16** i kap. 9.1 og 9.2.
+2. ~~F2: Stramme «og samtidig» → «og» i motivasjonsavsnittet.~~ **Utført 2026-04-16** i §1 avsnitt 2.
+3. ~~F3: Vurdere «Random Forest Regressor» vs. «Random Forest» i delproblem 2.~~ **Utført 2026-04-16**: §1.2 punkt 2 bruker nå «Random Forest Regressor», konsistent med §1.1.
+4. ~~F5: Etablere felles ordliste for forklaringsvariabler/prediktorer/signaler.~~ **Utført 2026-04-16**: kap. 3 (linje 195) utvidet med samlebegrepet «forklaringsvariabel» og kontekstuelle synonymer prediktor/signal/feature.
+5. F4 (valgfri): Flytte RMSE-primær/MAPE-sekundær-betegnelsen fra §1.2 til kap. 5.1.
+
+**Gjenstående tiltak etter 2026-04-16:** Kun F4 (valgfri) står åpent. Alle andre lav-funn fra første og andre pass er lukket.
