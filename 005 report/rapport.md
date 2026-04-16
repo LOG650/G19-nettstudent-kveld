@@ -116,6 +116,7 @@ The tuned Random Forest is the overall best model with RMSE 578.26 and MAPE 43.9
 
 - [1 Innledning](#1-innledning)
   - [1.1 Problemstilling](#11-problemstilling)
+  - [1.2 Delproblemer](#12-delproblemer)
   - [1.3 Avgrensinger](#13-avgrensinger)
   - [1.4 Antagelser](#14-antagelser)
 - [2 Litteratur](#2-litteratur)
@@ -145,15 +146,22 @@ The tuned Random Forest is the overall best model with RMSE 578.26 and MAPE 43.9
 
 ## 1 Innledning
 
-Dagligvarehandel er preget av høy variabilitet i etterspørsel. Salget svinger med sesong, kampanjer, rabatter og regionale forhold, og konsekvensene av dårlige prognoser er direkte synlige i driften: for høye bestillinger fører til svinn og bundet kapital, mens for lave bestillinger gir utsolgte varer og tapte inntekter. Behovet for mer presise etterspørselsprognoser er derfor sentralt for virksomheter som ønsker å ta bedre beslutninger knyttet til innkjøp, lager, kampanjer og ressursplanlegging.
+Dagligvarehandel er preget av høy variabilitet i etterspørsel. Salget svinger med sesong, kampanjer, rabatter og regionale forhold, og konsekvensene av dårlige prognoser er direkte synlige i driften: for høye bestillinger fører til svinn og bundet kapital, mens for lave bestillinger gir utsolgte varer og tapte inntekter. Behovet for mer presise etterspørselsprognoser er derfor sentralt når virksomheter skal fatte beslutninger om innkjøp, lager, kampanjer og ressursplanlegging.
 
-Maskinlæringsbaserte modeller som Random Forest Regressor gir nye muligheter for å fange opp komplekse mønstre i historiske salgsdata sammenlignet med tradisjonelle lineære tilnærminger. I dette prosjektet analyseres et datasett som simulerer en dagligvarekjede med 9 994 daglige salgsrader over perioden 2022–2025, med mål om å utvikle og evaluere prognosemodeller for salg i 2025.
+Maskinlæringsbaserte metoder som Random Forest Regressor gir nye muligheter for å fange opp ikke-lineære mønstre i historiske salgsdata sammenlignet med tradisjonelle lineære tilnærminger. Dette prosjektet analyserer et simulert dagligvarecase for perioden 2022–2025 med mål om å utvikle og evaluere prognosemodeller for salg i 2025, og samtidig identifisere hvilke forklaringsvariabler som bærer mest prediksjonsverdi.
 
-Rapporten er strukturert slik at casebeskrivelsen presenterer bedriften og det historiske salget i kapittel 4, metode og datagrunnlag beskrives i kapittel 5, modellvalg og spesifikasjon i kapittel 6, analyse og resultater i kapittel 7–8, og diskusjon og konklusjon i kapittel 9–10.
+Med dette som utgangspunkt formuleres problemstillingen som styrer metodevalg, analyse og tolkning videre i rapporten.
 
 ## 1.1 Problemstilling
 
 Hvordan kan multippel lineær regresjon og Random Forest Regressor brukes til å forutsi salg for 2025 for en simulert dagligvarekjede, og hvilke faktorer påvirker salget mest?
+
+## 1.2 Delproblemer
+
+Problemstillingen dekomponeres i to delproblemer som strukturerer analyse, diskusjon og konklusjon:
+
+1. **Modellvalg og prognoseytelse.** Hvordan sammenlignes de to modellklassene på 2025-data, målt med RMSE som primær og MAPE som sekundær metrikk, både samlet, månedlig og på tvers av segmenter som kvartal, rabattband, region og salgsnivå?
+2. **Variabelanalyse.** Hvilke forklaringsvariabler har størst prediksjonsverdi, og hvordan samsvarer rangeringen fra Random Forest med koeffisientene i den lineære benchmarken?
 
 ## 1.3 Avgrensinger
 

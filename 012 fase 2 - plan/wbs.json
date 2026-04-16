@@ -241,7 +241,7 @@
           "duration": "12 days",
           "start_date": "Fri 03.04.26",
           "finish_date": "Tue 14.04.26",
-          "percent_complete": "0%",
+          "percent_complete": "100%",
           "children": [
             {
               "id": "7.1.1",
@@ -304,7 +304,7 @@
               "duration": "1 day",
               "start_date": "Tue 14.04.26",
               "finish_date": "Tue 14.04.26",
-              "percent_complete": "0%"
+              "percent_complete": "100%"
             }
           ]
         },

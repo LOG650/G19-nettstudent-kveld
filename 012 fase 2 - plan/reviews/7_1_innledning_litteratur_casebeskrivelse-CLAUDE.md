@@ -193,7 +193,7 @@ Kap. 4.4 er kortere enn de øvrige seksjonene og kan med fordel knyttes mer konk
 | V6 | Rett «supervísert» → «supervisert» | Språk | [x] | Utført 2026-04-13 |
 | F1 | Flytt datasettdetaljer fra kap. 4.1 til kap. 5.2 ved WBS 7.1.4 | Rapportstruktur | [ ] | |
 | F2 | Vurder én fagfellevurdert kilde ved WBS 7.1.6 | Akademisk kvalitet | [ ] | |
-| F3 | Fjern datasett-detalj fra innledningen ved WBS 7.1.7 | Rapportstruktur | [ ] | |
+| F3 | Fjern datasett-detalj fra innledningen ved WBS 7.1.7 | Rapportstruktur | [x] | Utført 2026-04-16 i WBS 7.1.7: detaljen «9 994 daglige salgsrader» fjernet fra innledningen; ligger fortsatt i Sammendrag og kap. 5.2 |
 | F4 | Utvid kap. 4.4 med kategori-spesifikk risiko | Faglig dybde | [ ] | |
 
 ---
