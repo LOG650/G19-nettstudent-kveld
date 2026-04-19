@@ -2,7 +2,7 @@
 
 Opprettet: 2026-04-19 (WBS 7.2.1)
 
-Dette dokumentet låser hvilke figurer og tabeller som skal ligge i [rapport.md](../005 report/rapport.md), kobler hver artefakt til kilden i [006 analysis/aktiviteter/](../006 analysis/aktiviteter/), og setter forslag til figur- og tabelltekst. Produksjonen av nye artefakter gjøres i WBS 7.2.2 (case/data) og WBS 7.2.3 (analyse/resultat/diskusjon). Innsetting, nummerering og formatering i rapporten gjøres i WBS 7.2.4.
+Dette dokumentet låser hvilke figurer og tabeller som skal ligge i [rapport.md](../005%20report/rapport.md), kobler hver artefakt til kilden i [006 analysis/aktiviteter/](../006%20analysis/aktiviteter/), og setter forslag til figur- og tabelltekst. Produksjonen av nye artefakter gjøres i WBS 7.2.2 (case/data) og WBS 7.2.3 (analyse/resultat/diskusjon). Innsetting, nummerering og formatering i rapporten gjøres i WBS 7.2.4.
 
 ## 1 Formål
 
@@ -25,7 +25,7 @@ Følgende prinsipper gjelder for forskningsprosjektet i LOG650 og er styrende fo
 - Stort eller detaljert datamateriale skal plasseres i vedlegg.
 - En god andel egenproduserte figurer og visualiseringer anbefales, fordi de viser selvstendig analyse og studentens egne faglige vurderinger.
 
-**Konsekvens for dette prosjektet:** Alle figurer og tabeller i utvalget er produsert av prosjektgruppen basert på eget analysearbeid i [006 analysis/](../006 analysis/). De skal derfor ikke ha kildehenvisning i figur-/tabellteksten. Datagrunnlaget (Kaggle-datasettet Supermart Grocery Sales) omtales i kap. 5.2 i rapporten, ikke i figurtekstene.
+**Konsekvens for dette prosjektet:** Alle figurer og tabeller i utvalget er produsert av prosjektgruppen basert på eget analysearbeid i [006 analysis/](../006%20analysis/). De skal derfor ikke ha kildehenvisning i figur-/tabellteksten. Datagrunnlaget (Kaggle-datasettet Supermart Grocery Sales) omtales i kap. 5.2 i rapporten, ikke i figurtekstene.
 
 ## 3 Nummereringskonvensjon
 
@@ -36,7 +36,7 @@ Kravet «nummereres separat og i den rekkefølgen de omtales» kan leses på to 
 
 Rapporten bruker i dag (b), og dette er konsistent med universitets- og høgskolemaler generelt. **Planen beholder (b) som arbeidsantagelse.** Det er dermed fem hovedregler i 7.2.4:
 
-1. Figurer nummereres per hovedkapittel i rekkefølgen de omtales: 4.1 → 4.2 → 4.3 → 4.4 → 5.1 → 7.1 → 7.2 → 8.1 → 8.2 → 8.3.
+1. Figurer nummereres per hovedkapittel i rekkefølgen de omtales: 4.1 → 4.2 → 4.3 → 5.1 → 5.2 → 7.1 → 7.2 → 8.1 → 8.2 → 8.3.
 2. Tabeller nummereres per hovedkapittel i rekkefølgen de omtales: 5.1 → 5.2 → 5.3 → 5.4 → 6.1 → 6.2 → 7.1 → 7.2 → 8.1 → 8.2 → 8.3 → 8.4 → 9.1 → 9.2 → 9.3.
 3. Ingen hopp bakover i rekkefølgen innen samme kapittel.
 4. Figurer og tabeller har hver sin sekvens – det samme nummer kan brukes for en figur og en tabell i samme kapittel (eks. Figur 7.1 og Tabell 7.1).
@@ -50,14 +50,14 @@ Rapporten inneholder per 2026-04-16 følgende innholdsbærende artefakter (forsi
 
 | Nr i rapport | Type | Tittel/funksjon | Kilde |
 |---|---|---|---|
-| Figur 4.1 | figur | Gjennomsnittlig salg per kategori | [fig_sales_per_category.png](../006 analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/fig_sales_per_category.png) |
-| Figur 4.2 | figur | Månedlig totalsalg med trenings- og testperiode | [fig_sales_over_tid_train_test.png](../006 analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/fig_sales_over_tid_train_test.png) |
-| Figur 4.3 | figur | Gjennomsnittlig salg per måned (sesongmønster) | [fig_sales_per_month_split.png](../006 analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/fig_sales_per_month_split.png) |
-| Tabell 5.1 | tabell | Fordeling mellom trenings- og testdata | egen tekst i rapporten, basert på [tab_split_oversikt.csv](../006 analysis/aktiviteter/06_datasplitt/tab_split_oversikt.csv) |
-| Tabell 8.1 | tabell | Samlet prognoseytelse 2025 (RMSE/MAPE) | basert på [tab_rmse_mape_oversikt.csv](../006 analysis/aktiviteter/13_rmse_og_mape/tab_rmse_mape_oversikt.csv) |
-| Tabell 8.2 | tabell | Månedlig vinnertelling per metrikk | basert på [tab_modellvinner_telling.csv](../006 analysis/aktiviteter/14_sammenligne_modellresultater/tab_modellvinner_telling.csv) |
-| Tabell 8.3 | tabell | Topp 10 feature importance for tuned Random Forest | basert på [tab_rf_tuned_feature_importance.csv](../006 analysis/aktiviteter/15_viktige_variabler/tab_rf_tuned_feature_importance.csv) |
-| Tabell 8.4 | tabell | Vinnermodell per segment | basert på [tab_segmentvinnere_tolkning.csv](../006 analysis/aktiviteter/16_tolke_modellresultater/tab_segmentvinnere_tolkning.csv) |
+| Figur 4.1 | figur | Gjennomsnittlig salg per kategori | [fig_sales_per_category.png](../006%20analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/fig_sales_per_category.png) |
+| Figur 4.2 | figur | Månedlig totalsalg med trenings- og testperiode | [fig_sales_over_tid_train_test.png](../006%20analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/fig_sales_over_tid_train_test.png) |
+| Figur 4.3 | figur | Gjennomsnittlig salg per måned (sesongmønster) | [fig_sales_per_month_split.png](../006%20analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/fig_sales_per_month_split.png) |
+| Tabell 5.1 | tabell | Fordeling mellom trenings- og testdata | egen tekst i rapporten, basert på [tab_split_oversikt.csv](../006%20analysis/aktiviteter/06_datasplitt/tab_split_oversikt.csv) |
+| Tabell 8.1 | tabell | Samlet prognoseytelse 2025 (RMSE/MAPE) | basert på [tab_rmse_mape_oversikt.csv](../006%20analysis/aktiviteter/13_rmse_og_mape/tab_rmse_mape_oversikt.csv) |
+| Tabell 8.2 | tabell | Månedlig vinnertelling per metrikk | basert på [tab_modellvinner_telling.csv](../006%20analysis/aktiviteter/14_sammenligne_modellresultater/tab_modellvinner_telling.csv) |
+| Tabell 8.3 | tabell | Topp 10 feature importance for tuned Random Forest | basert på [tab_rf_tuned_feature_importance.csv](../006%20analysis/aktiviteter/15_viktige_variabler/tab_rf_tuned_feature_importance.csv) |
+| Tabell 8.4 | tabell | Vinnermodell per segment | basert på [tab_segmentvinnere_tolkning.csv](../006%20analysis/aktiviteter/16_tolke_modellresultater/tab_segmentvinnere_tolkning.csv) |
 
 ## 5 Figurutvalg per kapittel
 
@@ -67,16 +67,18 @@ Alle figurer er egenproduserte. Figurtekst plasseres under figuren og skal være
 
 | Nr | Kilde | Beholdes/Ny | Plassering i rapport | Foreslått figurtekst |
 |---|---|---|---|---|
-| Figur 4.1 | [fig_sales_per_category.png](../006 analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/fig_sales_per_category.png) | beholdes | 4.1 Dagligvare og beslutningssituasjonen | *Figur 4.1 Gjennomsnittlig salg per produktkategori i perioden 2022–2024. Høyere søyler viser kategorier med større gjennomsnittlig ordreverdi og tydeligere kampanje-/volumvariasjon.* |
-| Figur 4.2 | [fig_sales_over_tid_train_test.png](../006 analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/fig_sales_over_tid_train_test.png) | beholdes | 4.2 Historisk salgsutvikling | *Figur 4.2 Månedlig totalsalg 2022–2025. Treningsperioden 2022–2024 og testperioden 2025 er markert, slik at trend- og sesongforløp kan sammenlignes mellom de to periodene.* |
-| Figur 4.3 | [fig_sales_per_month_split.png](../006 analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/fig_sales_per_month_split.png) | beholdes | 4.3 Sesongmønster i salget | *Figur 4.3 Gjennomsnittlig salg per kalendermåned i trenings- og testperioden. Sammenligningen synliggjør sesongmønsteret og vurderer stabiliteten mellom trening og test.* |
-| Figur 4.4 | [fig_sales_fordeling_train_test.png](../006 analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/fig_sales_fordeling_train_test.png) | ny (eksisterer) – kopieres inn i 7.2.2 | 4.3 Sesongmønster i salget (etter Figur 4.3) | *Figur 4.4 Fordeling av daglige salgsverdier i trenings- og testperioden. Overlappet i fordelingene tyder på at målvariabelen er stabil mellom periodene.* |
+| Figur 4.1 | [fig_sales_per_category.png](../006%20analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/fig_sales_per_category.png) | beholdes | 4.1 Dagligvare og beslutningssituasjonen | *Figur 4.1 Gjennomsnittlig salg per produktkategori i perioden 2022–2024. Høyere søyler viser kategorier med større gjennomsnittlig ordreverdi og tydeligere kampanje-/volumvariasjon.* |
+| Figur 4.2 | [fig_sales_over_tid_train_test.png](../006%20analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/fig_sales_over_tid_train_test.png) | beholdes | 4.2 Historisk salgsutvikling | *Figur 4.2 Månedlig totalsalg 2022–2025. Treningsperioden 2022–2024 og testperioden 2025 er markert, slik at trend- og sesongforløp kan sammenlignes mellom de to periodene.* |
+| Figur 4.3 | [fig_sales_per_month_split.png](../006%20analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/fig_sales_per_month_split.png) | beholdes | 4.3 Sesongmønster i salget | *Figur 4.3 Gjennomsnittlig salg per kalendermåned i trenings- og testperioden. Sammenligningen synliggjør sesongmønsteret og vurderer stabiliteten mellom trening og test.* |
 
 ### 5.2 Kapittel 5 Metode og data
 
+Figurene plasseres i §5.2 Data: Figur 5.1 tidlig i seksjonen (strukturbeskrivelse), Figur 5.2 etter diskusjonen av målvariabelen og datasplitten.
+
 | Nr | Kilde | Beholdes/Ny | Plassering i rapport | Foreslått figurtekst |
 |---|---|---|---|---|
-| Figur 5.1 | [fig_datatype_fordeling.png](../006 analysis/aktiviteter/01_dataforstaelse_og_variabler/fig_datatype_fordeling.png) | ny (eksisterer) – kopieres inn i 7.2.2 | 5.2 Data | *Figur 5.1 Fordeling av datatyper i rådatasettet. Fordelingen viser hvor mange kolonner som er numeriske, kategoriske og datobaserte, og underbygger valg av forbehandling og feature engineering.* |
+| Figur 5.1 | [fig_datatype_fordeling.png](../006%20analysis/aktiviteter/01_dataforstaelse_og_variabler/fig_datatype_fordeling.png) | ny (eksisterer) – kopieres inn i 7.2.2 | 5.2 Data, tidlig i seksjonen | *Figur 5.1 Fordeling av datatyper i rådatasettet. Fordelingen viser hvor mange kolonner som er numeriske, kategoriske og datobaserte, og underbygger valg av forbehandling og feature engineering.* |
+| Figur 5.2 | [fig_sales_fordeling_train_test.png](../006%20analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/fig_sales_fordeling_train_test.png) | ny (eksisterer) – kopieres inn i 7.2.2 | 5.2 Data, etter Figur 5.1 | *Figur 5.2 Fordeling av daglige salgsverdier i trenings- og testperioden. Overlappet i fordelingene tyder på at målvariabelen er stabil mellom periodene.* |
 
 ### 5.3 Kapittel 7 Analyse
 
@@ -84,18 +86,18 @@ Begge figurene må produseres i 7.2.3 som nye plotteskript, og lagres i respekti
 
 | Nr | Kilde (data) | Type plot | Plassering i rapport | Foreslått figurtekst |
 |---|---|---|---|---|
-| Figur 7.1 | [tab_bias_maaned_modell.csv](../006 analysis/aktiviteter/16_tolke_modellresultater/tab_bias_maaned_modell.csv) | linjediagram, én linje per modell (LR, RF baseline, tuned RF), x = måned 2025-01…2025-12, y = bias i kroner | 7 Analyse, etter diskusjonen av systematiske feil | *Figur 7.1 Månedlig bias per modell i 2025. Positive verdier betyr at modellen overestimerer salget, negative at den underestimerer. Kurven viser at alle tre modellene underestimerer i august–september.* |
-| Figur 7.2 | [tab_rmse_mape_maaned.csv](../006 analysis/aktiviteter/13_rmse_og_mape/tab_rmse_mape_maaned.csv) | linjediagram, én linje per modell, x = måned 2025-01…2025-12, y = RMSE | 7 Analyse, etter Figur 7.1 | *Figur 7.2 Månedlig RMSE per modell i 2025. Tuned Random Forest har lavest RMSE i majoriteten av månedene, mens benchmark lineær slår gjennom i enkeltmåneder.* |
+| Figur 7.1 | [tab_bias_maaned_modell.csv](../006%20analysis/aktiviteter/16_tolke_modellresultater/tab_bias_maaned_modell.csv) | linjediagram, én linje per modell (LR, RF baseline, tuned RF), x = måned 2025-01…2025-12, y = bias i kroner | 7 Analyse, etter diskusjonen av systematiske feil | *Figur 7.1 Månedlig bias per modell i 2025. Positive verdier betyr at modellen overestimerer salget, negative at den underestimerer. Kurven viser at alle tre modellene underestimerer i august–september.* |
+| Figur 7.2 | [tab_rmse_mape_maaned.csv](../006%20analysis/aktiviteter/13_rmse_og_mape/tab_rmse_mape_maaned.csv) | linjediagram, én linje per modell, x = måned 2025-01…2025-12, y = RMSE | 7 Analyse, etter Figur 7.1 | *Figur 7.2 Månedlig RMSE per modell i 2025. Tuned Random Forest har lavest RMSE i majoriteten av månedene, mens benchmark lineær slår gjennom i enkeltmåneder.* |
 
 ### 5.4 Kapittel 8 Resultat
 
-Alle tre figurene produseres i 7.2.3.
+Alle tre figurene produseres i 7.2.3. Rekkefølgen er valgt slik at figurnummeret matcher tekstrekkefølgen i kap. 8.
 
 | Nr | Kilde (data) | Type plot | Plassering i rapport | Foreslått figurtekst |
 |---|---|---|---|---|
-| Figur 8.1 | [tab_rf_tuned_feature_importance.csv](../006 analysis/aktiviteter/15_viktige_variabler/tab_rf_tuned_feature_importance.csv) (topp 10) | horisontalt søyleplot, sortert synkende | 8 Resultat, etter Tabell 8.3 | *Figur 8.1 Topp 10 feature importance for tuned Random Forest. Variablene er rangert etter normalisert viktighet og viser hvilke signaler modellen faktisk vektlegger.* |
-| Figur 8.2 | [tab_rmse_mape_oversikt.csv](../006 analysis/aktiviteter/13_rmse_og_mape/tab_rmse_mape_oversikt.csv) | gruppert søyleplot, tre søyler per metrikk, én metrikk per akse (RMSE i kroner; MAPE i prosent) | 8 Resultat, etter Tabell 8.1 | *Figur 8.2 Samlet RMSE og MAPE for benchmark lineær, Random Forest baseline og tuned Random Forest i 2025. Tuned Random Forest har lavest RMSE, mens MAPE er tettere fordelt mellom modellene.* |
-| Figur 8.3 | [tab_variabelgrupper_tuned_top10.csv](../006 analysis/aktiviteter/15_viktige_variabler/tab_variabelgrupper_tuned_top10.csv) | søyleplot, én søyle per variabelgruppe | 8 Resultat, etter Figur 8.1 | *Figur 8.3 Samlet feature importance per variabelgruppe i topp 10 for tuned Random Forest. Figuren oppsummerer hvilke grupper av signaler (tid, pris/rabatt, geografi, kategori) som dominerer modellens prediksjon.* |
+| Figur 8.1 | [tab_rmse_mape_oversikt.csv](../006%20analysis/aktiviteter/13_rmse_og_mape/tab_rmse_mape_oversikt.csv) | gruppert søyleplot, tre søyler per metrikk, én metrikk per akse (RMSE i kroner; MAPE i prosent) | 8 Resultat, etter Tabell 8.1 | *Figur 8.1 Samlet RMSE og MAPE for benchmark lineær, Random Forest baseline og tuned Random Forest i 2025. Tuned Random Forest har lavest RMSE, mens MAPE er tettere fordelt mellom modellene.* |
+| Figur 8.2 | [tab_rf_tuned_feature_importance.csv](../006%20analysis/aktiviteter/15_viktige_variabler/tab_rf_tuned_feature_importance.csv) (topp 10) | horisontalt søyleplot, sortert synkende | 8 Resultat, etter Tabell 8.3 | *Figur 8.2 Topp 10 feature importance for tuned Random Forest. Variablene er rangert etter normalisert viktighet og viser hvilke signaler modellen faktisk vektlegger.* |
+| Figur 8.3 | [tab_variabelgrupper_tuned_top10.csv](../006%20analysis/aktiviteter/15_viktige_variabler/tab_variabelgrupper_tuned_top10.csv) | søyleplot, én søyle per variabelgruppe | 8 Resultat, etter Figur 8.2 | *Figur 8.3 Samlet feature importance per variabelgruppe i topp 10 for tuned Random Forest. Figuren oppsummerer hvilke grupper av signaler (tid, pris/rabatt, geografi, kategori) som dominerer modellens prediksjon.* |
 
 ### 5.5 Øvrige kapitler
 
@@ -110,40 +112,40 @@ Alle tabeller er egenproduserte. Tabelltittel plasseres under tabellen i samme s
 | Nr | Kilde | Beholdes/Ny | Plassering | Foreslått tabelltittel |
 |---|---|---|---|---|
 | Tabell 5.1 | eksisterende i rapporten | beholdes | 5.2 Data | *Tabell 5.1 Fordeling mellom trenings- (2022–2024) og testdata (2025) med antall rader og antall features.* |
-| Tabell 5.2 | [tab_relevante_variabler.csv](../006 analysis/aktiviteter/02_identifisere_relevante_variabler/tab_relevante_variabler.csv) | ny | 5.2 Data | *Tabell 5.2 Variabeloversikt med datatype, manglende andel og anbefaling for videre bruk (target, inkluder, vurder, ekskluder).* |
-| Tabell 5.3 | [tab_featurevalg.csv](../006 analysis/aktiviteter/05_feature_engineering/tab_featurevalg.csv) | ny | 5.2 Data | *Tabell 5.3 Feature engineering-oppsett: input-kolonne, handling og resulterende output-kolonne med begrunnelse.* |
-| Tabell 5.4 | [tab_renselogg.csv](../006 analysis/aktiviteter/04_dataprosessering/tab_renselogg.csv) | ny | 5.2 Data | *Tabell 5.4 Datarensing – målepunkter, verdier og kommentarer som dokumenterer kvalitetskontrollen før modellering.* |
+| Tabell 5.2 | [tab_relevante_variabler.csv](../006%20analysis/aktiviteter/02_identifisere_relevante_variabler/tab_relevante_variabler.csv) | ny | 5.2 Data | *Tabell 5.2 Variabeloversikt med datatype, manglende andel og anbefaling for videre bruk (target, inkluder, vurder, ekskluder).* |
+| Tabell 5.3 | [tab_featurevalg.csv](../006%20analysis/aktiviteter/05_feature_engineering/tab_featurevalg.csv) | ny | 5.2 Data | *Tabell 5.3 Feature engineering-oppsett: input-kolonne, handling og resulterende output-kolonne med begrunnelse.* |
+| Tabell 5.4 | [tab_renselogg.csv](../006%20analysis/aktiviteter/04_dataprosessering/tab_renselogg.csv) | ny | 5.2 Data | *Tabell 5.4 Datarensing – målepunkter, verdier og kommentarer som dokumenterer kvalitetskontrollen før modellering.* |
 
 ### 6.2 Kapittel 6 Modellering
 
 | Nr | Kilde | Beholdes/Ny | Plassering | Foreslått tabelltittel |
 |---|---|---|---|---|
-| Tabell 6.1 | [tab_lr_modelloversikt.csv](../006 analysis/aktiviteter/08_lineaer_regresjon/tab_lr_modelloversikt.csv) + [tab_rf_modelloversikt.csv](../006 analysis/aktiviteter/09_random_forest_regressor/tab_rf_modelloversikt.csv) + [tab_rf_tuned_modelloversikt.csv](../006 analysis/aktiviteter/11_parameterjustering_random_forest/tab_rf_tuned_modelloversikt.csv) | ny (sammenstilles i 7.2.3) | 6 Modellering | *Tabell 6.1 Oversikt over de tre modellsporene: antall features, antall treningsrader, sentrale hyperparametre og kort rolle i prosjektet.* |
-| Tabell 6.2 | [tab_rf_tuning_vinner.csv](../006 analysis/aktiviteter/11_parameterjustering_random_forest/tab_rf_tuning_vinner.csv) + topp 5 fra [tab_rf_tuning_kandidater.csv](../006 analysis/aktiviteter/11_parameterjustering_random_forest/tab_rf_tuning_kandidater.csv) | ny | 6 Modellering | *Tabell 6.2 Topp 5 parameterkombinasjoner fra tuning av Random Forest, med n\_estimators, max\_depth, min\_samples\_leaf, max\_features, valideringens RMSE/MAPE og delta mot baseline.* |
+| Tabell 6.1 | [tab_lr_modelloversikt.csv](../006%20analysis/aktiviteter/08_lineaer_regresjon/tab_lr_modelloversikt.csv) + [tab_rf_modelloversikt.csv](../006%20analysis/aktiviteter/09_random_forest_regressor/tab_rf_modelloversikt.csv) + [tab_rf_tuned_modelloversikt.csv](../006%20analysis/aktiviteter/11_parameterjustering_random_forest/tab_rf_tuned_modelloversikt.csv) | ny (sammenstilles i 7.2.3) | 6 Modellering | *Tabell 6.1 Oversikt over de tre modellsporene: antall features, antall treningsrader, sentrale hyperparametre og kort rolle i prosjektet.* |
+| Tabell 6.2 | [tab_rf_tuning_vinner.csv](../006%20analysis/aktiviteter/11_parameterjustering_random_forest/tab_rf_tuning_vinner.csv) + topp 5 fra [tab_rf_tuning_kandidater.csv](../006%20analysis/aktiviteter/11_parameterjustering_random_forest/tab_rf_tuning_kandidater.csv) | ny | 6 Modellering | *Tabell 6.2 Topp 5 parameterkombinasjoner fra tuning av Random Forest, sortert etter RMSE på 2024-valideringen, med n\_estimators, max\_depth, min\_samples\_leaf, max\_features, valideringens RMSE/MAPE og delta mot baseline.* |
 
 ### 6.3 Kapittel 7 Analyse
 
 | Nr | Kilde | Beholdes/Ny | Plassering | Foreslått tabelltittel |
 |---|---|---|---|---|
-| Tabell 7.1 | [tab_rmse_mape_maaned.csv](../006 analysis/aktiviteter/13_rmse_og_mape/tab_rmse_mape_maaned.csv) | ny (kompakt – én rad per måned, kolonner LR/RF/tuned RF) | 7 Analyse, før Figur 7.2 | *Tabell 7.1 Månedlig RMSE og MAPE per modell i 2025. Tabellen underbygger figurene 7.1 og 7.2 med eksakte tall for hver måned.* |
-| Tabell 7.2 | [tab_segmentmetrikk_modell.csv](../006 analysis/aktiviteter/16_tolke_modellresultater/tab_segmentmetrikk_modell.csv) + [tab_segmentdefinisjoner.csv](../006 analysis/aktiviteter/16_tolke_modellresultater/tab_segmentdefinisjoner.csv) | ny (utvalg: kvartal, rabattnivå, region, salgsbånd) | 7 Analyse | *Tabell 7.2 RMSE og MAPE per modell i utvalgte segmenter (kvartal, rabattbånd, region, salgsbånd). Segmentinndelingen er definert ut fra dataene og gir et bilde av hvor prognosene er stabile.* |
+| Tabell 7.1 | [tab_rmse_mape_maaned.csv](../006%20analysis/aktiviteter/13_rmse_og_mape/tab_rmse_mape_maaned.csv) | ny (kompakt – én rad per måned, kolonner LR/RF/tuned RF) | 7 Analyse, før Figur 7.2 | *Tabell 7.1 Månedlig RMSE og MAPE per modell i 2025. Tabellen underbygger figurene 7.1 og 7.2 med eksakte tall for hver måned.* |
+| Tabell 7.2 | [tab_segmentmetrikk_modell.csv](../006%20analysis/aktiviteter/16_tolke_modellresultater/tab_segmentmetrikk_modell.csv) + [tab_segmentdefinisjoner.csv](../006%20analysis/aktiviteter/16_tolke_modellresultater/tab_segmentdefinisjoner.csv) | ny (utvalg: kvartal, rabattnivå, region, salgsbånd) | 7 Analyse, etter Figur 7.2 | *Tabell 7.2 RMSE og MAPE per modell i utvalgte segmenter (kvartal, rabattbånd, region, salgsbånd). Segmentinndelingen er definert ut fra dataene og gir et bilde av hvor prognosene er stabile.* |
 
 ### 6.4 Kapittel 8 Resultat
 
 | Nr | Kilde | Beholdes/Ny | Plassering | Foreslått tabelltittel |
 |---|---|---|---|---|
-| Tabell 8.1 | eksisterende i rapporten, basert på [tab_rmse_mape_oversikt.csv](../006 analysis/aktiviteter/13_rmse_og_mape/tab_rmse_mape_oversikt.csv) | beholdes | 8 Resultat | *Tabell 8.1 Samlet prognoseytelse 2025 for de tre modellene, målt som RMSE i kroner og MAPE i prosent.* |
-| Tabell 8.2 | eksisterende i rapporten, basert på [tab_modellvinner_telling.csv](../006 analysis/aktiviteter/14_sammenligne_modellresultater/tab_modellvinner_telling.csv) | beholdes | 8 Resultat | *Tabell 8.2 Månedlig vinnertelling 2025 per metrikk, med antall og andel vinnermåneder per modell.* |
-| Tabell 8.3 | eksisterende i rapporten, basert på [tab_rf_tuned_feature_importance.csv](../006 analysis/aktiviteter/15_viktige_variabler/tab_rf_tuned_feature_importance.csv) | beholdes | 8 Resultat | *Tabell 8.3 Topp 10 feature importance for tuned Random Forest, med normalisert viktighet i prosent og variabelgruppe.* |
-| Tabell 8.4 | eksisterende i rapporten, basert på [tab_segmentvinnere_tolkning.csv](../006 analysis/aktiviteter/16_tolke_modellresultater/tab_segmentvinnere_tolkning.csv) | beholdes | 8 Resultat | *Tabell 8.4 Vinnermodell per segment, med antall rader og beste modell på henholdsvis RMSE og MAPE.* |
+| Tabell 8.1 | eksisterende i rapporten, basert på [tab_rmse_mape_oversikt.csv](../006%20analysis/aktiviteter/13_rmse_og_mape/tab_rmse_mape_oversikt.csv) | beholdes | 8 Resultat | *Tabell 8.1 Samlet prognoseytelse 2025 for de tre modellene, målt som RMSE i kroner og MAPE i prosent.* |
+| Tabell 8.2 | eksisterende i rapporten, basert på [tab_modellvinner_telling.csv](../006%20analysis/aktiviteter/14_sammenligne_modellresultater/tab_modellvinner_telling.csv) | beholdes | 8 Resultat | *Tabell 8.2 Månedlig vinnertelling 2025 per metrikk, med antall og andel vinnermåneder per modell.* |
+| Tabell 8.3 | eksisterende i rapporten, basert på [tab_rf_tuned_feature_importance.csv](../006%20analysis/aktiviteter/15_viktige_variabler/tab_rf_tuned_feature_importance.csv) | beholdes | 8 Resultat | *Tabell 8.3 Topp 10 feature importance for tuned Random Forest, med normalisert viktighet i prosent og variabelgruppe.* |
+| Tabell 8.4 | eksisterende i rapporten, basert på [tab_segmentvinnere_tolkning.csv](../006%20analysis/aktiviteter/16_tolke_modellresultater/tab_segmentvinnere_tolkning.csv) | beholdes | 8 Resultat | *Tabell 8.4 Vinnermodell per segment, med antall rader og beste modell på henholdsvis RMSE og MAPE.* |
 
 ### 6.5 Kapittel 9 Diskusjon
 
 | Nr | Kilde | Beholdes/Ny | Plassering | Foreslått tabelltittel |
 |---|---|---|---|---|
-| Tabell 9.1 | [tab_modellprofil_6_2.csv](../006 analysis/aktiviteter/17_styrker_og_svakheter/tab_modellprofil_6_2.csv) | ny | 9.1 Tolkning av hovedfunn | *Tabell 9.1 Modellprofil med samlet RMSE/MAPE, antall vinnermåneder og -segmenter, tolkbarhetsnivå samt hovedstyrke og hovedsvakhet per modell.* |
-| Tabell 9.2 | [tab_metodebegrensninger_6_2.csv](../006 analysis/aktiviteter/17_styrker_og_svakheter/tab_metodebegrensninger_6_2.csv) | ny | 9.4 Metodiske begrensninger | *Tabell 9.2 Metodiske begrensninger i studien, med tematisk kategori, beskrivelse og konsekvens for pålitelighet og generaliserbarhet.* |
-| Tabell 9.3 | [tab_beslutningsmatrise_6_3.csv](../006 analysis/aktiviteter/18_vurdere_praktisk_nytte/tab_beslutningsmatrise_6_3.csv) + [tab_bruksregler_6_3.csv](../006 analysis/aktiviteter/18_vurdere_praktisk_nytte/tab_bruksregler_6_3.csv) | ny (sammenstilt) | 9.3 Praktisk nytte for Dagligvare | *Tabell 9.3 Beslutningsmatrise og bruksregler: beslutningsområder, anbefalt modellrolle, prioritert metrikk, praktisk nyttegrad og hovedforbehold.* |
+| Tabell 9.1 | [tab_modellprofil_6_2.csv](../006%20analysis/aktiviteter/17_styrker_og_svakheter/tab_modellprofil_6_2.csv) | ny | 9.1 Tolkning av hovedfunn | *Tabell 9.1 Modellprofil med samlet RMSE/MAPE, antall vinnermåneder og -segmenter, tolkbarhetsnivå samt hovedstyrke og hovedsvakhet per modell.* |
+| Tabell 9.2 | [tab_metodebegrensninger_6_2.csv](../006%20analysis/aktiviteter/17_styrker_og_svakheter/tab_metodebegrensninger_6_2.csv) | ny | 9.4 Metodiske begrensninger | *Tabell 9.2 Metodiske begrensninger i studien, med tematisk kategori, beskrivelse og konsekvens for pålitelighet og generaliserbarhet.* |
+| Tabell 9.3 | [tab_beslutningsmatrise_6_3.csv](../006%20analysis/aktiviteter/18_vurdere_praktisk_nytte/tab_beslutningsmatrise_6_3.csv) + [tab_bruksregler_6_3.csv](../006%20analysis/aktiviteter/18_vurdere_praktisk_nytte/tab_bruksregler_6_3.csv) | ny (sammenstilt) | 9.3 Praktisk nytte for Dagligvare | *Tabell 9.3 Beslutningsmatrise og bruksregler: beslutningsområder, anbefalt modellrolle, prioritert metrikk, praktisk nyttegrad og hovedforbehold.* |
 
 ## 7 Nye artefakter som må produseres
 
@@ -151,8 +153,8 @@ Alle tabeller er egenproduserte. Tabelltittel plasseres under tabellen i samme s
 
 Følgende figurer eksisterer allerede i analysen og skal kopieres inn / refereres fra rapporten. Ingen ny plotlogikk.
 
-- Figur 4.4 – `fig_sales_fordeling_train_test.png` fra aktivitet 07.
 - Figur 5.1 – `fig_datatype_fordeling.png` fra aktivitet 01.
+- Figur 5.2 – `fig_sales_fordeling_train_test.png` fra aktivitet 07.
 
 ### 7.2 Nye plotteskript (7.2.3)
 
@@ -160,13 +162,13 @@ Følgende fem figurer må produseres som nye `fig_*.png`. Skriptene legges i nat
 
 | Figur | Forslag til skript | Aktivitetsmappe |
 |---|---|---|
-| Figur 7.1 (bias per måned) | nytt plotteblokk i `start_wbs_6_1.py` | [16_tolke_modellresultater](../006 analysis/aktiviteter/16_tolke_modellresultater/) |
-| Figur 7.2 (RMSE per måned) | nytt plotteblokk i `start_wbs_5_2.py` | [13_rmse_og_mape](../006 analysis/aktiviteter/13_rmse_og_mape/) |
-| Figur 8.1 (feature importance topp 10) | nytt plotteblokk i `start_wbs_5_4.py` | [15_viktige_variabler](../006 analysis/aktiviteter/15_viktige_variabler/) |
-| Figur 8.2 (samlet RMSE/MAPE) | nytt plotteblokk i `start_wbs_5_2.py` | [13_rmse_og_mape](../006 analysis/aktiviteter/13_rmse_og_mape/) |
-| Figur 8.3 (variabelgrupper topp 10) | nytt plotteblokk i `start_wbs_5_4.py` | [15_viktige_variabler](../006 analysis/aktiviteter/15_viktige_variabler/) |
+| Figur 7.1 (bias per måned) | nytt plotteblokk i `start_wbs_6_1.py` | [16_tolke_modellresultater](../006%20analysis/aktiviteter/16_tolke_modellresultater/) |
+| Figur 7.2 (RMSE per måned) | nytt plotteblokk i `start_wbs_5_2.py` | [13_rmse_og_mape](../006%20analysis/aktiviteter/13_rmse_og_mape/) |
+| Figur 8.1 (samlet RMSE/MAPE) | nytt plotteblokk i `start_wbs_5_2.py` | [13_rmse_og_mape](../006%20analysis/aktiviteter/13_rmse_og_mape/) |
+| Figur 8.2 (feature importance topp 10) | nytt plotteblokk i `start_wbs_5_4.py` | [15_viktige_variabler](../006%20analysis/aktiviteter/15_viktige_variabler/) |
+| Figur 8.3 (variabelgrupper topp 10) | nytt plotteblokk i `start_wbs_5_4.py` | [15_viktige_variabler](../006%20analysis/aktiviteter/15_viktige_variabler/) |
 
-Stil: sentrert, `width="80%"` i rapporten, PNG-filene lagres med prefiks `fig_` i respektiv aktivitetsmappe (jf. [CLAUDE.md](../CLAUDE.md) og [006 analysis/README.md](../006 analysis/README.md)).
+Stil: sentrert, `width="80%"` i rapporten, PNG-filene lagres med prefiks `fig_` i respektiv aktivitetsmappe (jf. [CLAUDE.md](../CLAUDE.md) og [006 analysis/README.md](../006%20analysis/README.md)).
 
 ### 7.3 Nye tabellutdrag (7.2.2 og 7.2.3)
 
@@ -176,23 +178,23 @@ Tabellene 5.2, 5.3, 5.4, 6.1, 6.2, 7.1, 7.2, 9.1, 9.2 og 9.3 limes inn som Markd
 
 | Artefakt | Begrunnelse for å holde utenfor rapporten |
 |---|---|
-| [tab_manglende_verdier.csv](../006 analysis/aktiviteter/01_dataforstaelse_og_variabler/tab_manglende_verdier.csv) | Datasettet har ingen manglende verdier – poenget dekkes av én setning i kap. 5.2. |
-| [tab_dataset_oversikt.csv](../006 analysis/aktiviteter/01_dataforstaelse_og_variabler/tab_dataset_oversikt.csv), [tab_dataset_dokumentasjon.csv](../006 analysis/aktiviteter/03_dokumentere_datasett/tab_dataset_dokumentasjon.csv) | Overlapper med Tabell 5.2; unngår duplikater. |
-| [tab_variabelregler.csv](../006 analysis/aktiviteter/02_identifisere_relevante_variabler/tab_variabelregler.csv), [fig_variabelanbefalinger.png](../006 analysis/aktiviteter/02_identifisere_relevante_variabler/fig_variabelanbefalinger.png) | Beslutningsreglene er prosess-interne; sluttanbefalingen står i Tabell 5.2. |
-| [tab_datakvalitet_etter_rens.csv](../006 analysis/aktiviteter/04_dataprosessering/tab_datakvalitet_etter_rens.csv) | Dekkes av Tabell 5.4. |
-| [tab_eda_oversikt.csv](../006 analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/tab_eda_oversikt.csv), [tab_kategorisk_fordeling.csv](../006 analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/tab_kategorisk_fordeling.csv) | Utdypende EDA – figurer i 4.1–4.4 dekker hovedbudskapene. |
-| [tab_modelltrening_oversikt.csv](../006 analysis/aktiviteter/10_felles_treningsoppsummering/tab_modelltrening_oversikt.csv), [tab_modellsignaler_oversikt.csv](../006 analysis/aktiviteter/10_felles_treningsoppsummering/tab_modellsignaler_oversikt.csv) | Sammenstilt i Tabell 6.1 og Tabell 8.3. |
-| [tab_lr_koeffisienter.csv](../006 analysis/aktiviteter/08_lineaer_regresjon/tab_lr_koeffisienter.csv) | 41 rader – full versjon i vedlegg; topp signaler diskuteres i kap. 7. |
-| [tab_rf_feature_importance.csv](../006 analysis/aktiviteter/09_random_forest_regressor/tab_rf_feature_importance.csv) | Baseline-versjon; tuned-tabellen er relevant. Full versjon i vedlegg. |
-| [tab_rf_tuning_kandidater.csv](../006 analysis/aktiviteter/11_parameterjustering_random_forest/tab_rf_tuning_kandidater.csv) | 37 rader – for omfattende; topp 5 i Tabell 6.2, full versjon i vedlegg. |
-| [tab_rf_stabilitet_topp10.csv](../006 analysis/aktiviteter/15_viktige_variabler/tab_rf_stabilitet_topp10.csv), [tab_toppsignaler_per_modell.csv](../006 analysis/aktiviteter/15_viktige_variabler/tab_toppsignaler_per_modell.csv), [tab_viktige_variabler_oversikt.csv](../006 analysis/aktiviteter/15_viktige_variabler/tab_viktige_variabler_oversikt.csv) | Overlapper med Tabell 8.3 og Figur 8.1/8.3. |
-| [tab_prognoser_2025_maaned.csv](../006 analysis/aktiviteter/12_prognoser_2025/tab_prognoser_2025_maaned.csv), [tab_prognosemodeller_oversikt.csv](../006 analysis/aktiviteter/12_prognoser_2025/tab_prognosemodeller_oversikt.csv) | Innholdet fremstår indirekte gjennom Figur 7.1/7.2 og Tabell 7.1. |
-| [tab_prognoser_2025_detalj.csv](../006 analysis/aktiviteter/12_prognoser_2025/tab_prognoser_2025_detalj.csv), [tab_prognosefeil_2025_detalj.csv](../006 analysis/aktiviteter/13_rmse_og_mape/tab_prognosefeil_2025_detalj.csv) | 3 312 rader – klart vedleggsmateriale. |
-| [tab_rmse_mape_maaned.csv](../006 analysis/aktiviteter/13_rmse_og_mape/tab_rmse_mape_maaned.csv) lang form | Pivot-versjonen går inn som Tabell 7.1; lang form er utgangsdata. |
-| [tab_modellsammenligning_oversikt.csv](../006 analysis/aktiviteter/14_sammenligne_modellresultater/tab_modellsammenligning_oversikt.csv), [tab_maanedlige_modellvinnere.csv](../006 analysis/aktiviteter/14_sammenligne_modellresultater/tab_maanedlige_modellvinnere.csv) | Dekkes av Tabell 8.2 og Figur 7.2 kombinert. |
-| [tab_bias_maaned_modell.csv](../006 analysis/aktiviteter/16_tolke_modellresultater/tab_bias_maaned_modell.csv) | Brukes som data til Figur 7.1; ikke som egen tabell i rapporten. |
-| [tab_segmentvinnere_tolkning.csv](../006 analysis/aktiviteter/16_tolke_modellresultater/tab_segmentvinnere_tolkning.csv) | Tilsvarer Tabell 8.4 i rapporten. |
-| [tab_diskusjonspunkter_oversikt.csv](../006 analysis/aktiviteter/17_styrker_og_svakheter/tab_diskusjonspunkter_oversikt.csv) | Brukes som tekstkilde i kap. 9, ikke som egen tabell. |
+| [tab_manglende_verdier.csv](../006%20analysis/aktiviteter/01_dataforstaelse_og_variabler/tab_manglende_verdier.csv) | Datasettet har ingen manglende verdier – poenget dekkes av én setning i kap. 5.2. |
+| [tab_dataset_oversikt.csv](../006%20analysis/aktiviteter/01_dataforstaelse_og_variabler/tab_dataset_oversikt.csv), [tab_dataset_dokumentasjon.csv](../006%20analysis/aktiviteter/03_dokumentere_datasett/tab_dataset_dokumentasjon.csv) | Overlapper med Tabell 5.2; unngår duplikater. |
+| [tab_variabelregler.csv](../006%20analysis/aktiviteter/02_identifisere_relevante_variabler/tab_variabelregler.csv), [fig_variabelanbefalinger.png](../006%20analysis/aktiviteter/02_identifisere_relevante_variabler/fig_variabelanbefalinger.png) | Beslutningsreglene er prosess-interne; sluttanbefalingen står i Tabell 5.2. |
+| [tab_datakvalitet_etter_rens.csv](../006%20analysis/aktiviteter/04_dataprosessering/tab_datakvalitet_etter_rens.csv) | Dekkes av Tabell 5.4. |
+| [tab_eda_oversikt.csv](../006%20analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/tab_eda_oversikt.csv), [tab_kategorisk_fordeling.csv](../006%20analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/tab_kategorisk_fordeling.csv) | Utdypende EDA – figurer i 4.1–4.4 dekker hovedbudskapene. |
+| [tab_modelltrening_oversikt.csv](../006%20analysis/aktiviteter/10_felles_treningsoppsummering/tab_modelltrening_oversikt.csv), [tab_modellsignaler_oversikt.csv](../006%20analysis/aktiviteter/10_felles_treningsoppsummering/tab_modellsignaler_oversikt.csv) | Sammenstilt i Tabell 6.1 og Tabell 8.3. |
+| [tab_lr_koeffisienter.csv](../006%20analysis/aktiviteter/08_lineaer_regresjon/tab_lr_koeffisienter.csv) | 41 rader – full versjon i vedlegg; topp signaler diskuteres i kap. 7. |
+| [tab_rf_feature_importance.csv](../006%20analysis/aktiviteter/09_random_forest_regressor/tab_rf_feature_importance.csv) | Baseline-versjon; tuned-tabellen er relevant. Full versjon i vedlegg. |
+| [tab_rf_tuning_kandidater.csv](../006%20analysis/aktiviteter/11_parameterjustering_random_forest/tab_rf_tuning_kandidater.csv) | 37 rader – for omfattende; topp 5 i Tabell 6.2, full versjon i vedlegg. |
+| [tab_rf_stabilitet_topp10.csv](../006%20analysis/aktiviteter/15_viktige_variabler/tab_rf_stabilitet_topp10.csv), [tab_toppsignaler_per_modell.csv](../006%20analysis/aktiviteter/15_viktige_variabler/tab_toppsignaler_per_modell.csv), [tab_viktige_variabler_oversikt.csv](../006%20analysis/aktiviteter/15_viktige_variabler/tab_viktige_variabler_oversikt.csv) | Overlapper med Tabell 8.3 og Figur 8.1/8.3. |
+| [tab_prognoser_2025_maaned.csv](../006%20analysis/aktiviteter/12_prognoser_2025/tab_prognoser_2025_maaned.csv), [tab_prognosemodeller_oversikt.csv](../006%20analysis/aktiviteter/12_prognoser_2025/tab_prognosemodeller_oversikt.csv) | Innholdet fremstår indirekte gjennom Figur 7.1/7.2 og Tabell 7.1. |
+| [tab_prognoser_2025_detalj.csv](../006%20analysis/aktiviteter/12_prognoser_2025/tab_prognoser_2025_detalj.csv), [tab_prognosefeil_2025_detalj.csv](../006%20analysis/aktiviteter/13_rmse_og_mape/tab_prognosefeil_2025_detalj.csv) | 3 312 rader – klart vedleggsmateriale. |
+| [tab_rmse_mape_maaned.csv](../006%20analysis/aktiviteter/13_rmse_og_mape/tab_rmse_mape_maaned.csv) lang form | Pivot-versjonen går inn som Tabell 7.1; lang form er utgangsdata. |
+| [tab_modellsammenligning_oversikt.csv](../006%20analysis/aktiviteter/14_sammenligne_modellresultater/tab_modellsammenligning_oversikt.csv), [tab_maanedlige_modellvinnere.csv](../006%20analysis/aktiviteter/14_sammenligne_modellresultater/tab_maanedlige_modellvinnere.csv) | Dekkes av Tabell 8.2 og Figur 7.2 kombinert. |
+| [tab_bias_maaned_modell.csv](../006%20analysis/aktiviteter/16_tolke_modellresultater/tab_bias_maaned_modell.csv) | Brukes som data til Figur 7.1; ikke som egen tabell i rapporten. |
+| [tab_segmentvinnere_tolkning.csv](../006%20analysis/aktiviteter/16_tolke_modellresultater/tab_segmentvinnere_tolkning.csv) | Tilsvarer Tabell 8.4 i rapporten. |
+| [tab_diskusjonspunkter_oversikt.csv](../006%20analysis/aktiviteter/17_styrker_og_svakheter/tab_diskusjonspunkter_oversikt.csv) | Brukes som tekstkilde i kap. 9, ikke som egen tabell. |
 
 ## 9 Vedleggsliste – stort datamateriale (kap. 12)
 
@@ -200,13 +202,13 @@ Kapittel 12 Vedlegg i rapporten skal ifølge lærerens formkrav bære stort elle
 
 | Vedleggs-ID | Innhold | Kildefil |
 |---|---|---|
-| A1 | Radvise prognoser for 2025 for alle tre modeller (3 312 rader) | [tab_prognoser_2025_detalj.csv](../006 analysis/aktiviteter/12_prognoser_2025/tab_prognoser_2025_detalj.csv) |
-| A2 | Radvise prognosefeil og absoluttfeil for 2025 | [tab_prognosefeil_2025_detalj.csv](../006 analysis/aktiviteter/13_rmse_og_mape/tab_prognosefeil_2025_detalj.csv) |
-| A3 | Full tuning-kandidatgrid for Random Forest | [tab_rf_tuning_kandidater.csv](../006 analysis/aktiviteter/11_parameterjustering_random_forest/tab_rf_tuning_kandidater.csv) |
-| A4 | Full feature importance for tuned Random Forest | [tab_rf_tuned_feature_importance.csv](../006 analysis/aktiviteter/15_viktige_variabler/tab_rf_tuned_feature_importance.csv) |
-| A5 | Full koeffisienttabell for lineær regresjon | [tab_lr_koeffisienter.csv](../006 analysis/aktiviteter/08_lineaer_regresjon/tab_lr_koeffisienter.csv) |
-| A6 | Full RMSE/MAPE per måned i lang form | [tab_rmse_mape_maaned.csv](../006 analysis/aktiviteter/13_rmse_og_mape/tab_rmse_mape_maaned.csv) |
-| A7 | Full segmentmetrikk per modell | [tab_segmentmetrikk_modell.csv](../006 analysis/aktiviteter/16_tolke_modellresultater/tab_segmentmetrikk_modell.csv) |
+| A1 | Radvise prognoser for 2025 for alle tre modeller (3 312 rader) | [tab_prognoser_2025_detalj.csv](../006%20analysis/aktiviteter/12_prognoser_2025/tab_prognoser_2025_detalj.csv) |
+| A2 | Radvise prognosefeil og absoluttfeil for 2025 | [tab_prognosefeil_2025_detalj.csv](../006%20analysis/aktiviteter/13_rmse_og_mape/tab_prognosefeil_2025_detalj.csv) |
+| A3 | Full tuning-kandidatgrid for Random Forest | [tab_rf_tuning_kandidater.csv](../006%20analysis/aktiviteter/11_parameterjustering_random_forest/tab_rf_tuning_kandidater.csv) |
+| A4 | Full feature importance for tuned Random Forest | [tab_rf_tuned_feature_importance.csv](../006%20analysis/aktiviteter/15_viktige_variabler/tab_rf_tuned_feature_importance.csv) |
+| A5 | Full koeffisienttabell for lineær regresjon | [tab_lr_koeffisienter.csv](../006%20analysis/aktiviteter/08_lineaer_regresjon/tab_lr_koeffisienter.csv) |
+| A6 | Full RMSE/MAPE per måned i lang form | [tab_rmse_mape_maaned.csv](../006%20analysis/aktiviteter/13_rmse_og_mape/tab_rmse_mape_maaned.csv) |
+| A7 | Full segmentmetrikk per modell | [tab_segmentmetrikk_modell.csv](../006%20analysis/aktiviteter/16_tolke_modellresultater/tab_segmentmetrikk_modell.csv) |
 
 Filene limes ikke inn i rapporten. Vedlegget refererer til relativ sti i repoet, slik at leseren/sensor kan åpne full versjon direkte i analysemappen.
 
@@ -214,8 +216,8 @@ Filene limes ikke inn i rapporten. Vedlegget refererer til relativ sti i repoet,
 
 | Kapittel i rapport | Figurer/Tabeller | Hovedkilde i WBS |
 |---|---|---|
-| Kap. 4 Casebeskrivelse | Figur 4.1–4.4 | WBS 3.4 (aktivitet 07) |
-| Kap. 5 Metode og data | Figur 5.1; Tabell 5.1–5.4 | WBS 2.2, 2.3, 3.1, 3.2, 3.3 (aktivitet 01, 02, 04, 05, 06) |
+| Kap. 4 Casebeskrivelse | Figur 4.1–4.3 | WBS 3.4 (aktivitet 07) |
+| Kap. 5 Metode og data | Figur 5.1–5.2; Tabell 5.1–5.4 | WBS 2.2, 2.3, 3.1, 3.2, 3.3, 3.4 (aktivitet 01, 02, 04, 05, 06, 07) |
 | Kap. 6 Modellering | Tabell 6.1–6.2 | WBS 4.1, 4.2, 4.4 (aktivitet 08, 09, 11) |
 | Kap. 7 Analyse | Figur 7.1–7.2; Tabell 7.1–7.2 | WBS 5.2, 6.1 (aktivitet 13, 16) |
 | Kap. 8 Resultat | Figur 8.1–8.3; Tabell 8.1–8.4 | WBS 5.2, 5.3, 5.4, 6.1 (aktivitet 13, 14, 15, 16) |
