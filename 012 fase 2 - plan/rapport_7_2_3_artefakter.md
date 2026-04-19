@@ -83,20 +83,20 @@ Kilder: [tab_segmentmetrikk_modell.csv](../006%20analysis/aktiviteter/16_tolke_m
 
 | Dimensjon | Verdi | RMSE lineær | RMSE baseline RF | RMSE tuned RF | MAPE lineær (%) | MAPE baseline RF (%) | MAPE tuned RF (%) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| quarter | 1 | 570,43 | 580,73 | 569,10 | 43,58 | 43,73 | 43,67 |
-| quarter | 2 | 578,10 | 576,41 | 573,05 | 44,69 | 43,11 | 43,90 |
-| quarter | 3 | 580,18 | 591,95 | 579,59 | 42,48 | 42,67 | 42,17 |
-| quarter | 4 | 589,94 | 602,59 | 587,87 | 45,85 | 46,46 | 45,89 |
-| discount_band | lav | 583,01 | 598,95 | 581,12 | 46,66 | 46,93 | 46,14 |
-| discount_band | middels | 577,89 | 587,10 | 577,11 | 44,51 | 44,63 | 44,37 |
-| discount_band | hoy | 581,41 | 586,74 | 577,96 | 42,76 | 42,36 | 42,62 |
+| Kvartal | 1 | 570,43 | 580,73 | 569,10 | 43,58 | 43,73 | 43,67 |
+| Kvartal | 2 | 578,10 | 576,41 | 573,05 | 44,69 | 43,11 | 43,90 |
+| Kvartal | 3 | 580,18 | 591,95 | 579,59 | 42,48 | 42,67 | 42,17 |
+| Kvartal | 4 | 589,94 | 602,59 | 587,87 | 45,85 | 46,46 | 45,89 |
+| Rabattbånd | lav | 583,01 | 598,95 | 581,12 | 46,66 | 46,93 | 46,14 |
+| Rabattbånd | middels | 577,89 | 587,10 | 577,11 | 44,51 | 44,63 | 44,37 |
+| Rabattbånd | høy | 581,41 | 586,74 | 577,96 | 42,76 | 42,36 | 42,62 |
 | Region | Central | 585,83 | 595,13 | 584,92 | 44,36 | 44,49 | 44,39 |
 | Region | East | 579,39 | 587,92 | 575,30 | 44,19 | 44,26 | 43,86 |
 | Region | South | 587,59 | 599,43 | 587,02 | 45,48 | 45,29 | 45,03 |
 | Region | West | 573,90 | 581,36 | 571,78 | 43,44 | 43,18 | 43,27 |
-| sales_band | lavt salg | 695,06 | 694,19 | 690,44 | 90,79 | 89,39 | 90,27 |
-| sales_band | middels salg | 196,79 | 224,70 | 192,51 | 11,40 | 12,30 | 11,20 |
-| sales_band | hoyt salg | 699,10 | 713,73 | 699,57 | 30,31 | 30,60 | 30,39 |
+| Salgsbånd | lavt salg | 695,06 | 694,19 | 690,44 | 90,79 | 89,39 | 90,27 |
+| Salgsbånd | middels salg | 196,79 | 224,70 | 192,51 | 11,40 | 12,30 | 11,20 |
+| Salgsbånd | høyt salg | 699,10 | 713,73 | 699,57 | 30,31 | 30,60 | 30,39 |
 
 <p align="center"><small><i>Tabell 7.2 RMSE og MAPE per modell i utvalgte segmenter (kvartal, rabattbånd, region, salgsbånd). Segmentinndelingen er definert ut fra dataene og gir et bilde av hvor prognosene er stabile.</i></small></p>
 
@@ -149,22 +149,7 @@ Kilde: [tab_modellprofil_6_2.csv](../006%20analysis/aktiviteter/17_styrker_og_sv
 
 <p align="center"><small><i>Tabell 9.1 Modellprofil med samlet RMSE/MAPE, antall vinnermåneder og -segmenter, tolkbarhetsnivå samt hovedstyrke og hovedsvakhet per modell.</i></small></p>
 
-### 4.2 Tabell 9.2 – Metodiske begrensninger
-
-Kilde: [tab_metodebegrensninger_6_2.csv](../006%20analysis/aktiviteter/17_styrker_og_svakheter/tab_metodebegrensninger_6_2.csv). Plasseres i § 9.4 Metodiske begrensninger.
-
-| ID | Tema | Beskrivelse | Konsekvens for pålitelighet | Konsekvens for generaliserbarhet |
-| --- | --- | --- | --- | --- |
-| MB-6.2-01 | representativitet | Prosjektet bygger på én simulert virksomhet og ett datasett, ikke flere virksomheter eller markeder. | Påliteligheten innenfor dette caset kan fortsatt være god, men robustheten mot andre kontekster er ikke testet. | Funnene kan ikke uten videre overføres til andre bedrifter, regioner eller produktmixer. |
-| MB-6.2-02 | eksterne faktorer | Eksterne makroøkonomiske forhold som inflasjon, rente og konjunkturer er ikke modellert. | Prognosene kan være mindre robuste hvis 2025 påvirkes av forhold som ikke finnes i feature-settet. | Resultatene generaliserer dårligere til perioder der eksterne sjokk spiller en større rolle. |
-| MB-6.2-03 | modellomfang | Prosjektet sammenligner bare lineær regresjon og Random Forest, ikke andre modellfamilier. | Valgt modell er best i dette prosjektets kandidatfelt, men ikke nødvendigvis best mulig totalt sett. | Det er begrenset grunnlag for å generalisere at samme modellfamilie vil være best i andre lignende problemer. |
-| MB-6.2-04 | koeffisienttolkning | Lineær regresjon er kjørt uten regularisering, og dummykoding kan gi multikollinearitet i koeffisientene. | Dette svekker påliteligheten i sterke fortolkninger av enkeltkoeffisienter som om de var stabile effektmål. | Koeffisientmønstre kan endre seg når datastruktur eller kategorifordeling endres i andre case. |
-| MB-6.2-05 | valideringsvindu | Tuning av Random Forest bruker kun 2024 som intern valideringsperiode. | Modellvalget er etterprøvbart, men sensitivitet for andre valideringsvinduer er ikke undersøkt. | Det gir mindre grunnlag for å generalisere tuningvalgene til andre tidsperioder eller sesongmønstre. |
-| MB-6.2-06 | kausalitet | Analysen er prediktiv og ikke kausal, slik at viktige variabler ikke kan tolkes som dokumenterte årsaker til salg. | Det er mer pålitelig å bruke funnene som prognosestøtte enn som bevis for årsakssammenhenger. | Beslutninger som krever kausal innsikt kan ikke generaliseres direkte fra disse prediktive mønstrene. |
-
-<p align="center"><small><i>Tabell 9.2 Metodiske begrensninger i studien, med tematisk kategori, beskrivelse og konsekvens for pålitelighet og generaliserbarhet.</i></small></p>
-
-### 4.3 Tabell 9.3 – Beslutningsmatrise og bruksregler
+### 4.2 Tabell 9.2 – Beslutningsmatrise og bruksregler
 
 Kilder: [tab_beslutningsmatrise_6_3.csv](../006%20analysis/aktiviteter/18_vurdere_praktisk_nytte/tab_beslutningsmatrise_6_3.csv) og [tab_bruksregler_6_3.csv](../006%20analysis/aktiviteter/18_vurdere_praktisk_nytte/tab_bruksregler_6_3.csv). Plasseres i § 9.3 Praktisk nytte for Dagligvare.
 
@@ -175,7 +160,22 @@ Kilder: [tab_beslutningsmatrise_6_3.csv](../006%20analysis/aktiviteter/18_vurder
 | Bemanning og ressursplanlegging | tuned RF, med benchmark lineær-kontroll ved svært høyt salgsnivå | RMSE | middels–høy | Ikke butikk- eller skiftoptimalisering; toppbelastning krever ekstra varsomhet. |
 | Ledelsesrapportering | tuned RF som hovedprognose, benchmark lineær som forklaringsstøtte | RMSE med forklaringsstøtte | middels | Lineær modell skal ikke brukes som kausalt bevis for salgsendringer. |
 
-<p align="center"><small><i>Tabell 9.3 Beslutningsmatrise og bruksregler: beslutningsområder, anbefalt modellrolle, prioritert metrikk, praktisk nyttegrad og hovedforbehold.</i></small></p>
+<p align="center"><small><i>Tabell 9.2 Beslutningsmatrise og bruksregler: beslutningsområder, anbefalt modellrolle, prioritert metrikk, praktisk nyttegrad og hovedforbehold.</i></small></p>
+
+### 4.3 Tabell 9.3 – Metodiske begrensninger
+
+Kilde: [tab_metodebegrensninger_6_2.csv](../006%20analysis/aktiviteter/17_styrker_og_svakheter/tab_metodebegrensninger_6_2.csv). Plasseres i § 9.4 Metodiske begrensninger. ID-kolonnen (`MB-6.2-01`–`MB-6.2-06`) droppes i rapport-versjonen etter F4 i helhetsreviewen for å bedre lesbarheten; kildefilen beholder IDs uendret for intern sporbarhet.
+
+| Tema | Beskrivelse | Konsekvens for pålitelighet | Konsekvens for generaliserbarhet |
+| --- | --- | --- | --- |
+| representativitet | Prosjektet bygger på én simulert virksomhet og ett datasett, ikke flere virksomheter eller markeder. | Påliteligheten innenfor dette caset kan fortsatt være god, men robustheten mot andre kontekster er ikke testet. | Funnene kan ikke uten videre overføres til andre bedrifter, regioner eller produktmixer. |
+| eksterne faktorer | Eksterne makroøkonomiske forhold som inflasjon, rente og konjunkturer er ikke modellert. | Prognosene kan være mindre robuste hvis 2025 påvirkes av forhold som ikke finnes i feature-settet. | Resultatene generaliserer dårligere til perioder der eksterne sjokk spiller en større rolle. |
+| modellomfang | Prosjektet sammenligner bare lineær regresjon og Random Forest, ikke andre modellfamilier. | Valgt modell er best i dette prosjektets kandidatfelt, men ikke nødvendigvis best mulig totalt sett. | Det er begrenset grunnlag for å generalisere at samme modellfamilie vil være best i andre lignende problemer. |
+| koeffisienttolkning | Lineær regresjon er kjørt uten regularisering, og dummykoding kan gi multikollinearitet i koeffisientene. | Dette svekker påliteligheten i sterke fortolkninger av enkeltkoeffisienter som om de var stabile effektmål. | Koeffisientmønstre kan endre seg når datastruktur eller kategorifordeling endres i andre case. |
+| valideringsvindu | Tuning av Random Forest bruker kun 2024 som intern valideringsperiode. | Modellvalget er etterprøvbart, men sensitivitet for andre valideringsvinduer er ikke undersøkt. | Det gir mindre grunnlag for å generalisere tuningvalgene til andre tidsperioder eller sesongmønstre. |
+| kausalitet | Analysen er prediktiv og ikke kausal, slik at viktige variabler ikke kan tolkes som dokumenterte årsaker til salg. | Det er mer pålitelig å bruke funnene som prognosestøtte enn som bevis for årsakssammenhenger. | Beslutninger som krever kausal innsikt kan ikke generaliseres direkte fra disse prediktive mønstrene. |
+
+<p align="center"><small><i>Tabell 9.3 Metodiske begrensninger i studien, med tematisk kategori, beskrivelse og konsekvens for pålitelighet og generaliserbarhet.</i></small></p>
 
 ## 5 Innsettingsrekkefølge for 7.2.4
 
@@ -184,7 +184,7 @@ Rekkefølgen som 7.2.4 skal bruke når blokkene settes inn i [rapport.md](../005
 - **Kap. 6 Modellering**: Tabell 6.1 → Tabell 6.2.
 - **Kap. 7 Analyse**: Tabell 7.1 → Figur 7.1 → Figur 7.2 → Tabell 7.2.
 - **Kap. 8 Resultat**: Tabell 8.1 (beholdes fra før) → Figur 8.1 → Tabell 8.2 (beholdes) → Tabell 8.3 (beholdes) → Figur 8.2 → Figur 8.3 → Tabell 8.4 (beholdes).
-- **Kap. 9 Diskusjon**: Tabell 9.1 i § 9.1, Tabell 9.3 i § 9.3, Tabell 9.2 i § 9.4.
+- **Kap. 9 Diskusjon**: Tabell 9.1 i § 9.1, Tabell 9.2 i § 9.3 (beslutningsmatrise), Tabell 9.3 i § 9.4 (metodebegrensninger). Rekkefølgen ble renummerert etter V1 i helhetsreviewen slik at tekstrekkefølgen matcher nummereringen.
 
 ## 6 Leveransebekreftelse
 

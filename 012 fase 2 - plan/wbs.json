@@ -314,7 +314,7 @@
           "duration": "6 days",
           "start_date": "Wed 15.04.26",
           "finish_date": "Mon 20.04.26",
-          "percent_complete": "0%",
+          "percent_complete": "100%",
           "children": [
             {
               "id": "7.2.1",
@@ -332,7 +332,7 @@
               "duration": "2 days",
               "start_date": "Thu 16.04.26",
               "finish_date": "Fri 17.04.26",
-              "percent_complete": "0%"
+              "percent_complete": "100%"
             },
             {
               "id": "7.2.3",
@@ -341,7 +341,7 @@
               "duration": "2 days",
               "start_date": "Sat 18.04.26",
               "finish_date": "Sun 19.04.26",
-              "percent_complete": "0%"
+              "percent_complete": "100%"
             },
             {
               "id": "7.2.4",
@@ -350,7 +350,7 @@
               "duration": "1 day",
               "start_date": "Mon 20.04.26",
               "finish_date": "Mon 20.04.26",
-              "percent_complete": "0%"
+              "percent_complete": "100%"
             }
           ]
         },

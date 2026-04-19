@@ -16,7 +16,7 @@ Figur 4.1, 4.2 og 4.3 ligger allerede i [rapport.md](../005%20report/rapport.md)
 
 ## 2 Kapittel 5 – Metode og data
 
-Tabell 5.1 ligger allerede i [rapport.md](../005%20report/rapport.md) § 5.2 og beholdes uendret. De fem øvrige artefaktene (Figur 5.1, Figur 5.2, Tabell 5.2, Tabell 5.3 og Tabell 5.4) er nye for rapporten og leveres som ferdige blokker under.
+Splittabellen ligger allerede i [rapport.md](../005%20report/rapport.md) § 5.2 og beholdes uendret bortsett fra nummer: etter V1 i helhetsreviewen av 7.2 er den renummerert fra Tabell 5.1 til **Tabell 5.5** slik at tekstrekkefølgen matcher formkrav 1. De fem øvrige artefaktene (Figur 5.1, Figur 5.2, Tabell 5.2, Tabell 5.3 og Tabell 5.4) er nye for rapporten og leveres som ferdige blokker under.
 
 ### 2.1 Figur 5.1 – Fordeling av datatyper
 
@@ -42,7 +42,7 @@ Plasseres i § 5.2 etter Figur 5.1 og før omtalen av datasplitten. HTML-blokk k
 
 ### 2.3 Tabell 5.2 – Variabeloversikt
 
-Kilde: [tab_relevante_variabler.csv](../006%20analysis/aktiviteter/02_identifisere_relevante_variabler/tab_relevante_variabler.csv) (12 rader). Plasseres i § 5.2 etter Figur 5.1. Tabellblokk klar for innsetting:
+Kilde: [tab_relevante_variabler.csv](../006%20analysis/aktiviteter/02_identifisere_relevante_variabler/tab_relevante_variabler.csv) (11 datarader). Plasseres i § 5.2 etter Figur 5.1 som oversikt over de 11 kolonnene i rådatasettet. Tabellblokk klar for innsetting:
 
 | Variabel | Datatype | Manglende % | Unike | Anbefaling | Begrunnelse |
 | --- | --- | --- | --- | --- | --- |
@@ -124,8 +124,8 @@ Rekkefølgen som 7.2.4 skal bruke når blokkene settes inn i [rapport.md](../005
 2. Tabell 5.2 (etter Figur 5.1, før omtalen av feature engineering).
 3. Tabell 5.3 (etter Tabell 5.2, som bindeledd mellom variabler og modelldata).
 4. Tabell 5.4 (etter Tabell 5.3, oppsummerer datarensingen).
-5. Figur 5.2 (etter Tabell 5.4 og før den eksisterende Tabell 5.1 om datasplitt).
-6. Tabell 5.1 beholdes uendret på dagens posisjon i § 5.2.
+5. Figur 5.2 (etter Tabell 5.4 og før splittabellen om datasplitt).
+6. Tabell 5.5 (splittabellen, renummerert fra tidligere Tabell 5.1 etter V1 i helhetsreviewen) beholdes som siste blokk i § 5.2.
 
 ## 4 Leveransebekreftelse
 
