@@ -1,10 +1,17 @@
 from pathlib import Path
 
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from sklearn.metrics import mean_absolute_percentage_error, root_mean_squared_error
 
 
+MODELLREKKEFOLGE = ["benchmark lineær", "baseline RF", "tuned RF"]
+MODELLFARGER = {
+    "benchmark lineær": "#1f77b4",
+    "baseline RF": "#ff7f0e",
+    "tuned RF": "#2ca02c",
+}
 TARGET_KOLONNE = "Sales_faktisk"
 DATO_KOLONNE = "Order Date"
 FORVENTET_TESTAAR = 2025
@@ -212,6 +219,63 @@ def skriv_markdown(
     md_path.write_text("\n".join(lines), encoding="utf-8")
 
 
+def lag_figur_rmse_maaned(maaned_df: pd.DataFrame, png_path: Path) -> None:
+    fig, ax = plt.subplots(figsize=(10, 5))
+    måneder = [f"{m:02d}" for m in range(1, 13)]
+    for modellrolle in MODELLREKKEFOLGE:
+        subset = maaned_df.loc[maaned_df["modellrolle"] == modellrolle].sort_values("month")
+        ax.plot(
+            subset["month"],
+            subset["rmse_maaned"],
+            marker="o",
+            linewidth=2,
+            color=MODELLFARGER[modellrolle],
+            label=modellrolle,
+        )
+    ax.set_xticks(range(1, 13))
+    ax.set_xticklabels(måneder)
+    ax.set_xlabel("Måned i 2025")
+    ax.set_ylabel("RMSE (kroner)")
+    ax.set_title("Månedlig RMSE per modell i 2025")
+    ax.grid(True, linestyle="--", alpha=0.5)
+    ax.legend(loc="best")
+    fig.tight_layout()
+    fig.savefig(png_path, dpi=300)
+    plt.close(fig)
+
+
+def lag_figur_rmse_mape_samlet(oversikt_df: pd.DataFrame, png_path: Path) -> None:
+    ordrer = {navn: i for i, navn in enumerate(MODELLREKKEFOLGE)}
+    oversikt_df = oversikt_df.copy()
+    oversikt_df["ord"] = oversikt_df["modellrolle"].map(ordrer)
+    oversikt_df = oversikt_df.sort_values("ord").reset_index(drop=True)
+
+    fig, (ax_rmse, ax_mape) = plt.subplots(1, 2, figsize=(10, 5))
+    farger = [MODELLFARGER[rolle] for rolle in oversikt_df["modellrolle"]]
+
+    ax_rmse.bar(oversikt_df["modellrolle"], oversikt_df["rmse_2025"], color=farger)
+    ax_rmse.set_ylabel("RMSE (kroner)")
+    ax_rmse.set_title("Samlet RMSE 2025")
+    ax_rmse.grid(True, axis="y", linestyle="--", alpha=0.5)
+    for i, verdi in enumerate(oversikt_df["rmse_2025"]):
+        ax_rmse.text(i, verdi, f"{verdi:.1f}", ha="center", va="bottom", fontsize=9)
+
+    ax_mape.bar(oversikt_df["modellrolle"], oversikt_df["mape_2025_pct"], color=farger)
+    ax_mape.set_ylabel("MAPE (%)")
+    ax_mape.set_title("Samlet MAPE 2025")
+    ax_mape.grid(True, axis="y", linestyle="--", alpha=0.5)
+    for i, verdi in enumerate(oversikt_df["mape_2025_pct"]):
+        ax_mape.text(i, verdi, f"{verdi:.2f}", ha="center", va="bottom", fontsize=9)
+
+    for ax in (ax_rmse, ax_mape):
+        ax.tick_params(axis="x", rotation=15)
+
+    fig.suptitle("Samlet RMSE og MAPE for 2025", fontsize=12)
+    fig.tight_layout()
+    fig.savefig(png_path, dpi=300)
+    plt.close(fig)
+
+
 def main() -> None:
     aktivitetsmappe = Path(__file__).resolve().parent
     repo_aktiviteter = Path(__file__).resolve().parents[1]
@@ -238,6 +302,11 @@ def main() -> None:
     markdown_path = aktivitetsmappe / "rmse_mape.md"
     skriv_markdown(markdown_path, oversikt_df, maaned_df, feildetalj_df)
 
+    fig_rmse_maaned_path = aktivitetsmappe / "fig_rmse_maaned_modell.png"
+    fig_rmse_mape_samlet_path = aktivitetsmappe / "fig_rmse_mape_samlet.png"
+    lag_figur_rmse_maaned(maaned_df, fig_rmse_maaned_path)
+    lag_figur_rmse_mape_samlet(oversikt_df, fig_rmse_mape_samlet_path)
+
     print("WBS 5.2 ferdig: RMSE og MAPE beregnet for 2025")
     print(f"- Observasjoner: {len(feildetalj_df)}")
     print(f"- Månedlige metrikkrader: {len(maaned_df)}")
@@ -246,6 +315,8 @@ def main() -> None:
     print(f"- {maaned_path.name}")
     print(f"- {detalj_path.name}")
     print(f"- {markdown_path.name}")
+    print(f"- {fig_rmse_maaned_path.name}")
+    print(f"- {fig_rmse_mape_samlet_path.name}")
 
 
 if __name__ == "__main__":

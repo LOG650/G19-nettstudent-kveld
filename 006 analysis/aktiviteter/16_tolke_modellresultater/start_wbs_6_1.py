@@ -1,8 +1,15 @@
 from pathlib import Path
 
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from sklearn.metrics import mean_absolute_percentage_error, root_mean_squared_error
+
+MODELLFARGER = {
+    "benchmark lineær": "#1f77b4",
+    "baseline RF": "#ff7f0e",
+    "tuned RF": "#2ca02c",
+}
 
 
 INPUT_PROGNOSE_MAANED = "12_prognoser_2025/tab_prognoser_2025_maaned.csv"
@@ -589,6 +596,9 @@ def main() -> None:
     segmentvinnere_path.write_text(segmentvinnere_df.to_csv(index=False), encoding="utf-8")
     skriv_markdown(markdown_path, bias_df, segmentvinnere_df, viktige_df, q1, q2)
 
+    fig_bias_path = aktivitetsmappe / "fig_bias_maaned_modell.png"
+    lag_figur_bias_maaned(bias_df, fig_bias_path)
+
     print("WBS 6.1 ferdig: modellresultater tolket")
     print(f"- Hovedmodell: {anbefalt['modellrolle']}")
     print(f"- Segmentrader: {len(segment_df)}")
@@ -598,6 +608,33 @@ def main() -> None:
     print(f"- {segment_path.name}")
     print(f"- {segmentvinnere_path.name}")
     print(f"- {markdown_path.name}")
+    print(f"- {fig_bias_path.name}")
+
+
+def lag_figur_bias_maaned(bias_df: pd.DataFrame, png_path: Path) -> None:
+    måneder = [f"{m:02d}" for m in range(1, 13)]
+    fig, ax = plt.subplots(figsize=(10, 5))
+    for modellrolle in MODELLREKKEFOLGE:
+        subset = bias_df.loc[bias_df["modellrolle"] == modellrolle].sort_values("month")
+        ax.plot(
+            subset["month"],
+            subset["bias_sum"],
+            marker="o",
+            linewidth=2,
+            color=MODELLFARGER[modellrolle],
+            label=modellrolle,
+        )
+    ax.axhline(0, color="black", linewidth=0.8)
+    ax.set_xticks(range(1, 13))
+    ax.set_xticklabels(måneder)
+    ax.set_xlabel("Måned i 2025")
+    ax.set_ylabel("Bias (kroner, sum)")
+    ax.set_title("Månedlig bias per modell i 2025")
+    ax.grid(True, linestyle="--", alpha=0.5)
+    ax.legend(loc="best")
+    fig.tight_layout()
+    fig.savefig(png_path, dpi=300)
+    plt.close(fig)
 
 
 if __name__ == "__main__":

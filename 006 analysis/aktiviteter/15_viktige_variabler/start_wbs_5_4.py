@@ -1,8 +1,18 @@
 from pathlib import Path
 
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from joblib import load
+
+VARIABELGRUPPE_FARGER = {
+    "kalender": "#4c72b0",
+    "pris/kampanje": "#dd8452",
+    "region": "#55a467",
+    "by": "#c44e52",
+    "kategori": "#8172b2",
+    "underkategori": "#937860",
+}
 
 
 INPUT_MODELLSAMMENLIGNING = "14_sammenligne_modellresultater/tab_modellsammenligning_oversikt.csv"
@@ -463,6 +473,11 @@ def main() -> None:
     grupper_path.write_text(grupper_df.to_csv(index=False), encoding="utf-8")
     skriv_markdown(markdown_path, anbefalt_rad, toppsignaler_df, stabilitet_df, viktige_df, grupper_df)
 
+    fig_feature_importance_path = aktivitetsmappe / "fig_feature_importance_tuned_top10.png"
+    fig_variabelgrupper_path = aktivitetsmappe / "fig_variabelgrupper_tuned_top10.png"
+    lag_figur_feature_importance(tuned_df.head(TOPP_N), fig_feature_importance_path)
+    lag_figur_variabelgrupper(grupper_df, fig_variabelgrupper_path)
+
     print("WBS 5.4 ferdig: viktige variabler analysert")
     print(f"- Anbefalt modell fra WBS 5.3: {anbefalt_rad['modellrolle']}")
     print(f"- Topp 3 tuned RF: {', '.join(viktige_df.head(3)['feature'].tolist())}")
@@ -473,6 +488,52 @@ def main() -> None:
     print(f"- {viktige_path.name}")
     print(f"- {grupper_path.name}")
     print(f"- {markdown_path.name}")
+    print(f"- {fig_feature_importance_path.name}")
+    print(f"- {fig_variabelgrupper_path.name}")
+
+
+def lag_figur_feature_importance(topp_df: pd.DataFrame, png_path: Path) -> None:
+    topp_df = topp_df.copy().sort_values("importance_pct", ascending=True).reset_index(drop=True)
+    farger = [VARIABELGRUPPE_FARGER[gruppe] for gruppe in topp_df["variabelgruppe"]]
+
+    fig, ax = plt.subplots(figsize=(9, 6))
+    ax.barh(topp_df["feature"], topp_df["importance_pct"], color=farger)
+    for i, verdi in enumerate(topp_df["importance_pct"]):
+        ax.text(verdi, i, f" {verdi:.2f} %", va="center", fontsize=9)
+    ax.set_xlabel("Normalisert viktighet (%)")
+    ax.set_title("Topp 10 feature importance – tuned Random Forest")
+    ax.grid(True, axis="x", linestyle="--", alpha=0.5)
+
+    benyttede_grupper = topp_df["variabelgruppe"].unique().tolist()
+    legend_handles = [
+        plt.Rectangle((0, 0), 1, 1, color=VARIABELGRUPPE_FARGER[gruppe], label=gruppe)
+        for gruppe in benyttede_grupper
+    ]
+    ax.legend(handles=legend_handles, loc="lower right", title="Variabelgruppe")
+
+    fig.tight_layout()
+    fig.savefig(png_path, dpi=300)
+    plt.close(fig)
+
+
+def lag_figur_variabelgrupper(grupper_df: pd.DataFrame, png_path: Path) -> None:
+    grupper_df = grupper_df.copy().sort_values("sum_importance_pct_topp10", ascending=False).reset_index(drop=True)
+    farger = [VARIABELGRUPPE_FARGER[gruppe] for gruppe in grupper_df["variabelgruppe"]]
+
+    fig, ax = plt.subplots(figsize=(8, 5))
+    ax.bar(grupper_df["variabelgruppe"], grupper_df["sum_importance_pct_topp10"], color=farger)
+    for i, (verdi, antall) in enumerate(
+        zip(grupper_df["sum_importance_pct_topp10"], grupper_df["antall_i_topp10"])
+    ):
+        ax.text(i, verdi, f"{verdi:.2f} %\n({antall} var.)", ha="center", va="bottom", fontsize=9)
+    ax.set_ylabel("Samlet importance i topp 10 (%)")
+    ax.set_title("Variabelgrupper i topp 10 – tuned Random Forest")
+    ax.grid(True, axis="y", linestyle="--", alpha=0.5)
+    ax.set_ylim(top=max(grupper_df["sum_importance_pct_topp10"]) * 1.2)
+
+    fig.tight_layout()
+    fig.savefig(png_path, dpi=300)
+    plt.close(fig)
 
 
 if __name__ == "__main__":
