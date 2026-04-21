@@ -1,12 +1,14 @@
-# Tittel (norsk og/eller engelsk) <!-- omit in toc -->
+# Salgsprognoser for en simulert dagligvarekjede: en sammenligning av lineær regresjon og Random Forest Regressor <!-- omit in toc -->
+
+## Del av LOG650 Forskningsprosjekt: Logistikk og Kunstig Intelligens <!-- omit in toc -->
 
 ![Bilde 1](extracted_images/image_0.png)
 
-Forfatter(e):
+Forfatter(e): Erik Brendehaug, Joseph James, Pål Rånes, Marthe Slåtta Bjerke
 
-Totalt antall sider inkludert forsiden:
+Totalt antall sider inkludert forsiden: TODO (fylles inn ved endelig låsing)
 
-Molde, Innleveringsdato:
+Molde, Innleveringsdato: TODO (fylles inn nærmere innlevering)
 
 ![Bilde 2](extracted_images/image_1.png)
 
@@ -21,12 +23,12 @@ Du/dere fyller ut erklæringen ved å klikke i ruten til høyre for den enkelte 
 <!-- markdownlint-disable MD033 -->
 | Nr. | Erklæring | Avkryssing |
 | --- | --- | --- |
-| 1 | Jeg/vi erklærer at min/vår besvarelse er mitt/vårt eget arbeid. | ☐ |
-| 2 | Jeg/vi erklærer videre at denne besvarelsen:<br>- ikke har vært brukt til annen eksamen<br>- ikke refererer til andres arbeid uten at det er oppgitt<br>- ikke refererer til eget tidligere arbeid uten at det er oppgitt<br>- har alle referanser oppgitt<br>- ikke er kopi eller duplikat | ☐ |
-| 3 | Brudd på ovennevnte er fusk og kan medføre annullering. | ☐ |
-| 4 | Oppgaven kan bli plagiatkontrollert i URKUND. | ☐ |
-| 5 | Høgskolen vil behandle mistanke om fusk etter retningslinjene. | ☐ |
-| 6 | Jeg/vi har satt oss inn i reglene for kildebruk. | ☐ |
+| 1 | Jeg/vi erklærer at min/vår besvarelse er mitt/vårt eget arbeid. | ☒ |
+| 2 | Jeg/vi erklærer videre at denne besvarelsen:<br>- ikke har vært brukt til annen eksamen<br>- ikke refererer til andres arbeid uten at det er oppgitt<br>- ikke refererer til eget tidligere arbeid uten at det er oppgitt<br>- har alle referanser oppgitt<br>- ikke er kopi eller duplikat | ☒ |
+| 3 | Brudd på ovennevnte er fusk og kan medføre annullering. | ☒ |
+| 4 | Oppgaven kan bli plagiatkontrollert i URKUND. | ☒ |
+| 5 | Høgskolen vil behandle mistanke om fusk etter retningslinjene. | ☒ |
+| 6 | Jeg/vi har satt oss inn i reglene for kildebruk. | ☒ |
 <!-- markdownlint-enable MD033 -->
 ---
 
@@ -36,13 +38,13 @@ Du/dere fyller ut erklæringen ved å klikke i ruten til høyre for den enkelte 
 
 | Spørsmål                          | Ja | Nei |
 | --------------------------------- | -- | --- |
-| Har oppgaven vært vurdert av NSD? | ☐  | ☐   |
+| Har oppgaven vært vurdert av NSD? | ☐  | ☒   |
 
 - Hvis ja:  
   Referansenummer:
 
 - Hvis nei:  
-Jeg/vi erklærer at oppgaven ikke omfattes av Personopplysningsloven  ☐
+Jeg/vi erklærer at oppgaven ikke omfattes av Personopplysningsloven  ☒
 
 ---
 
@@ -50,7 +52,7 @@ Jeg/vi erklærer at oppgaven ikke omfattes av Personopplysningsloven  ☐
 
 | Spørsmål                                  | Ja | Nei |
 | ----------------------------------------- | -- | --- |
-| Har oppgaven vært til behandling hos REK? | ☐  | ☐   |
+| Har oppgaven vært til behandling hos REK? | ☐  | ☒   |
 
 - Hvis ja:  
   Referansenummer:
@@ -59,20 +61,20 @@ Jeg/vi erklærer at oppgaven ikke omfattes av Personopplysningsloven  ☐
 
 ## Publiseringsavtale <!-- omit in toc -->
 
-| Felt        | Verdi |
-| ----------- | ----- |
-| Studiepoeng |       |
-| Veileder    |       |
+| Felt        | Verdi                    |
+| ----------- | ------------------------ |
+| Studiepoeng | 15                       |
+| Veileder    | Bård Inge Peterson (BIP) |
 
 ### Fullmakt til elektronisk publisering <!-- omit in toc -->
 
 | Spørsmål                                                | Ja | Nei |
 | ------------------------------------------------------- | -- | --- |
-| Gjøre oppgaven tilgjengelig for elektronisk publisering | ☐  | ☐   |
+| Gjøre oppgaven tilgjengelig for elektronisk publisering | ☒  | ☐   |
 
 | Spørsmål                              | Ja | Nei |
 | ------------------------------------- | -- | --- |
-| Er oppgaven båndlagt (konfidensiell)? | ☐  | ☐   |
+| Er oppgaven båndlagt (konfidensiell)? | ☐  | ☒   |
 
 - Hvis ja:
 
@@ -80,17 +82,17 @@ Jeg/vi erklærer at oppgaven ikke omfattes av Personopplysningsloven  ☐
 | ---------------------------------------- | -- | --- |
 | Kan publiseres etter båndleggingsperiode | ☐  | ☐   |
 
-Dato:
+Dato: TODO (fylles inn nærmere innlevering)
 
 ---
 
 ## Antall ord <!-- omit in toc -->
 
-Marker denne setningen og skriv inn antall ord dersom nødvendig.
+Rapportens hovedtekst (kap. 1 Innledning til og med kap. 10 Konklusjon) er på omtrent 5 300 ord. Sammendrag, abstract, forside, litteraturliste og vedlegg er holdt utenfor tellingen.
 
 ## Forfattererklæring <!-- omit in toc -->
 
-Marker denne setningen og skriv inn forfattererklæring dersom nødvendig.
+Gruppen har i fellesskap skrevet og godkjent denne rapporten.
 
 ---
 
@@ -121,6 +123,10 @@ The tuned Random Forest is the overall best model with RMSE 578.26 and MAPE 43.9
   - [1.4 Antagelser](#14-antagelser)
 - [2 Litteratur](#2-litteratur)
 - [3 Teori](#3-teori)
+  - [3.1 Multippel lineær regresjon](#31-multippel-lineær-regresjon)
+  - [3.2 Random Forest Regressor](#32-random-forest-regressor)
+  - [3.3 Evalueringsmetrikker](#33-evalueringsmetrikker)
+  - [3.4 Feature engineering og dataoppsett](#34-feature-engineering-og-dataoppsett)
 - [4 Casebeskrivelse](#4-casebeskrivelse)
   - [4.1 Dagligvare og beslutningssituasjonen](#41-dagligvare-og-beslutningssituasjonen)
   - [4.2 Historisk salgsutvikling](#42-historisk-salgsutvikling)
@@ -152,18 +158,18 @@ Maskinlæringsbaserte metoder som Random Forest Regressor gir nye muligheter for
 
 Med dette som utgangspunkt formuleres problemstillingen som styrer metodevalg, analyse og tolkning videre i rapporten.
 
-## 1.1 Problemstilling
+### 1.1 Problemstilling
 
 Hvordan kan multippel lineær regresjon og Random Forest Regressor brukes til å forutsi salg for 2025 for en simulert dagligvarekjede, og hvilke faktorer påvirker salget mest?
 
-## 1.2 Delproblemer
+### 1.2 Delproblemer
 
 Problemstillingen dekomponeres i to delproblemer som strukturerer analyse, diskusjon og konklusjon:
 
 1. **Modellvalg og prognoseytelse.** Hvordan sammenlignes de to modellklassene på 2025-data, målt med RMSE som primær og MAPE som sekundær metrikk, både samlet, månedlig og på tvers av segmenter som kvartal, rabattband, region og salgsnivå?
 2. **Variabelanalyse.** Hvilke forklaringsvariabler har størst prediksjonsverdi, og hvordan samsvarer rangeringen fra Random Forest Regressor med koeffisientene i den lineære benchmarken?
 
-## 1.3 Avgrensinger
+### 1.3 Avgrensinger
 
 Analysen er avgrenset på følgende punkter:
 
@@ -173,7 +179,7 @@ Analysen er avgrenset på følgende punkter:
 4. **Én simulert virksomhet og ett datasett.** Analysen begrenses til det tilgjengelige datasettet. Generalisering til andre virksomheter eller bransjer forutsetter eget datagrunnlag og ny validering.
 5. **To modelltyper.** Modellvalget er begrenset til multippel lineær regresjon og Random Forest Regressor, i tråd med prosjektets faglige rammer og tilgjengelig treningsgrunnlag.
 
-## 1.4 Antagelser
+### 1.4 Antagelser
 
 Analysen bygger på følgende eksplisitte antagelser:
 
@@ -332,7 +338,7 @@ Figur 5.1 viser fordelingen av datatyper i rådatasettet og underbygger valget a
 
 Målvariabelen er `Sales` (heltall, spenn 500–2 500). Forklaringsvariablene som inngår i modellene er `Discount` (desimaltall, 0,10–0,35) og de kategoriske variablene `Category`, `Sub Category`, `City` og `Region`. Fra `Order Date` er det i tillegg utledet sju kalendervariabler: `year`, `month`, `quarter`, `weekofyear`, `dayofweek`, `dayofmonth` og `is_weekend`. Fire variabler ble ekskludert: `Profit` fordi den er en lekkasjevariabel som kun er kjent etter gjennomført salg, `State` fordi kolonnen er konstant i datasettet, og `Order ID` og `Customer Name` fordi de ikke har generaliserbar prediksjonsverdi. Kategoriske variabler ble one-hot-encoded til binære dummyvariabler, slik at den endelige modellmatrisen inneholder 67 features.
 
-Tabell 5.2 oppsummerer de 11 kolonnene i rådatasettet med datatype, manglende andel og anbefaling for videre bruk.
+Tabell 5.1 oppsummerer de 11 kolonnene i rådatasettet med datatype, manglende andel og anbefaling for videre bruk.
 
 | Variabel | Datatype | Manglende % | Unike | Anbefaling | Begrunnelse |
 | --- | --- | --- | --- | --- | --- |
@@ -348,9 +354,9 @@ Tabell 5.2 oppsummerer de 11 kolonnene i rådatasettet med datatype, manglende a
 | Customer Name | str | 0,0 | 50 | ekskluder | Navn-kolonne har høy kardinalitet og høy risiko for overtilpasning. |
 | Order ID | str | 0,0 | 9 994 | ekskluder | ID-variabel gir vanligvis lite generaliserbar prediksjonsverdi. |
 
-<p align="center"><small><i>Tabell 5.2 Variabeloversikt med datatype, manglende andel og anbefaling for videre bruk.</i></small></p>
+<p align="center"><small><i>Tabell 5.1 Variabeloversikt med datatype, manglende andel og anbefaling for videre bruk.</i></small></p>
 
-Tabell 5.3 dokumenterer feature engineering-oppsettet: hvilke input-kolonner som beholdes, transformeres eller ekskluderes, og hvilke output-kolonner de gir.
+Tabell 5.2 dokumenterer feature engineering-oppsettet: hvilke input-kolonner som beholdes, transformeres eller ekskluderes, og hvilke output-kolonner de gir.
 
 | Input-kolonne | Handling | Output-kolonne | Begrunnelse |
 | --- | --- | --- | --- |
@@ -373,9 +379,9 @@ Tabell 5.3 dokumenterer feature engineering-oppsettet: hvilke input-kolonner som
 | Profit | ekskluder | – | Ekskludert som potensiell lekkasjevariabel. |
 | State | ekskluder | – | Kolonnen er konstant i datasettet og gir ingen forklaringskraft. |
 
-<p align="center"><small><i>Tabell 5.3 Feature engineering-oppsett: input-kolonne, handling og resulterende output-kolonne med begrunnelse.</i></small></p>
+<p align="center"><small><i>Tabell 5.2 Feature engineering-oppsett: input-kolonne, handling og resulterende output-kolonne med begrunnelse.</i></small></p>
 
-Tabell 5.4 dokumenterer datarensingen fra 9 994 rader inn til 9 994 rader ut, uten at rader ble fjernet eller manglende verdier oppdaget.
+Tabell 5.3 dokumenterer datarensingen fra 9 994 rader inn til 9 994 rader ut, uten at rader ble fjernet eller manglende verdier oppdaget.
 
 | Målepunkt | Verdi | Kommentar |
 | --- | --- | --- |
@@ -398,7 +404,7 @@ Tabell 5.4 dokumenterer datarensingen fra 9 994 rader inn til 9 994 rader ut, ut
 | manglende_verdier_ut | 0 | Totalt manglende etter rens |
 | dubletter_ut | 0 | Eksakte dublettrader etter rens |
 
-<p align="center"><small><i>Tabell 5.4 Datarensing – målepunkter, verdier og kommentarer som dokumenterer kvalitetskontrollen før modellering.</i></small></p>
+<p align="center"><small><i>Tabell 5.3 Datarensing – målepunkter, verdier og kommentarer som dokumenterer kvalitetskontrollen før modellering.</i></small></p>
 
 Fordelingen av kategoriske variabler viser at West-regionen utgjør 32 % av observasjonene, East 28 %, Central 23 % og South 16 %. North-regionen er representert med bare én observasjon og benyttes ikke som separat analysesegment. Produktkategoriene er jevnt fordelt med mellom 14 og 15 % av observasjonene hver, noe som betyr at ingen enkelt kategori dominerer datasettet.
 
@@ -409,14 +415,14 @@ Datasettet er delt tidsmessig slik at treningsdata dekker 2022–2024 og testdat
   <p align="center"><small><i>Figur 5.2 Fordeling av daglige salgsverdier i trenings- og testperioden. Overlappet i fordelingene tyder på at målvariabelen er stabil mellom periodene.</i></small></p>
 </div>
 
-Tabell 5.5 oppsummerer antallsfordelingen mellom trenings- og testperioden.
+Tabell 5.4 oppsummerer antallsfordelingen mellom trenings- og testperioden.
 
 | Delmengde | År | Antall rader | Andel |
 | --- | --- | --- | --- |
 | Treningsdata | 2022–2024 | 6 682 | ~67 % |
 | Testdata | 2025 | 3 312 | ~33 % |
 
-<p align="center"><small><i>Tabell 5.5 Fordeling av trenings- og testdata etter tidsmessig splitt.</i></small></p>
+<p align="center"><small><i>Tabell 5.4 Fordeling av trenings- og testdata etter tidsmessig splitt.</i></small></p>
 
 ---
 

@@ -32,12 +32,12 @@ Følgende prinsipper gjelder for forskningsprosjektet i LOG650 og er styrende fo
 Kravet «nummereres separat og i den rekkefølgen de omtales» kan leses på to måter:
 
 - **(a) Gjennomgående numre:** Figur 1, Figur 2, … og Tabell 1, Tabell 2, … uavhengig av kapittel.
-- **(b) Kapittelbundne numre:** Figur 4.1, Figur 4.2, Figur 5.1 … og Tabell 5.2, Tabell 6.1, Tabell 8.1 …
+- **(b) Kapittelbundne numre:** Figur 4.1, Figur 4.2, Figur 5.1 … og Tabell 5.1, Tabell 6.1, Tabell 8.1 …
 
 Rapporten bruker i dag (b), og dette er konsistent med universitets- og høgskolemaler generelt. **Planen beholder (b) som arbeidsantagelse.** Det er dermed seks hovedregler i 7.2.4:
 
 1. Figurer nummereres per hovedkapittel i rekkefølgen de omtales: 4.1 → 4.2 → 4.3 → 5.1 → 5.2 → 7.1 → 7.2 → 8.1 → 8.2 → 8.3.
-2. Tabeller nummereres per hovedkapittel i rekkefølgen de omtales: 5.2 → 5.3 → 5.4 → 5.5 → 6.1 → 6.2 → 7.1 → 7.2 → 8.1 → 8.2 → 8.3 → 8.4 → 9.1 → 9.2 → 9.3.
+2. Tabeller nummereres per hovedkapittel i rekkefølgen de omtales: 5.1 → 5.2 → 5.3 → 5.4 → 6.1 → 6.2 → 7.1 → 7.2 → 8.1 → 8.2 → 8.3 → 8.4 → 9.1 → 9.2 → 9.3.
 3. Ingen hopp bakover i rekkefølgen innen samme kapittel.
 4. Figurer og tabeller har hver sin sekvens – det samme nummer kan brukes for en figur og en tabell i samme kapittel (eks. Figur 7.1 og Tabell 7.1).
 5. Spørsmålet om overgang til gjennomgående nummerering tas opp i WBS 7.3.1 (struktur- og kravsjekk), ikke i 7.2.1.
@@ -54,7 +54,7 @@ Rapporten inneholder per 2026-04-16 følgende innholdsbærende artefakter (forsi
 | Figur 4.1 | figur | Gjennomsnittlig salg per kategori | [fig_sales_per_category.png](../006%20analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/fig_sales_per_category.png) |
 | Figur 4.2 | figur | Månedlig totalsalg med trenings- og testperiode | [fig_sales_over_tid_train_test.png](../006%20analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/fig_sales_over_tid_train_test.png) |
 | Figur 4.3 | figur | Gjennomsnittlig salg per måned (sesongmønster) | [fig_sales_per_month_split.png](../006%20analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/fig_sales_per_month_split.png) |
-| Tabell 5.5 | tabell | Fordeling mellom trenings- og testdata | egen tekst i rapporten, basert på [tab_split_oversikt.csv](../006%20analysis/aktiviteter/06_datasplitt/tab_split_oversikt.csv) |
+| Tabell 5.4 | tabell | Fordeling mellom trenings- og testdata | egen tekst i rapporten, basert på [tab_split_oversikt.csv](../006%20analysis/aktiviteter/06_datasplitt/tab_split_oversikt.csv) |
 | Tabell 8.1 | tabell | Samlet prognoseytelse 2025 (RMSE/MAPE) | basert på [tab_rmse_mape_oversikt.csv](../006%20analysis/aktiviteter/13_rmse_og_mape/tab_rmse_mape_oversikt.csv) |
 | Tabell 8.2 | tabell | Månedlig vinnertelling per metrikk | basert på [tab_modellvinner_telling.csv](../006%20analysis/aktiviteter/14_sammenligne_modellresultater/tab_modellvinner_telling.csv) |
 | Tabell 8.3 | tabell | Topp 10 feature importance for tuned Random Forest | basert på [tab_rf_tuned_feature_importance.csv](../006%20analysis/aktiviteter/15_viktige_variabler/tab_rf_tuned_feature_importance.csv) |
@@ -112,10 +112,10 @@ Alle tabeller er egenproduserte. Tabelltittel plasseres under tabellen i samme s
 
 | Nr | Kilde | Beholdes/Ny | Plassering | Foreslått tabelltittel |
 |---|---|---|---|---|
-| Tabell 5.2 | [tab_relevante_variabler.csv](../006%20analysis/aktiviteter/02_identifisere_relevante_variabler/tab_relevante_variabler.csv) | ny | 5.2 Data, tidlig | *Tabell 5.2 Variabeloversikt med datatype, manglende andel og anbefaling for videre bruk (target, inkluder, vurder, ekskluder).* |
-| Tabell 5.3 | [tab_featurevalg.csv](../006%20analysis/aktiviteter/05_feature_engineering/tab_featurevalg.csv) | ny | 5.2 Data, etter Tabell 5.2 | *Tabell 5.3 Feature engineering-oppsett: input-kolonne, handling og resulterende output-kolonne med begrunnelse.* |
-| Tabell 5.4 | [tab_renselogg.csv](../006%20analysis/aktiviteter/04_dataprosessering/tab_renselogg.csv) | ny | 5.2 Data, etter Tabell 5.3 | *Tabell 5.4 Datarensing – målepunkter, verdier og kommentarer som dokumenterer kvalitetskontrollen før modellering.* |
-| Tabell 5.5 | eksisterende i rapporten | beholdes (renummerert fra Tabell 5.1) | 5.2 Data, sist i seksjonen | *Tabell 5.5 Fordeling mellom trenings- (2022–2024) og testdata (2025) med antall rader og antall features.* |
+| Tabell 5.1 | [tab_relevante_variabler.csv](../006%20analysis/aktiviteter/02_identifisere_relevante_variabler/tab_relevante_variabler.csv) | ny | 5.2 Data, tidlig | *Tabell 5.1 Variabeloversikt med datatype, manglende andel og anbefaling for videre bruk (target, inkluder, vurder, ekskluder).* |
+| Tabell 5.2 | [tab_featurevalg.csv](../006%20analysis/aktiviteter/05_feature_engineering/tab_featurevalg.csv) | ny | 5.2 Data, etter Tabell 5.1 | *Tabell 5.2 Feature engineering-oppsett: input-kolonne, handling og resulterende output-kolonne med begrunnelse.* |
+| Tabell 5.3 | [tab_renselogg.csv](../006%20analysis/aktiviteter/04_dataprosessering/tab_renselogg.csv) | ny | 5.2 Data, etter Tabell 5.2 | *Tabell 5.3 Datarensing – målepunkter, verdier og kommentarer som dokumenterer kvalitetskontrollen før modellering.* |
+| Tabell 5.4 | eksisterende i rapporten | beholdes (renummerert fra opprinnelig Tabell 5.1 til 5.5 i V1 av 7.2-reviewen, deretter til 5.4 i V2 av 7.3.1-reviewen) | 5.2 Data, sist i seksjonen | *Tabell 5.4 Fordeling mellom trenings- (2022–2024) og testdata (2025) med antall rader og antall features.* |
 
 ### 6.2 Kapittel 6 Modellering
 
@@ -173,16 +173,16 @@ Stil: sentrert, `width="80%"` i rapporten, PNG-filene lagres med prefiks `fig_` 
 
 ### 7.3 Nye tabellutdrag (7.2.2 og 7.2.3)
 
-Tabellene 5.2, 5.3, 5.4, 6.1, 6.2, 7.1, 7.2, 9.1, 9.2 og 9.3 limes inn som Markdown-tabeller i rapporten, basert på CSV-kildene. For tabeller med mange rader (f.eks. 5.2 med 12 rader, 7.2 som er et segmentutvalg) holdes presentasjonen kompakt (kun nøkkelkolonner) med full kildefil som referanse i teksten.
+Tabellene 5.1, 5.2, 5.3, 6.1, 6.2, 7.1, 7.2, 9.1, 9.2 og 9.3 limes inn som Markdown-tabeller i rapporten, basert på CSV-kildene. For tabeller med mange rader (f.eks. 5.1 med 12 rader, 7.2 som er et segmentutvalg) holdes presentasjonen kompakt (kun nøkkelkolonner) med full kildefil som referanse i teksten.
 
 ## 8 Artefakter som er valgt bort
 
 | Artefakt | Begrunnelse for å holde utenfor rapporten |
 |---|---|
 | [tab_manglende_verdier.csv](../006%20analysis/aktiviteter/01_dataforstaelse_og_variabler/tab_manglende_verdier.csv) | Datasettet har ingen manglende verdier – poenget dekkes av én setning i kap. 5.2. |
-| [tab_dataset_oversikt.csv](../006%20analysis/aktiviteter/01_dataforstaelse_og_variabler/tab_dataset_oversikt.csv), [tab_dataset_dokumentasjon.csv](../006%20analysis/aktiviteter/03_dokumentere_datasett/tab_dataset_dokumentasjon.csv) | Overlapper med Tabell 5.2; unngår duplikater. |
-| [tab_variabelregler.csv](../006%20analysis/aktiviteter/02_identifisere_relevante_variabler/tab_variabelregler.csv), [fig_variabelanbefalinger.png](../006%20analysis/aktiviteter/02_identifisere_relevante_variabler/fig_variabelanbefalinger.png) | Beslutningsreglene er prosess-interne; sluttanbefalingen står i Tabell 5.2. |
-| [tab_datakvalitet_etter_rens.csv](../006%20analysis/aktiviteter/04_dataprosessering/tab_datakvalitet_etter_rens.csv) | Dekkes av Tabell 5.4. |
+| [tab_dataset_oversikt.csv](../006%20analysis/aktiviteter/01_dataforstaelse_og_variabler/tab_dataset_oversikt.csv), [tab_dataset_dokumentasjon.csv](../006%20analysis/aktiviteter/03_dokumentere_datasett/tab_dataset_dokumentasjon.csv) | Overlapper med Tabell 5.1; unngår duplikater. |
+| [tab_variabelregler.csv](../006%20analysis/aktiviteter/02_identifisere_relevante_variabler/tab_variabelregler.csv), [fig_variabelanbefalinger.png](../006%20analysis/aktiviteter/02_identifisere_relevante_variabler/fig_variabelanbefalinger.png) | Beslutningsreglene er prosess-interne; sluttanbefalingen står i Tabell 5.1. |
+| [tab_datakvalitet_etter_rens.csv](../006%20analysis/aktiviteter/04_dataprosessering/tab_datakvalitet_etter_rens.csv) | Dekkes av Tabell 5.3. |
 | [tab_eda_oversikt.csv](../006%20analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/tab_eda_oversikt.csv), [tab_kategorisk_fordeling.csv](../006%20analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/tab_kategorisk_fordeling.csv) | Utdypende EDA – figurer i 4.1–4.4 dekker hovedbudskapene. |
 | [tab_modelltrening_oversikt.csv](../006%20analysis/aktiviteter/10_felles_treningsoppsummering/tab_modelltrening_oversikt.csv), [tab_modellsignaler_oversikt.csv](../006%20analysis/aktiviteter/10_felles_treningsoppsummering/tab_modellsignaler_oversikt.csv) | Sammenstilt i Tabell 6.1 og Tabell 8.3. |
 | [tab_lr_koeffisienter.csv](../006%20analysis/aktiviteter/08_lineaer_regresjon/tab_lr_koeffisienter.csv) | 41 rader – full versjon i vedlegg; topp signaler diskuteres i kap. 7. |
@@ -218,7 +218,7 @@ Filene limes ikke inn i rapporten. Vedlegget refererer til relativ sti i repoet,
 | Kapittel i rapport | Figurer/Tabeller | Hovedkilde i WBS |
 |---|---|---|
 | Kap. 4 Casebeskrivelse | Figur 4.1–4.3 | WBS 3.4 (aktivitet 07) |
-| Kap. 5 Metode og data | Figur 5.1–5.2; Tabell 5.2–5.5 | WBS 2.2, 2.3, 3.1, 3.2, 3.3, 3.4 (aktivitet 01, 02, 04, 05, 06, 07) |
+| Kap. 5 Metode og data | Figur 5.1–5.2; Tabell 5.1–5.4 | WBS 2.2, 2.3, 3.1, 3.2, 3.3, 3.4 (aktivitet 01, 02, 04, 05, 06, 07) |
 | Kap. 6 Modellering | Tabell 6.1–6.2 | WBS 4.1, 4.2, 4.4 (aktivitet 08, 09, 11) |
 | Kap. 7 Analyse | Figur 7.1–7.2; Tabell 7.1–7.2 | WBS 5.2, 6.1 (aktivitet 13, 16) |
 | Kap. 8 Resultat | Figur 8.1–8.3; Tabell 8.1–8.4 | WBS 5.2, 5.3, 5.4, 6.1 (aktivitet 13, 14, 15, 16) |
@@ -228,7 +228,7 @@ Filene limes ikke inn i rapporten. Vedlegget refererer til relativ sti i repoet,
 ## 11 Sammendrag av utvalget
 
 - **Figurer i rapporten:** 12 totalt. 5 beholdes fra dagens rapport (inkl. 2 forsidebilder), 2 kopieres inn fra eksisterende analyse-PNG, 5 produseres som nye plott.
-- **Tabeller i rapporten:** 16 innholdstabeller (forside- og personverntabeller regnes ikke med her). 5 beholdes fra tidligere rapport (Tabell 5.5 renummerert fra 5.1 og Tabell 8.1–8.4), 10 legges inn i 7.2.2 (kap. 5: 5.2, 5.3, 5.4) og 7.2.3 (kap. 6, 7, 9: 6.1, 6.2, 7.1, 7.2, 9.1, 9.2, 9.3), og i tillegg Tabell 12.1 med vedleggsreferanser A1–A7 i kap. 12.
+- **Tabeller i rapporten:** 16 innholdstabeller (forside- og personverntabeller regnes ikke med her). 5 beholdes fra tidligere rapport (Tabell 5.4 – opprinnelig Tabell 5.1, renummerert via 5.5 til 5.4 etter V1 i 7.2-reviewen og V2 i 7.3.1-reviewen – og Tabell 8.1–8.4), 10 legges inn i 7.2.2 (kap. 5: 5.1, 5.2, 5.3) og 7.2.3 (kap. 6, 7, 9: 6.1, 6.2, 7.1, 7.2, 9.1, 9.2, 9.3), og i tillegg Tabell 12.1 med vedleggsreferanser A1–A7 i kap. 12.
 - **Kilder:** alle egenproduserte – ingen kildehenvisning skal oppgis i figur- eller tabelltekst.
 - **Vedlegg:** 7 referanseoppføringer (A1–A7) samlet i Tabell 12.1. Kildefilene limes ikke inn; kun refereres via relativ sti.
 

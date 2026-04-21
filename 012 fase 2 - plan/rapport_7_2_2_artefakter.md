@@ -1,6 +1,7 @@
 # Artefakter fra WBS 7.2.2 – Case- og datakapitlets figurer og tabeller
 
 Opprettet: 2026-04-19 (WBS 7.2.2)
+Oppdatert: 2026-04-21 (nummerering synkronisert med rapport etter V2 i review av 7.3.1)
 
 Denne filen er leveransen fra WBS 7.2.2 og inneholder ferdige figur- og tabellblokker for kapittel 4 og kapittel 5 i [rapport.md](../005%20report/rapport.md), klare til innsetting i WBS 7.2.4. Utvalget følger [rapport_fig_tab_utvalg.md](rapport_fig_tab_utvalg.md). Alle artefakter er egenproduserte og skal ikke ha kildehenvisning i figur- eller tabellteksten.
 
@@ -16,7 +17,7 @@ Figur 4.1, 4.2 og 4.3 ligger allerede i [rapport.md](../005%20report/rapport.md)
 
 ## 2 Kapittel 5 – Metode og data
 
-Splittabellen ligger allerede i [rapport.md](../005%20report/rapport.md) § 5.2 og beholdes uendret bortsett fra nummer: etter V1 i helhetsreviewen av 7.2 er den renummerert fra Tabell 5.1 til **Tabell 5.5** slik at tekstrekkefølgen matcher formkrav 1. De fem øvrige artefaktene (Figur 5.1, Figur 5.2, Tabell 5.2, Tabell 5.3 og Tabell 5.4) er nye for rapporten og leveres som ferdige blokker under.
+Splittabellen ligger allerede i [rapport.md](../005%20report/rapport.md) § 5.2. Etter V1 i helhetsreviewen av 7.2 ble den først renummerert fra opprinnelig Tabell 5.1 til Tabell 5.5 for å reparere tekstrekkefølgen. Etter V2 i reviewen av 7.3.1 er hele kjeden (5.2–5.5) deretter bumpet ned med ett nummer, slik at splittabellen nå står som **Tabell 5.4** og nummereringen i kap. 5 starter på Tabell 5.1 (ingen gap). De fem øvrige artefaktene (Figur 5.1, Figur 5.2, Tabell 5.1, Tabell 5.2 og Tabell 5.3) er nye for rapporten og leveres som ferdige blokker under.
 
 ### 2.1 Figur 5.1 – Fordeling av datatyper
 
@@ -40,7 +41,7 @@ Plasseres i § 5.2 etter Figur 5.1 og før omtalen av datasplitten. HTML-blokk k
 </div>
 ```
 
-### 2.3 Tabell 5.2 – Variabeloversikt
+### 2.3 Tabell 5.1 – Variabeloversikt
 
 Kilde: [tab_relevante_variabler.csv](../006%20analysis/aktiviteter/02_identifisere_relevante_variabler/tab_relevante_variabler.csv) (11 datarader). Plasseres i § 5.2 etter Figur 5.1 som oversikt over de 11 kolonnene i rådatasettet. Tabellblokk klar for innsetting:
 
@@ -58,13 +59,13 @@ Kilde: [tab_relevante_variabler.csv](../006%20analysis/aktiviteter/02_identifise
 | Customer Name | str | 0,0 | 50 | ekskluder | Navn-kolonne har høy kardinalitet og høy risiko for overtilpasning. |
 | Order ID | str | 0,0 | 9 994 | ekskluder | ID-variabel gir vanligvis lite generaliserbar prediksjonsverdi. |
 
-<p align="center"><small><i>Tabell 5.2 Variabeloversikt med datatype, manglende andel og anbefaling for videre bruk.</i></small></p>
+<p align="center"><small><i>Tabell 5.1 Variabeloversikt med datatype, manglende andel og anbefaling for videre bruk.</i></small></p>
 
 *Merk:* Kilden lister 12 rader fordi `Sales` er telt med både som variabel og som målvariabel. Tabellen over gjengir de 11 unike variablene i datasettet; `Sales` står øverst som målvariabel. Full variabelliste ligger i kildefilen.
 
-### 2.4 Tabell 5.3 – Feature engineering-oppsett
+### 2.4 Tabell 5.2 – Feature engineering-oppsett
 
-Kilde: [tab_featurevalg.csv](../006%20analysis/aktiviteter/05_feature_engineering/tab_featurevalg.csv) (18 rader). Plasseres i § 5.2 etter Tabell 5.2. Tabellblokk klar for innsetting:
+Kilde: [tab_featurevalg.csv](../006%20analysis/aktiviteter/05_feature_engineering/tab_featurevalg.csv) (18 rader). Plasseres i § 5.2 etter Tabell 5.1. Tabellblokk klar for innsetting:
 
 | Input-kolonne | Handling | Output-kolonne | Begrunnelse |
 | --- | --- | --- | --- |
@@ -87,11 +88,11 @@ Kilde: [tab_featurevalg.csv](../006%20analysis/aktiviteter/05_feature_engineerin
 | Profit | ekskluder | – | Ekskludert som potensiell lekkasjevariabel. |
 | State | ekskluder | – | Kolonnen er konstant i datasettet og gir ingen forklaringskraft. |
 
-<p align="center"><small><i>Tabell 5.3 Feature engineering-oppsett: input-kolonne, handling og resulterende output-kolonne med begrunnelse.</i></small></p>
+<p align="center"><small><i>Tabell 5.2 Feature engineering-oppsett: input-kolonne, handling og resulterende output-kolonne med begrunnelse.</i></small></p>
 
-### 2.5 Tabell 5.4 – Datarensing
+### 2.5 Tabell 5.3 – Datarensing
 
-Kilde: [tab_renselogg.csv](../006%20analysis/aktiviteter/04_dataprosessering/tab_renselogg.csv) (19 rader). Plasseres i § 5.2 etter Tabell 5.3. Tabellblokk klar for innsetting:
+Kilde: [tab_renselogg.csv](../006%20analysis/aktiviteter/04_dataprosessering/tab_renselogg.csv) (19 rader). Plasseres i § 5.2 etter Tabell 5.2. Tabellblokk klar for innsetting:
 
 | Målepunkt | Verdi | Kommentar |
 | --- | --- | --- |
@@ -114,23 +115,23 @@ Kilde: [tab_renselogg.csv](../006%20analysis/aktiviteter/04_dataprosessering/tab
 | manglende_verdier_ut | 0 | Totalt manglende etter rens |
 | dubletter_ut | 0 | Eksakte dublettrader etter rens |
 
-<p align="center"><small><i>Tabell 5.4 Datarensing – målepunkter, verdier og kommentarer som dokumenterer kvalitetskontrollen før modellering.</i></small></p>
+<p align="center"><small><i>Tabell 5.3 Datarensing – målepunkter, verdier og kommentarer som dokumenterer kvalitetskontrollen før modellering.</i></small></p>
 
 ## 3 Innsettingsrekkefølge i § 5.2 for 7.2.4
 
-Rekkefølgen som 7.2.4 skal bruke når blokkene settes inn i [rapport.md](../005%20report/rapport.md) § 5.2 Data:
+Rekkefølgen som 7.2.4 skal bruke når blokkene settes inn i [rapport.md](../005%20report/rapport.md) § 5.2 Data (oppdatert etter V2 i review av 7.3.1):
 
 1. Figur 5.1 (tidlig i § 5.2, etter strukturbeskrivelsen).
-2. Tabell 5.2 (etter Figur 5.1, før omtalen av feature engineering).
-3. Tabell 5.3 (etter Tabell 5.2, som bindeledd mellom variabler og modelldata).
-4. Tabell 5.4 (etter Tabell 5.3, oppsummerer datarensingen).
-5. Figur 5.2 (etter Tabell 5.4 og før splittabellen om datasplitt).
-6. Tabell 5.5 (splittabellen, renummerert fra tidligere Tabell 5.1 etter V1 i helhetsreviewen) beholdes som siste blokk i § 5.2.
+2. Tabell 5.1 (etter Figur 5.1, før omtalen av feature engineering).
+3. Tabell 5.2 (etter Tabell 5.1, som bindeledd mellom variabler og modelldata).
+4. Tabell 5.3 (etter Tabell 5.2, oppsummerer datarensingen).
+5. Figur 5.2 (etter Tabell 5.3 og før splittabellen om datasplitt).
+6. Tabell 5.4 (splittabellen, opprinnelig Tabell 5.1 – renummerert til 5.5 ved V1 i helhetsreviewen av 7.2, og deretter til 5.4 ved V2 i review av 7.3.1) beholdes som siste blokk i § 5.2.
 
 ## 4 Leveransebekreftelse
 
 - Figur 4.1–4.3 er verifisert uendret og korrekt plassert i [rapport.md](../005%20report/rapport.md).
 - Figur 5.1 og Figur 5.2 er klare som HTML-blokker med relativ sti til eksisterende PNG-er.
-- Tabell 5.2 (11 unike variabler + målvariabel), Tabell 5.3 (18 rader) og Tabell 5.4 (18 innholdsrader + 1 periodisering) er skrevet ut som ferdige Markdown-tabeller med sentrert kursiv tabelltittel.
+- Tabell 5.1 (11 unike variabler + målvariabel), Tabell 5.2 (18 rader) og Tabell 5.3 (18 innholdsrader + 1 periodisering) er skrevet ut som ferdige Markdown-tabeller med sentrert kursiv tabelltittel.
 - Alle norske tegn `æ`, `ø`, `å` er bevart; ingen BOM; filen er ren UTF-8.
-- Ingen endringer er gjort i [rapport.md](../005%20report/rapport.md); innsetting tilhører WBS 7.2.4.
+- Ingen endringer er gjort i [rapport.md](../005%20report/rapport.md) i 7.2.2; innsetting tilhører WBS 7.2.4, og nummer-synkronisering med rapporten er gjort som del av V2-rettingen i review av 7.3.1 (2026-04-21).
