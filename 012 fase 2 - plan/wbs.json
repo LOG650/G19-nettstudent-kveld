@@ -360,7 +360,7 @@
           "duration": "1 day",
           "start_date": "Tue 21.04.26",
           "finish_date": "Tue 21.04.26",
-          "percent_complete": "33%",
+          "percent_complete": "66%",
           "children": [
             {
               "id": "7.3.1",
@@ -378,7 +378,7 @@
               "duration": "0.25 days",
               "start_date": "Tue 21.04.26",
               "finish_date": "Tue 21.04.26",
-              "percent_complete": "0%"
+              "percent_complete": "100%"
             },
             {
               "id": "7.3.3",
