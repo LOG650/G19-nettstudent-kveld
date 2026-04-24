@@ -102,7 +102,7 @@ Dagligvarehandelens driftsrisiko er direkte knyttet til kvaliteten på etterspø
 
 Analysen bygger på et datasett med 9 994 daglige salgstransaksjoner fra perioden 2022–2025. Treningsperioden 2022–2024 dekker 6 682 rader og testperioden 2025 dekker 3 312 rader, med tidsbasert splitt for å unngå datalekkasje. Modellmatrisen består av 67 features som inkluderer rabatt, kategoriske dimensjoner som region, produktkategori og subkategori, samt sju utledede kalendervariabler. Tre modellspor evalueres på 2025: en benchmark multippel lineær regresjon, en Random Forest-baseline med standardparametere, og en tuned Random Forest der hyperparametere er valgt gjennom et rutenettsøk med 2022–2023 som søketrening og 2024 som valideringsår. Modellene sammenlignes med RMSE som primær metrikk og MAPE som sekundær metrikk, både samlet, per måned og per segment fordelt på kvartal, rabattband, region og salgsnivå.
 
-Tuned Random Forest er den samlet beste modellen med RMSE 578,26 og MAPE 43,97 %, og vinner RMSE i elleve av tolv måneder og tretten av fjorten segmenter. Gapet til benchmark lineær er marginalt på totalnivå, og benchmark lineær er best i segmentet for høyt salgsnivå. De mest påvirkningsrike prediktorene er rabatt (11,48 %) og kalendervariablene, som samlet utgjør om lag 42 % av importance i topp 10. Rapporten anbefaler tuned Random Forest som standardprognose for innkjøp, lager og aggregert ressursplanlegging, benchmark lineær som forklaringsstøtte, og baseline Random Forest som kontroll mot prosentfeil i høyrabattperioder. Funnene er prediktive og ikke kausale, og gjelder innenfor det simulerte caset.
+Tuned Random Forest er den samlet beste modellen med RMSE 578,26 og MAPE 43,97 %, og vinner RMSE i elleve av tolv måneder og tretten av fjorten segmenter. Gapet til benchmark lineær er marginalt på totalnivå, og benchmark lineær er best i segmentet for høyt salgsnivå. De mest påvirkningsrike prediktorene er rabatt (11,48 %) og kalendervariablene, der kalendervariablene alene utgjør om lag 42 % av importance i topp 10. Rapporten anbefaler tuned Random Forest som standardprognose for innkjøp, lager og aggregert ressursplanlegging, benchmark lineær som forklaringsstøtte, og baseline Random Forest som kontroll mot prosentfeil i høyrabattperioder. Funnene er prediktive og ikke kausale, og gjelder innenfor det simulerte caset.
 
 ## Abstract <!-- omit in toc -->
 
@@ -110,7 +110,7 @@ Operational risk in grocery retail is directly linked to forecast quality: over-
 
 The analysis uses 9,994 daily sales transactions from 2022–2025. Training data covers 2022–2024 (6,682 rows) and test data covers 2025 (3,312 rows), with a time-based split to prevent data leakage. The model matrix contains 67 features, including discount, categorical dimensions such as region, product category and sub-category, and seven derived calendar variables. Three tracks are evaluated on 2025: a benchmark multiple linear regression, a Random Forest baseline with default parameters, and a tuned Random Forest whose hyperparameters are selected via grid search on 2022–2023 with 2024 as the validation year. RMSE is the primary metric and MAPE the secondary, both overall, by month and by segment across quarter, discount band, region and sales level.
 
-The tuned Random Forest is the overall best model with RMSE 578.26 and MAPE 43.97 %, winning RMSE in eleven of twelve months and thirteen of fourteen segments. The gap to the benchmark linear model is marginal overall, and the benchmark linear model is the strongest in the high-sales segment. The most influential predictors are discount (11.48 %) and the calendar variables, which together account for around 42 % of importance in the top ten. The report recommends the tuned Random Forest as the standard forecast for purchasing, inventory and aggregate resource planning, the benchmark linear model as explanatory support, and the Random Forest baseline as a check against percentage error during high-discount periods. The findings are predictive rather than causal and apply within the simulated case.
+The tuned Random Forest is the overall best model with RMSE 578.26 and MAPE 43.97 %, winning RMSE in eleven of twelve months and thirteen of fourteen segments. The gap to the benchmark linear model is marginal overall, and the benchmark linear model is the strongest in the high-sales segment. The most influential predictors are discount (11.48 %) and the calendar variables, where the calendar variables alone account for around 42 % of importance in the top ten. The report recommends the tuned Random Forest as the standard forecast for purchasing, inventory and aggregate resource planning, the benchmark linear model as explanatory support, and the Random Forest baseline as a check against percentage error during high-discount periods. The findings are predictive rather than causal and apply within the simulated case.
 
 ---
 
@@ -309,7 +309,7 @@ Figur 4.3 viser gjennomsnittlig salg per måned for henholdsvis trenings- og tes
 
 For Dagligvare forsterkes planleggingsrisikoen av et sortiment som spenner fra ferske varer med kort holdbarhet til tørrvarer med lengre holdbarhetsperiode. Overskuddsbestillinger fører til direkte svinn og bundet kapital – konsekvenser som er særlig kostbare i kategorier som Eggs, Meat & Fish og Fruits & Veggies. Underestimering gir tomme hyller, tapte inntekter og risiko for å svekke kundelojaliteten.
 
-Sesongvariasjonen i figur 4.3 viser at salget svinger markant gjennom året – med topp i oktober og bunnpunkt i juni. Kombinert med rabattavhengighet gjør dette at enkle tommelfingerregler for innkjøp gir dårlige resultater i perioder med høy kampanjeaktivitet eller sesongtopper.
+Sesongvariasjonen i Figur 4.3 viser at salget svinger markant gjennom året – med topp i oktober og bunnpunkt i juni. Kombinert med rabattavhengighet gjør dette at enkle tommelfingerregler for innkjøp gir dårlige resultater i perioder med høy kampanjeaktivitet eller sesongtopper.
 
 Nøyaktige etterspørselsprognoser for 2025 kan gi Dagligvare et bedre grunnlag for innkjøpsplanlegging og lagerstyring, støtte vurderingen av kampanjeeffekter og bidra til mer presis ressursplanlegging i perioder med høy og lav etterspørsel.
 
@@ -347,7 +347,7 @@ Tabell 5.1 oppsummerer de 11 kolonnene i rådatasettet med datatype, manglende a
 | City | str | 0,0 | 24 | inkluder | Kategorisk variabel med håndterbar kardinalitet. |
 | Discount | float64 | 0,0 | 26 | inkluder | Numerisk variabel egner seg direkte for modellering. |
 | Region | str | 0,0 | 5 | inkluder | Kategorisk variabel med håndterbar kardinalitet. |
-| State | str | 0,0 | 1 | inkluder | Kategorisk variabel med håndterbar kardinalitet. |
+| State | str | 0,0 | 1 | ekskluder | Kolonnen er konstant i datasettet og gir ingen forklaringskraft. |
 | Sub Category | str | 0,0 | 23 | inkluder | Kategorisk variabel med håndterbar kardinalitet. |
 | Order Date | str | 0,0 | 1 236 | vurder | Middels/høy kardinalitet, vurder koding og nytte. |
 | Profit | float64 | 0,0 | 8 380 | vurder | Kan være informativ, men bør sjekkes for lekkasje før modellering. |
@@ -499,7 +499,7 @@ Figur 7.2 viser samme månedsforløp som Tabell 7.1, men med RMSE visualisert so
   <p align="center"><small><i>Figur 7.2 Månedlig RMSE per modell i 2025. Tuned Random Forest har lavest RMSE i majoriteten av månedene, mens benchmark lineær slår gjennom i enkeltmåneder.</i></small></p>
 </div>
 
-Segmentanalysen (jf. Tabell 7.2) forsterker forskjellen mellom de to metrikkene. Tuned Random Forest vinner RMSE i 13 av 14 tolkningssegmenter – alle fire kvartaler, alle tre rabattband, alle fire regioner og to av tre salgsnivå – men må vike for benchmark lineær og baseline Random Forest i flere av MAPE-segmentene, særlig i høyrabattsegmentet, vest-regionen og lavvolumssegmentet. I segmentet «høyt salg» er benchmark lineær best på begge metrikker (RMSE $699{,}10$, MAPE $30{,}31\%$), mens tuned Random Forest likevel gir lavest RMSE i segmentet «lavt salg» til tross for at MAPE der ligger på $89{,}39\%$.
+Segmentanalysen (jf. Tabell 7.2) forsterker forskjellen mellom de to metrikkene. Tuned Random Forest vinner RMSE i 13 av 14 tolkningssegmenter – alle fire kvartaler, alle tre rabattband, alle fire regioner og to av tre salgsnivå – men må vike for benchmark lineær og baseline Random Forest i flere av MAPE-segmentene, særlig i høyrabattsegmentet, vest-regionen og lavvolumssegmentet. I segmentet «høyt salg» er benchmark lineær best på begge metrikker (RMSE $699{,}10$, MAPE $30{,}31\%$), mens tuned Random Forest likevel gir lavest RMSE i segmentet «lavt salg» til tross for at tuned Random Forest-MAPE i samme segment ligger på $90{,}27\,\%$.
 
 Tabell 7.2 gir detaljert RMSE og MAPE per modell for alle 14 tolkningssegmentene.
 
@@ -698,6 +698,8 @@ IBM. (u.å.-b). *What is random forest?*. Hentet 13. april 2026 fra <https://www
 ## 12 Vedlegg
 
 Dette kapitlet samler referanser til stort eller detaljert datamateriale som ikke er limt direkte inn i rapporten, men som ligger som kildefiler under `006 analysis/`. Vedleggene A1–A7 gir leseren direkte tilgang til de underliggende analyseartefaktene.
+
+Tabell 12.1 lister vedleggene A1–A7 med innhold og tilhørende kildefil under `006 analysis/`.
 
 | Vedlegg | Innhold | Kildefil |
 | --- | --- | --- |
