@@ -1,6 +1,8 @@
 \usepackage{pifont}
 \usepackage{seqsplit}
 \usepackage{newunicodechar}
+\usepackage{caption}
+\usepackage{pdflscape}
 \usepackage{microtype}
 \usepackage{etoolbox}
 \usepackage{array}
@@ -8,6 +10,12 @@
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.1}
 \AtBeginEnvironment{longtable}{\small}
+
+% Caption-styling: ingen auto-prefiks (vi har manuell "Figur X.Y" /
+% "Tabell X.Y" i caption-teksten), liten italic skrift sentrert under
+% figur og tabell.
+\captionsetup[figure]{labelformat=empty, font={small,it}, justification=centering}
+\captionsetup[longtable]{labelformat=empty, font={small,it}, justification=centering}
 
 % Tillat linjebryting i lange ubrudte strenger (klassenavn, parametre osv.)
 % slik at de ikke renner over kolonnegrensen i smale tabellceller. Visuelt
