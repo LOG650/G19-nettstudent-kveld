@@ -109,3 +109,13 @@ Thumbs.db
 *.tmp
 *.temp
 .cache/
+
+
+############################
+# Prosjektspesifikke overstyringer
+############################
+
+# build/ ignoreres globalt over (Python/Node), men rapportens byggskript
+# skal være sporbare. Lokal .gitignore i mappen håndterer genererte filer.
+!005 report/build/
+!005 report/build/**
