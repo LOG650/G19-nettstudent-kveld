@@ -1,11 +1,23 @@
 \usepackage{pifont}
+\usepackage{seqsplit}
+\usepackage{newunicodechar}
 \usepackage{pdflscape}
 \usepackage{microtype}
 \usepackage{etoolbox}
 \usepackage{array}
+
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.1}
 \AtBeginEnvironment{longtable}{\small}
-\DeclareUnicodeCharacter{2610}{\ding{110}}
-\DeclareUnicodeCharacter{2612}{\ding{55}}
-\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+
+% Tillat linjebryting i lange ubrudte strenger (klassenavn, parametre osv.)
+% slik at de ikke renner over kolonnegrensen i smale tabellceller. Visuelt
+% nøytralt når strengen får plass uten bryting.
+\newcommand{\splitcode}[1]{{\ttfamily\seqsplit{#1}}}
+\newcommand{\splitword}[1]{\seqsplit{#1}}
+
+% Default-fonten Latin Modern har ikke disse Unicode-symbolene; mapp dem
+% til pifont-glyfer / LaTeX-ekvivalenter.
+\newunicodechar{☐}{\ding{110}}
+\newunicodechar{☒}{\ding{55}}
+\newunicodechar{−}{\ensuremath{-}}
