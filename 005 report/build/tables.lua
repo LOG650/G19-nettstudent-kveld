@@ -3,7 +3,6 @@
 -- Strategi:
 --   * Tildel like kolonnebredder (1/n) i tabeller slik at pandoc genererer
 --     p{}-kolonner som bryter linjer i stedet for å renne ut til høyre.
---   * Tabeller med ≥ 8 kolonner roteres til landskap via pdflscape.
 --   * Inline-kode (`xxx`) konverteres globalt til `\splitcode{xxx}`,
 --     definert i header.tex med seqsplit. Det gir tegn-for-tegn brytbare
 --     identifikatorer (`RandomForestRegressor`, `fit_intercept=True`)
@@ -11,6 +10,11 @@
 --   * Inne i tabeller får i tillegg lange "ord" i ren tekst (ubrudte
 --     strenger > 14 tegn, som klassenavn uten backticks) brytbar form
 --     via `\splitword{...}`.
+--
+-- Tabeller får aldri landskap-rotasjon. Heuristikken «≥ 8 kolonner =
+-- landskap» var for grov: smale tabeller med få datarader (Tabell 6.2)
+-- ble unødig liggende. Hvis en spesifikk tabell senere viser seg å
+-- trenge landskap, kan det legges inn manuelt via et pandoc-attributt.
 
 local LATEX_ESCAPES = {
   ["\\"] = "\\textbackslash{}",
@@ -59,14 +63,6 @@ function Table(t)
 
   -- Bryt lange ubrudte ord inne i celler (klassenavn osv.)
   t = pandoc.walk_block(t, { Str = break_long_str })
-
-  if ncols >= 8 then
-    return {
-      pandoc.RawBlock("latex", "\\begin{landscape}"),
-      t,
-      pandoc.RawBlock("latex", "\\end{landscape}"),
-    }
-  end
 
   return t
 end

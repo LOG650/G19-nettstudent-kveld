@@ -38,8 +38,8 @@ Resultatet legges som `rapport.pdf` i `005 report/`.
 | Fil | Rolle |
 |:---|:---|
 | [preprocess.py](preprocess.py) | Konverterer HTML-figurblokker (`<div align="center"><img …></div>`) til Markdown image-syntaks. Pandoc embeddrer ikke HTML `<img>` i LaTeX-flyten, så preprosessering er nødvendig for at figurer skal vises. |
-| [header.tex](header.tex) | LaTeX-preamble: tabellinnstillinger, `microtype`, `pdflscape`, makroene `\splitcode` og `\splitword` (basert på `seqsplit`), og Unicode-mapping for ☐ ☒ − via `newunicodechar`. |
-| [tables.lua](tables.lua) | Pandoc Lua-filter. Setter alle kolonnebredder til `1/n` (tvinger linjebryting), wrapper inline-kode i `\splitcode{}` globalt, og inne i tabeller wrapper også lange ubrudte ord (> 14 tegn) i `\splitword{}`. Tabeller med ≥ 8 kolonner roteres til landskap. |
+| [header.tex](header.tex) | LaTeX-preamble: tabellinnstillinger, `microtype`, makroene `\splitcode` og `\splitword` (basert på `seqsplit`), og Unicode-mapping for ☐ ☒ − via `newunicodechar`. |
+| [tables.lua](tables.lua) | Pandoc Lua-filter. Setter alle kolonnebredder til `1/n` (tvinger linjebryting), wrapper inline-kode i `\splitcode{}` globalt, og inne i tabeller wrapper også lange ubrudte ord (> 14 tegn) i `\splitword{}`. |
 | `rapport_pdf.md` | Mellomprodukt fra `preprocess.py`. Ignorert i git. |
 
 ## Hvorfor disse valgene
@@ -63,9 +63,12 @@ Resultatet legges som `rapport.pdf` i `005 report/`.
   tegn brytbar form via `\splitword`, slik at også CamelCase-strenger
   brytes mellom tegn ved behov. Terskelen 14 sparer typiske norske
   ord fra unødvendig kunstig bryting.
-- **Landskap for ≥ 8 kolonner**: Tabell 7.2 har 8 kolonner. Selv med
-  liten skrift blir den trang i portrettformat, så `pdflscape` roterer
-  hele siden — leseren kan rotere skjermen eller skrive ut liggende.
+- **Ingen automatisk landskap-rotasjon**: En tidligere variant roterte
+  tabeller med ≥ 8 kolonner til landskap. Det viste seg å være for
+  grovt — Tabell 6.2 har 8 kolonner, men korte celler (`400`, `10`,
+  `sqrt`) som rommes fint i portrett. Hvis en konkret tabell trenger
+  landskap, kan det legges inn manuelt via en pandoc-attributt eller
+  raw LaTeX rundt tabellen i markdown-kilden.
 - **Unicode-mapping via `newunicodechar`**: Default Latin Modern-fonten
   har ikke ☐ ☒ −. `newunicodechar` mapper kodepunktene direkte til
   `\ding{110}`, `\ding{55}` og `\ensuremath{-}` (fra `pifont`).
