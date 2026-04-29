@@ -1,0 +1,2014 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{norsk}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\usepackage{pifont}
+\usepackage{seqsplit}
+\usepackage{newunicodechar}
+\usepackage{caption}
+\usepackage{pdflscape}
+\usepackage{microtype}
+\usepackage{etoolbox}
+\usepackage{array}
+\usepackage[export]{adjustbox}
+
+% Global takhøyde for figurer: pandoc-spesifisert width=NN% beholdes,
+% men ingen figur kan strekke seg over 80% av tekstområdet i høyden.
+% Hindrer at høye figurer (mange y-akse-kategorier, 3:2-PNG) klippes
+% ved sidekanten.
+\setkeys{Gin}{keepaspectratio,max width=\linewidth,max totalheight=0.8\textheight}
+
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.1}
+\AtBeginEnvironment{longtable}{\small}
+
+% Caption-styling: ingen auto-prefiks (vi har manuell "Figur X.Y" /
+% "Tabell X.Y" i caption-teksten), liten italic skrift sentrert under
+% figur og tabell.
+\captionsetup[figure]{labelformat=empty, font={small,it}, justification=centering}
+\captionsetup[longtable]{labelformat=empty, font={small,it}, justification=centering}
+
+% Tillat linjebryting i lange ubrudte strenger (klassenavn, parametre osv.)
+% slik at de ikke renner over kolonnegrensen i smale tabellceller. Visuelt
+% nøytralt når strengen får plass uten bryting.
+\newcommand{\splitcode}[1]{{\ttfamily\seqsplit{#1}}}
+\newcommand{\splitword}[1]{\seqsplit{#1}}
+
+% Default-fonten Latin Modern har ikke disse Unicode-symbolene; mapp dem
+% til pifont-glyfer / LaTeX-ekvivalenter.
+\newunicodechar{☐}{\ding{110}}
+\newunicodechar{☒}{\ding{55}}
+\newunicodechar{−}{\ensuremath{-}}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdflang={nb-NO},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\hypertarget{salgsprognoser-for-en-simulert-dagligvarekjede-en-sammenligning-av-lineuxe6r-regresjon-og-random-forest-regressor}{%
+\section{\texorpdfstring{Salgsprognoser for en simulert dagligvarekjede: en sammenligning av lineær regresjon og Random
+Forest Regressor
+}{Salgsprognoser for en simulert dagligvarekjede: en sammenligning av lineær regresjon og Random Forest Regressor }}\label{salgsprognoser-for-en-simulert-dagligvarekjede-en-sammenligning-av-lineuxe6r-regresjon-og-random-forest-regressor}}
+
+\hypertarget{del-av-log650-forskningsprosjekt-logistikk-og-kunstig-intelligens}{%
+\subsection{\texorpdfstring{Del av LOG650 Forskningsprosjekt: Logistikk og Kunstig Intelligens
+}{Del av LOG650 Forskningsprosjekt: Logistikk og Kunstig Intelligens }}\label{del-av-log650-forskningsprosjekt-logistikk-og-kunstig-intelligens}}
+
+\begin{figure}
+\centering
+\includegraphics{extracted_images/image_0.png}
+\caption{Bilde 1}
+\end{figure}
+
+Forfatter(e): Erik Brendehaug, Joseph James, Pål Rånes, Marthe Slåtta Bjerke
+
+Totalt antall sider inkludert forsiden: TODO (fylles inn ved endelig låsing)
+
+Molde, Innleveringsdato: TODO (fylles inn nærmere innlevering)
+
+\begin{figure}
+\centering
+\includegraphics{extracted_images/image_1.png}
+\caption{Bilde 2}
+\end{figure}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{obligatorisk-egenerkluxe6ringgruppeerkluxe6ring}{%
+\subsection{\texorpdfstring{Obligatorisk egenerklæring/gruppeerklæring
+}{Obligatorisk egenerklæring/gruppeerklæring }}\label{obligatorisk-egenerkluxe6ringgruppeerkluxe6ring}}
+
+Den enkelte student er selv ansvarlig for å sette seg inn i hva som er lovlige hjelpemidler, retningslinjer for bruk av
+disse og regler om kildebruk.
+
+Du/dere fyller ut erklæringen ved å klikke i ruten til høyre for den enkelte del 1--6:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Nr.
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Erklæring
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Avkryssing
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & Jeg/vi erklærer at min/vår besvarelse er mitt/vårt eget arbeid. & ☒ \\
+2 & Jeg/vi erklærer videre at denne besvarelsen:- ikke har vært brukt til annen eksamen- ikke refererer til andres
+arbeid uten at det er oppgitt- ikke refererer til eget tidligere arbeid uten at det er oppgitt- har alle referanser
+oppgitt- ikke er kopi eller duplikat & ☒ \\
+3 & Brudd på ovennevnte er fusk og kan medføre annullering. & ☒ \\
+4 & Oppgaven kan bli \splitword{plagiatkontrollert} i URKUND. & ☒ \\
+5 & Høgskolen vil behandle mistanke om fusk etter \splitword{retningslinjene.} & ☒ \\
+6 & Jeg/vi har satt oss inn i reglene for kildebruk. & ☒ \\
+\end{longtable}
+
+\hypertarget{section}{%
+\subsection{}\label{section}}
+
+\hypertarget{personvern}{%
+\subsection{\texorpdfstring{Personvern }{Personvern }}\label{personvern}}
+
+\hypertarget{personopplysningsloven}{%
+\subsubsection{\texorpdfstring{Personopplysningsloven }{Personopplysningsloven }}\label{personopplysningsloven}}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Spørsmål
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Ja
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Nei
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Har oppgaven vært vurdert av NSD? & ☐ & ☒ \\
+\end{longtable}
+
+\begin{itemize}
+\item
+  Hvis ja:\\
+  Referansenummer:
+\item
+  Hvis nei:\\
+  Jeg/vi erklærer at oppgaven ikke omfattes av Personopplysningsloven ☒
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{helseforskningsloven}{%
+\subsubsection{\texorpdfstring{Helseforskningsloven }{Helseforskningsloven }}\label{helseforskningsloven}}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Spørsmål
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Ja
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Nei
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Har oppgaven vært til behandling hos REK? & ☐ & ☒ \\
+\end{longtable}
+
+\begin{itemize}
+\tightlist
+\item
+  Hvis ja:\\
+  Referansenummer:
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{publiseringsavtale}{%
+\subsection{\texorpdfstring{Publiseringsavtale }{Publiseringsavtale }}\label{publiseringsavtale}}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Felt
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Verdi
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Studiepoeng & 15 \\
+Veileder & Bård Inge Peterson (BIP) \\
+\end{longtable}
+
+\hypertarget{fullmakt-til-elektronisk-publisering}{%
+\subsubsection{\texorpdfstring{Fullmakt til elektronisk publisering
+}{Fullmakt til elektronisk publisering }}\label{fullmakt-til-elektronisk-publisering}}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Spørsmål
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Ja
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Nei
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Gjøre oppgaven tilgjengelig for elektronisk publisering & ☒ & ☐ \\
+\end{longtable}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Spørsmål
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Ja
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Nei
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Er oppgaven båndlagt \splitword{(konfidensiell)?} & ☐ & ☒ \\
+\end{longtable}
+
+\begin{itemize}
+\tightlist
+\item
+  Hvis ja:
+\end{itemize}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Spørsmål
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Ja
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Nei
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Kan publiseres etter \splitword{båndleggingsperiode} & ☐ & ☐ \\
+\end{longtable}
+
+Dato: TODO (fylles inn nærmere innlevering)
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{antall-ord}{%
+\subsection{\texorpdfstring{Antall ord }{Antall ord }}\label{antall-ord}}
+
+Rapportens hovedtekst (kap. 1 Innledning til og med kap. 10 Konklusjon) er på omtrent 5 300 ord. Sammendrag, abstract,
+forside, litteraturliste og vedlegg er holdt utenfor tellingen.
+
+\hypertarget{forfattererkluxe6ring}{%
+\subsection{\texorpdfstring{Forfattererklæring }{Forfattererklæring }}\label{forfattererkluxe6ring}}
+
+Gruppen har i fellesskap skrevet og godkjent denne rapporten.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{sammendrag}{%
+\subsection{\texorpdfstring{Sammendrag }{Sammendrag }}\label{sammendrag}}
+
+Dagligvarehandelens driftsrisiko er direkte knyttet til kvaliteten på etterspørselsprognosene: for høye bestillinger gir
+svinn og bundet kapital, mens for lave gir tomme hyller og tapte inntekter. Denne rapporten undersøker hvordan multippel
+lineær regresjon og Random Forest Regressor kan brukes til å predikere daglig salg for 2025 i en simulert
+dagligvarekjede, og hvilke faktorer som påvirker salget mest.
+
+Analysen bygger på et datasett med 9 994 daglige salgstransaksjoner fra perioden 2022--2025. Treningsperioden 2022--2024
+dekker 6 682 rader og testperioden 2025 dekker 3 312 rader, med tidsbasert splitt for å unngå datalekkasje.
+Modellmatrisen består av 67 features som inkluderer rabatt, kategoriske dimensjoner som region, produktkategori og
+subkategori, samt sju utledede kalendervariabler. Tre modellspor evalueres på 2025: en benchmark multippel lineær
+regresjon, en Random Forest-baseline med standardparametere, og en tuned Random Forest der hyperparametere er valgt
+gjennom et rutenettsøk med 2022--2023 som søketrening og 2024 som valideringsår. Modellene sammenlignes med RMSE som
+primær metrikk og MAPE som sekundær metrikk, både samlet, per måned og per segment fordelt på kvartal, rabattband,
+region og salgsnivå.
+
+Tuned Random Forest er den samlet beste modellen med RMSE 578,26 og MAPE 43,97 \%, og vinner RMSE i elleve av tolv
+måneder og tretten av fjorten segmenter. Gapet til benchmark lineær er marginalt på totalnivå, og benchmark lineær er
+best i segmentet for høyt salgsnivå. De mest påvirkningsrike prediktorene er rabatt (11,48 \%) og kalendervariablene,
+der kalendervariablene alene utgjør om lag 42 \% av importance i topp 10. Rapporten anbefaler tuned Random Forest som
+standardprognose for innkjøp, lager og aggregert ressursplanlegging, benchmark lineær som forklaringsstøtte, og baseline
+Random Forest som kontroll mot prosentfeil i høyrabattperioder. Funnene er prediktive og ikke kausale, og gjelder
+innenfor det simulerte caset.
+
+\hypertarget{abstract}{%
+\subsection{\texorpdfstring{Abstract }{Abstract }}\label{abstract}}
+
+Operational risk in grocery retail is directly linked to forecast quality: over-ordering leads to waste and tied-up
+capital, while under-ordering causes stock-outs and lost revenue. This report examines how multiple linear regression
+and Random Forest Regressor can be used to predict daily sales for 2025 in a simulated grocery chain, and which factors
+influence sales the most.
+
+The analysis uses 9,994 daily sales transactions from 2022--2025. Training data covers 2022--2024 (6,682 rows) and test
+data covers 2025 (3,312 rows), with a time-based split to prevent data leakage. The model matrix contains 67 features,
+including discount, categorical dimensions such as region, product category and sub-category, and seven derived calendar
+variables. Three tracks are evaluated on 2025: a benchmark multiple linear regression, a Random Forest baseline with
+default parameters, and a tuned Random Forest whose hyperparameters are selected via grid search on 2022--2023 with 2024
+as the validation year. RMSE is the primary metric and MAPE the secondary, both overall, by month and by segment across
+quarter, discount band, region and sales level.
+
+The tuned Random Forest is the overall best model with RMSE 578.26 and MAPE 43.97 \%, winning RMSE in eleven of twelve
+months and thirteen of fourteen segments. The gap to the benchmark linear model is marginal overall, and the benchmark
+linear model is the strongest in the high-sales segment. The most influential predictors are discount (11.48 \%) and the
+calendar variables, where the calendar variables alone account for around 42 \% of importance in the top ten. The report
+recommends the tuned Random Forest as the standard forecast for purchasing, inventory and aggregate resource planning,
+the benchmark linear model as explanatory support, and the Random Forest baseline as a check against percentage error
+during high-discount periods. The findings are predictive rather than causal and apply within the simulated case.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{innhold}{%
+\subsection{\texorpdfstring{Innhold }{Innhold }}\label{innhold}}
+
+\begin{itemize}
+\tightlist
+\item
+  \protect\hyperlink{1-innledning}{1 Innledning}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \protect\hyperlink{11-problemstilling}{1.1 Problemstilling}
+  \item
+    \protect\hyperlink{12-delproblemer}{1.2 Delproblemer}
+  \item
+    \protect\hyperlink{13-avgrensinger}{1.3 Avgrensinger}
+  \item
+    \protect\hyperlink{14-antagelser}{1.4 Antagelser}
+  \end{itemize}
+\item
+  \protect\hyperlink{2-litteratur}{2 Litteratur}
+\item
+  \protect\hyperlink{3-teori}{3 Teori}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \protect\hyperlink{31-multippel-lineuxe6r-regresjon}{3.1 Multippel lineær regresjon}
+  \item
+    \protect\hyperlink{32-random-forest-regressor}{3.2 Random Forest Regressor}
+  \item
+    \protect\hyperlink{33-evalueringsmetrikker}{3.3 Evalueringsmetrikker}
+  \item
+    \protect\hyperlink{34-feature-engineering-og-dataoppsett}{3.4 Feature engineering og dataoppsett}
+  \end{itemize}
+\item
+  \protect\hyperlink{4-casebeskrivelse}{4 Casebeskrivelse}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \protect\hyperlink{41-dagligvare-og-beslutningssituasjonen}{4.1 Dagligvare og beslutningssituasjonen}
+  \item
+    \protect\hyperlink{42-historisk-salgsutvikling}{4.2 Historisk salgsutvikling}
+  \item
+    \protect\hyperlink{43-sesongmuxf8nster-i-salget}{4.3 Sesongmønster i salget}
+  \item
+    \protect\hyperlink{44-utfordringer-duxe5rlige-prognoser-medfuxf8rer-i-bedriften}{4.4 Utfordringer dårlige prognoser
+    medfører i bedriften}
+  \end{itemize}
+\item
+  \protect\hyperlink{5-metode-og-data}{5 Metode og data}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \protect\hyperlink{51-metode}{5.1 Metode}
+  \item
+    \protect\hyperlink{52-data}{5.2 Data}
+  \end{itemize}
+\item
+  \protect\hyperlink{6-modellering}{6 Modellering}
+\item
+  \protect\hyperlink{7-analyse}{7 Analyse}
+\item
+  \protect\hyperlink{8-resultat}{8 Resultat}
+\item
+  \protect\hyperlink{9-diskusjon}{9 Diskusjon}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \protect\hyperlink{91-tolkning-av-hovedfunn-mot-problemstillingen}{9.1 Tolkning av hovedfunn mot problemstillingen}
+  \item
+    \protect\hyperlink{92-variablenes-puxe5virkning}{9.2 Variablenes påvirkning}
+  \item
+    \protect\hyperlink{93-praktisk-nytte-for-dagligvare}{9.3 Praktisk nytte for Dagligvare}
+  \item
+    \protect\hyperlink{94-metodiske-begrensninger}{9.4 Metodiske begrensninger}
+  \item
+    \protect\hyperlink{95-videre-arbeid}{9.5 Videre arbeid}
+  \end{itemize}
+\item
+  \protect\hyperlink{10-konklusjon}{10 Konklusjon}
+\item
+  \protect\hyperlink{11-bibliografi}{11 Bibliografi}
+\item
+  \protect\hyperlink{12-vedlegg}{12 Vedlegg}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{innledning}{%
+\subsection{1 Innledning}\label{innledning}}
+
+Dagligvarehandel er preget av høy variabilitet i etterspørsel. Salget svinger med sesong, kampanjer, rabatter og
+regionale forhold, og konsekvensene av dårlige prognoser er direkte synlige i driften: for høye bestillinger fører til
+svinn og bundet kapital, mens for lave bestillinger gir utsolgte varer og tapte inntekter. Behovet for mer presise
+etterspørselsprognoser er derfor sentralt når virksomheter skal fatte beslutninger om innkjøp, lager, kampanjer og
+ressursplanlegging.
+
+Maskinlæringsbaserte metoder som Random Forest Regressor gir nye muligheter for å fange opp ikke-lineære mønstre i
+historiske salgsdata sammenlignet med tradisjonelle lineære tilnærminger. Dette prosjektet analyserer et simulert
+dagligvarecase for perioden 2022--2025 med mål om å utvikle og evaluere prognosemodeller for salg i 2025, og å
+identifisere hvilke forklaringsvariabler som bærer mest prediksjonsverdi.
+
+Med dette som utgangspunkt formuleres problemstillingen som styrer metodevalg, analyse og tolkning videre i rapporten.
+
+\hypertarget{problemstilling}{%
+\subsubsection{1.1 Problemstilling}\label{problemstilling}}
+
+Hvordan kan multippel lineær regresjon og Random Forest Regressor brukes til å forutsi salg for 2025 for en simulert
+dagligvarekjede, og hvilke faktorer påvirker salget mest?
+
+\hypertarget{delproblemer}{%
+\subsubsection{1.2 Delproblemer}\label{delproblemer}}
+
+Problemstillingen dekomponeres i to delproblemer som strukturerer analyse, diskusjon og konklusjon:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Modellvalg og prognoseytelse.} Hvordan sammenlignes de to modellklassene på 2025-data, målt med RMSE som
+  primær og MAPE som sekundær metrikk, både samlet, månedlig og på tvers av segmenter som kvartal, rabattband, region og
+  salgsnivå?
+\item
+  \textbf{Variabelanalyse.} Hvilke forklaringsvariabler har størst prediksjonsverdi, og hvordan samsvarer rangeringen
+  fra Random Forest Regressor med koeffisientene i den lineære benchmarken?
+\end{enumerate}
+
+\hypertarget{avgrensinger}{%
+\subsubsection{1.3 Avgrensinger}\label{avgrensinger}}
+
+Analysen er avgrenset på følgende punkter:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Prediksjon, ikke kausal analyse.} Prosjektet undersøker hvilke variabler som predikerer salget best, ikke
+  hvorfor salget endrer seg. Kausale slutninger forutsetter eksperimentelt design og ligger utenfor prosjektets rammer.
+\item
+  \textbf{Ingen lageroptimalisering.} Rapporten dokumenterer ikke lageroptimalisering. Det krever kostnads- og
+  volumparametere som ikke inngår i datasettet.
+\item
+  \textbf{Ingen makroøkonomiske faktorer.} Eksterne variabler som inflasjon, rente og konjunkturer er ikke inkludert.
+  Datasettet gir ikke grunnlag for dette, og inkludering av slike variabler ville kreve egne datakilder.
+\item
+  \textbf{Én simulert virksomhet og ett datasett.} Analysen begrenses til det tilgjengelige datasettet. Generalisering
+  til andre virksomheter eller bransjer forutsetter eget datagrunnlag og ny validering.
+\item
+  \textbf{To modelltyper.} Modellvalget er begrenset til multippel lineær regresjon og Random Forest Regressor, i tråd
+  med prosjektets faglige rammer og tilgjengelig treningsgrunnlag.
+\end{enumerate}
+
+\hypertarget{antagelser}{%
+\subsubsection{1.4 Antagelser}\label{antagelser}}
+
+Analysen bygger på følgende eksplisitte antagelser:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Representativitet.} Datasettet antas representativt for en realistisk dagligvarekjede med tanke på
+  sesongmønstre, rabattbruk, regionfordeling og produktkategorier. \emph{Konsekvens:} Funnene er gyldige innenfor dette
+  caset, men ikke nødvendigvis overførbare til andre virksomheter eller reelle kjeder.
+\item
+  \textbf{Tidsmessig relevans.} Historiske mønstre fra 2022--2024 antas relevante for å predikere 2025.
+  \emph{Konsekvens:} Strukturelle brudd som betydelige prissjokk, atferdsendringer eller endringer i sortiment vil
+  svekke prediksjonens gyldighet.
+\item
+  \textbf{Tilstrekkelig datakvalitet.} Datasettet antas å inneholde tilstrekkelig variasjon i nøkkeldimensjonene sesong,
+  rabatt, region og produktkategori til å trene modellene. \emph{Konsekvens:} Simulerte data kan undervurdere virkelig
+  støy og sjeldne hendelser, noe som kan gi mer optimistiske målinger enn hva som er realistisk i produksjon.
+\item
+  \textbf{Testsett som fremtidig periode.} 2025-dataene er holdt helt utenfor trening og brukes som testperiode.
+  \emph{Konsekvens:} Evalueringen gir et realistisk bilde av prognosekvalitet under antakelsen om at 2025 ligner de
+  foregående årene i mønster og struktur.
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{litteratur}{%
+\subsection{2 Litteratur}\label{litteratur}}
+
+I salgsprognose og etterspørselspredikering er to metodetradisjoner spesielt relevante: klassisk statistisk regresjon og
+ensemble-basert maskinlæring. Begge er godt dokumenterte tilnærminger til prediktiv modellering i handels- og
+forretningskontekster.
+
+Multippel lineær regresjon er en veletablert statistisk metode for å predikere en kontinuerlig utfallsvariabel fra flere
+forklaringsvariabler. IBM (u.å.-a) framhever at metoden er godt egnet for å avdekke mønstre i salgs- og innkjøpsdata og
+hjelpe ledere med å forutsi etterspørselsperioder for produkter. GeeksforGeeks (2026a) understreker at lineær regresjon
+er effektiv beregningskostnadsvis og gir et solid utgangspunkt for modellsammenlikning. Et fellestrekk i litteraturen er
+at metoden krever at flere antagelser er oppfylt: residualene skal følge normalfordelingen, variansen skal være konstant
+over alle prediktornivåer (homoskedastisitet), og det skal ikke være perfekt multikollinearitet mellom
+forklaringsvariablene (IBM, u.å.-a; GeeksforGeeks, 2026a). Brudd på disse antagelsene svekker tolkningsvaliditeten, men
+ikke nødvendigvis prediksjonskraften.
+
+Random Forest representerer en nyere og mer fleksibel tilnærming. IBM (u.å.-b) og GeeksforGeeks (2026b) beskriver begge
+at algoritmen er en ensemble-metode som kombinerer prediksjoner fra flere uavhengige beslutningstrær og dermed reduserer
+variansen i prediksjoner sammenlignet med et enkelt tre. IBM (u.å.-b) framhever at Random Forest gir lett identifikasjon
+av hvilke variabler som er viktigst for prediksjonen gjennom feature importance-rangeringer, og at metoden er robust mot
+overfitting og håndterer manglende data godt. GeeksforGeeks (2026b) presiserer at algoritmen ikke krever normalisering
+og er fleksibel for både klassifikasjon og regresjon.
+
+Litteraturen gir ikke ett entydig svar på hvilken modell som er best for salgsprognose --- det avhenger av datastruktur,
+evalueringsmål og krav til tolkbarhet. Begge metodene er vanlige valg, og valget av evalueringsmetrikk påvirker
+konklusjonen. RMSE og MAPE er anerkjente metrikker for å sammenligne prognosemodeller, men de vektlegger henholdsvis
+absolutt og relativ feil ulikt (GeeksforGeeks, 2026a). At de to metrikkene ikke alltid peker på samme vinner, er en
+kjent utfordring i praktisk prognosearbeid.
+
+De tilgjengelige kildene for dette prosjektet er webbaserte oppslagsverk fra IBM Think Topics og GeeksforGeeks, ikke
+fagfellevurderte vitenskapelige artikler. Kildene gir likevel faglig solide introduksjoner til de valgte metodene og
+tilstrekkelig grunnlag for metodevalgene i dette prosjektet. Supplering med fagfellevurderte studier --- for eksempel om
+maskinlæring for etterspørselspredikering i dagligvarehandel --- bør vurderes dersom kravene til akademisk dybde øker.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{teori}{%
+\subsection{3 Teori}\label{teori}}
+
+Dette kapitlet gir det faglige grunnlaget for metodevalg, analyse og tolkning senere i rapporten. Notasjon: når en
+kolonne eller feature fra modellmatrisen refereres direkte, skrives navnet i inline kode, for eksempel
+\splitcode{Discount}, \splitcode{Region\_North} eller \splitcode{dayofmonth}. I Sammendrag og Abstract brukes vanlig
+prosa («rabatt», «discount», «kalendervariabler») for å holde oppsummeringene tilgjengelige for et bredere publikum.
+\emph{Forklaringsvariabel} brukes som samlebegrep for alle input i modellene, mens \emph{prediktor}, \emph{signal} og
+\emph{feature} opptrer som kontekstuelle synonymer der variasjonen understøtter lesbarheten.
+
+\hypertarget{multippel-lineuxe6r-regresjon}{%
+\subsubsection{3.1 Multippel lineær regresjon}\label{multippel-lineuxe6r-regresjon}}
+
+Multippel lineær regresjon er en supervisert læringsmetode som modellerer forholdet mellom en avhengig variabel og to
+eller flere uavhengige forklaringsvariabler. Modellen uttrykkes som:
+
+\(\hat{y} = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_n x_n\)
+
+der \(\hat{y}\) er predikert verdi, \(\beta_0\) er konstantleddet og \(\beta_1, \ldots, \beta_n\) er
+regresjonskoeffisientene som uttrykker endringen i \(\hat{y}\) per enhet endring i den tilhørende forklaringsvariabelen,
+alt annet likt (GeeksforGeeks, 2026a).
+
+Koeffisientene estimeres med \textbf{Ordinary Least Squares (OLS)}, som minimerer summen av kvadrerte residualer:
+
+\(\sum_{i=1}^{n}(y_i - \hat{y}_i)^2\)
+
+For at estimatene skal være gyldige krever metoden at fem antagelser er oppfylt (IBM, u.å.-a; GeeksforGeeks, 2026a): (1)
+linearitet mellom avhengig og uavhengige variabler, (2) uavhengige residualer, (3) homoskedastisitet --- konstant
+varians i residualene på tvers av alle prediktornivåer, (4) normalfordelte residualer, og (5) ingen perfekt
+\textbf{multikollinearitet} mellom forklaringsvariablene. Multikollinearitet er særlig relevant i dette prosjektet fordi
+one-hot-kodede dummyvariabler kan skape høy innbyrdes korrelasjon og gjøre tolkning av enkeltkoeffisienter usikker.
+
+Lineær regresjon brukes her som benchmarkmodell. Dens styrke er tolkbarhet --- koeffisientene gir direkte innsikt i
+retning og størrelse av variabeleffekter. Dens begrensning er at den forutsetter et lineært mønster i dataene.
+
+\hypertarget{random-forest-regressor}{%
+\subsubsection{3.2 Random Forest Regressor}\label{random-forest-regressor}}
+
+Random Forest er en ensemble-metode basert på et sett med beslutningstrær som samlet gir mer stabile prediksjoner enn
+ett enkelt tre (IBM, u.å.-b). Algoritmen hviler på to grunnprinsipper:
+
+\textbf{Bootstrap aggregation (bagging):} Hvert tre trenes på et tilfeldig utvalg med tilbakelegging fra
+treningsdataene. Dermed ser hvert tre en litt annerledes versjon av datasettet, og trærne korrelerer mindre med
+hverandre (GeeksforGeeks, 2026b).
+
+\textbf{Feature randomness:} Ved hver splittingsbeslutning i et tre velges kun et tilfeldig subsett av features til
+vurdering --- ikke alle tilgjengelige variabler. Dette reduserer korrelasjon mellom trærne ytterligere og gjør ensemblet
+mer robust mot overfitting (IBM, u.å.-b).
+
+For regresjonsoppgaver er den endelige prediksjonen gjennomsnittet av alle trærnes individuelle prediksjoner. Dette
+reduserer overordnet varians og demper effekten av støy i enkelttrær.
+
+\textbf{Feature importance} beregnes som gjennomsnittlig reduksjon i MSE (Mean Decrease in Impurity) på tvers av alle
+trær og splittinger for en gitt variabel. En variabel som konsekvent reduserer prediksjonsfeilen i mange trær, rangeres
+høyt (IBM, u.å.-b).
+
+Modellens oppførsel styres av hyperparametere som \splitcode{n\_estimators} (antall trær), \splitcode{max\_depth}
+(maksimal dybde per tre), \splitcode{min\_samples\_leaf} (minste antall observasjoner i et løvnode) og
+\splitcode{max\_features} (antall features vurdert per split). Disse tilpasses gjennom hyperparametertuning mot et
+valideringssett.
+
+\hypertarget{evalueringsmetrikker}{%
+\subsubsection{3.3 Evalueringsmetrikker}\label{evalueringsmetrikker}}
+
+To metrikker brukes for å evaluere prognosemodellene i dette prosjektet.
+
+\textbf{RMSE (Root Mean Squared Error)} måler den gjennomsnittlige størrelsen på prediksjonsfeilen i samme enhet som
+utfallsvariabelen:
+
+\(\text{RMSE} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}\)
+
+Kvadreringen medfører at store avvik vektes tyngre enn små. RMSE brukes som primær metrikk i dette prosjektet fordi
+absolutt presisjon --- å treffe riktig salgsvolum --- er det mest relevante kravet for innkjøp og lagerstyring.
+
+\textbf{MAPE (Mean Absolute Percentage Error)} måler det gjennomsnittlige prosentvise avviket:
+
+\(\text{MAPE} = \frac{1}{n}\sum_{i=1}^{n}\left|\frac{y_i - \hat{y}_i}{y_i}\right| \times 100\)
+
+MAPE er skalanøytral og enklere å kommunisere, men er ustabil når faktiske verdier er nær null (divisjon mot null).
+Metrikken brukes som sekundær metrikk.
+
+Når RMSE og MAPE peker på ulike vinnere, skyldes det at en modell kan ha lavt absolutt avvik på store volumer (lavt
+RMSE) uten å treffe proporsjonalt godt på små volumer (høy MAPE). Begge metrikkene er derfor nødvendige for å forstå
+modelloppførselen på tvers av ulike salgsnivåer (GeeksforGeeks, 2026a).
+
+\hypertarget{feature-engineering-og-dataoppsett}{%
+\subsubsection{3.4 Feature engineering og dataoppsett}\label{feature-engineering-og-dataoppsett}}
+
+\textbf{Feature engineering} er prosessen med å utlede nye variabler fra rådata for å gjøre mønstre tilgjengelige for
+modellene. I dette prosjektet er kalendervariablene \splitcode{year}, \splitcode{month}, \splitcode{quarter},
+\splitcode{weekofyear}, \splitcode{dayofweek}, \splitcode{dayofmonth} og \splitcode{is\_weekend} avledet fra den
+opprinnelige datovariabelen. Disse variablene fanger opp sesong-, uke- og kvartalsmønstre som ikke direkte kan leses fra
+en rådate (GeeksforGeeks, 2026a).
+
+\textbf{One-hot encoding} konverterer kategoriske variabler --- som Region, Category og Sub-Category --- til binære
+dummyvariabler. For lineær regresjon er dette nødvendig fordi modellen krever numerisk input. Random Forest bruker her
+samme kodede matrise for konsistens i sammenligning (IBM, u.å.-a).
+
+\textbf{Data leakage} oppstår når variabler som ikke ville vært tilgjengelige på prediksjonstidspunktet inkluderes i
+modellen. I dette prosjektet er \splitcode{Profit} ekskludert fordi den kun er kjent etter at salget er gjennomført.
+
+\textbf{Tidsbasert oppsplitting} er valgt fremfor tilfeldig oppsplitting. Treningsdata er 2022--2024 og testdata er
+2025. Tilfeldig oppsplitting ville tillate fremtidige observasjoner å inngå i treningen, noe som gir kunstig god ytelse
+og ikke reflekterer reell prediksjon fremover i tid. I hyperparametertuningen av Random Forest brukes 2024 i tillegg som
+intern valideringsperiode, mens lineær regresjon beholdes med det fulle treningsgrunnlaget.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{casebeskrivelse}{%
+\subsection{4 Casebeskrivelse}\label{casebeskrivelse}}
+
+\hypertarget{dagligvare-og-beslutningssituasjonen}{%
+\subsubsection{4.1 Dagligvare og beslutningssituasjonen}\label{dagligvare-og-beslutningssituasjonen}}
+
+Dagligvare er en simulert dagligvarekjede som opererer på tvers av fem regioner: West, East, Central, South og North.
+Kjeden fører syv produktkategorier -- Snacks, Eggs/Meat/Fish, Fruits \& Veggies, Bakery, Beverages, Food Grains og Oil
+\& Masala -- fordelt på 23 subkategorier. Datasettet som danner analysegrunnlaget inneholder 9 994 daglige
+salgstransaksjoner fra perioden 2022--2025, fordelt på 24 byer.
+
+Dagligvares operative planlegging er avhengig av pålitelige etterspørselsprognoser. Salget varierer med sesong, rabatter
+og regionale forhold, og konsekvensene av dårlige prognoser er direkte synlige i driften: for høye bestillinger gir
+svinn og bundet kapital, mens for lave bestillinger fører til utsolgte varer og tapte inntekter. Behovet for mer presise
+prognoser er dermed sentralt for innkjøp, lager, kampanjevurdering og ressursplanlegging.
+
+Figur 4.1 viser gjennomsnittlig salgsnivå per produktkategori. Eggs, Meat \& Fish skiller seg ut med det høyeste
+gjennomsnittlige salgsnivået i datasettet.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth,height=\textheight]{../006 analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/fig_sales_per_category.png}
+\caption{Figur 4.1 Gjennomsnittlig salgsnivå per produktkategori.}
+\end{figure}
+
+\hypertarget{historisk-salgsutvikling}{%
+\subsubsection{4.2 Historisk salgsutvikling}\label{historisk-salgsutvikling}}
+
+Gjennomsnittlig daglig salg for hele perioden 2022--2025 er 1 497 med et spenn fra 500 til 2 500 og standardavvik på
+578. Salgsnivået er stabilt over tid: gjennomsnittsnivået i treningsperioden 2022--2024 er 1 493, mot 1 503 i
+testperioden 2025. Ingen tydelig veksttrend er synlig i perioden -- nivået holder seg relativt konstant med lokal
+variabilitet.
+
+Figur 4.2 viser salgsforløpet over tid med trenings- og testperioden markert.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth,height=\textheight]{../006 analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/fig_sales_over_tid_train_test.png}
+\caption{Figur 4.2 Daglig salg over perioden 2022--2025, med treningsperiode (2022--2024) og testperiode (2025) vist.}
+\end{figure}
+
+\hypertarget{sesongmuxf8nster-i-salget}{%
+\subsubsection{4.3 Sesongmønster i salget}\label{sesongmuxf8nster-i-salget}}
+
+Månedsmønsteret viser at oktober er måneden med det høyeste gjennomsnittlige salgsnivået, mens juni er den svakeste
+måneden. Mønsteret er konsistent mellom trenings- og testperioden, noe som tyder på et stabilt sesongmønster i
+datasettet. Fjerde kvartal fremstår samlet som den sterkeste perioden, mens andre og tredje kvartal er relativt svakere.
+
+Figur 4.3 viser gjennomsnittlig salg per måned for henholdsvis trenings- og testperioden.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth,height=\textheight]{../006 analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/fig_sales_per_month_split.png}
+\caption{Figur 4.3 Gjennomsnittlig daglig salg per måned for treningsperioden (2022--2024) og testperioden (2025).}
+\end{figure}
+
+\hypertarget{utfordringer-duxe5rlige-prognoser-medfuxf8rer-i-bedriften}{%
+\subsubsection{4.4 Utfordringer dårlige prognoser medfører i
+bedriften}\label{utfordringer-duxe5rlige-prognoser-medfuxf8rer-i-bedriften}}
+
+For Dagligvare forsterkes planleggingsrisikoen av et sortiment som spenner fra ferske varer med kort holdbarhet til
+tørrvarer med lengre holdbarhetsperiode. Overskuddsbestillinger fører til direkte svinn og bundet kapital --
+konsekvenser som er særlig kostbare i kategorier som Eggs, Meat \& Fish og Fruits \& Veggies. Underestimering gir tomme
+hyller, tapte inntekter og risiko for å svekke kundelojaliteten.
+
+Sesongvariasjonen i Figur 4.3 viser at salget svinger markant gjennom året -- med topp i oktober og bunnpunkt i juni.
+Kombinert med rabattavhengighet gjør dette at enkle tommelfingerregler for innkjøp gir dårlige resultater i perioder med
+høy kampanjeaktivitet eller sesongtopper.
+
+Nøyaktige etterspørselsprognoser for 2025 kan gi Dagligvare et bedre grunnlag for innkjøpsplanlegging og lagerstyring,
+støtte vurderingen av kampanjeeffekter og bidra til mer presis ressursplanlegging i perioder med høy og lav
+etterspørsel.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{metode-og-data}{%
+\subsection{5 Metode og data}\label{metode-og-data}}
+
+\hypertarget{metode}{%
+\subsubsection{5.1 Metode}\label{metode}}
+
+Prosjektet er en kvantitativ, prediktiv studie der historiske salgsdata fra én simulert dagligvarekjede brukes til å
+bygge og evaluere prognosemodeller. Datagrunnlaget er ikke samlet inn, men stilt til disposisjon som en del av
+prosjektets faglige rammer. Problemstillingen besvares gjennom en trinnvis analytisk prosess: datasettet ble renset og
+gjort klart for modellering, deretter ble relevante variabler valgt og nye kalendervariabler utledet, og til slutt ble
+datasettet delt i en treningsperiode og en testperiode basert på tid.
+
+Lineær regresjon ble valgt som benchmark-modell fordi metoden er tolkbar og gir et stabilt sammenligningsgrunnlag.
+Random Forest Regressor ble valgt som alternativmodell fordi den kan fange opp ikke-lineære mønstre og gir en naturlig
+rangering av variablenes prediksjonsverdi. Random Forest ble i tillegg tunet ved å trene på 2022--2023 og validere på
+2024, slik at hyperparametere ble valgt uten å bruke testdataene. Alle tre modellspor -- lineær regresjon, Random Forest
+baseline og tuned Random Forest -- ble evaluert på 2025-data.
+
+Evalueringen benytter RMSE som primær metrikk fordi absolutt presisjon er mest relevant for innkjøp og lagerstyring, og
+MAPE som sekundær metrikk for å gi et relativt bilde av prognosefeilen (se kap. 3.3). Modellene sammenlignes samlet for
+hele 2025 og per måned, og resultatene tolkes videre etter kvartal, rabattnivå, region og salgsnivå for å gi praktisk
+beslutningsstøtte til Dagligvare.
+
+\hypertarget{data}{%
+\subsubsection{5.2 Data}\label{data}}
+
+Datagrunnlaget er filen \splitcode{Dagligvare\_Dataset.csv}, som inneholder 9 994 daglige salgstransaksjoner fra en
+simulert dagligvarekjede. Rådata dekker opprinnelig perioden 2015--2018 og er remappet med en syvårig
+kalenderforskyvning til prosjektperioden 2022--2025. Datasettet har 11 råkolonner og ingen manglende verdier eller
+dubletter. To ulike datoformater i kildedata -- 4 042 rader med \splitcode{dd-mm-yyyy} og 5 952 rader med
+\splitcode{mm/dd/yyyy} -- ble standardisert til ISO-format under rensingen.
+
+Figur 5.1 viser fordelingen av datatyper i rådatasettet og underbygger valget av forbehandling og feature engineering.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth,height=\textheight]{../006 analysis/aktiviteter/01_dataforstaelse_og_variabler/fig_datatype_fordeling.png}
+\caption{Figur 5.1 Fordeling av datatyper i rådatasettet. Fordelingen viser hvor mange kolonner som er numeriske,
+kategoriske og datobaserte, og underbygger valg av forbehandling og feature engineering.}
+\end{figure}
+
+Målvariabelen er \splitcode{Sales} (heltall, spenn 500--2 500). Forklaringsvariablene som inngår i modellene er
+\splitcode{Discount} (desimaltall, 0,10--0,35) og de kategoriske variablene \splitcode{Category},
+\splitcode{Sub Category}, \splitcode{City} og \splitcode{Region}. Fra \splitcode{Order Date} er det i tillegg utledet
+sju kalendervariabler: \splitcode{year}, \splitcode{month}, \splitcode{quarter}, \splitcode{weekofyear},
+\splitcode{dayofweek}, \splitcode{dayofmonth} og \splitcode{is\_weekend}. Fire variabler ble ekskludert:
+\splitcode{Profit} fordi den er en lekkasjevariabel som kun er kjent etter gjennomført salg, \splitcode{State} fordi
+kolonnen er konstant i datasettet, og \splitcode{Order ID} og \splitcode{Customer Name} fordi de ikke har generaliserbar
+prediksjonsverdi. Kategoriske variabler ble one-hot-encoded til binære dummyvariabler, slik at den endelige
+modellmatrisen inneholder 67 features.
+
+Tabell 5.1 oppsummerer de 11 kolonnene i rådatasettet med datatype, manglende andel og anbefaling for videre bruk.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}@{}}
+\caption{Tabell 5.1 Variabeloversikt med datatype, manglende andel og anbefaling for videre bruk.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Variabel
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Datatype
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Manglende \%
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Unike
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Anbefaling
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\splitword{Begrunnelse}
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Variabel
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Datatype
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Manglende \%
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Unike
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Anbefaling
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\splitword{Begrunnelse}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Sales & int64 & 0,0 & 1 989 & target & Målvariabel for prognose. \\
+Category & str & 0,0 & 7 & inkluder & Kategorisk variabel med håndterbar kardinalitet. \\
+City & str & 0,0 & 24 & inkluder & Kategorisk variabel med håndterbar kardinalitet. \\
+Discount & float64 & 0,0 & 26 & inkluder & Numerisk variabel egner seg direkte for modellering. \\
+Region & str & 0,0 & 5 & inkluder & Kategorisk variabel med håndterbar kardinalitet. \\
+State & str & 0,0 & 1 & ekskluder & Kolonnen er konstant i datasettet og gir ingen \splitword{forklaringskraft.} \\
+Sub Category & str & 0,0 & 23 & inkluder & Kategorisk variabel med håndterbar kardinalitet. \\
+Order Date & str & 0,0 & 1 236 & vurder & Middels/høy kardinalitet, vurder koding og nytte. \\
+Profit & float64 & 0,0 & 8 380 & vurder & Kan være informativ, men bør sjekkes for lekkasje før modellering. \\
+Customer Name & str & 0,0 & 50 & ekskluder & Navn-kolonne har høy kardinalitet og høy risiko for
+\splitword{overtilpasning.} \\
+Order ID & str & 0,0 & 9 994 & ekskluder & ID-variabel gir vanligvis lite generaliserbar
+\splitword{prediksjonsverdi.} \\
+\end{longtable}
+
+Tabell 5.2 dokumenterer feature engineering-oppsettet: hvilke input-kolonner som beholdes, transformeres eller
+ekskluderes, og hvilke output-kolonner de gir.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\caption{Tabell 5.2 Feature engineering-oppsett: input-kolonne, handling og resulterende output-kolonne med
+begrunnelse.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Input-kolonne
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Handling
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Output-kolonne
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\splitword{Begrunnelse}
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Input-kolonne
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Handling
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Output-kolonne
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\splitword{Begrunnelse}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Sales & behold & Sales & Målvariabel for prognose. \\
+Discount & behold & Discount & Numerisk \splitword{forklaringsvariabel.} \\
+Category & behold & Category & Kategorisk feature med håndterbar kardinalitet. \\
+Sub Category & behold & Sub Category & Kategorisk feature med håndterbar kardinalitet. \\
+City & behold & City & Kategorisk feature med håndterbar kardinalitet. \\
+Region & behold & Region & Kategorisk feature med håndterbar kardinalitet. \\
+Order Date & behold & Order Date & Beholdes for sporbarhet og tidsbasert splitt. \\
+Order Date & transformer & year & Utledet kalenderår etter remapping. \\
+Order Date & transformer & month & Utledet måned. \\
+Order Date & transformer & quarter & Utledet kvartal. \\
+Order Date & transformer & weekofyear & Utledet uke i året. \\
+Order Date & transformer & dayofweek & Utledet ukedag. \\
+Order Date & transformer & dayofmonth & Utledet dag i måneden. \\
+Order Date & transformer & is\_weekend & Indikator for helg. \\
+Order ID & ekskluder & -- & ID-kolonne uten generaliserbar \splitword{prediksjonsverdi.} \\
+Customer Name & ekskluder & -- & Navn-kolonne med høy risiko for \splitword{overtilpasning.} \\
+Profit & ekskluder & -- & Ekskludert som potensiell \splitword{lekkasjevariabel.} \\
+State & ekskluder & -- & Kolonnen er konstant i datasettet og gir ingen \splitword{forklaringskraft.} \\
+\end{longtable}
+
+Tabell 5.3 dokumenterer datarensingen fra 9 994 rader inn til 9 994 rader ut, uten at rader ble fjernet eller manglende
+verdier oppdaget.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\caption{Tabell 5.3 Datarensing -- målepunkter, verdier og kommentarer som dokumenterer kvalitetskontrollen før
+modellering.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Målepunkt
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Verdi
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Kommentar
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Målepunkt
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Verdi
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Kommentar
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\splitword{antall\_rader\_inn} & 9 994 & Observasjoner i rådata \\
+\splitword{antall\_kolonner\_inn} & 11 & Variabler i rådata \\
+\splitword{manglende\_verdier\_inn} & 0 & Totalt manglende i rådata \\
+dubletter\_inn & 0 & Eksakte dublettrader i rådata \\
+\splitword{datoformat\_dd\_mm\_yyyy} & 4 042 & Tolket fra verdier med bindestrek \\
+\splitword{datoformat\_mm\_dd\_yyyy} & 5 952 & Tolket fra verdier med skråstrek \\
+\splitword{datoformat\_annet} & 0 & Verdier uten kjent mønster \\
+\splitword{ugyldige\_datoer\_etter\_tolkning} & 0 & Datoer som ikke lot seg parse \\
+\splitword{opprinnelig\_periode\_start} & 2015-01-02 & Tidligste dato i original dataserie \\
+\splitword{opprinnelig\_periode\_slutt} & 2018-12-30 & Siste dato i original dataserie \\
+år\_forskyvning & 7 & \splitword{Kalenderforskyvning} brukt for prosjektets \splitword{arbeidsgrunnlag} \\
+\splitword{prosjekt\_periode\_start} & 2022-01-02 & Tidligste dato etter remapping \\
+\splitword{prosjekt\_periode\_slutt} & 2025-12-30 & Siste dato etter remapping \\
+\splitword{rader\_fjernet\_manglende\_kritisk\_felt} & 0 & Rader fjernet etter kontroll av dato og numeriske
+nøkkelfelt \\
+\splitword{dubletter\_fjernet} & 0 & Fjernet etter \splitword{standardisering} \\
+\splitword{antall\_rader\_ut} & 9 994 & Observasjoner i renset datasett \\
+\splitword{manglende\_verdier\_ut} & 0 & Totalt manglende etter rens \\
+dubletter\_ut & 0 & Eksakte dublettrader etter rens \\
+\end{longtable}
+
+Fordelingen av kategoriske variabler viser at West-regionen utgjør 32 \% av observasjonene, East 28 \%, Central 23 \% og
+South 16 \%. North-regionen er representert med bare én observasjon og benyttes ikke som separat analysesegment.
+Produktkategoriene er jevnt fordelt med mellom 14 og 15 \% av observasjonene hver, noe som betyr at ingen enkelt
+kategori dominerer datasettet.
+
+Datasettet er delt tidsmessig slik at treningsdata dekker 2022--2024 og testdata dekker 2025. Tilfeldig splitt ble ikke
+brukt, fordi det ville tillate fremtidige observasjoner å inngå i treningen og dermed gi kunstig god ytelse. Det
+gjennomsnittlige salgsnivået er stabilt mellom periodene (1 493 i treningsdata og 1 503 i testdata), noe som styrker
+antakelsen om at historiske mønstre er overførbare til 2025. Figur 5.2 viser fordelingen av daglige salgsverdier i
+trenings- og testperioden.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth,height=\textheight]{../006 analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/fig_sales_fordeling_train_test.png}
+\caption{Figur 5.2 Fordeling av daglige salgsverdier i trenings- og testperioden. Overlappet i fordelingene tyder på at
+målvariabelen er stabil mellom periodene.}
+\end{figure}
+
+Tabell 5.4 oppsummerer antallsfordelingen mellom trenings- og testperioden.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\caption{Tabell 5.4 Fordeling av trenings- og testdata etter tidsmessig splitt.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Delmengde
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+År
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Antall rader
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Andel
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Delmengde
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+År
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Antall rader
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Andel
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Treningsdata & 2022--2024 & 6 682 & \textasciitilde67 \% \\
+Testdata & 2025 & 3 312 & \textasciitilde33 \% \\
+\end{longtable}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{modellering}{%
+\subsection{6 Modellering}\label{modellering}}
+
+Prosjektet evaluerer tre modellspor for å predikere daglig salg i 2025. Benchmark-modellen er en multippel lineær
+regresjon som gir et tolkbart sammenligningsgrunnlag. Random Forest inngår i to varianter: en baseline med
+standardparametere som viser hva en utuned ensemble-modell leverer på det samme datagrunnlaget, og en tuned variant der
+hyperparametere er valgt gjennom et strukturert søk. Sammenstillingen gir både et grunnlag for å måle gevinsten av
+tuning og et tolkbart referansepunkt som er robust mot overfitting.
+
+Tabell 6.1 oppsummerer de tre modellsporene med antall features, treningsrader, sentrale hyperparametre og rolle i
+prosjektet.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1667}}@{}}
+\caption{Tabell 6.1 Oversikt over de tre modellsporene: antall features, treningsrader, sentrale hyperparametre og rolle
+i prosjektet.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\splitword{Modellrolle}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Algoritme
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\splitword{Treningsrader}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Features
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Sentrale \splitword{hyperparametre}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Rolle i prosjektet
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\splitword{Modellrolle}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Algoritme
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\splitword{Treningsrader}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Features
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Sentrale \splitword{hyperparametre}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Rolle i prosjektet
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+benchmark lineær & \splitword{LinearRegression} & 6 682 & 67 & \splitcode{fit\_intercept=True}, ingen regularisering &
+Tolkbar benchmark med eksplisitt \splitword{koeffisientretning.} \\
+baseline RF & \splitword{RandomForestRegressor} & 6 682 & 67 & \splitcode{n\_estimators=200},
+\splitcode{max\_depth=None}, \splitcode{min\_samples\_leaf=1}, \splitcode{max\_features=1.0} & RF-referanse uten tuning,
+for \splitword{stabilitetssjekk} mot tunet modell. \\
+tuned RF & \splitword{RandomForestRegressor} & 6 682 & 67 & \splitcode{n\_estimators=400}, \splitcode{max\_depth=10},
+\splitcode{min\_samples\_leaf=4}, \splitcode{max\_features="sqrt"} & Anbefalt operativ modell etter tuning på
+2024-validering. \\
+\end{longtable}
+
+Den multiple lineære regresjonen trenes som \splitcode{LinearRegression} med \splitcode{fit\_intercept=True} og uten
+regularisering eller skalering. Modellen estimeres med OLS (se kap. 3.1) på 6 682 rader og 67 features -- det vil si
+alle kalendervariabler, \splitcode{Discount} og de one-hot-kodede kategoriske variablene. Estimert konstantledd er
+\(-3193{,}55\). Modellen er tolkbar gjennom sine koeffisienter, men forutsetter at salget kan beskrives som en lineær
+kombinasjon av forklaringsvariablene, og den har ingen mekanisme for å fange opp interaksjoner eller ikke-lineære
+effekter utover de som eksplisitt er kodet inn.
+
+Random Forest Regressor trenes på samme treningsmatrise. Baselinen bruker standardkonfigurasjonen
+\splitcode{n\_estimators=200}, \splitcode{max\_depth=None}, \splitcode{min\_samples\_leaf=1},
+\splitcode{max\_features=1.0} (dvs. at alle 67 features vurderes ved hver split), \splitcode{bootstrap=True} og
+\splitcode{random\_state=42}, jf. bagging og feature randomness i kap. 3.2. Den tunede varianten bygger på et
+rutenettsøk der hver kandidat trenes på 2022--2023 (4 095 rader) og valideres på 2024 (2 587 rader). 2025-data inngår
+ikke i modellutvelgelsen -- denne tidsmessige isolasjonen forhindrer datalekkasje mellom tuning og evaluering (jf. kap.
+3.4 og 5.2). Vinnerkonfigurasjonen ble \splitcode{n\_estimators=400}, \splitcode{max\_depth=10},
+\splitcode{min\_samples\_leaf=4} og \splitcode{max\_features='sqrt'} (som gir \(\lfloor\sqrt{67}\rfloor = 8\) features
+per split), valgt med validerings-RMSE som primærkriterium. Vinnerkandidaten oppnådde validerings-RMSE \(577{,}27\) og
+validerings-MAPE \(43{,}56\%\), mot baseline-kandidatens \(590{,}30\) og \(44{,}22\%\) på samme valideringssett. Den
+tunede modellen retrenes deretter på hele treningsperioden (2022--2024) før evaluering på 2025. Alle tre modellene
+genererer prognoser på testperioden 2025 (3 312 rader), og det er disse prognosene som danner grunnlaget for analyse og
+resultat i de neste kapitlene.
+
+Tabell 6.2 viser de fem beste parameterkombinasjonene fra rutenettsøket, sortert etter RMSE på 2024-valideringen og med
+delta mot baseline-kandidaten.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}@{}}
+\caption{Tabell 6.2 Topp 5 parameterkombinasjoner fra tuning av Random Forest, sortert etter RMSE på
+2024-valideringen.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Kandidat
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\splitword{n\_estimators}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+max\_depth
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\splitword{min\_samples\_leaf}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\splitword{max\_features}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RMSE validering
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MAPE validering (\%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Delta RMSE \splitword{vs. baseline}
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Kandidat
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\splitword{n\_estimators}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+max\_depth
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\splitword{min\_samples\_leaf}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\splitword{max\_features}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RMSE validering
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MAPE validering (\%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Delta RMSE \splitword{vs. baseline}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+rf\_tune\_30 (vinner) & 400 & 10 & 4 & sqrt & 577,27 & 43,56 & −13,04 \\
+rf\_tune\_28 & 400 & 10 & 2 & sqrt & 577,29 & 43,57 & −13,02 \\
+rf\_tune\_10 & 200 & 10 & 2 & sqrt & 577,36 & 43,58 & −12,94 \\
+rf\_tune\_26 & 400 & 10 & 1 & sqrt & 577,65 & 43,60 & −12,65 \\
+rf\_tune\_12 & 200 & 10 & 4 & sqrt & 577,81 & 43,61 & −12,50 \\
+\end{longtable}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{analyse}{%
+\subsection{7 Analyse}\label{analyse}}
+
+Samlet for 2025 leverer den tunede Random Forest-modellen både lavest RMSE og lavest MAPE (jf. Tabell 8.1), marginalt
+foran benchmark lineær og tydeligere foran baseline Random Forest. Gapet mellom modellene er lite i absolutt forstand --
+tuned Random Forest forbedrer RMSE med omtrent \(11\) enheter sammenlignet med baseline Random Forest og \(2\) enheter
+sammenlignet med benchmark lineær. Tuningeffekten tolkes som en kombinasjon av dybdebegrensningen
+(\splitcode{max\_depth=10}) og redusert \splitcode{max\_features}, som demper variansen i de enkelte trærne og gir mer
+stabile ensemble-prediksjoner på nye data (jf. kap. 3.2).
+
+Månedsnivået nyanserer bildet vesentlig (jf. Tabell 7.1). Tuned Random Forest vinner RMSE i 11 av 12 måneder, men vinner
+MAPE i bare 3 måneder. Baseline Random Forest vinner ikke en eneste måned på RMSE, men vinner MAPE i 6 av 12 måneder.
+RMSE og MAPE peker på samme vinner bare i juli og september. Mønsteret kan forklares med at absolutt feil og prosentfeil
+vekter observasjoner ulikt: RMSE straffer store avvik hardt og favoriserer dermed modellen som er mest treffsikker på de
+største salgsmålene, mens MAPE er mer sensitiv i måneder med mange lavvolumrader der små avvik gir utslag i høye
+prosenttall.
+
+Tabell 7.1 viser eksakte månedlige RMSE- og MAPE-verdier per modell.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}@{}}
+\caption{Tabell 7.1 Månedlig RMSE og MAPE per modell i 2025.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Måned
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RMSE lineær
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RMSE baseline RF
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RMSE tuned RF
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MAPE lineær (\%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MAPE baseline RF (\%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MAPE tuned RF (\%)
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Måned
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RMSE lineær
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RMSE baseline RF
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RMSE tuned RF
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MAPE lineær (\%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MAPE baseline RF (\%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MAPE tuned RF (\%)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+2025-01 & 586,09 & 597,82 & 585,73 & 46,62 & 46,51 & 46,52 \\
+2025-02 & 577,96 & 584,01 & 576,74 & 42,50 & 42,19 & 42,72 \\
+2025-03 & 552,52 & 565,11 & 550,33 & 42,14 & 42,86 & 42,30 \\
+2025-04 & 581,28 & 576,18 & 575,63 & 44,76 & 43,04 & 43,85 \\
+2025-05 & 591,70 & 594,57 & 589,74 & 45,46 & 44,36 & 45,00 \\
+2025-06 & 560,16 & 556,89 & 552,25 & 43,81 & 41,87 & 42,79 \\
+2025-07 & 569,61 & 582,87 & 569,23 & 42,90 & 42,67 & 42,33 \\
+2025-08 & 586,60 & 601,17 & 586,65 & 42,19 & 42,38 & 41,71 \\
+2025-09 & 582,61 & 591,60 & 581,47 & 42,41 & 42,86 & 42,36 \\
+2025-10 & 593,34 & 615,05 & 593,09 & 43,96 & 45,70 & 44,16 \\
+2025-11 & 597,86 & 600,90 & 595,25 & 47,87 & 47,46 & 47,78 \\
+2025-12 & 577,66 & 593,86 & 574,66 & 45,10 & 45,93 & 45,16 \\
+\end{longtable}
+
+Bias-analysen av den tunede modellen viser et systematisk sesongavvik. August og september er underestimerte med
+henholdsvis \(-5{,}22\%\) (\(-20\,548\) salgsenheter) og \(-2{,}77\%\) (\(-16\,334\) salgsenheter), mens november og
+desember er lett overestimerte med \(+1{,}05\%\) og \(+2{,}36\%\). En mulig forklaring er at kalenderfeaturene ikke
+fullt ut fanger en høstoppgang som skiller seg fra tidligere år -- antakelsen er at treningsperioden (2022--2024)
+inneholder en annen august--september-profil enn 2025, og at modellen dermed glatter ut det virkelige nivået i disse
+månedene. Mønsteret er konsistent på tvers av alle tre modellsporene og peker på en begrensning i det tilgjengelige
+sesongsignalet, ikke bare på den tunede modellen.
+
+Figur 7.1 illustrerer den månedlige biasen per modell.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth,height=\textheight]{../006 analysis/aktiviteter/16_tolke_modellresultater/fig_bias_maaned_modell.png}
+\caption{Figur 7.1 Månedlig bias per modell i 2025. Positive verdier betyr at modellen overestimerer salget, negative at
+den underestimerer. Kurven viser at alle tre modellene underestimerer i august--september.}
+\end{figure}
+
+Figur 7.2 viser samme månedsforløp som Tabell 7.1, men med RMSE visualisert som linjediagram.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth,height=\textheight]{../006 analysis/aktiviteter/13_rmse_og_mape/fig_rmse_maaned_modell.png}
+\caption{Figur 7.2 Månedlig RMSE per modell i 2025. Tuned Random Forest har lavest RMSE i majoriteten av månedene, mens
+benchmark lineær slår gjennom i enkeltmåneder.}
+\end{figure}
+
+Segmentanalysen (jf. Tabell 7.2) forsterker forskjellen mellom de to metrikkene. Tuned Random Forest vinner RMSE i 13 av
+14 tolkningssegmenter -- alle fire kvartaler, alle tre rabattband, alle fire regioner og to av tre salgsnivå -- men må
+vike for benchmark lineær og baseline Random Forest i flere av MAPE-segmentene, særlig i høyrabattsegmentet,
+vest-regionen og lavvolumssegmentet. I segmentet «høyt salg» er benchmark lineær best på begge metrikker (RMSE
+\(699{,}10\), MAPE \(30{,}31\%\)), mens tuned Random Forest likevel gir lavest RMSE i segmentet «lavt salg» til tross
+for at tuned Random Forest-MAPE i samme segment ligger på \(90{,}27\,\%\).
+
+Tabell 7.2 gir detaljert RMSE og MAPE per modell for alle 14 tolkningssegmentene.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}@{}}
+\caption{Tabell 7.2 RMSE og MAPE per modell i utvalgte segmenter (kvartal, rabattbånd, region,
+salgsbånd).}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Dimensjon
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Verdi
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RMSE lineær
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RMSE baseline RF
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RMSE tuned RF
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MAPE lineær (\%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MAPE baseline RF (\%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MAPE tuned RF (\%)
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Dimensjon
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Verdi
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RMSE lineær
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RMSE baseline RF
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RMSE tuned RF
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MAPE lineær (\%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MAPE baseline RF (\%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MAPE tuned RF (\%)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Kvartal & 1 & 570,43 & 580,73 & 569,10 & 43,58 & 43,73 & 43,67 \\
+Kvartal & 2 & 578,10 & 576,41 & 573,05 & 44,69 & 43,11 & 43,90 \\
+Kvartal & 3 & 580,18 & 591,95 & 579,59 & 42,48 & 42,67 & 42,17 \\
+Kvartal & 4 & 589,94 & 602,59 & 587,87 & 45,85 & 46,46 & 45,89 \\
+Rabattbånd & lav & 583,01 & 598,95 & 581,12 & 46,66 & 46,93 & 46,14 \\
+Rabattbånd & middels & 577,89 & 587,10 & 577,11 & 44,51 & 44,63 & 44,37 \\
+Rabattbånd & høy & 581,41 & 586,74 & 577,96 & 42,76 & 42,36 & 42,62 \\
+Region & Central & 585,83 & 595,13 & 584,92 & 44,36 & 44,49 & 44,39 \\
+Region & East & 579,39 & 587,92 & 575,30 & 44,19 & 44,26 & 43,86 \\
+Region & South & 587,59 & 599,43 & 587,02 & 45,48 & 45,29 & 45,03 \\
+Region & West & 573,90 & 581,36 & 571,78 & 43,44 & 43,18 & 43,27 \\
+Salgsbånd & lavt salg & 695,06 & 694,19 & 690,44 & 90,79 & 89,39 & 90,27 \\
+Salgsbånd & middels salg & 196,79 & 224,70 & 192,51 & 11,40 & 12,30 & 11,20 \\
+Salgsbånd & høyt salg & 699,10 & 713,73 & 699,57 & 30,31 & 30,60 & 30,39 \\
+\end{longtable}
+
+Feature importance (jf. Tabell 8.3) støtter tolkningen av hvilke dimensjoner som driver variasjonen: kalendervariablene
+utgjør samlet \(\sim 42\%\) av importance i topp 10, \splitcode{Discount} er sterkeste enkeltvariabel med \(11{,}48\%\),
+og regionvariablene bidrar med \(\sim 5{,}8\%\). Den lineære modellen gir negativt fortegn på \splitcode{Discount}
+(koeffisient \(-166{,}35\)), mens Random Forest rangerer samme variabel øverst. Forskjellen tolkes som et mulig tegn på
+en ikke-lineær eller interaktiv sammenheng mellom rabatt og salg som en lineær spesifikasjon ikke klarer å fange opp.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{resultat}{%
+\subsection{8 Resultat}\label{resultat}}
+
+Tabell 8.1 oppsummerer den samlede ytelsen på 2025 for de tre modellsporene. Tuned Random Forest har lavest RMSE og
+MAPE, mens baseline Random Forest er svakest på RMSE og benchmark lineær er svakest på MAPE.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\caption{Tabell 8.1 Samlet prognoseytelse på 2025 (3 312 observasjoner).}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Modell
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RMSE
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MAPE
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Modell
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RMSE
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MAPE
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Benchmark lineær & 580,39 & 44,18 \% \\
+Baseline Random Forest & 589,28 & 44,12 \% \\
+Tuned Random Forest & 578,26 & 43,97 \% \\
+\end{longtable}
+
+Figur 8.1 visualiserer den samlede ytelsen per modell.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth,height=\textheight]{../006 analysis/aktiviteter/13_rmse_og_mape/fig_rmse_mape_samlet.png}
+\caption{Figur 8.1 Samlet RMSE og MAPE for benchmark lineær, Random Forest baseline og tuned Random Forest i 2025. Tuned
+Random Forest har lavest RMSE, mens MAPE er tettere fordelt mellom modellene.}
+\end{figure}
+
+Tabell 8.2 viser hvor mange av de tolv månedene i 2025 hver modell vinner på henholdsvis RMSE og MAPE.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\caption{Tabell 8.2 Månedlig vinnertelling per metrikk i 2025.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Modell
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RMSE-vinner (av 12)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MAPE-vinner (av 12)
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Modell
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RMSE-vinner (av 12)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MAPE-vinner (av 12)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Benchmark lineær & 1 & 3 \\
+Baseline Random Forest & 0 & 6 \\
+Tuned Random Forest & 11 & 3 \\
+\end{longtable}
+
+Tabell 8.3 viser de ti variablene med høyest feature importance i den tunede Random Forest-modellen, gruppert etter
+variabelgruppe.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\caption{Tabell 8.3 Topp 10 feature importance for tuned Random Forest.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Rang
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Variabel
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Gruppe
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Importance
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Rang
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Variabel
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Gruppe
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Importance
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & Discount & Pris/kampanje & 11,48 \% \\
+2 & dayofmonth & Kalender & 11,35 \% \\
+3 & weekofyear & Kalender & 10,40 \% \\
+4 & month & Kalender & 6,74 \% \\
+5 & dayofweek & Kalender & 6,52 \% \\
+6 & year & Kalender & 4,02 \% \\
+7 & quarter & Kalender & 2,95 \% \\
+8 & Region\_East & Region & 2,04 \% \\
+9 & Region\_West & Region & 1,91 \% \\
+10 & Region\_Central & Region & 1,84 \% \\
+\end{longtable}
+
+Figur 8.2 visualiserer topp 10-rangeringen som horisontalt søyleplot.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth,height=\textheight]{../006 analysis/aktiviteter/15_viktige_variabler/fig_feature_importance_tuned_top10.png}
+\caption{Figur 8.2 Topp 10 feature importance for tuned Random Forest. Variablene er rangert etter normalisert viktighet
+og viser hvilke signaler modellen faktisk vektlegger.}
+\end{figure}
+
+Figur 8.3 aggregerer samme topp 10 etter variabelgruppe og viser hvilke typer signaler som dominerer prediksjonen.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth,height=\textheight]{../006 analysis/aktiviteter/15_viktige_variabler/fig_variabelgrupper_tuned_top10.png}
+\caption{Figur 8.3 Samlet feature importance per variabelgruppe i topp 10 for tuned Random Forest. Figuren oppsummerer
+hvilke grupper av signaler (kalender, pris/kampanje, region) som dominerer modellens prediksjon.}
+\end{figure}
+
+Tabell 8.4 oppsummerer vinnermodellen per segment på RMSE og MAPE, fordelt på kvartal, rabattband, region og salgsnivå.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\caption{Tabell 8.4 Vinnermodell per segment på RMSE og MAPE.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\splitword{Segmentdimensjon}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Verdi
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RMSE-vinner
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MAPE-vinner
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\splitword{Segmentdimensjon}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Verdi
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RMSE-vinner
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MAPE-vinner
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Kvartal & Q1 & Tuned RF & Benchmark lineær \\
+Kvartal & Q2 & Tuned RF & Baseline RF \\
+Kvartal & Q3 & Tuned RF & Tuned RF \\
+Kvartal & Q4 & Tuned RF & Benchmark lineær \\
+Rabatt & Lav & Tuned RF & Tuned RF \\
+Rabatt & Middels & Tuned RF & Tuned RF \\
+Rabatt & Høy & Tuned RF & Baseline RF \\
+Region & Central & Tuned RF & Benchmark lineær \\
+Region & East & Tuned RF & Tuned RF \\
+Region & South & Tuned RF & Tuned RF \\
+Region & West & Tuned RF & Baseline RF \\
+Salgsnivå & Lavt salg & Tuned RF & Baseline RF \\
+Salgsnivå & Middels salg & Tuned RF & Tuned RF \\
+Salgsnivå & Høyt salg & Benchmark lineær & Benchmark lineær \\
+\end{longtable}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{diskusjon}{%
+\subsection{9 Diskusjon}\label{diskusjon}}
+
+\hypertarget{tolkning-av-hovedfunn-mot-problemstillingen}{%
+\subsubsection{9.1 Tolkning av hovedfunn mot problemstillingen}\label{tolkning-av-hovedfunn-mot-problemstillingen}}
+
+Problemstillingen spør hvordan multippel lineær regresjon og Random Forest Regressor kan brukes til å predikere salg i
+2025, og hvilke faktorer som påvirker salget mest. Resultatene gir et differensiert svar. Tuned Random Forest er samlet
+best i 2025 med RMSE \(578{,}26\) og MAPE \(43{,}97\%\), men gapet til benchmark lineær er marginalt på totalnivå --
+\(2{,}13\) enheter lavere RMSE og \(0{,}21\) prosentpoeng lavere MAPE. Den samlede ytelsen underslår dermed et
+tydeligere månedsbilde: tuned Random Forest vinner RMSE i elleve av tolv måneder, men bare tre måneder på MAPE, mens
+baseline Random Forest vinner MAPE i seks måneder uten å vinne RMSE en eneste måned. Det betyr at «best samlet» i
+praksis handler om absolutt presisjon i måneder med store salgsvolumer, mens prosentfeilen fortsatt er heterogen på
+tvers av året.
+
+Bias-mønsteret nyanserer dette ytterligere. Tuned Random Forest underestimerer systematisk i august og september
+(henholdsvis \(-5{,}22\%\) og \(-2{,}77\%\)) og overestimerer svakt i november og desember (\(+1{,}05\%\) og
+\(+2{,}36\%\)). Mønsteret er konsistent for alle tre modellsporene, noe som peker på en begrensning i sesongsignalet i
+datagrunnlaget snarere enn i den enkelte modellen. Samtidig viser segmentanalysen at benchmark lineær er bedre enn tuned
+Random Forest i segmentet for høyt salgsnivå på både RMSE og MAPE. Det første delproblemet bør derfor besvares med en
+differensiert anbefaling: tuned Random Forest er mest hensiktsmessig som hovedmodell når absolutt prognosepresisjon
+prioriteres, mens benchmark lineær bør brukes som supplement i toppbelastningssituasjoner og som forklaringsstøtte.
+
+Tabell 9.1 sammenstiller modellprofilene og tydeliggjør differensieringen.
+
+\begin{landscape}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}@{}}
+\caption{Tabell 9.1 Modellprofil med samlet RMSE/MAPE, antall vinnermåneder og -segmenter, tolkbarhetsnivå samt
+hovedstyrke og hovedsvakhet per modell.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\splitword{Modellrolle}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RMSE 2025
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MAPE 2025 (\%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RMSE-vinnermåneder
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MAPE-vinnermåneder
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RMSE-vinnersegmenter
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MAPE-vinnersegmenter
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Tolkbarhet
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\splitword{Hovedstyrke}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\splitword{Hovedsvakhet}
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\splitword{Modellrolle}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RMSE 2025
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MAPE 2025 (\%)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RMSE-vinnermåneder
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MAPE-vinnermåneder
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RMSE-vinnersegmenter
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+MAPE-vinnersegmenter
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Tolkbarhet
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\splitword{Hovedstyrke}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\splitword{Hovedsvakhet}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+benchmark lineær & 580,39 & 44,18 & 1 & 3 & 1 & 4 & høy & Høy tolkbarhet og \splitword{konkurransedyktig} i enkelte
+segmenter. & \splitword{Multikollinearitet} og manglende regularisering svekker robust
+\splitword{koeffisienttolkning.} \\
+baseline RF & 589,28 & 44,12 & 0 & 6 & 0 & 4 & middels & Sterk lokal MAPE-ytelse og nyttig RF-sammenligningspunkt. &
+Svakest samlet og uten RMSE-seire i måneder eller segmenter. \\
+tuned RF & 578,26 & 43,97 & 11 & 3 & 13 & 6 & middels & Best samlet 2025 og sterkest på absolutt feil. & MAPE er mer
+ujevn enn RMSE mellom måneder og segmenter. \\
+\end{longtable}
+
+\end{landscape}
+
+\hypertarget{variablenes-puxe5virkning}{%
+\subsubsection{9.2 Variablenes påvirkning}\label{variablenes-puxe5virkning}}
+
+Det andre delproblemet gjelder hvilke faktorer som påvirker salget mest. Rangeringen av feature importance i tuned
+Random Forest viser at rabatt og kalendervariabler dominerer bildet. \splitcode{Discount} er det sterkeste
+enkeltsignalet med \(11{,}48\%\), tett fulgt av kalendervariablene \splitcode{dayofmonth} (\(11{,}35\%\)),
+\splitcode{weekofyear} (\(10{,}40\%\)), \splitcode{month} (\(6{,}74\%\)) og \splitcode{dayofweek} (\(6{,}52\%\)).
+Kalendergruppen står samlet for om lag \(42\%\) av importance i topp 10, mens regionvariablene bidrar med \(5{,}8\%\).
+De ni øverste variablene i tuned Random Forest gjenfinnes også i topp 10 for baseline Random Forest, noe som styrker
+stabiliteten i rangeringen.
+
+Lineær regresjon peker i samme retning, men med annen fortegning. \splitcode{Discount} (\(-166{,}35\)) har den største
+meningsfulle koeffisientverdien; \splitcode{Region\_North}-koeffisienten er isolert sett størst i tallverdi
+(\(-277{,}20\)), men bygger på én enkelt observasjon (jf. kap. 5.2) og bør tolkes som usikkerhet snarere enn en
+substansiell regioneffekt. Det negative fortegnet for \splitcode{Discount} i den lineære modellen står i kontrast til
+dens høye feature importance i Random Forest, der retningen ikke er fiksert. Det mest sannsynlige er at sammenhengen
+mellom rabatt og salg er ikke-lineær eller samspillende med andre variabler -- for eksempel at rabatteffekten avhenger
+av produktkategori eller sesong -- slik at en lineær spesifikasjon overkompenserer med ett fortegn mens et
+tremodellbasert ensemble fanger opp flere betingede mønstre. Forskjellen er derfor ikke motstridende funn, men et tegn
+på at modellene svarer ulikt på det samme underliggende signalet. Variabelsignalene er prediktive, ikke kausale, og bør
+tolkes som indikatorer på hvilke dimensjoner som bærer prognoseverdien.
+
+\hypertarget{praktisk-nytte-for-dagligvare}{%
+\subsubsection{9.3 Praktisk nytte for Dagligvare}\label{praktisk-nytte-for-dagligvare}}
+
+Funnene har fire tydelige praktiske bruksområder i Dagligvare, alle forankret i modellvalget i 9.1 og
+variabelrangeringen i 9.2. For innkjøp og overordnet lagerstyring er tuned Random Forest det naturlige standardvalget
+fordi modellen er best samlet på absolutt presisjon og gir den mest stabile månedsytelsen. Analysen dokumenterer ikke
+lageroptimalisering i snever forstand, men gir et sterkere grunnlag for å treffe bedre på totalnivå i planlagte
+bestillinger og dermed redusere risiko for både over- og underbestilling.
+
+Tabell 9.2 oppsummerer beslutningsmatrisen med anbefalt modellrolle, prioritert metrikk og hovedforbehold per
+bruksområde.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\caption{Tabell 9.2 Beslutningsmatrise og bruksregler: beslutningsområder, anbefalt modellrolle, prioritert metrikk,
+praktisk nyttegrad og hovedforbehold.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\splitword{Beslutningsområde}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Anbefalt modell
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Prioritert metrikk
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Praktisk nytte
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\splitword{Hovedforbehold}
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\splitword{Beslutningsområde}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Anbefalt modell
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Prioritert metrikk
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Praktisk nytte
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\splitword{Hovedforbehold}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Innkjøp og lager & tuned RF & RMSE & høy & Ikke \splitword{lageroptimalisering;} prosentfeil kan være ujevn i
+delsegmenter. \\
+Kampanje og rabatt & tuned RF, med baseline RF som MAPE-kontroll ved høy rabatt & RMSE med MAPE-kontroll & middels &
+\splitword{Rabattsignalene} er prediktive, ikke kausale. \\
+Bemanning og \splitword{ressursplanlegging} & tuned RF, med benchmark lineær-kontroll ved svært høyt salgsnivå & RMSE &
+middels--høy & Ikke butikk- eller \splitword{skiftoptimalisering;} toppbelastning krever ekstra varsomhet. \\
+\splitword{Ledelsesrapportering} & tuned RF som hovedprognose, benchmark lineær som \splitword{forklaringsstøtte} & RMSE
+med \splitword{forklaringsstøtte} & middels & Lineær modell skal ikke brukes som kausalt bevis for
+\splitword{salgsendringer.} \\
+\end{longtable}
+
+For kampanje- og rabattvurderinger anbefales tuned Random Forest som hovedmodell, men med en ekstra kontroll mot MAPE i
+segmentet for høy rabatt, der baseline Random Forest er best på prosentfeil. Dette gjenspeiler at \splitcode{Discount}
+er det sterkeste enkeltsignalet i modellen, men at prosentavvik er mer følsomt enn absoluttavvik i rabattutsatte
+perioder. For aggregert bemannings- og ressursplanlegging gir tuned Random Forest et robust bilde av forventet
+aktivitetsnivå per måned og kvartal, men benchmark lineær bør trekkes inn når toppbelastning planlegges, siden den er
+sterkere i segmentet for høyt salgsnivå. For ledelsesrapportering fungerer tuned Random Forest som hovedprognose, mens
+benchmark lineær brukes som forklaringsstøtte når retningen i sentrale signaler må kommuniseres kortfattet for
+ikke-tekniske interessenter. I alle disse bruksområdene må analysens avgrensninger holdes eksplisitt: prognosene er
+prediktive, ikke kausale, og bør kombineres med lokal fagkunnskap før de omsettes til operative beslutninger.
+
+\hypertarget{metodiske-begrensninger}{%
+\subsubsection{9.4 Metodiske begrensninger}\label{metodiske-begrensninger}}
+
+Flere metodiske forhold setter grenser for hvor langt funnene kan strekkes. Datagrunnlaget er representativt for det
+simulerte caset, men er bare ett datasett fra én simulert virksomhet. Generalisering til reelle dagligvarekjeder
+forutsetter eget datagrunnlag og ny validering. Analysen inkluderer ikke eksterne makroøkonomiske faktorer som
+inflasjon, rente eller konjunkturer, og kan derfor ikke belyse hvordan salget reagerer på slike eksterne sjokk.
+Modellomfanget er dessuten avgrenset til multippel lineær regresjon og Random Forest Regressor, slik at andre
+metodeklasser -- tidsrekkemodeller, gradient boosting, nevrale nett -- ikke er vurdert.
+
+Tabell 9.3 oppsummerer de metodiske begrensningene med konsekvens for pålitelighet og generaliserbarhet.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\caption{Tabell 9.3 Metodiske begrensninger i studien, med tematisk kategori, beskrivelse og konsekvens for pålitelighet
+og generaliserbarhet.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Tema
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\splitword{Beskrivelse}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Konsekvens for \splitword{pålitelighet}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Konsekvens for \splitword{generaliserbarhet}
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Tema
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\splitword{Beskrivelse}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Konsekvens for \splitword{pålitelighet}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Konsekvens for \splitword{generaliserbarhet}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\splitword{representativitet} & Prosjektet bygger på én simulert virksomhet og ett datasett, ikke flere virksomheter
+eller markeder. & Påliteligheten innenfor dette caset kan fortsatt være god, men robustheten mot andre kontekster er
+ikke testet. & Funnene kan ikke uten videre overføres til andre bedrifter, regioner eller produktmixer. \\
+eksterne faktorer & Eksterne \splitword{makroøkonomiske} forhold som inflasjon, rente og konjunkturer er ikke modellert.
+& Prognosene kan være mindre robuste hvis 2025 påvirkes av forhold som ikke finnes i feature-settet. & Resultatene
+generaliserer dårligere til perioder der eksterne sjokk spiller en større rolle. \\
+modellomfang & Prosjektet sammenligner bare lineær regresjon og Random Forest, ikke andre \splitword{modellfamilier.} &
+Valgt modell er best i dette prosjektets kandidatfelt, men ikke nødvendigvis best mulig totalt sett. & Det er begrenset
+grunnlag for å generalisere at samme modellfamilie vil være best i andre lignende problemer. \\
+\splitword{koeffisienttolkning} & Lineær regresjon er kjørt uten \splitword{regularisering,} og dummykoding kan gi
+\splitword{multikollinearitet} i \splitword{koeffisientene.} & Dette svekker påliteligheten i sterke fortolkninger av
+\splitword{enkeltkoeffisienter} som om de var stabile effektmål. & \splitword{Koeffisientmønstre} kan endre seg når
+datastruktur eller \splitword{kategorifordeling} endres i andre case. \\
+\splitword{valideringsvindu} & Tuning av Random Forest bruker kun 2024 som intern \splitword{valideringsperiode.} &
+Modellvalget er etterprøvbart, men sensitivitet for andre \splitword{valideringsvinduer} er ikke undersøkt. & Det gir
+mindre grunnlag for å generalisere tuningvalgene til andre tidsperioder eller sesongmønstre. \\
+kausalitet & Analysen er prediktiv og ikke kausal, slik at viktige variabler ikke kan tolkes som dokumenterte årsaker
+til salg. & Det er mer pålitelig å bruke funnene som prognosestøtte enn som bevis for \splitword{årsakssammenhenger.} &
+Beslutninger som krever kausal innsikt kan ikke generaliseres direkte fra disse prediktive mønstrene. \\
+\end{longtable}
+
+Den lineære modellen brukes med uregularisert OLS på en modellmatrise med 67 features, inkludert mange one-hot-kodede
+dummyvariabler. Det gir en betydelig risiko for multikollinearitet, som svekker tolkningsvaliditeten av de enkelte
+koeffisientene selv om prediksjonskraften kan være upåvirket. Hyperparametertuningen av Random Forest er basert på ett
+valideringsår (2024), slik at valget av tuned konfigurasjon reflekterer mønstrene i ett år framfor en mer robust
+kryssvalidering over flere perioder. To planendringer i modellutviklingsfasen er dokumentert i endringsloggen: det
+felles treningssteget ble gjort om til en verifisering av treningsgrunnlag og modellsignaler siden begge modellene
+allerede var trent i forutgående aktiviteter, og hyperparametertuningen ble avgrenset til Random Forest-sporet alene.
+Samlet styrket disse endringene sporbarheten i modellutviklingen, men innebærer at lineær regresjon ikke har gjennomgått
+tilsvarende optimalisering.
+
+Funnene er i tillegg prediktive og ikke kausale. Variabelrangeringer og koeffisienter forteller hvilke signaler som er
+nyttige for å predikere salg, men ikke hvorfor salget endrer seg. Denne avgrensningen er viktig å holde fast ved når
+resultatene oversettes til beslutningsstøtte, for eksempel når rabattsignalet skal tolkes i kampanjearbeidet.
+
+\hypertarget{videre-arbeid}{%
+\subsubsection{9.5 Videre arbeid}\label{videre-arbeid}}
+
+Fire typer videre arbeid følger naturlig av disse begrensningene. Et første steg er supplering med fagfellevurderte
+kilder innen etterspørselspredikering i dagligvarehandel, som kan styrke både metodevalg og tolkning. Et andre steg er
+sensitivitetsanalyse av variabelsignalene -- særlig \splitcode{Discount} og regionvariablene -- slik at tolkningen blir
+mer robust mot ikke-lineære sammenhenger. Et tredje steg er bredere validering, enten ved å bruke flere år som
+valideringsvinduer eller ved å teste modellene mot reelle salgsdata fra en dagligvarekjede. Et fjerde steg er utvidelse
+av modellomfanget til tidsrekke- og gradient-boosting-metoder som kan adressere både det systematiske høstbias-mønsteret
+og den heterogene MAPE-ytelsen på en mer presis måte.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{konklusjon}{%
+\subsection{10 Konklusjon}\label{konklusjon}}
+
+Problemstillingen spør hvordan multippel lineær regresjon og Random Forest Regressor kan brukes til å predikere salg i
+2025 for en simulert dagligvarekjede, og hvilke faktorer som påvirker salget mest. På tvers av de tre modellsporene er
+tuned Random Forest det samlet beste valget med RMSE \(578{,}26\) og MAPE \(43{,}97\%\) på 2025, og modellen vinner RMSE
+i elleve av tolv måneder og tretten av fjorten tolkningssegmenter. Gapet til benchmark lineær er likevel marginalt på
+totalnivå, og sistnevnte er best i segmentet for høyt salgsnivå. Anbefalingen er derfor at Dagligvare bruker tuned
+Random Forest som standardprognose for innkjøp, lager og aggregert ressursplanlegging, benchmark lineær som
+forklaringsstøtte og som supplement i toppbelastningssituasjoner, og baseline Random Forest som kontroll mot prosentfeil
+i perioder med høy rabatt.
+
+Rabatt og kalendervariabler er de mest påvirkningsrike prediktorene, der \splitcode{Discount} er det sterkeste
+enkeltsignalet og kalendergruppen samlet står for om lag \(42\%\) av importance i topp 10 i den anbefalte modellen.
+Regionvariablene bidrar som sekundære prediktorer og driver samtidig variasjon i MAPE mellom markedene. Funnene gjelder
+innenfor det simulerte caset og bør tolkes som prediktive signaler, ikke kausale forklaringer; operativ bruk forutsetter
+at Dagligvare kombinerer modellprognosene med lokal fagkunnskap og vurderer supplerende validering før de omsettes til
+beslutninger i innkjøp, kampanjestyring og ressursplanlegging.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{bibliografi}{%
+\subsection{11 Bibliografi}\label{bibliografi}}
+
+GeeksforGeeks. (2026a, 6. april). \emph{Linear Regression in Machine Learning}. Hentet 13. april 2026 fra
+\url{https://www.geeksforgeeks.org/machine-learning/ml-linear-regression/}
+
+GeeksforGeeks. (2026b, 6. april). \emph{Random Forest Algorithm in Machine Learning}. Hentet 13. april 2026 fra
+\url{https://www.geeksforgeeks.org/machine-learning/random-forest-algorithm-in-machine-learning/}
+
+IBM. (u.å.-a). \emph{What is linear regression?}. Hentet 13. april 2026 fra
+\url{https://www.ibm.com/think/topics/linear-regression}
+
+IBM. (u.å.-b). \emph{What is random forest?}. Hentet 13. april 2026 fra
+\url{https://www.ibm.com/think/topics/random-forest}
+
+\hypertarget{vedlegg}{%
+\subsection{12 Vedlegg}\label{vedlegg}}
+
+Dette kapitlet samler referanser til stort eller detaljert datamateriale som ikke er limt direkte inn i rapporten, men
+som ligger som kildefiler under \splitcode{006 analysis/}. Vedleggene A1--A7 gir leseren direkte tilgang til de
+underliggende analyseartefaktene.
+
+Tabell 12.1 lister vedleggene A1--A7 med innhold og tilhørende kildefil under \splitcode{006 analysis/}.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\caption{Tabell 12.1 Vedleggsreferanser til stort datamateriale som hører til analysen.}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Vedlegg
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Innhold
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Kildefil
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Vedlegg
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Innhold
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Kildefil
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+A1 & Radvise prognoser for 2025 for alle tre modeller (3 312 rader) &
+\href{../006\%20analysis/aktiviteter/12_prognoser_2025/tab_prognoser_2025_detalj.csv}{\splitword{tab\_prognoser\_2025\_detalj.csv}} \\
+A2 & Radvise prognosefeil og absoluttfeil for 2025 &
+\href{../006\%20analysis/aktiviteter/13_rmse_og_mape/tab_prognosefeil_2025_detalj.csv}{\splitword{tab\_prognosefeil\_2025\_detalj.csv}} \\
+A3 & Full tuning-kandidatgrid for Random Forest &
+\href{../006\%20analysis/aktiviteter/11_parameterjustering_random_forest/tab_rf_tuning_kandidater.csv}{\splitword{tab\_rf\_tuning\_kandidater.csv}} \\
+A4 & Full feature importance for tuned Random Forest &
+\href{../006\%20analysis/aktiviteter/15_viktige_variabler/tab_rf_tuned_feature_importance.csv}{\splitword{tab\_rf\_tuned\_feature\_importance.csv}} \\
+A5 & Full \splitword{koeffisienttabell} for lineær regresjon &
+\href{../006\%20analysis/aktiviteter/08_lineaer_regresjon/tab_lr_koeffisienter.csv}{\splitword{tab\_lr\_koeffisienter.csv}} \\
+A6 & Full RMSE og MAPE per måned i lang form &
+\href{../006\%20analysis/aktiviteter/13_rmse_og_mape/tab_rmse_mape_maaned.csv}{\splitword{tab\_rmse\_mape\_maaned.csv}} \\
+A7 & Full segmentmetrikk per modell &
+\href{../006\%20analysis/aktiviteter/16_tolke_modellresultater/tab_segmentmetrikk_modell.csv}{\splitword{tab\_segmentmetrikk\_modell.csv}} \\
+\end{longtable}
+
+\end{document}

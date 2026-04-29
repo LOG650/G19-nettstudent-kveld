@@ -6,6 +6,13 @@
 \usepackage{microtype}
 \usepackage{etoolbox}
 \usepackage{array}
+\usepackage[export]{adjustbox}
+
+% Global takhøyde for figurer: pandoc-spesifisert width=NN% beholdes,
+% men ingen figur kan strekke seg over 80% av tekstområdet i høyden.
+% Hindrer at høye figurer (mange y-akse-kategorier, 3:2-PNG) klippes
+% ved sidekanten.
+\setkeys{Gin}{keepaspectratio,max width=\linewidth,max totalheight=0.8\textheight}
 
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.1}
