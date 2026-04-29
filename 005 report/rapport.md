@@ -116,7 +116,7 @@ The analysis uses 9,994 daily sales transactions from 2022–2025. Training data
 
 The tuned Random Forest is the overall best model with RMSE 578.26 and MAPE 43.97 %, winning RMSE in eleven of twelve months and thirteen of fourteen segments. The gap to the benchmark linear model is marginal overall, and the benchmark linear model is the strongest in the high-sales segment. The most influential predictors are discount (11.48 %) and the calendar variables, where the calendar variables alone account for around 42 % of importance in the top ten. The report recommends the tuned Random Forest as the standard forecast for purchasing, inventory and aggregate resource planning, the benchmark linear model as explanatory support, and the Random Forest baseline as a check against percentage error during high-discount periods. The findings are predictive rather than causal and apply within the simulated case.
 
----
+\newpage
 
 ## Innhold <!-- omit in toc -->
 

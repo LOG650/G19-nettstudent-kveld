@@ -84,11 +84,21 @@
 \usepackage{array}
 \usepackage[export]{adjustbox}
 
-% Global takhøyde for figurer: pandoc-spesifisert width=NN% beholdes,
-% men ingen figur kan strekke seg over 80% av tekstområdet i høyden.
-% Hindrer at høye figurer (mange y-akse-kategorier, 3:2-PNG) klippes
-% ved sidekanten.
+% Global takhøyde for figurer. Pandoc-spesifisert width=NN% beholdes,
+% men keepaspectratio garanterer proporsjonal skalering, og max
+% totalheight stopper figuren i å renne over sidekanten dersom pandoc
+% emitterer height=\textheight (som er default i pandoc 3.x).
 \setkeys{Gin}{keepaspectratio,max width=\linewidth,max totalheight=0.8\textheight}
+
+% Slakkere LaTeX-float-parametre slik at figurer lettere finner en
+% gyldig plassering når siden allerede er full av tekst og tabeller.
+% Default-verdiene fører ellers til Overfull \vbox når en moderat
+% høy figur (≈9 cm) presses inn nederst på en side med liten ledig
+% plass i stedet for å flyte til neste side.
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.9}
+\renewcommand{\textfraction}{0.08}
+\renewcommand{\floatpagefraction}{0.7}
 
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.1}
@@ -136,11 +146,9 @@ Forest Regressor
 \subsection{\texorpdfstring{Del av LOG650 Forskningsprosjekt: Logistikk og Kunstig Intelligens
 }{Del av LOG650 Forskningsprosjekt: Logistikk og Kunstig Intelligens }}\label{del-av-log650-forskningsprosjekt-logistikk-og-kunstig-intelligens}}
 
-\begin{figure}
-\centering
+\begin{center}
 \includegraphics{extracted_images/image_0.png}
-\caption{Bilde 1}
-\end{figure}
+\end{center}
 
 Forfatter(e): Erik Brendehaug, Joseph James, Pål Rånes, Marthe Slåtta Bjerke
 
@@ -148,13 +156,11 @@ Totalt antall sider inkludert forsiden: TODO (fylles inn ved endelig låsing)
 
 Molde, Innleveringsdato: TODO (fylles inn nærmere innlevering)
 
-\begin{figure}
-\centering
+\begin{center}
 \includegraphics{extracted_images/image_1.png}
-\caption{Bilde 2}
-\end{figure}
+\end{center}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\newpage
 
 \hypertarget{obligatorisk-egenerkluxe6ringgruppeerkluxe6ring}{%
 \subsection{\texorpdfstring{Obligatorisk egenerklæring/gruppeerklæring

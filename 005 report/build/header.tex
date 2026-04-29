@@ -24,6 +24,16 @@
 \renewcommand{\textfraction}{0.08}
 \renewcommand{\floatpagefraction}{0.7}
 
+% Fjern 'h' fra default float-placement (pandoc setter htbp). Med 'h'
+% kan LaTeX presse en figur inline selv når plassen er marginal, slik
+% at figurens nedre kant klippes av sidemargen. Med kun 'tbp' tvinges
+% figurer til å flyte til topp/bunn/floatside — standard akademisk
+% rapportkonvensjon.
+\makeatletter
+\renewcommand{\fps@figure}{tbp}
+\renewcommand{\fps@table}{tbp}
+\makeatother
+
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.1}
 \AtBeginEnvironment{longtable}{\small}
