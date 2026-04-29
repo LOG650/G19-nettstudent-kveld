@@ -2,7 +2,9 @@
 
 ## Del av LOG650 Forskningsprosjekt: Logistikk og Kunstig Intelligens <!-- omit in toc -->
 
-![Bilde 1](extracted_images/image_0.png)
+\begin{center}
+\includegraphics{extracted_images/image_0.png}
+\end{center}
 
 Forfatter(e): Erik Brendehaug, Joseph James, Pål Rånes, Marthe Slåtta Bjerke
 
@@ -10,9 +12,11 @@ Totalt antall sider inkludert forsiden: TODO (fylles inn ved endelig låsing)
 
 Molde, Innleveringsdato: TODO (fylles inn nærmere innlevering)
 
-![Bilde 2](extracted_images/image_1.png)
+\begin{center}
+\includegraphics{extracted_images/image_1.png}
+\end{center}
 
----
+\newpage
 
 ## Obligatorisk egenerklæring/gruppeerklæring <!-- omit in toc -->
 
