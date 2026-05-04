@@ -559,6 +559,8 @@ Tabell 8.2 viser hvor mange av de tolv månedene i 2025 hver modell vinner på h
 
 <p align="center"><small><i>Tabell 8.2 Månedlig vinnertelling per metrikk i 2025.</i></small></p>
 
+\FloatBarrier
+
 Tabell 8.3 viser de ti variablene med høyest feature importance i den tunede Random Forest-modellen, gruppert etter variabelgruppe.
 
 | Rang | Variabel | Gruppe | Importance |
@@ -575,6 +577,8 @@ Tabell 8.3 viser de ti variablene med høyest feature importance i den tunede Ra
 | 10 | Region_Central | Region | 1,84 % |
 
 <p align="center"><small><i>Tabell 8.3 Topp 10 feature importance for tuned Random Forest.</i></small></p>
+
+\clearpage
 
 Figur 8.2 visualiserer topp 10-rangeringen som horisontalt søyleplot.
 
