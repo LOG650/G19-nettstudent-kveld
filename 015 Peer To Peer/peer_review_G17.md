@@ -1,7 +1,4 @@
 ---
-title: "Peer-review av G17"
-author: "G19 (nettstudent kveld)"
-date: "2026-05-04"
 lang: nb-NO
 documentclass: article
 geometry: a4paper, margin=2.5cm
@@ -11,6 +8,7 @@ header-includes: |
   \usepackage{tabularx}
   \usepackage{newunicodechar}
   \newunicodechar{≈}{\ensuremath{\approx}}
+  \AtBeginDocument{\hypersetup{pdftitle={Peer-review av G17},pdfauthor={G19 (nettstudent kveld)}}}
 ---
 
 \begin{titlepage}
