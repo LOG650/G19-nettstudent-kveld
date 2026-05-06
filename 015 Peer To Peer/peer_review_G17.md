@@ -82,7 +82,7 @@ CRISP-DM-rammeverket er eksplisitt forankret i Schoonbee, datadelingen er korrek
 
 - Validitet, reliabilitet og etiske hensyn er ikke eksplisitt forklart (eget veiledningskriterium).
 - Datagrunnlagets syntetiske natur avsløres først i §9.1 – burde vært i §5.2.
-- Stratifisert random split, ikke tidsbasert – ubegrunnet til tross for konseptdrift-fokuset.
+- Stratifisert random split begrunnes ikke i §5.1 der splitten faktisk gjøres; argumentet i §3.5 («uten tydelig tidsstruktur») kunne vært gjentatt og koblet eksplisitt til konseptdrift-diskusjonen.
 - §4.0 er deskriptivt tynt: fire korte avsnitt uten figurer/tabeller eller nøkkeltall om Bedriften.
 
 **Foreslåtte endringer**
@@ -139,7 +139,7 @@ Konklusjonen besvarer problemstillingen direkte, identifiserer historisk betalin
 
 - Begrensningsavsnittet duplikerer §9.3 i utvidet form.
 - Studiens teoretiske bidrag formuleres ikke (veiledningskriterium).
-- Forslag til videre forskning er praktiske implementeringssteg, ikke forskningsspørsmål forankret i forskningsbakgrunnen.
+- Forslag til videre forskning er i hovedsak praktiske implementeringssteg snarere enn forskningsspørsmål forankret i forskningsbakgrunnen – anbefaling 3 har et metodisk element (window size), men de øvrige er driftsorienterte.
 - Påstanden om bransjegeneralisering motsier avgrensingen i §1.3, og presisjon (0,495) nevnes ikke når recall (0,833) fremheves.
 
 **Foreslåtte endringer**
