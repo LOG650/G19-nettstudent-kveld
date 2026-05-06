@@ -26,6 +26,9 @@ header-includes: |
 \textbf{Forfatter av rapporten} & Magnus Ødegård \\
 \textbf{Dato} & 2026-05-04 \\
 \end{tabular}
+
+\vspace{1.5cm}
+{\small\textit{Vurderingen gjelder versjonen av rapporten som var tilgjengelig mandag 4. mai 2026. Senere endringer er ikke vurdert.}}
 \end{center}
 \vfill
 \end{titlepage}
