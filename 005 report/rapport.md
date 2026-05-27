@@ -8,9 +8,9 @@
 
 Forfatter(e): Erik Brendehaug, Joseph James, Pål Rånes, Marthe Slåtta Bjerke
 
-Totalt antall sider inkludert forsiden: TODO (fylles inn ved endelig låsing)
+Totalt antall sider inkludert forsiden: 24
 
-Molde, Innleveringsdato: TODO (fylles inn nærmere innlevering)
+Molde, Innleveringsdato: 28.05.2026
 
 \begin{center}
 \includegraphics{extracted_images/image_1.png}
@@ -86,7 +86,7 @@ Jeg/vi erklærer at oppgaven ikke omfattes av Personopplysningsloven  ☒
 | ---------------------------------------- | -- | --- |
 | Kan publiseres etter båndleggingsperiode | ☐  | ☐   |
 
-Dato: TODO (fylles inn nærmere innlevering)
+Dato: 28.05.2026
 
 ---
 
