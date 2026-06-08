@@ -202,13 +202,13 @@ Analysen bygger på følgende eksplisitte antagelser:
 
 I salgsprognose og etterspørselspredikering er to metodetradisjoner spesielt relevante: klassisk statistisk regresjon og ensemble-basert maskinlæring. Begge er godt dokumenterte tilnærminger til prediktiv modellering i handels- og forretningskontekster, og dagligvare- og varehandelssektoren er et aktivt anvendelsesområde i forskningslitteraturen (Fildes et al., 2022).
 
-Multippel lineær regresjon er en veletablert statistisk metode for å predikere en kontinuerlig utfallsvariabel fra flere forklaringsvariabler. IBM (u.å.-a) framhever at metoden er godt egnet for å avdekke mønstre i salgs- og innkjøpsdata og hjelpe ledere med å forutsi etterspørselsperioder for produkter. GeeksforGeeks (2026a) understreker at lineær regresjon er effektiv beregningskostnadsvis og gir et solid utgangspunkt for modellsammenlikning. Regresjonsbaserte tilnærminger har også vist seg nyttige spesifikt i dagligvarekontekst: Ulrich et al. (2021) bruker distribusjonell regresjon til å predikere daglig etterspørsel i netthandel med dagligvarer, og finner at regresjonsrammeverk som modellerer hele utfallsfordelingen — ikke bare gjennomsnittet — gir bedre beslutningsstøtte for lagerstyring. Et fellestrekk i litteraturen er at lineær regresjon krever at flere antagelser er oppfylt: residualene skal følge normalfordelingen, variansen skal være konstant over alle prediktornivåer (homoskedastisitet), og det skal ikke være perfekt multikollinearitet mellom forklaringsvariablene (IBM, u.å.-a; GeeksforGeeks, 2026a). Brudd på disse antagelsene svekker tolkningsvaliditeten, men ikke nødvendigvis prediksjonskraften.
+Multippel lineær regresjon er en veletablert statistisk metode for å predikere en kontinuerlig utfallsvariabel fra flere forklaringsvariabler, og er et naturlig referansevalg fordi den er rask å estimere og gir tolkbare koeffisienter (James et al., 2021). Metoden bygger på flere antagelser – blant annet at residualene er normalfordelte og har konstant varians (homoskedastisitet), og at det ikke er perfekt multikollinearitet mellom forklaringsvariablene – og brudd på disse svekker tolkningsvaliditeten, men ikke nødvendigvis prediksjonskraften (James et al., 2021). Regresjonsbaserte tilnærminger har også vist seg nyttige spesifikt i dagligvarekontekst: Ulrich et al. (2021) bruker distribusjonell regresjon til å predikere daglig etterspørsel i netthandel med dagligvarer, og finner at regresjonsrammeverk som modellerer hele utfallsfordelingen – ikke bare gjennomsnittet – gir bedre beslutningsstøtte for lagerstyring.
 
-Random Forest representerer en nyere og mer fleksibel tilnærming. IBM (u.å.-b) og GeeksforGeeks (2026b) beskriver begge at algoritmen er en ensemble-metode som kombinerer prediksjoner fra flere uavhengige beslutningstrær og dermed reduserer variansen i prediksjoner sammenlignet med et enkelt tre. IBM (u.å.-b) framhever at Random Forest gir lett identifikasjon av hvilke variabler som er viktigst for prediksjonen gjennom feature importance-rangeringer, og at metoden er robust mot overfitting og håndterer manglende data godt. GeeksforGeeks (2026b) presiserer at algoritmen ikke krever normalisering og er fleksibel for både klassifikasjon og regresjon. I sammenlignende studier av etterspørselsprognoser i varehandel inngår Random Forest ofte som referansemodell: Mitra et al. (2022) sammenligner blant annet Random Forest, gradient boosting og nevrale nett for en flerkanals varehandelskjede og finner at tre-baserte ensemble-metoder gir lavere prognosefeil enn enklere baselinjer, særlig når etterspørselsmønsteret er sammensatt.
+Random Forest representerer en nyere og mer fleksibel tilnærming. Breiman (2001) introduserte metoden som et ensemble av beslutningstrær der bootstrap-aggregering og tilfeldig variabeluttrekk gjør trærne mindre korrelerte, slik at gjennomsnittet over trærne reduserer variansen sammenlignet med et enkelt tre. James et al. (2021) framhever at Random Forest håndterer ikke-lineære sammenhenger og samspill mellom variabler direkte, og at metoden gir en innebygd rangering av variabelviktighet (feature importance). I sammenlignende studier av etterspørselsprognoser i varehandel inngår Random Forest ofte som referansemodell: Mitra et al. (2022) sammenligner blant annet Random Forest, gradient boosting og nevrale nett for en flerkanals varehandelskjede og finner at tre-baserte ensemble-metoder gir lavere prognosefeil enn enklere baselinjer, særlig når etterspørselsmønsteret er sammensatt. Kang (2023) sammenligner nettopp lineær regresjon, Random Forest og gradient boosting på salgsdata fra et supermarked og finner at den lineære modellen underfitter, mens de tre-baserte modellene presterer best – men med liten innbyrdes margin.
 
-Den empiriske litteraturen gir likevel ikke ett entydig svar på hvilken modellklasse som er best. Fildes et al. (2022) oppsummerer forskning og praksis innen varehandelsprognoser og påpeker at valg av metode avhenger sterkt av dataoppløsning, hierarkisk struktur og tilgang på forklaringsvariabler, og at enkle modeller ofte er overraskende konkurransedyktige på aggregert nivå. Makridakis et al. (2022) rapporterer fra M5-konkurransen, som baserte seg på daglige salgsdata fra varehandel, at gradient-boostede tremodeller systematisk slo både klassiske statistiske metoder og rene lineære modeller, men at gevinsten forutsatte rik feature-engineering og store datamengder. Samlet peker litteraturen på at maskinlæringens fortrinn er kontekstavhengig, og at valget av evalueringsmetrikk påvirker konklusjonen: RMSE og MAPE vektlegger henholdsvis absolutt og relativ feil ulikt (GeeksforGeeks, 2026a), og de peker ikke alltid på samme vinnermodell.
+Den empiriske litteraturen gir likevel ikke ett entydig svar på hvilken modellklasse som er best. Fildes et al. (2022) oppsummerer forskning og praksis innen varehandelsprognoser og påpeker at valg av metode avhenger sterkt av dataoppløsning, hierarkisk struktur og tilgang på forklaringsvariabler, og at enkle modeller ofte er overraskende konkurransedyktige på aggregert nivå. Spiliotis et al. (2022) studerer daglig etterspørsel på enkeltprodukt-nivå (SKU) i detaljhandel og viser at maskinlæring kan overgå statistiske metoder, men at fortrinnet er betinget av dataenes egenskaper og av hvordan modellene utnytter forklaringsvariabler. Makridakis et al. (2022) rapporterer fra M5-konkurransen, som baserte seg på daglige salgsdata fra varehandel, at gradient-boostede tremodeller systematisk slo både klassiske statistiske metoder og rene lineære modeller, men at gevinsten forutsatte rik feature-engineering og store datamengder. Samtidig viser Makridakis et al. (2018) at maskinlæring ikke automatisk er overlegen: på et bredt sett tidsrekker presterte enkle statistiske metoder bedre og krevde langt mindre beregning, et resultat senere arbeid nyanserer med at maskinlæringens fortrinn vokser med datamengden. Valget av evalueringsmetrikk påvirker også konklusjonen: RMSE og MAPE vektlegger henholdsvis absolutt og relativ feil ulikt, og MAPE er dessuten ustabil ved lave volum (Hyndman & Koehler, 2006), slik at de to målene ikke alltid peker på samme vinnermodell.
 
-Forskningsgapet denne rapporten adresserer ligger i krysningen mellom to forhold. For det første er sammenlignende empirisk arbeid som isolerer nettopp multippel lineær regresjon mot Random Forest for daglige salgsprognoser i dagligvaresektoren fortsatt begrenset; mye av litteraturen vektlegger enten større modellpaneler (Mitra et al., 2022; Makridakis et al., 2022) eller rikere eksterne variabler (Ulrich et al., 2021; Carbonneau et al., 2008). For det andre er effekten av streng tidsbasert oppsplitting på sammenligningens utfall sjelden isolert. Studien bidrar med en kontrollert sammenligning på ett datasett der trening, validering og test er strengt adskilt i tid, og hvor både samlede og segmentvise metrikker rapporteres.
+Forskningsgapet denne rapporten adresserer ligger i krysningen mellom to forhold. For det første er sammenlignende empirisk arbeid som isolerer nettopp multippel lineær regresjon mot Random Forest for daglige salgsprognoser i dagligvaresektoren fortsatt begrenset; mye av litteraturen vektlegger enten større modellpaneler (Mitra et al., 2022; Makridakis et al., 2022) eller rikere eksterne variabler (Ulrich et al., 2021; Carbonneau et al., 2008). For det andre er effekten av streng tidsbasert oppsplitting på sammenligningens utfall sjelden isolert (Cerqueira et al., 2020). Studien bidrar med en kontrollert sammenligning på ett datasett der trening, validering og test er strengt adskilt i tid, og hvor både samlede og segmentvise metrikker rapporteres.
 
 ---
 
@@ -222,13 +222,13 @@ Multippel lineær regresjon er en supervisert læringsmetode som modellerer forh
 
 $\hat{y} = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_n x_n$
 
-der $\hat{y}$ er predikert verdi, $\beta_0$ er konstantleddet og $\beta_1, \ldots, \beta_n$ er regresjonskoeffisientene som uttrykker endringen i $\hat{y}$ per enhet endring i den tilhørende forklaringsvariabelen, alt annet likt (GeeksforGeeks, 2026a).
+der $\hat{y}$ er predikert verdi, $\beta_0$ er konstantleddet og $\beta_1, \ldots, \beta_n$ er regresjonskoeffisientene som uttrykker endringen i $\hat{y}$ per enhet endring i den tilhørende forklaringsvariabelen, alt annet likt (James et al., 2021).
 
 Koeffisientene estimeres med **Ordinary Least Squares (OLS)**, som minimerer summen av kvadrerte residualer:
 
 $\sum_{i=1}^{n}(y_i - \hat{y}_i)^2$
 
-For at estimatene skal være gyldige krever metoden at fem antagelser er oppfylt (IBM, u.å.-a; GeeksforGeeks, 2026a): (1) linearitet mellom avhengig og uavhengige variabler, (2) uavhengige residualer, (3) homoskedastisitet — konstant varians i residualene på tvers av alle prediktornivåer, (4) normalfordelte residualer, og (5) ingen perfekt **multikollinearitet** mellom forklaringsvariablene. Multikollinearitet er særlig relevant i dette prosjektet fordi one-hot-kodede dummyvariabler kan skape høy innbyrdes korrelasjon og gjøre tolkning av enkeltkoeffisienter usikker.
+For at estimatene skal være gyldige krever metoden at fem antagelser er oppfylt (James et al., 2021): (1) linearitet mellom avhengig og uavhengige variabler, (2) uavhengige residualer, (3) homoskedastisitet — konstant varians i residualene på tvers av alle prediktornivåer, (4) normalfordelte residualer, og (5) ingen perfekt **multikollinearitet** mellom forklaringsvariablene. Multikollinearitet er særlig relevant i dette prosjektet fordi one-hot-kodede dummyvariabler kan skape høy innbyrdes korrelasjon og gjøre tolkning av enkeltkoeffisienter usikker.
 
 Konsekvensene av brudd på antagelsene er ulike og bør holdes fra hverandre. Brudd på linearitet — for eksempel en utelatt ikke-lineær sammenheng — gir systematisk skjevhet (bias) i selve prediksjonene. Heteroskedastisitet og avhengige residualer gir derimot først og fremst feilestimerte standardfeil og dermed upålitelig statistisk inferens, uten nødvendigvis å ødelegge punktprediksjonen. Multikollinearitet blåser opp variansen til koeffisientestimatene, slik at fortegn og størrelse på enkeltkoeffisienter blir ustabile selv når modellens samlede prediksjonskraft er god.
 
@@ -236,17 +236,17 @@ Lineær regresjon brukes her som benchmarkmodell nettopp fordi den er tolkbar �
 
 ### 3.2 Random Forest Regressor
 
-Random Forest er en ensemble-metode basert på et sett med beslutningstrær som samlet gir mer stabile prediksjoner enn ett enkelt tre (IBM, u.å.-b). Algoritmen hviler på to grunnprinsipper:
+Random Forest er en ensemble-metode basert på et sett med beslutningstrær som samlet gir mer stabile prediksjoner enn ett enkelt tre (Breiman, 2001). Algoritmen hviler på to grunnprinsipper:
 
-**Bootstrap aggregation (bagging):** Hvert tre trenes på et tilfeldig utvalg med tilbakelegging fra treningsdataene. Dermed ser hvert tre en litt annerledes versjon av datasettet, og trærne korrelerer mindre med hverandre (GeeksforGeeks, 2026b).
+**Bootstrap aggregation (bagging):** Hvert tre trenes på et tilfeldig utvalg med tilbakelegging fra treningsdataene. Dermed ser hvert tre en litt annerledes versjon av datasettet, og trærne korrelerer mindre med hverandre (Breiman, 2001).
 
-**Feature randomness:** Ved hver splittingsbeslutning i et tre velges kun et tilfeldig subsett av features til vurdering — ikke alle tilgjengelige variabler. Dette reduserer korrelasjon mellom trærne ytterligere og gjør ensemblet mer robust mot overfitting (IBM, u.å.-b).
+**Feature randomness:** Ved hver splittingsbeslutning i et tre velges kun et tilfeldig subsett av features til vurdering — ikke alle tilgjengelige variabler. Dette reduserer korrelasjon mellom trærne ytterligere og gjør ensemblet mer robust mot overfitting (Breiman, 2001).
 
 For regresjonsoppgaver er den endelige prediksjonen gjennomsnittet av alle trærnes individuelle prediksjoner. Dette reduserer overordnet varians og demper effekten av støy i enkelttrær.
 
 Mekanismen kan forstås gjennom **bias–varians-avveiingen**. Et enkelt, dypt beslutningstre har lav bias, men høy varians: det tilpasser seg treningsdataene tett og blir ustabilt mot små endringer i datagrunnlaget. Ved å gjennomsnitte mange avkorrelerte trær reduserer Random Forest variansen kraftig uten å øke biasen tilsvarende, slik at forventet prediksjonsfeil på nye data går ned. Fordi hvert tre trenes på et bootstrap-utvalg, kan de observasjonene som ikke inngår i utvalget (*out-of-bag*) brukes som et innebygd valideringsmål uten et separat hold-out-sett. I motsetning til lineær regresjon modellerer trærne ikke-lineære terskler og betingede samspill mellom variabler direkte, fordi hver splitt deler dataene lokalt; dette er en hovedgrunn til at tre-baserte ensembler ofte gir lavere prognosefeil enn lineære modeller når etterspørselsmønsteret er sammensatt (Mitra et al., 2022; Makridakis et al., 2022).
 
-**Feature importance** beregnes som gjennomsnittlig reduksjon i MSE (Mean Decrease in Impurity) på tvers av alle trær og splittinger for en gitt variabel. En variabel som konsekvent reduserer prediksjonsfeilen i mange trær, rangeres høyt (IBM, u.å.-b).
+**Feature importance** beregnes som gjennomsnittlig reduksjon i MSE (Mean Decrease in Impurity) på tvers av alle trær og splittinger for en gitt variabel. En variabel som konsekvent reduserer prediksjonsfeilen i mange trær, rangeres høyt (Breiman, 2001).
 
 Modellens oppførsel styres av hyperparametere som `n_estimators` (antall trær), `max_depth` (maksimal dybde per tre), `min_samples_leaf` (minste antall observasjoner i et løvnode) og `max_features` (antall features vurdert per split). Disse tilpasses gjennom hyperparametertuning mot et valideringssett.
 
@@ -266,17 +266,17 @@ $\text{MAPE} = \frac{1}{n}\sum_{i=1}^{n}\left|\frac{y_i - \hat{y}_i}{y_i}\right|
 
 MAPE er skalanøytral og enklere å kommunisere, men er ustabil når faktiske verdier er nær null (divisjon mot null), og overvekter dermed observasjoner med lavt volum. Metrikken brukes som sekundær metrikk. I prognosekonkurranser som M5 erstattes MAPE ofte av skalerte feilmål nettopp for å unngå denne ustabiliteten ved lave volum (Makridakis et al., 2022).
 
-Når RMSE og MAPE peker på ulike vinnere, skyldes det at en modell kan ha lavt absolutt avvik på store volumer (lavt RMSE) uten å treffe proporsjonalt godt på små volumer (høy MAPE). Begge metrikkene er derfor nødvendige for å forstå modelloppførselen på tvers av ulike salgsnivåer (GeeksforGeeks, 2026a).
+Når RMSE og MAPE peker på ulike vinnere, skyldes det at en modell kan ha lavt absolutt avvik på store volumer (lavt RMSE) uten å treffe proporsjonalt godt på små volumer (høy MAPE). Begge metrikkene er derfor nødvendige for å forstå modelloppførselen på tvers av ulike salgsnivåer (Hyndman & Koehler, 2006).
 
 ### 3.4 Feature engineering og dataoppsett
 
-**Feature engineering** er prosessen med å utlede nye variabler fra rådata for å gjøre mønstre tilgjengelige for modellene. I dette prosjektet er kalendervariablene `year`, `month`, `quarter`, `weekofyear`, `dayofweek`, `dayofmonth` og `is_weekend` avledet fra den opprinnelige datovariabelen. Disse variablene fanger opp sesong-, uke- og kvartalsmønstre som ikke direkte kan leses fra en rådate (GeeksforGeeks, 2026a).
+**Feature engineering** er prosessen med å utlede nye variabler fra rådata for å gjøre mønstre tilgjengelige for modellene. I dette prosjektet er kalendervariablene `year`, `month`, `quarter`, `weekofyear`, `dayofweek`, `dayofmonth` og `is_weekend` avledet fra den opprinnelige datovariabelen. Disse variablene fanger opp sesong-, uke- og kvartalsmønstre som ikke direkte kan leses fra en rådate (Fildes et al., 2022).
 
-**One-hot encoding** konverterer kategoriske variabler — som Region, Category og Sub-Category — til binære dummyvariabler. For lineær regresjon er dette nødvendig fordi modellen krever numerisk input. Random Forest bruker her samme kodede matrise for konsistens i sammenligning (IBM, u.å.-a).
+**One-hot encoding** konverterer kategoriske variabler — som Region, Category og Sub-Category — til binære dummyvariabler. For lineær regresjon er dette nødvendig fordi modellen krever numerisk input. Random Forest bruker her samme kodede matrise for konsistens i sammenligning (James et al., 2021).
 
 **Data leakage** oppstår når variabler som ikke ville vært tilgjengelige på prediksjonstidspunktet inkluderes i modellen. I dette prosjektet er `Profit` ekskludert fordi den kun er kjent etter at salget er gjennomført.
 
-**Tidsbasert oppsplitting** er valgt fremfor tilfeldig oppsplitting. Treningsdata er 2022–2024 og testdata er 2025. Tilfeldig oppsplitting ville tillate fremtidige observasjoner å inngå i treningen, noe som gir kunstig god ytelse og ikke reflekterer reell prediksjon fremover i tid. I hyperparametertuningen av Random Forest brukes 2024 i tillegg som intern valideringsperiode, mens lineær regresjon beholdes med det fulle treningsgrunnlaget.
+**Tidsbasert oppsplitting** er valgt fremfor tilfeldig oppsplitting. Treningsdata er 2022–2024 og testdata er 2025. Tilfeldig oppsplitting ville tillate fremtidige observasjoner å inngå i treningen, noe som gir kunstig god ytelse og ikke reflekterer reell prediksjon fremover i tid; tidsbasert evaluering anbefales nettopp for å unngå slike for optimistiske ytelsesestimater (Cerqueira et al., 2020). I hyperparametertuningen av Random Forest brukes 2024 i tillegg som intern valideringsperiode, mens lineær regresjon beholdes med det fulle treningsgrunnlaget.
 
 ---
 
@@ -851,21 +851,27 @@ Rapporten bidrar både praktisk og faglig. Praktisk leverer den Dagligvare en ko
 
 ## 11 Bibliografi
 
+Breiman, L. (2001). Random forests. *Machine Learning*, 45(1), 5–32. <https://doi.org/10.1023/A:1010933404324>
+
 Carbonneau, R., Laframboise, K., & Vahidov, R. (2008). Application of machine learning techniques for supply chain demand forecasting. *European Journal of Operational Research*, 184(3), 1140–1154. <https://doi.org/10.1016/j.ejor.2006.12.004>
+
+Cerqueira, V., Torgo, L., & Mozetič, I. (2020). Evaluating time series forecasting models: An empirical study on performance estimation methods. *Machine Learning*, 109(11), 1997–2028. <https://doi.org/10.1007/s10994-020-05910-7>
 
 Fildes, R., Ma, S., & Kolassa, S. (2022). Retail forecasting: Research and practice. *International Journal of Forecasting*, 38(4), 1283–1318. <https://doi.org/10.1016/j.ijforecast.2019.06.004>
 
-GeeksforGeeks. (2026a, 6. april). *Linear Regression in Machine Learning*. Hentet 13. april 2026 fra <https://www.geeksforgeeks.org/machine-learning/ml-linear-regression/>
+Hyndman, R. J., & Koehler, A. B. (2006). Another look at measures of forecast accuracy. *International Journal of Forecasting*, 22(4), 679–688. <https://doi.org/10.1016/j.ijforecast.2006.03.001>
 
-GeeksforGeeks. (2026b, 6. april). *Random Forest Algorithm in Machine Learning*. Hentet 13. april 2026 fra <https://www.geeksforgeeks.org/machine-learning/random-forest-algorithm-in-machine-learning/>
+James, G., Witten, D., Hastie, T., & Tibshirani, R. (2021). *An introduction to statistical learning: With applications in R* (2. utg.). Springer. <https://doi.org/10.1007/978-1-0716-1418-1>
 
-IBM. (u.å.-a). *What is linear regression?*. Hentet 13. april 2026 fra <https://www.ibm.com/think/topics/linear-regression>
+Kang, R. (2023). Sales prediction of Big Mart based on linear regression, random forest, and gradient boosting. *Advances in Economics, Management and Political Sciences*, 17, 200–207. <https://doi.org/10.54254/2754-1169/17/20231094>
 
-IBM. (u.å.-b). *What is random forest?*. Hentet 13. april 2026 fra <https://www.ibm.com/think/topics/random-forest>
+Makridakis, S., Spiliotis, E., & Assimakopoulos, V. (2018). Statistical and machine learning forecasting methods: Concerns and ways forward. *PLOS ONE*, 13(3), e0194889. <https://doi.org/10.1371/journal.pone.0194889>
 
 Makridakis, S., Spiliotis, E., & Assimakopoulos, V. (2022). M5 accuracy competition: Results, findings, and conclusions. *International Journal of Forecasting*, 38(4), 1346–1364. <https://doi.org/10.1016/j.ijforecast.2021.11.013>
 
 Mitra, A., Jain, A., Kishore, A., & Kumar, P. (2022). A comparative study of demand forecasting models for a multi-channel retail company: A novel hybrid machine learning approach. *Operations Research Forum*, 3(4), 58. <https://doi.org/10.1007/s43069-022-00166-4>
+
+Spiliotis, E., Makridakis, S., Semenoglou, A.-A., & Assimakopoulos, V. (2022). Comparison of statistical and machine learning methods for daily SKU demand forecasting. *Operational Research*, 22(3), 3037–3061. <https://doi.org/10.1007/s12351-020-00605-2>
 
 Ulrich, M., Jahnke, H., Langrock, R., Pesch, R., & Senge, R. (2021). Distributional regression for demand forecasting in e-grocery. *European Journal of Operational Research*, 294(3), 831–842. <https://doi.org/10.1016/j.ejor.2019.11.029>
 
