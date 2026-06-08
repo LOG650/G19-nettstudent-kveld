@@ -1,6 +1,6 @@
 # Statusliste
 
-Oppdatert: 2026-04-24 (WBS 7.3.3 fullført – alle fem overførte F-punkter lukket, førsteutkastet av rapporten er låst, 7.3-blokken helhetlig ferdigstilt)
+Oppdatert: 2026-06-08 (WBS 8.1 påbegynt – veiledertilbakemelding på rapporten innarbeidet i ny revisjon `rapport_final.md`)
 
 Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/home/erikb/himolde/log650/G19-nettstudent-kveld/012 fase 2 - plan/prosjektstyringsplan.md) og tilgjengelige prosjektartefakter i repoet. Punkter er merket som `verifisert` når de kan knyttes til eksisterende filer eller mappestruktur. Øvrige punkter er vurdert som planstatus per dato og må bekreftes av prosjektgruppen. Omtolkningen av WBS 4.3 er dokumentert i [endringslogg.md](endringslogg.md).
 
@@ -96,6 +96,18 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
   - F3 fra 7.3.2 lukket: § 7 linje 502 korrigert fra «MAPE der ligger på 89,39 %» til «tuned Random Forest-MAPE i samme segment ligger på 90,27 %». 89,39 % var faktisk baseline RFs MAPE; 90,27 % er tuned RFs verdi verifisert mot [tab_segmentmetrikk_modell.csv](../006%20analysis/aktiviteter/16_tolke_modellresultater/tab_segmentmetrikk_modell.csv).
   - Overført til WBS 8.1: synkronisering av [tab_relevante_variabler.csv](../006%20analysis/aktiviteter/02_identifisere_relevante_variabler/tab_relevante_variabler.csv) slik at `State = ekskluder` (analyseartefakt-opprydding, ikke språkvask).
   - Førsteutkastet av rapporten er låst per 2026-04-24. Videre revisjon håndteres i WBS 8.1.
+
+## WBS 8.1 – Revisjon etter veiledertilbakemelding
+
+- [x] Veiledertilbakemelding på `014 fase 4 - report/rapport_post_review.md` innarbeidet i ny revisjon [rapport_final.md](../014%20fase%204%20-%20report/rapport_final.md). Kildefilen `rapport_post_review.md` er bevart uendret. `fullført 2026-06-08`
+  - Kapittel 7 og 8 byttet plass: ny rekkefølge er `7 Resultat` og `8 Analyse`. Alle tabeller/figurer er renummerert (Tabell 7.1–7.4, Figur 7.1–7.3 i resultatkapitlet; Tabell 8.1–8.2, Figur 8.1–8.2 i analysekapitlet) og alle kryssreferanser, innholdsfortegnelse og CLAUDE.md-strukturlisten er oppdatert.
+  - All omtale av caset/datasettet som «simulert» er fjernet fullstendig (16 norske + 2 engelske forekomster, inkl. tittel, sammendrag, abstract, etikkavsnitt og konklusjon). `grep -i simuler` = 0 treff.
+  - Tabell 9.3 (metodiske begrensninger) er gjort om til løpende tekst i § 9.5.
+  - De brede tabellene er konvertert til HTML med mindre font (`font-size:0.8em`); Tabell 8.1, 8.2 og 9.1 har i tillegg hierarkiske kolonneoverskrifter (modell → RMSE/MAPE).
+  - Kapittel 3 (Teori) er styrket med konsekvenser av forutsetningsbrudd (3.1), bias–varians-avveiing og out-of-bag-validering (3.2) og skalerte feilmål (3.3).
+  - Litteratur (kap. 2) og bibliografi (kap. 11) er utvidet med fire verifiserte fagfellevurderte kilder fra Google Scholar/CrossRef: Fildes et al. (2022), Makridakis et al. (2022), Mitra et al. (2022) og Ulrich et al. (2021). Dette lukker WBS 8.1-punkt (c) om fagfellevurderte supplerende kilder.
+  - Figur 4.1 beholdt i § 4.1 etter avklaring (veileders «flytte figur 4.1?» besvart med nei).
+- [ ] Gjenstående WBS 8.1-punkter: (a) synkronisering av `tab_relevante_variabler.csv` (`State = ekskluder`) og (b) eksplisitt dokumentasjon av M5-forsinkelsen mot KR-007.
 
 ## Anbefalt kort prosjektstatus
 

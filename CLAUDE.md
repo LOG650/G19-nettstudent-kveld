@@ -41,8 +41,8 @@
 - `5.1 Metode`: analyseopplegg, modellstrategi og hvordan arbeidet gjennomføres.
 - `5.2 Data`: periode, variabler, observasjoner, datakvalitet og trening/test-oppsett.
 - `6 Modellering`: konkret modellvalg, spesifikasjon og estimeringsopplegg.
-- `7 Analyse`: analyse av modelloppførsel, residualer, prognoseegenskaper og tolkning.
-- `8 Resultat`: resultater som presenteres ryddig med figurer, tabeller og kort forklaring.
+- `7 Resultat`: resultater som presenteres ryddig med figurer, tabeller og kort forklaring.
+- `8 Analyse`: analyse av modelloppførsel, residualer, prognoseegenskaper og tolkning.
 - `9 Diskusjon`: vurdering av funnene opp mot problemstilling, teori, metode og begrensninger.
 - `10 Konklusjon`: kort svar på problemstillingen og viktigste implikasjoner for caset.
 - `11 Bibliografi`: fullstendig og konsistent referanseliste.
