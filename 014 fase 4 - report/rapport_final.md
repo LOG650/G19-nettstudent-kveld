@@ -120,39 +120,39 @@ The tuned Random Forest is the overall best model with RMSE 578.26 and MAPE 43.9
 
 ## Innhold <!-- omit in toc -->
 
-- [1 Innledning](#1-innledning)
-  - [1.1 Problemstilling](#11-problemstilling)
-  - [1.2 Delproblemer](#12-delproblemer)
-  - [1.3 Avgrensinger](#13-avgrensinger)
-  - [1.4 Antagelser](#14-antagelser)
-- [2 Litteratur](#2-litteratur)
-- [3 Teori](#3-teori)
-  - [3.1 Multippel lineær regresjon](#31-multippel-lineær-regresjon)
-  - [3.2 Random Forest Regressor](#32-random-forest-regressor)
-  - [3.3 Evalueringsmetrikker](#33-evalueringsmetrikker)
-  - [3.4 Feature engineering og dataoppsett](#34-feature-engineering-og-dataoppsett)
-- [4 Casebeskrivelse](#4-casebeskrivelse)
-  - [4.1 Dagligvare og beslutningssituasjonen](#41-dagligvare-og-beslutningssituasjonen)
-  - [4.2 Historisk salgsutvikling](#42-historisk-salgsutvikling)
-  - [4.3 Sesongmønster i salget](#43-sesongmønster-i-salget)
-  - [4.4 Utfordringer dårlige prognoser medfører i bedriften](#44-utfordringer-dårlige-prognoser-medfører-i-bedriften)
-- [5 Metode og data](#5-metode-og-data)
-  - [5.1 Metode](#51-metode)
-  - [5.2 Data](#52-data)
-  - [5.3 Validitet, reliabilitet og etiske hensyn](#53-validitet-reliabilitet-og-etiske-hensyn)
-- [6 Modellering](#6-modellering)
-- [7 Resultat](#7-resultat)
-- [8 Analyse](#8-analyse)
-- [9 Diskusjon](#9-diskusjon)
-  - [9.1 Tolkning av hovedfunn mot problemstillingen](#91-tolkning-av-hovedfunn-mot-problemstillingen)
-  - [9.2 Variablenes påvirkning](#92-variablenes-påvirkning)
-  - [9.3 Teoretiske implikasjoner](#93-teoretiske-implikasjoner)
-  - [9.4 Praktisk nytte for Dagligvare](#94-praktisk-nytte-for-dagligvare)
-  - [9.5 Metodiske begrensninger](#95-metodiske-begrensninger)
-  - [9.6 Videre arbeid](#96-videre-arbeid)
-- [10 Konklusjon](#10-konklusjon)
-- [11 Bibliografi](#11-bibliografi)
-- [12 Vedlegg](#12-vedlegg)
+[1 Innledning](#1-innledning)\
+&nbsp;&nbsp;&nbsp;[1.1 Problemstilling](#11-problemstilling)\
+&nbsp;&nbsp;&nbsp;[1.2 Delproblemer](#12-delproblemer)\
+&nbsp;&nbsp;&nbsp;[1.3 Avgrensinger](#13-avgrensinger)\
+&nbsp;&nbsp;&nbsp;[1.4 Antagelser](#14-antagelser)\
+[2 Litteratur](#2-litteratur)\
+[3 Teori](#3-teori)\
+&nbsp;&nbsp;&nbsp;[3.1 Multippel lineær regresjon](#31-multippel-lineær-regresjon)\
+&nbsp;&nbsp;&nbsp;[3.2 Random Forest Regressor](#32-random-forest-regressor)\
+&nbsp;&nbsp;&nbsp;[3.3 Evalueringsmetrikker](#33-evalueringsmetrikker)\
+&nbsp;&nbsp;&nbsp;[3.4 Feature engineering og dataoppsett](#34-feature-engineering-og-dataoppsett)\
+[4 Casebeskrivelse](#4-casebeskrivelse)\
+&nbsp;&nbsp;&nbsp;[4.1 Dagligvare og beslutningssituasjonen](#41-dagligvare-og-beslutningssituasjonen)\
+&nbsp;&nbsp;&nbsp;[4.2 Historisk salgsutvikling](#42-historisk-salgsutvikling)\
+&nbsp;&nbsp;&nbsp;[4.3 Sesongmønster i salget](#43-sesongmønster-i-salget)\
+&nbsp;&nbsp;&nbsp;[4.4 Utfordringer dårlige prognoser medfører i bedriften](#44-utfordringer-dårlige-prognoser-medfører-i-bedriften)\
+[5 Metode og data](#5-metode-og-data)\
+&nbsp;&nbsp;&nbsp;[5.1 Metode](#51-metode)\
+&nbsp;&nbsp;&nbsp;[5.2 Data](#52-data)\
+&nbsp;&nbsp;&nbsp;[5.3 Validitet, reliabilitet og etiske hensyn](#53-validitet-reliabilitet-og-etiske-hensyn)\
+[6 Modellering](#6-modellering)\
+[7 Resultat](#7-resultat)\
+[8 Analyse](#8-analyse)\
+[9 Diskusjon](#9-diskusjon)\
+&nbsp;&nbsp;&nbsp;[9.1 Tolkning av hovedfunn mot problemstillingen](#91-tolkning-av-hovedfunn-mot-problemstillingen)\
+&nbsp;&nbsp;&nbsp;[9.2 Variablenes påvirkning](#92-variablenes-påvirkning)\
+&nbsp;&nbsp;&nbsp;[9.3 Teoretiske implikasjoner](#93-teoretiske-implikasjoner)\
+&nbsp;&nbsp;&nbsp;[9.4 Praktisk nytte for Dagligvare](#94-praktisk-nytte-for-dagligvare)\
+&nbsp;&nbsp;&nbsp;[9.5 Metodiske begrensninger](#95-metodiske-begrensninger)\
+&nbsp;&nbsp;&nbsp;[9.6 Videre arbeid](#96-videre-arbeid)\
+[10 Konklusjon](#10-konklusjon)\
+[11 Bibliografi](#11-bibliografi)\
+[12 Vedlegg](#12-vedlegg)
 
 ---
 
