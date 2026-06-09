@@ -559,31 +559,11 @@ Tabell 8.1 viser eksakte månedlige RMSE- og MAPE-verdier per modell, med RMSE o
   >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}@{}}
 \toprule\noalign{}
-\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
-Måned
-\end{minipage}} & \multicolumn{2}{l}{%
-\begin{minipage}[b]{\linewidth}\raggedright
-Benchmark lineær
-\end{minipage}} & \multicolumn{2}{l}{%
-\begin{minipage}[b]{\linewidth}\raggedright
-Baseline RF
-\end{minipage}} & \multicolumn{2}{l@{}}{%
-\begin{minipage}[b]{\linewidth}\raggedright
-Tuned RF
-\end{minipage}} \\
-& \begin{minipage}[b]{\linewidth}\raggedright
-RMSE
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-MAPE~(\%)
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-RMSE
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-MAPE~(\%)
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-RMSE
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-MAPE~(\%)
-\end{minipage} \\
+\multirow{2}{*}{Måned} & \multicolumn{2}{l}{%
+Benchmark lineær} & \multicolumn{2}{l}{%
+Baseline RF} & \multicolumn{2}{l@{}}{%
+Tuned RF} \\
+& RMSE & MAPE~(\%) & RMSE & MAPE~(\%) & RMSE & MAPE~(\%) \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -634,33 +614,11 @@ Tabell 8.2 gir detaljert RMSE og MAPE per modell for alle 14 tolkningssegmentene
   >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}@{}}
 \toprule\noalign{}
-\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
-Dimensjon
-\end{minipage}} & \multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
-Verdi
-\end{minipage}} & \multicolumn{2}{l}{%
-\begin{minipage}[b]{\linewidth}\raggedright
-Benchmark lineær
-\end{minipage}} & \multicolumn{2}{l}{%
-\begin{minipage}[b]{\linewidth}\raggedright
-Baseline RF
-\end{minipage}} & \multicolumn{2}{l@{}}{%
-\begin{minipage}[b]{\linewidth}\raggedright
-Tuned RF
-\end{minipage}} \\
-& & \begin{minipage}[b]{\linewidth}\raggedright
-RMSE
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-MAPE~(\%)
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-RMSE
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-MAPE~(\%)
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-RMSE
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-MAPE~(\%)
-\end{minipage} \\
+\multirow{2}{*}{Dimensjon} & \multirow{2}{*}{Verdi} & \multicolumn{2}{l}{%
+Benchmark lineær} & \multicolumn{2}{l}{%
+Baseline RF} & \multicolumn{2}{l@{}}{%
+Tuned RF} \\
+& & RMSE & MAPE~(\%) & RMSE & MAPE~(\%) & RMSE & MAPE~(\%) \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -715,37 +673,11 @@ Tabell 9.1 sammenstiller modellprofilene og tydeliggjør differensieringen.
   >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}@{}}
 \toprule\noalign{}
-\multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
-\splitword{Modellrolle}
-\end{minipage}} & \multicolumn{2}{l}{%
-\begin{minipage}[b]{\linewidth}\raggedright
-Samlet 2025
-\end{minipage}} & \multicolumn{2}{l}{%
-\begin{minipage}[b]{\linewidth}\raggedright
-\splitword{Vinnermåneder}
-\end{minipage}} & \multicolumn{2}{l}{%
-\begin{minipage}[b]{\linewidth}\raggedright
-\splitword{Vinnersegmenter}
-\end{minipage}} & \multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
-Tolkbarhet
-\end{minipage}} & \multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
-\splitword{Hovedstyrke}
-\end{minipage}} & \multirow{2}{*}{\begin{minipage}[b]{\linewidth}\raggedright
-\splitword{Hovedsvakhet}
-\end{minipage}} \\
-& \begin{minipage}[b]{\linewidth}\raggedright
-RMSE
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-MAPE~(\%)
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-RMSE
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-MAPE
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-RMSE
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-MAPE
-\end{minipage} \\
+\multirow{2}{*}{\splitword{Modellrolle}} & \multicolumn{2}{l}{%
+Samlet 2025} & \multicolumn{2}{l}{%
+\splitword{Vinnermåneder}} & \multicolumn{2}{l}{%
+\splitword{Vinnersegmenter}} & \multirow{2}{*}{Tolkbarhet} & \multirow{2}{*}{\splitword{Hovedstyrke}} & \multirow{2}{*}{\splitword{Hovedsvakhet}} \\
+& RMSE & MAPE~(\%) & RMSE & MAPE & RMSE & MAPE \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -753,7 +685,7 @@ MAPE
 benchmark lineær & 580,39 & 44,18 & 1 & 3 & 1 & 4 & høy & Høy tolkbarhet og \splitword{konkurransedyktig} i enkelte
 segmenter. & \splitword{Multikollinearitet} og manglende regularisering svekker robust
 \splitword{koeffisienttolkning.} \\
-baseline RF & 589,28 & 44,12 & 0 & 6 & 0 & 4 & middels & Sterk lokal MAPE-ytelse og nyttig RF-sammenligningspunkt. &
+baseline RF & 589,28 & 44,12 & 0 & 6 & 0 & 4 & middels & Sterk lokal MAPE-ytelse og nyttig referansepunkt for RF. &
 Svakest samlet og uten RMSE-seire i måneder eller segmenter. \\
 tuned RF & 578,26 & 43,97 & 11 & 3 & 13 & 6 & middels & Best samlet 2025 og sterkest på absolutt feil. & MAPE er mer
 ujevn enn RMSE mellom måneder og segmenter. \\
@@ -792,17 +724,7 @@ Tabell 9.2 oppsummerer beslutningsmatrisen med anbefalt modellrolle, prioritert 
   >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}@{}}
 \toprule\noalign{}
-\begin{minipage}[b]{\linewidth}\raggedright
-\splitword{Beslutningsområde}
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Anbefalt modell
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Prioritert metrikk
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-Praktisk nytte
-\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
-\splitword{Hovedforbehold}
-\end{minipage} \\
+\splitword{Beslutningsområde} & Anbefalt modell & Prioritert metrikk & Praktisk nytte & \splitword{Hovedforbehold} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}

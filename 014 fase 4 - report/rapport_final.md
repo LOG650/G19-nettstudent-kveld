@@ -709,7 +709,7 @@ Tabell 9.1 sammenstiller modellprofilene og tydeliggjør differensieringen.
     </tr>
     <tr>
       <td>baseline RF</td><td>589,28</td><td>44,12</td><td>0</td><td>6</td><td>0</td><td>4</td><td>middels</td>
-      <td>Sterk lokal MAPE-ytelse og nyttig RF-sammenligningspunkt.</td>
+      <td>Sterk lokal MAPE-ytelse og nyttig referansepunkt for RF.</td>
       <td>Svakest samlet og uten RMSE-seire i måneder eller segmenter.</td>
     </tr>
     <tr>

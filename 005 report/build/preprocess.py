@@ -85,6 +85,16 @@ def to_latex_table(match: re.Match[str]) -> str:
         input=inner_html, capture_output=True, text=True, check=True,
     )
     latex = result.stdout.strip()
+    # Pandocs HTML-leser pakker hver celle i \begin{minipage}[b]{\linewidth}…. I
+    # en \multicolumn-celle (de hierarkiske header-gruppene) blir \linewidth den
+    # fulle sidebredden, ikke kolonnegruppens bredde, slik at headeren blåser
+    # tabellen langt utover sidekanten. Fjern minipage-wrapperne; da styrer
+    # p{}-kolonnebreddene fra tables.lua layouten, og linjebryting i p-kolonnene
+    # håndterer lange tekstceller.
+    latex = re.sub(
+        r"\\begin\{minipage\}\[[bt]\]\{\\linewidth\}\\raggedright\s*(.*?)\s*\\end\{minipage\}",
+        r"\1", latex, flags=re.DOTALL,
+    )
     out = f"\n{latex}\n"
     if caption:
         cap = _escape_latex(caption.strip())
