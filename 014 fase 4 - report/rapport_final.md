@@ -218,15 +218,15 @@ Dette kapitlet gir det faglige grunnlaget for metodevalg, analyse og tolkning se
 
 ### 3.1 Multippel lineær regresjon
 
-Multippel lineær regresjon er en supervisert læringsmetode som modellerer forholdet mellom en avhengig variabel og to eller flere uavhengige forklaringsvariabler. Modellen uttrykkes som:
+Multippel lineær regresjon er en supervisert læringsmetode som modellerer forholdet mellom en avhengig variabel og to eller flere uavhengige forklaringsvariabler. Modellen uttrykkes som i ligning (3.1):
 
-$$\hat{y} = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_n x_n$$
+$$\hat{y} = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_n x_n \tag{3.1}$$
 
 der $\hat{y}$ er predikert verdi, $\beta_0$ er konstantleddet og $\beta_1, \ldots, \beta_n$ er regresjonskoeffisientene som uttrykker endringen i $\hat{y}$ per enhet endring i den tilhørende forklaringsvariabelen, alt annet likt (James et al., 2021).
 
-Koeffisientene estimeres med **Ordinary Least Squares (OLS)**, som minimerer summen av kvadrerte residualer:
+Koeffisientene estimeres med **Ordinary Least Squares (OLS)**, som minimerer summen av kvadrerte residualer i ligning (3.2):
 
-$$\sum_{i=1}^{n}(y_i - \hat{y}_i)^2$$
+$$\sum_{i=1}^{n}(y_i - \hat{y}_i)^2 \tag{3.2}$$
 
 For at estimatene skal være gyldige krever metoden at fem antagelser er oppfylt (James et al., 2021): (1) linearitet mellom avhengig og uavhengige variabler, (2) uavhengige residualer, (3) homoskedastisitet — konstant varians i residualene på tvers av alle prediktornivåer, (4) normalfordelte residualer, og (5) ingen perfekt **multikollinearitet** mellom forklaringsvariablene. Multikollinearitet er særlig relevant i dette prosjektet fordi one-hot-kodede dummyvariabler kan skape høy innbyrdes korrelasjon og gjøre tolkning av enkeltkoeffisienter usikker.
 
@@ -254,19 +254,19 @@ Modellens oppførsel styres av hyperparametere som `n_estimators` (antall trær)
 
 To metrikker brukes for å evaluere prognosemodellene i dette prosjektet.
 
-**RMSE (Root Mean Squared Error)** måler den gjennomsnittlige størrelsen på prediksjonsfeilen i samme enhet som utfallsvariabelen:
+**RMSE (Root Mean Squared Error)** måler den gjennomsnittlige størrelsen på prediksjonsfeilen i samme enhet som utfallsvariabelen, vist i ligning (3.3):
 
-$$\text{RMSE} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}$$
+$$\text{RMSE} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2} \tag{3.3}$$
 
 Kvadreringen medfører at store avvik vektes tyngre enn små. RMSE brukes som primær metrikk i dette prosjektet fordi absolutt presisjon — å treffe riktig salgsvolum — er det mest relevante kravet for innkjøp og lagerstyring.
 
-**MAPE (Mean Absolute Percentage Error)** måler det gjennomsnittlige prosentvise avviket:
+**MAPE (Mean Absolute Percentage Error)** måler det gjennomsnittlige prosentvise avviket, vist i ligning (3.4):
 
-$$\text{MAPE} = \frac{1}{n}\sum_{i=1}^{n}\left|\frac{y_i - \hat{y}_i}{y_i}\right| \times 100$$
+$$\text{MAPE} = \frac{1}{n}\sum_{i=1}^{n}\left|\frac{y_i - \hat{y}_i}{y_i}\right| \times 100 \tag{3.4}$$
 
 MAPE er skalanøytral og enklere å kommunisere, men er ustabil når faktiske verdier er nær null (divisjon mot null), og overvekter dermed observasjoner med lavt volum. Metrikken brukes som sekundær metrikk. I prognosekonkurranser som M5 erstattes MAPE ofte av skalerte feilmål nettopp for å unngå denne ustabiliteten ved lave volum (Makridakis et al., 2022).
 
-Når RMSE og MAPE peker på ulike vinnere, skyldes det at en modell kan ha lavt absolutt avvik på store volumer (lavt RMSE) uten å treffe proporsjonalt godt på små volumer (høy MAPE). Begge metrikkene er derfor nødvendige for å forstå modelloppførselen på tvers av ulike salgsnivåer (Hyndman & Koehler, 2006).
+Når RMSE og MAPE peker på ulike vinnere, skyldes det at en modell kan ha lavt absolutt avvik på store volumer (lavt RMSE) uten å treffe proporsjonalt godt på små volumer (høy MAPE). Begge metrikkene (ligning (3.3) og (3.4)) er derfor nødvendige for å forstå modelloppførselen på tvers av ulike salgsnivåer (Hyndman & Koehler, 2006).
 
 ### 3.4 Feature engineering og dataoppsett
 
@@ -335,7 +335,7 @@ Prosjektet er en kvantitativ, prediktiv studie der historiske salgsdata fra én 
 
 Lineær regresjon ble valgt som benchmark-modell fordi metoden er tolkbar og gir et stabilt sammenligningsgrunnlag. Random Forest Regressor ble valgt som alternativmodell fordi den kan fange opp ikke-lineære mønstre og gir en naturlig rangering av variablenes prediksjonsverdi. Random Forest ble i tillegg tunet ved å trene på 2022–2023 og validere på 2024, slik at hyperparametere ble valgt uten å bruke testdataene. Alle tre modellspor – lineær regresjon, Random Forest baseline og tuned Random Forest – ble evaluert på 2025-data.
 
-Evalueringen benytter RMSE som primær metrikk fordi absolutt presisjon er mest relevant for innkjøp og lagerstyring, og MAPE som sekundær metrikk for å gi et relativt bilde av prognosefeilen (se kap. 3.3). Modellene sammenlignes samlet for hele 2025 og per måned, og resultatene tolkes videre etter kvartal, rabattnivå, region og salgsnivå for å gi praktisk beslutningsstøtte til Dagligvare.
+Evalueringen benytter RMSE som primær metrikk fordi absolutt presisjon er mest relevant for innkjøp og lagerstyring, og MAPE som sekundær metrikk for å gi et relativt bilde av prognosefeilen (jf. ligning (3.3) og (3.4) i kap. 3.3). Modellene sammenlignes samlet for hele 2025 og per måned, og resultatene tolkes videre etter kvartal, rabattnivå, region og salgsnivå for å gi praktisk beslutningsstøtte til Dagligvare.
 
 ### 5.2 Data
 
@@ -460,7 +460,7 @@ Tabell 6.1 oppsummerer de tre modellsporene med antall features, treningsrader, 
 
 <p align="center"><small><i>Tabell 6.1 Oversikt over de tre modellsporene: antall features, treningsrader, sentrale hyperparametre og rolle i prosjektet.</i></small></p>
 
-Den multiple lineære regresjonen trenes som `LinearRegression` med `fit_intercept=True` og uten regularisering eller skalering. Modellen estimeres med OLS (se kap. 3.1) på 6 682 rader og 67 features – det vil si alle kalendervariabler, `Discount` og de one-hot-kodede kategoriske variablene. Estimert konstantledd er $-3193{,}55$. Modellen er tolkbar gjennom sine koeffisienter, men forutsetter at salget kan beskrives som en lineær kombinasjon av forklaringsvariablene, og den har ingen mekanisme for å fange opp interaksjoner eller ikke-lineære effekter utover de som eksplisitt er kodet inn.
+Den multiple lineære regresjonen trenes som `LinearRegression` med `fit_intercept=True` og uten regularisering eller skalering. Modellen estimeres med OLS (jf. ligning (3.1) og (3.2)) på 6 682 rader og 67 features – det vil si alle kalendervariabler, `Discount` og de one-hot-kodede kategoriske variablene. Estimert konstantledd er $-3193{,}55$. Modellen er tolkbar gjennom sine koeffisienter, men forutsetter at salget kan beskrives som en lineær kombinasjon av forklaringsvariablene, og den har ingen mekanisme for å fange opp interaksjoner eller ikke-lineære effekter utover de som eksplisitt er kodet inn.
 
 Random Forest Regressor trenes på samme treningsmatrise. Baselinen bruker standardkonfigurasjonen `n_estimators=200`, `max_depth=None`, `min_samples_leaf=1`, `max_features=1.0` (dvs. at alle 67 features vurderes ved hver split), `bootstrap=True` og `random_state=42`, jf. bagging og feature randomness i kap. 3.2. Den tunede varianten bygger på et rutenettsøk der hver kandidat trenes på 2022–2023 (4 095 rader) og valideres på 2024 (2 587 rader). 2025-data inngår ikke i modellutvelgelsen – denne tidsmessige isolasjonen forhindrer datalekkasje mellom tuning og evaluering (jf. kap. 3.4 og 5.2). Vinnerkonfigurasjonen ble `n_estimators=400`, `max_depth=10`, `min_samples_leaf=4` og `max_features='sqrt'` (som gir $\lfloor\sqrt{67}\rfloor = 8$ features per split), valgt med validerings-RMSE som primærkriterium. Vinnerkandidaten oppnådde validerings-RMSE $577{,}27$ og validerings-MAPE $43{,}56\%$, mot baseline-kandidatens $590{,}30$ og $44{,}22\%$ på samme valideringssett. Den tunede modellen retrenes deretter på hele treningsperioden (2022–2024) før evaluering på 2025. Alle tre modellene genererer prognoser på testperioden 2025 (3 312 rader), og det er disse prognosene som danner grunnlaget for analyse og resultat i de neste kapitlene.
 
@@ -735,7 +735,7 @@ Funnene gir et faglig bidrag utover Dagligvare-caset. At gapet mellom tuned Rand
 
 ### 9.4 Praktisk nytte for Dagligvare
 
-En MAPE på rundt 44 % er høyt sett opp mot operative benchmarks i varehandel, der prosentavvik under 20 % ofte regnes som brukbart for daglige prognoser. På dagsnivå med høy varians i datasettet (standardavvik 578 på salg med snitt 1 497) er prosentfeilen likevel forventet å være stor, og prosentfeil er per definisjon ustabil når faktiske volum er små (jf. §3.3). Modellens praktiske verdi for Dagligvare ligger derfor mer i den relative rangeringen mellom modellsporene og i segmentanalysen enn i absolutt MAPE-nivå. For operativ innkjøpsbruk anbefales i tillegg aggregering til uke- eller månedsnivå, der enkeltdagers prosentavvik glattes ut.
+En MAPE på rundt 44 % er høyt sett opp mot operative benchmarks i varehandel, der prosentavvik under 20 % ofte regnes som brukbart for daglige prognoser. På dagsnivå med høy varians i datasettet (standardavvik 578 på salg med snitt 1 497) er prosentfeilen likevel forventet å være stor, og prosentfeil er per definisjon ustabil når faktiske volum er små (jf. ligning (3.4) i §3.3). Modellens praktiske verdi for Dagligvare ligger derfor mer i den relative rangeringen mellom modellsporene og i segmentanalysen enn i absolutt MAPE-nivå. For operativ innkjøpsbruk anbefales i tillegg aggregering til uke- eller månedsnivå, der enkeltdagers prosentavvik glattes ut.
 
 Funnene har fire tydelige praktiske bruksområder i Dagligvare, alle forankret i modellvalget i 9.1 og variabelrangeringen i 9.2. For innkjøp og overordnet lagerstyring er tuned Random Forest det naturlige standardvalget fordi modellen er best samlet på absolutt presisjon og gir den mest stabile månedsytelsen. Analysen dokumenterer ikke lageroptimalisering i snever forstand, men gir et sterkere grunnlag for å treffe bedre på totalnivå i planlagte bestillinger og dermed redusere risiko for både over- og underbestilling.
 
@@ -782,7 +782,7 @@ For kampanje- og rabattvurderinger anbefales tuned Random Forest som hovedmodell
 
 Flere metodiske forhold setter grenser for hvor langt funnene kan strekkes, og de påvirker både påliteligheten innenfor caset og generaliserbarheten utover det. Datagrunnlaget er representativt for caset, men består av ett datasett fra én virksomhet; påliteligheten innenfor caset kan fortsatt være god, mens robustheten mot andre kontekster ikke er testet, og funnene kan ikke uten videre overføres til andre dagligvarekjeder, regioner eller produktmixer uten eget datagrunnlag og ny validering. Analysen inkluderer heller ikke eksterne makroøkonomiske faktorer som inflasjon, rente eller konjunkturer, slik at prognosene kan være mindre robuste dersom 2025 påvirkes av forhold utenfor feature-settet, og resultatene generaliserer dårligere til perioder der slike eksterne sjokk spiller en større rolle. Modellomfanget er dessuten avgrenset til multippel lineær regresjon og Random Forest Regressor; den valgte modellen er best i prosjektets kandidatfelt, men ikke nødvendigvis best mulig totalt sett, og andre metodeklasser – tidsrekkemodeller, gradient boosting, nevrale nett – er ikke vurdert, noe som gir begrenset grunnlag for å generalisere at samme modellfamilie er best i andre lignende problemer.
 
-De øvrige forholdene gjelder estimering og tolkning. Den lineære modellen brukes med uregularisert OLS på en modellmatrise med 67 features, inkludert mange one-hot-kodede dummyvariabler, noe som gir en betydelig risiko for multikollinearitet; dette svekker tolkningsvaliditeten av de enkelte koeffisientene selv om prediksjonskraften kan være upåvirket, og koeffisientmønstre kan endre seg når datastruktur eller kategorifordeling endres i andre case. Hyperparametertuningen av Random Forest er basert på ett valideringsår (2024), slik at valget av tuned konfigurasjon reflekterer mønstrene i ett år framfor en mer robust kryssvalidering over flere perioder, og sensitiviteten for andre valideringsvinduer er ikke undersøkt. To planendringer i modellutviklingsfasen er dokumentert i endringsloggen: det felles treningssteget ble gjort om til en verifisering av treningsgrunnlag og modellsignaler siden begge modellene allerede var trent i forutgående aktiviteter, og hyperparametertuningen ble avgrenset til Random Forest-sporet alene. Samlet styrket disse endringene sporbarheten i modellutviklingen, men innebærer at lineær regresjon ikke har gjennomgått tilsvarende optimalisering.
+De øvrige forholdene gjelder estimering og tolkning. Den lineære modellen brukes med uregularisert OLS (ligning (3.2)) på en modellmatrise med 67 features, inkludert mange one-hot-kodede dummyvariabler, noe som gir en betydelig risiko for multikollinearitet; dette svekker tolkningsvaliditeten av de enkelte koeffisientene selv om prediksjonskraften kan være upåvirket, og koeffisientmønstre kan endre seg når datastruktur eller kategorifordeling endres i andre case. Hyperparametertuningen av Random Forest er basert på ett valideringsår (2024), slik at valget av tuned konfigurasjon reflekterer mønstrene i ett år framfor en mer robust kryssvalidering over flere perioder, og sensitiviteten for andre valideringsvinduer er ikke undersøkt. To planendringer i modellutviklingsfasen er dokumentert i endringsloggen: det felles treningssteget ble gjort om til en verifisering av treningsgrunnlag og modellsignaler siden begge modellene allerede var trent i forutgående aktiviteter, og hyperparametertuningen ble avgrenset til Random Forest-sporet alene. Samlet styrket disse endringene sporbarheten i modellutviklingen, men innebærer at lineær regresjon ikke har gjennomgått tilsvarende optimalisering.
 
 Funnene er i tillegg prediktive og ikke kausale. Variabelrangeringer og koeffisienter forteller hvilke signaler som er nyttige for å predikere salg, men ikke hvorfor salget endrer seg, og beslutninger som krever kausal innsikt kan ikke generaliseres direkte fra disse prediktive mønstrene. Denne avgrensningen er viktig å holde fast ved når resultatene oversettes til beslutningsstøtte, for eksempel når rabattsignalet skal tolkes i kampanjearbeidet.
 

@@ -54,6 +54,17 @@ TABELL_CAPTION = re.compile(
     r'<p align="center"><small><i>(Tabell [^<]+)</i></small></p>',
 )
 
+# Frittstående display-ligninger på egen linje (`$$ … $$`). De er nummerert med
+# \tag{3.x} i kilden, som virker i Markdown-visningen (KaTeX/MathJax). Pandoc
+# gjør `$$…$$` til `\[…\]`, som ikke tillater \tag i LaTeX, så vi pakker dem i et
+# equation-miljø der \tag overstyrer amsmath-tellingen og gir «(3.x)» ved høyre
+# marg. equation-miljøet sentrerer ligningen.
+DISPLAY_EQ = re.compile(r'^\$\$(.+?)\$\$[ \t]*$', re.MULTILINE)
+
+
+def to_equation(match: re.Match[str]) -> str:
+    return "\\begin{equation}\n" + match.group(1).strip() + "\n\\end{equation}"
+
 
 def to_markdown_image(match: re.Match[str]) -> str:
     src, _alt, width, caption = match.groups()
@@ -114,11 +125,13 @@ def main(argv: list[str]) -> int:
     text, html_tab_count = TABELL_DIV.subn(to_latex_table, text)
     text, fig_count = FIGUR_BLOCK.subn(to_markdown_image, text)
     text, tab_count = TABELL_CAPTION.subn(to_pandoc_caption, text)
+    text, eq_count = DISPLAY_EQ.subn(to_equation, text)
 
     dst_path.write_text(text, encoding="utf-8")
     print(f"Konverterte {html_tab_count} HTML-tabeller → rå LaTeX-longtable")
     print(f"Konverterte {fig_count} HTML-figurblokker → markdown image-syntaks")
     print(f"Konverterte {tab_count} HTML-tabellbildetekster → pandoc-caption")
+    print(f"Konverterte {eq_count} display-ligninger → equation-miljø")
     print(f"Skrev {dst_path}")
     return 0
 
