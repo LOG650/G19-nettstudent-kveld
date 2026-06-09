@@ -154,7 +154,7 @@ The tuned Random Forest is the overall best model with RMSE 578.26 and MAPE 43.9
 [11 Bibliografi](#11-bibliografi)\
 [12 Vedlegg](#12-vedlegg)
 
----
+\newpage
 
 ## 1 Innledning
 
