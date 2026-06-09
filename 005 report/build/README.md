@@ -19,28 +19,46 @@ texlive-luatex texlive-latex-recommended texlive-latex-extra texlive-fonts-recom
 
 ## Bygg PDF
 
-Kjør fra `005 report/`:
+Bygget er todelt: pandoc genererer en `.tex`, et etterbehandlingssteg
+(`postprocess.py`) låser figurplassering og gjør tabeller om til ikke-brytbare,
+radstrekede `tabular`-er, og til slutt kompilerer `lualatex`.
+
+Kjør fra `005 report/` (eksempel for `rapport_final.md` i `014 fase 4 - report/`):
 
 ```bash
-python3 build/preprocess.py rapport.md build/rapport_pdf.md
-pandoc build/rapport_pdf.md -o rapport.pdf \
+# 1) Preprosesser Markdown (figurer, HTML-tabeller, captions, display-ligninger)
+python3 build/preprocess.py "../014 fase 4 - report/rapport_final.md" build/rapport_final_pdf.md
+
+# 2) Pandoc → LaTeX (.tex, ikke PDF)
+pandoc build/rapport_final_pdf.md -o build/rapport_final.tex --standalone \
   --pdf-engine=lualatex --resource-path=. \
   -V geometry:a4paper -V geometry:margin=2.5cm -V lang=nb-NO -V fontsize=11pt \
   --columns=120 \
   --include-in-header=build/header.tex \
   --lua-filter=build/tables.lua
+
+# 3) Etterbehandle LaTeX: figure[H] + longtable → ikke-brytbar tabular m/ radlinjer
+python3 build/postprocess.py build/rapport_final.tex
+
+# 4) Kompiler (to passeringer) fra 005 report/ så bildestiene løses
+lualatex -interaction=nonstopmode build/rapport_final.tex
+lualatex -interaction=nonstopmode build/rapport_final.tex
+mv rapport_final.pdf "../014 fase 4 - report/rapport_final.pdf"
 ```
 
-Resultatet legges som `rapport.pdf` i `005 report/`.
+`lualatex` kjøres fra `005 report/` slik at `extracted_images/…` og
+`../006 analysis/…` løses, og legger `rapport_final.pdf` i arbeidskatalogen før den
+flyttes til rapportmappa.
 
 ## Hva hver fil gjør
 
 | Fil | Rolle |
 |:---|:---|
-| [preprocess.py](preprocess.py) | (1) Konverterer HTML-figurblokker (`<div align="center"><img …></div>`) til Markdown image-syntaks slik at pandoc kan embeddre figurene som faktiske bilder i LaTeX-output. (2) Konverterer HTML-tabellbildetekster (`<p align="center"><small><i>Tabell X.Y …</i></small></p>`) til pandoc-native caption-syntaks (`: Tabell X.Y …`) slik at de blir ekte longtable-captions med riktig styling. |
-| [header.tex](header.tex) | LaTeX-preamble: tabellinnstillinger, `microtype`, captionsetup (sentrert liten italic uten "Figur N:" / "Tabell N:" auto-prefiks), `pdflscape`, makroene `\splitcode` og `\splitword` (basert på `seqsplit`), og Unicode-mapping for ☐ ☒ − via `newunicodechar`. |
+| [preprocess.py](preprocess.py) | Kjøres på Markdown før pandoc. (1) HTML-figurblokker (`<div align="center"><img …></div>`) → Markdown image-syntaks. (2) HTML-tabeller med hierarkiske overskrifter (`<div …><table>…</table></div>`) → rå LaTeX-longtable via `pandoc -f html` + `tables.lua` (minipage-wrappere fjernes så `\multicolumn`-headere ikke sprenger sidebredden). (3) HTML-tabellbildetekster → pandoc-native caption (`: Tabell X.Y …`). (4) Frittstående display-ligninger (`$$ … \tag{3.x}$$`) → `equation`-miljø (så `\tag` virker i LaTeX). |
+| [postprocess.py](postprocess.py) | Kjøres på den genererte `.tex` etter pandoc. (1) `\begin{figure}` → `\begin{figure}[H]` slik at figurene står i kilderekkefølge i stedet for å flyte. (2) Hver `longtable` → ikke-brytbar, sentrert `tabular` (splittes aldri) med `\midrule` mellom hver datarad (vannrette radlinjer); hierarkiske overskrifter og kolonnebredder beholdes. |
+| [header.tex](header.tex) | LaTeX-preamble: `float` (for `[H]`), `multirow`, tabellinnstillinger, `microtype`, captionsetup (sentrert liten italic uten "Figur N:" / "Tabell N:" auto-prefiks), `pdflscape`, makroene `\splitcode` og `\splitword` (basert på `seqsplit`), og Unicode-mapping for ☐ ☒ − via `newunicodechar`. |
 | [tables.lua](tables.lua) | Pandoc Lua-filter. Setter alle kolonnebredder til `1/n` (tvinger linjebryting), wrapper inline-kode i `\splitcode{}` globalt, og inne i tabellens body (ikke head/foot) wrapper også lange ord uten naturlige bryte-punkter i `\splitword{}`. Tabeller med ≥ 10 kolonner roteres til landskap. |
-| `rapport_pdf.md` | Mellomprodukt fra `preprocess.py`. Ignorert i git. |
+| `rapport_*_pdf.md`, `rapport_final.tex` | Mellomprodukter fra preprocess/pandoc. Ignorert i git. |
 
 ## Hvorfor disse valgene
 

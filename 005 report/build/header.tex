@@ -7,6 +7,7 @@
 \usepackage{etoolbox}
 \usepackage{array}
 \usepackage{multirow}
+\usepackage{float}
 \usepackage[export]{adjustbox}
 \usepackage[section]{placeins}
 
@@ -26,15 +27,12 @@
 \renewcommand{\textfraction}{0.08}
 \renewcommand{\floatpagefraction}{0.7}
 
-% Fjern 'h' fra default float-placement (pandoc setter htbp). Med 'h'
-% kan LaTeX presse en figur inline selv når plassen er marginal, slik
-% at figurens nedre kant klippes av sidemargen. Med kun 'tbp' tvinges
-% figurer til å flyte til topp/bunn/floatside — standard akademisk
-% rapportkonvensjon.
-\makeatletter
-\renewcommand{\fps@figure}{tbp}
-\renewcommand{\fps@table}{tbp}
-\makeatother
+% Figurer skal beholde sin opprinnelige plassering fra Markdown-kilden i stedet
+% for å flyte. Etterbehandlingen (postprocess.py) setter \begin{figure}[H], som
+% via float-pakken plasserer figuren nøyaktig der den står. En figur som ikke får
+% plass nederst på en side flyttes som helhet til neste side (kan etterlate litt
+% tomrom), men rekkefølgen mot teksten bevares. max totalheight=0.8\textheight
+% (over) hindrer at høye figurer overfyller siden.
 
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.1}

@@ -1,2 +1,8 @@
-# Mellomprodukt fra build/preprocess.py — regenereres ved hver bygging
+# Mellomprodukter fra bygget — regenereres ved hver bygging
 rapport_pdf.md
+rapport_final_pdf.md
+rapport_post_review_pdf.md
+rapport_final.tex
+*.aux
+*.log
+*.out
