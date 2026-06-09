@@ -220,13 +220,13 @@ Dette kapitlet gir det faglige grunnlaget for metodevalg, analyse og tolkning se
 
 Multippel lineær regresjon er en supervisert læringsmetode som modellerer forholdet mellom en avhengig variabel og to eller flere uavhengige forklaringsvariabler. Modellen uttrykkes som:
 
-$\hat{y} = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_n x_n$
+$$\hat{y} = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_n x_n$$
 
 der $\hat{y}$ er predikert verdi, $\beta_0$ er konstantleddet og $\beta_1, \ldots, \beta_n$ er regresjonskoeffisientene som uttrykker endringen i $\hat{y}$ per enhet endring i den tilhørende forklaringsvariabelen, alt annet likt (James et al., 2021).
 
 Koeffisientene estimeres med **Ordinary Least Squares (OLS)**, som minimerer summen av kvadrerte residualer:
 
-$\sum_{i=1}^{n}(y_i - \hat{y}_i)^2$
+$$\sum_{i=1}^{n}(y_i - \hat{y}_i)^2$$
 
 For at estimatene skal være gyldige krever metoden at fem antagelser er oppfylt (James et al., 2021): (1) linearitet mellom avhengig og uavhengige variabler, (2) uavhengige residualer, (3) homoskedastisitet — konstant varians i residualene på tvers av alle prediktornivåer, (4) normalfordelte residualer, og (5) ingen perfekt **multikollinearitet** mellom forklaringsvariablene. Multikollinearitet er særlig relevant i dette prosjektet fordi one-hot-kodede dummyvariabler kan skape høy innbyrdes korrelasjon og gjøre tolkning av enkeltkoeffisienter usikker.
 
@@ -256,13 +256,13 @@ To metrikker brukes for å evaluere prognosemodellene i dette prosjektet.
 
 **RMSE (Root Mean Squared Error)** måler den gjennomsnittlige størrelsen på prediksjonsfeilen i samme enhet som utfallsvariabelen:
 
-$\text{RMSE} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}$
+$$\text{RMSE} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}$$
 
 Kvadreringen medfører at store avvik vektes tyngre enn små. RMSE brukes som primær metrikk i dette prosjektet fordi absolutt presisjon — å treffe riktig salgsvolum — er det mest relevante kravet for innkjøp og lagerstyring.
 
 **MAPE (Mean Absolute Percentage Error)** måler det gjennomsnittlige prosentvise avviket:
 
-$\text{MAPE} = \frac{1}{n}\sum_{i=1}^{n}\left|\frac{y_i - \hat{y}_i}{y_i}\right| \times 100$
+$$\text{MAPE} = \frac{1}{n}\sum_{i=1}^{n}\left|\frac{y_i - \hat{y}_i}{y_i}\right| \times 100$$
 
 MAPE er skalanøytral og enklere å kommunisere, men er ustabil når faktiske verdier er nær null (divisjon mot null), og overvekter dermed observasjoner med lavt volum. Metrikken brukes som sekundær metrikk. I prognosekonkurranser som M5 erstattes MAPE ofte av skalerte feilmål nettopp for å unngå denne ustabiliteten ved lave volum (Makridakis et al., 2022).
 
