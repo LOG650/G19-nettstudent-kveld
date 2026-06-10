@@ -126,12 +126,12 @@ The tuned Random Forest is the overall best model with RMSE 578.26 and MAPE 43.9
 &nbsp;&nbsp;&nbsp;[1.3 Avgrensinger](#13-avgrensinger)\
 &nbsp;&nbsp;&nbsp;[1.4 Antagelser](#14-antagelser)\
 [2 Litteratur](#2-litteratur)\
-&nbsp;&nbsp;&nbsp;[2.1 Forskningsgap og hvordan studien skiller seg ut](#21-forskningsgap-og-hvordan-studien-skiller-seg-ut)\
 [3 Teori](#3-teori)\
 &nbsp;&nbsp;&nbsp;[3.1 Multippel lineær regresjon](#31-multippel-lineær-regresjon)\
 &nbsp;&nbsp;&nbsp;[3.2 Random Forest Regressor](#32-random-forest-regressor)\
 &nbsp;&nbsp;&nbsp;[3.3 Evalueringsmetrikker](#33-evalueringsmetrikker)\
 &nbsp;&nbsp;&nbsp;[3.4 Feature engineering og dataoppsett](#34-feature-engineering-og-dataoppsett)\
+&nbsp;&nbsp;&nbsp;[3.5 Syntese: teori, metode og analyse](#35-syntese-teori-metode-og-analyse)\
 [4 Casebeskrivelse](#4-casebeskrivelse)\
 &nbsp;&nbsp;&nbsp;[4.1 Dagligvare og beslutningssituasjonen](#41-dagligvare-og-beslutningssituasjonen)\
 &nbsp;&nbsp;&nbsp;[4.2 Historisk salgsutvikling](#42-historisk-salgsutvikling)\
@@ -221,27 +221,35 @@ Posisjoneringen begrunner samtidig de metodiske valgene caset hviler på. At rab
 
 ## 3 Teori
 
-Dette kapitlet gir det faglige grunnlaget for metodevalg, analyse og tolkning senere i rapporten. Notasjon: når en kolonne eller feature fra modellmatrisen refereres direkte, skrives navnet i inline kode, for eksempel `Discount`, `Region_North` eller `dayofmonth`. I Sammendrag og Abstract brukes vanlig prosa («rabatt», «discount», «kalendervariabler») for å holde oppsummeringene tilgjengelige for et bredere publikum. *Forklaringsvariabel* brukes som samlebegrep for alle input i modellene, mens *prediktor*, *signal* og *feature* opptrer som kontekstuelle synonymer der variasjonen understøtter lesbarheten.
+Dette kapitlet gir det faglige grunnlaget for metodevalg, analyse og tolkning senere i rapporten. Den styrende ideen er en bevisst kontrast: rapporten stiller en *tolkbar lineær benchmark* (multippel lineær regresjon) opp mot et *fleksibelt ensemble* (Random Forest Regressor). De to modellklassene ligger i hver sin ende av avveiingen mellom tolkbarhet og fleksibilitet, og dermed av bias–varians-avveiingen: den lineære modellen er gjennomsiktig, men forutsetter et i hovedsak additivt mønster, mens ensemblet fanger ikke-lineære samspill, men er vanskeligere å lese direkte. Det er nettopp denne kontrasten som isolerer problemstillingen — hva en enkel og en fleksibel modell yter mot hverandre under realistiske databetingelser for Dagligvare — og som svarer på de to delproblemene om prognoseytelse (delproblem 1) og variabelviktighet (delproblem 2).
+
+To rammer avgrenser hvilken teori som er relevant. For det første er målet *prediksjon*, ikke kausal eller statistisk inferens: rapporten vurderer hvor treffsikkert modellene predikerer salg utenfor treningsperioden, ikke hvorfor salget endrer seg. Punktprediksjonsfeil veier dermed tyngre enn formell koeffisientdiagnostikk, og denne prioriteringen forklarer flere senere metodevalg (jf. §9.5). For det andre modelleres salget som en funksjon av kalendervariabler og kjennetegn — en tverrsnittsbasert regresjon — ikke som en autoregressiv tidsrekkeprosess med lag-ledd. Dette er et bevisst valg i tråd med avgrensningen til to modelltyper (jf. §1.3), og konsekvensen av at modellene mangler lag-struktur drøftes i §9.3 og §9.6.
+
+Seksjon 3.1–3.4 bygger ut de enkelte byggeklossene — de to modellene, evalueringsmetrikkene og dataoppsettet — mens §3.5 oppsummerer hvordan hver av dem underbygger metode, analyse og diskusjon senere i rapporten.
+
+Om notasjon: når en kolonne eller feature fra modellmatrisen refereres direkte, skrives navnet i inline kode, for eksempel `Discount`, `Region_North` eller `dayofmonth`. I Sammendrag og Abstract brukes vanlig prosa («rabatt», «discount», «kalendervariabler») for å holde oppsummeringene tilgjengelige for et bredere publikum. *Forklaringsvariabel* brukes som samlebegrep for alle input i modellene, mens *prediktor*, *signal* og *feature* opptrer som kontekstuelle synonymer der variasjonen understøtter lesbarheten.
 
 ### 3.1 Multippel lineær regresjon
 
-Multippel lineær regresjon er en supervisert læringsmetode som modellerer forholdet mellom en avhengig variabel og to eller flere uavhengige forklaringsvariabler. Modellen uttrykkes som i ligning (3.1):
+Multippel lineær regresjon brukes som benchmarkmodell i prosjektet, av to grunner. Den er tolkbar — koeffisientene gir direkte innsikt i retning og størrelse av variabeleffekter, noe som understøtter delproblem 2 om hvilke variabler som påvirker salget mest — og enkle modeller er ofte overraskende konkurransedyktige i varehandelsprognoser (Fildes et al., 2022). Den prinsipielle begrensningen er at metoden forutsetter et i hovedsak lineært og additivt mønster, slik at betingede samspill mellom variabler ikke fanges opp uten at de spesifiseres eksplisitt. Nettopp dette premisset settes på prøve når benchmarken stilles mot et fleksibelt ensemble (jf. §9.2 og §9.3).
+
+Metoden modellerer forholdet mellom en avhengig variabel og to eller flere uavhengige forklaringsvariabler. Modellen uttrykkes som i ligning (3.1):
 
 $$\hat{y} = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_n x_n \tag{3.1}$$
 
-der $\hat{y}$ er predikert verdi, $\beta_0$ er konstantleddet og $\beta_1, \ldots, \beta_n$ er regresjonskoeffisientene som uttrykker endringen i $\hat{y}$ per enhet endring i den tilhørende forklaringsvariabelen, alt annet likt (James et al., 2021).
+der $\hat{y}$ er predikert verdi, $\beta_0$ er konstantleddet og $\beta_1, \ldots, \beta_n$ er regresjonskoeffisientene som uttrykker endringen i $\hat{y}$ per enhet endring i den tilhørende forklaringsvariabelen, alt annet likt (James et al., 2021). Koeffisientene tolkes konkret i resultat- og analysekapitlene, der blant annet det lineære fortegnet på `Discount` sammenlignes med Random Forests variabelrangering (jf. §8 og §9.2).
 
 Koeffisientene estimeres med **Ordinary Least Squares (OLS)**, som minimerer summen av kvadrerte residualer i ligning (3.2):
 
 $$\sum_{i=1}^{n}(y_i - \hat{y}_i)^2 \tag{3.2}$$
 
-For at estimatene skal være gyldige krever metoden at fem antagelser er oppfylt (James et al., 2021): (1) linearitet mellom avhengig og uavhengige variabler, (2) uavhengige residualer, (3) homoskedastisitet — konstant varians i residualene på tvers av alle prediktornivåer, (4) normalfordelte residualer, og (5) ingen perfekt **multikollinearitet** mellom forklaringsvariablene. Multikollinearitet er særlig relevant i dette prosjektet fordi one-hot-kodede dummyvariabler kan skape høy innbyrdes korrelasjon og gjøre tolkning av enkeltkoeffisienter usikker.
+For at estimatene skal være gyldige krever metoden at fem antagelser er oppfylt (James et al., 2021): (1) linearitet mellom avhengig og uavhengige variabler, (2) uavhengige residualer, (3) homoskedastisitet — konstant varians i residualene på tvers av alle prediktornivåer, (4) normalfordelte residualer, og (5) ingen perfekt **multikollinearitet** mellom forklaringsvariablene. Multikollinearitet er særlig relevant i dette prosjektet fordi one-hot-kodede dummyvariabler kan skape høy innbyrdes korrelasjon og gjøre tolkning av enkeltkoeffisienter usikker (jf. §9.5).
 
-Konsekvensene av brudd på antagelsene er ulike og bør holdes fra hverandre. Brudd på linearitet — for eksempel en utelatt ikke-lineær sammenheng — gir systematisk skjevhet (bias) i selve prediksjonene. Heteroskedastisitet og avhengige residualer gir derimot først og fremst feilestimerte standardfeil og dermed upålitelig statistisk inferens, uten nødvendigvis å ødelegge punktprediksjonen. Multikollinearitet blåser opp variansen til koeffisientestimatene, slik at fortegn og størrelse på enkeltkoeffisienter blir ustabile selv når modellens samlede prediksjonskraft er god.
-
-Lineær regresjon brukes her som benchmarkmodell nettopp fordi den er tolkbar — koeffisientene gir direkte innsikt i retning og størrelse av variabeleffekter — og fordi enkle modeller ofte er overraskende konkurransedyktige i varehandelsprognoser (Fildes et al., 2022). Dens prinsipielle begrensning er at den forutsetter et i hovedsak lineært og additivt mønster i dataene, slik at betingede samspill mellom variabler ikke fanges opp uten at de spesifiseres eksplisitt.
+Konsekvensene av brudd på antagelsene er ulike og bør holdes fra hverandre. Brudd på linearitet — for eksempel en utelatt ikke-lineær sammenheng — gir systematisk skjevhet (bias) i selve prediksjonene. Heteroskedastisitet og avhengige residualer gir derimot først og fremst feilestimerte standardfeil og dermed upålitelig statistisk inferens, uten nødvendigvis å ødelegge punktprediksjonen. Multikollinearitet blåser opp variansen til koeffisientestimatene, slik at fortegn og størrelse på enkeltkoeffisienter blir ustabile selv når modellens samlede prediksjonskraft er god. Fordi prosjektets mål er prediksjon og ikke statistisk inferens, prioriteres treffsikkerhet på testperioden framfor formelle diagnosetester for normalitet, homoskedastisitet og multikollinearitet; denne prioriteringen — og dens pris for tolkningen av enkeltkoeffisienter — drøftes som en metodisk begrensning i §9.5.
 
 ### 3.2 Random Forest Regressor
+
+Random Forest Regressor brukes som den fleksible alternativmodellen, fordi den retter seg direkte mot benchmarkens svakhet: den modellerer ikke-lineære terskler og betingede samspill mellom variabler uten at de må spesifiseres på forhånd, og den leverer en innebygd rangering av variabelviktighet (feature importance) som besvarer delproblem 2. Prisen er lavere direkte tolkbarhet enn i den lineære modellen.
 
 Random Forest er en ensemble-metode basert på et sett med beslutningstrær som samlet gir mer stabile prediksjoner enn ett enkelt tre (Breiman, 2001). Algoritmen hviler på to grunnprinsipper:
 
@@ -251,15 +259,15 @@ Random Forest er en ensemble-metode basert på et sett med beslutningstrær som 
 
 For regresjonsoppgaver er den endelige prediksjonen gjennomsnittet av alle trærnes individuelle prediksjoner. Dette reduserer overordnet varians og demper effekten av støy i enkelttrær.
 
-Mekanismen kan forstås gjennom **bias–varians-avveiingen**. Et enkelt, dypt beslutningstre har lav bias, men høy varians: det tilpasser seg treningsdataene tett og blir ustabilt mot små endringer i datagrunnlaget. Ved å gjennomsnitte mange avkorrelerte trær reduserer Random Forest variansen kraftig uten å øke biasen tilsvarende, slik at forventet prediksjonsfeil på nye data går ned. Fordi hvert tre trenes på et bootstrap-utvalg, kan de observasjonene som ikke inngår i utvalget (*out-of-bag*) brukes som et innebygd valideringsmål uten et separat hold-out-sett. I motsetning til lineær regresjon modellerer trærne ikke-lineære terskler og betingede samspill mellom variabler direkte, fordi hver splitt deler dataene lokalt; dette er en hovedgrunn til at tre-baserte ensembler ofte gir lavere prognosefeil enn lineære modeller når etterspørselsmønsteret er sammensatt (Mitra et al., 2022; Makridakis et al., 2022).
+Mekanismen kan forstås gjennom **bias–varians-avveiingen**. Et enkelt, dypt beslutningstre har lav bias, men høy varians: det tilpasser seg treningsdataene tett og blir ustabilt mot små endringer i datagrunnlaget. Ved å gjennomsnitte mange avkorrelerte trær reduserer Random Forest variansen kraftig uten å øke biasen tilsvarende, slik at forventet prediksjonsfeil på nye data går ned. Fordi hvert tre trenes på et bootstrap-utvalg, kan de observasjonene som ikke inngår i utvalget (*out-of-bag*) brukes som et innebygd valideringsmål uten et separat hold-out-sett. I motsetning til lineær regresjon modellerer trærne ikke-lineære terskler og betingede samspill mellom variabler direkte, fordi hver splitt deler dataene lokalt; dette er en hovedgrunn til at tre-baserte ensembler ofte gir lavere prognosefeil enn lineære modeller når etterspørselsmønsteret er sammensatt (Mitra et al., 2022; Makridakis et al., 2022). I praksis er det denne avveiingen tuningen utnytter: den tunede konfigurasjonen begrenser tredybden (`max_depth=10`) og krever flere observasjoner per løvnode (`min_samples_leaf=4`), noe som demper variansen ytterligere og er en sentral forklaring på at den tunede modellen havner svært tett opp mot den lineære benchmarken (jf. §9.3).
 
-**Feature importance** beregnes som gjennomsnittlig reduksjon i MSE (Mean Decrease in Impurity) på tvers av alle trær og splittinger for en gitt variabel. En variabel som konsekvent reduserer prediksjonsfeilen i mange trær, rangeres høyt (Breiman, 2001).
+**Feature importance** beregnes som gjennomsnittlig reduksjon i MSE (Mean Decrease in Impurity) på tvers av alle trær og splittinger for en gitt variabel. En variabel som konsekvent reduserer prediksjonsfeilen i mange trær, rangeres høyt (Breiman, 2001). Denne rangeringen presenteres i kap. 7 (Tabell 7.3 og Figur 7.2–7.3) og tolkes opp mot de lineære koeffisientene i §8 og §9.2 — koblingen som besvarer delproblem 2.
 
-Modellens oppførsel styres av hyperparametere som `n_estimators` (antall trær), `max_depth` (maksimal dybde per tre), `min_samples_leaf` (minste antall observasjoner i et løvnode) og `max_features` (antall features vurdert per split). Disse tilpasses gjennom hyperparametertuning mot et valideringssett.
+Modellens oppførsel styres av hyperparametere som `n_estimators` (antall trær), `max_depth` (maksimal dybde per tre), `min_samples_leaf` (minste antall observasjoner i et løvnode) og `max_features` (antall features vurdert per split). Disse kan ikke leses av treningsfeilen alene, fordi en mer fleksibel konfigurasjon nesten alltid passer treningsdataene bedre uten å generalisere bedre. De velges derfor gjennom hyperparametertuning, der hver kandidat vurderes på en atskilt valideringsperiode som holdes utenfor både den endelige treningen og testperioden, slik at testdataene ikke lekker inn i modellvalget. Dette prinsippet ligger til grunn for rutenettsøket i kap. 6, der 2024 brukes som valideringsår (jf. Tabell 6.2 og §5.2).
 
 ### 3.3 Evalueringsmetrikker
 
-To metrikker brukes for å evaluere prognosemodellene i dette prosjektet.
+To metrikker evaluerer prognosemodellene, og valget mellom dem er ikke nøytralt: det avgjør hvilken modell som framstår som best, og er derfor en del av metodevalget like mye som modellene selv (Hyndman & Koehler, 2006).
 
 **RMSE (Root Mean Squared Error)** måler den gjennomsnittlige størrelsen på prediksjonsfeilen i samme enhet som utfallsvariabelen, vist i ligning (3.3):
 
@@ -273,17 +281,33 @@ $$\text{MAPE} = \frac{1}{n}\sum_{i=1}^{n}\left|\frac{y_i - \hat{y}_i}{y_i}\right
 
 MAPE er skalanøytral og enklere å kommunisere, men er ustabil når faktiske verdier er nær null (divisjon mot null), og overvekter dermed observasjoner med lavt volum. Metrikken brukes som sekundær metrikk. I prognosekonkurranser som M5 erstattes MAPE ofte av skalerte feilmål nettopp for å unngå denne ustabiliteten ved lave volum (Makridakis et al., 2022).
 
-Når RMSE og MAPE peker på ulike vinnere, skyldes det at en modell kan ha lavt absolutt avvik på store volumer (lavt RMSE) uten å treffe proporsjonalt godt på små volumer (høy MAPE). Begge metrikkene (ligning (3.3) og (3.4)) er derfor nødvendige for å forstå modelloppførselen på tvers av ulike salgsnivåer (Hyndman & Koehler, 2006).
+Når RMSE og MAPE peker på ulike vinnere, skyldes det at en modell kan ha lavt absolutt avvik på store volumer (lavt RMSE) uten å treffe proporsjonalt godt på små volumer (høy MAPE). Begge metrikkene (ligning (3.3) og (3.4)) er derfor nødvendige for å forstå modelloppførselen på tvers av ulike salgsnivåer (Hyndman & Koehler, 2006). RMSE styrer den primære modellrangeringen i kap. 7 og den segmentvise vinnertellingen i §8, mens nettopp tilfellene der de to målene spriker, tolkes i §8 og §9.
 
 ### 3.4 Feature engineering og dataoppsett
 
-**Feature engineering** er prosessen med å utlede nye variabler fra rådata for å gjøre mønstre tilgjengelige for modellene. I dette prosjektet er kalendervariablene `year`, `month`, `quarter`, `weekofyear`, `dayofweek`, `dayofmonth` og `is_weekend` avledet fra den opprinnelige datovariabelen. Disse variablene fanger opp sesong-, uke- og kvartalsmønstre som ikke direkte kan leses fra en rådate (Fildes et al., 2022).
+**Feature engineering** er prosessen med å utlede nye variabler fra rådata for å gjøre mønstre tilgjengelige for modellene. I dette prosjektet er kalendervariablene `year`, `month`, `quarter`, `weekofyear`, `dayofweek`, `dayofmonth` og `is_weekend` avledet fra den opprinnelige datovariabelen. Disse variablene fanger opp sesong-, uke- og kvartalsmønstre som ikke direkte kan leses fra en rådate (Fildes et al., 2022). Sammen med `Discount` og de kodede kategoriske variablene utgjør de modellmatrisen på 67 features som begge modellene trenes på (jf. §5.2, Tabell 5.2), og kalendervariablene viser seg å dominere variabelviktigheten i analysen (jf. §8).
 
-**One-hot encoding** konverterer kategoriske variabler — som Region, Category og Sub-Category — til binære dummyvariabler. For lineær regresjon er dette nødvendig fordi modellen krever numerisk input. Random Forest bruker her samme kodede matrise for konsistens i sammenligning (James et al., 2021).
+**One-hot encoding** konverterer kategoriske variabler — som Region, Category og Sub-Category — til binære dummyvariabler. For lineær regresjon er dette nødvendig fordi modellen krever numerisk input. Random Forest bruker her samme kodede matrise for konsistens i sammenligning (James et al., 2021). At begge modellene bruker identisk input, gjør at en eventuell ytelsesforskjell kan tilskrives modellklassen og ikke et ulikt datagrunnlag (jf. §5.2).
 
-**Data leakage** oppstår når variabler som ikke ville vært tilgjengelige på prediksjonstidspunktet inkluderes i modellen. I dette prosjektet er `Profit` ekskludert fordi den kun er kjent etter at salget er gjennomført.
+**Data leakage** oppstår når variabler som ikke ville vært tilgjengelige på prediksjonstidspunktet inkluderes i modellen. I dette prosjektet er `Profit` ekskludert fordi den kun er kjent etter at salget er gjennomført. De fullstendige inklusjons- og eksklusjonsvalgene er dokumentert i §5.2 (Tabell 5.2).
 
-**Tidsbasert oppsplitting** er valgt fremfor tilfeldig oppsplitting. Treningsdata er 2022–2024 og testdata er 2025. Tilfeldig oppsplitting ville tillate fremtidige observasjoner å inngå i treningen, noe som gir kunstig god ytelse og ikke reflekterer reell prediksjon fremover i tid; tidsbasert evaluering anbefales nettopp for å unngå slike for optimistiske ytelsesestimater (Cerqueira et al., 2020). I hyperparametertuningen av Random Forest brukes 2024 i tillegg som intern valideringsperiode, mens lineær regresjon beholdes med det fulle treningsgrunnlaget.
+**Tidsbasert oppsplitting** er valgt fremfor tilfeldig oppsplitting. Treningsdata er 2022–2024 og testdata er 2025. Tilfeldig oppsplitting ville tillate fremtidige observasjoner å inngå i treningen, noe som gir kunstig god ytelse og ikke reflekterer reell prediksjon fremover i tid; tidsbasert evaluering anbefales nettopp for å unngå slike for optimistiske ytelsesestimater (Cerqueira et al., 2020). I hyperparametertuningen av Random Forest brukes 2024 i tillegg som intern valideringsperiode, mens lineær regresjon beholdes med det fulle treningsgrunnlaget. Selve rutenettsøket og den valgte konfigurasjonen er dokumentert i kap. 6 (Tabell 6.2), og oppsplittingens rolle for validitet og reliabilitet utdypes i §5.3.
+
+### 3.5 Syntese: teori, metode og analyse
+
+Teorigrunnlaget over er valgt for å besvare de to delproblemene, og den gjennomgående logikken er kontrasten mellom en tolkbar benchmark og et fleksibelt ensemble. De to modellene avgrenser hva en enkel og en sammensatt spesifikasjon klarer på det samme datagrunnlaget (delproblem 1), evalueringsmetrikkene avgjør hvordan «best» måles, og feature engineering sammen med variabelviktighet kobler analysen til spørsmålet om hvilke signaler som driver salget (delproblem 2). Tabell 3.1 gjør koblingen til resten av rapporten eksplisitt: den viser hvilket teoretisk grunnlag som underbygger hvilke metodevalg, og hvor det samme grunnlaget brukes igjen i resultat, analyse og diskusjon.
+
+| Teoretisk grunnlag (kap. 3) | Underbygger metodevalg (kap. 5–6) | Brukes i resultat, analyse og diskusjon (kap. 7–9) |
+| --- | --- | --- |
+| Multippel lineær regresjon, OLS (§3.1) | Tolkbar benchmark (§5.1, Tabell 6.1) | Koeffisienter tolkes i §8 og opp mot feature importance i §9.2 |
+| Bias–varians, bagging og feature randomness (§3.2) | Valg og tuning av Random Forest (§5.1, kap. 6) | Forklarer at tunet modell demper varians og ligger tett opp mot lineær (§9.3) |
+| Feature importance (§3.2) | Besvarer delproblem 2 (§5.1) | Variabelrangering (Tabell 7.3, Figur 7.2–7.3); tolkning i §8 og §9.2 |
+| RMSE primær og MAPE sekundær (§3.3) | Evalueringskriterium (§5.1) | Samlet og månedlig ytelse (kap. 7–8); sprik mellom målene (§8, §9) |
+| Feature engineering og one-hot encoding (§3.4) | Modellmatrise på 67 features (§5.2, Tabell 5.2) | Kalender og rabatt dominerer importance (§8); korrelasjonsstruktur (Figur 8.3) |
+| Tidsbasert splitt og validering (§3.4) | Trening 2022–2024 / test 2025, 2024-validering (§5.2–§5.3, kap. 6) | Reell framoverprediksjon; metodiske begrensninger (§9.5) |
+| Prediksjon framfor inferens (§3, §3.1) | Fokus på treffsikkerhet, ikke formelle diagnosetester (§5.3) | Begrunner fravær av residual- og multikollinearitetstester (§9.5) |
+
+<p align="center"><small><i>Tabell 3.1 Kartlegging av teoretisk grunnlag i kapittel 3 mot metodevalg, analyse og diskusjon senere i rapporten.</i></small></p>
 
 ---
 
@@ -851,8 +875,6 @@ Rudin, C. (2019). Stop explaining black box machine learning models for high sta
 Spiliotis, E., Makridakis, S., Semenoglou, A.-A., & Assimakopoulos, V. (2022). Comparison of statistical and machine learning methods for daily SKU demand forecasting. *Operational Research*, 22(3), 3037–3061. <https://doi.org/10.1007/s12351-020-00605-2>
 
 Ulrich, M., Jahnke, H., Langrock, R., Pesch, R., & Senge, R. (2021). Distributional regression for demand forecasting in e-grocery. *European Journal of Operational Research*, 294(3), 831–842. <https://doi.org/10.1016/j.ejor.2019.11.029>
-
-van Donselaar, K. H., van Woensel, T., Broekmeulen, R. A. C. M., & Fransoo, J. C. (2006). Inventory control of perishables in supermarkets. *International Journal of Production Economics*, 104(2), 462–472. <https://doi.org/10.1016/j.ijpe.2004.10.019>
 
 \newpage
 
