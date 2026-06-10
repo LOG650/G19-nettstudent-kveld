@@ -1,6 +1,6 @@
 # Statusliste
 
-Oppdatert: 2026-06-08 (WBS 8.1 påbegynt – veiledertilbakemelding på rapporten innarbeidet i ny revisjon `rapport_final.md`)
+Oppdatert: 2026-06-10 (WBS 8.1 – revisjon av `rapport_final.md`: §9.3 utvidet til en eksplisitt «Hvorfor presterer modellene så likt?»-del med parsimoni-poeng, og `rapport_final.pdf` regenerert. Tidligere 2026-06-08: veiledertilbakemelding innarbeidet i ny revisjon.)
 
 Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/home/erikb/himolde/log650/G19-nettstudent-kveld/012 fase 2 - plan/prosjektstyringsplan.md) og tilgjengelige prosjektartefakter i repoet. Punkter er merket som `verifisert` når de kan knyttes til eksisterende filer eller mappestruktur. Øvrige punkter er vurdert som planstatus per dato og må bekreftes av prosjektgruppen. Omtolkningen av WBS 4.3 er dokumentert i [endringslogg.md](endringslogg.md).
 
@@ -96,6 +96,13 @@ Denne statuslisten er generert med utgangspunkt i [prosjektstyringsplan.md](/hom
   - F3 fra 7.3.2 lukket: § 7 linje 502 korrigert fra «MAPE der ligger på 89,39 %» til «tuned Random Forest-MAPE i samme segment ligger på 90,27 %». 89,39 % var faktisk baseline RFs MAPE; 90,27 % er tuned RFs verdi verifisert mot [tab_segmentmetrikk_modell.csv](../006%20analysis/aktiviteter/16_tolke_modellresultater/tab_segmentmetrikk_modell.csv).
   - Overført til WBS 8.1: synkronisering av [tab_relevante_variabler.csv](../006%20analysis/aktiviteter/02_identifisere_relevante_variabler/tab_relevante_variabler.csv) slik at `State = ekskluder` (analyseartefakt-opprydding, ikke språkvask).
   - Førsteutkastet av rapporten er låst per 2026-04-24. Videre revisjon håndteres i WBS 8.1.
+
+## Operativ oppdeling av revisjonsarbeid (WBS 8.x)
+
+- [ ] WBS 8.1: Innarbeide veiledertilbakemelding og gjennomføre videre revisjon av `rapport_final.md`. `påbegynt 2026-06-08`
+  - 2026-06-08: Veiledertilbakemelding på rapporten innarbeidet i ny revisjon `rapport_final.md`.
+  - 2026-06-10: §9.3 omarbeidet fra «Teoretiske implikasjoner» til «Hvorfor presterer modellene så likt?» – en samlet, eksplisitt forklaring på hvorfor tuned Random Forest (RMSE 578,26) og benchmark lineær (RMSE 580,39) presterer nesten likt (tuning som variansdemping via `max_depth=10`/`min_samples_leaf=4`/`max_features=sqrt`, felles feature- og feilgulv, additivt kalender-/rabattsignal), forankret i eksisterende tall og avsluttet med et parsimoni-poeng (Fildes 2022, Makridakis 2018). Treningsstørrelse i §9.3 rettet «~7 700» → «~6 700» for konsistens med §6 (6 682 rader). TOC og `rapport_final.pdf` (35 sider) regenerert via byggeskriptene i `005 report/build/`.
+  - Gjenstående overført fra WBS 7.3: fagfellevurderte kilder (F3 fra 7.3.1), KR-007-forsinkelsesnotat, og synkronisering av `tab_relevante_variabler.csv` (`State = ekskluder`).
 
 ## WBS 8.1 – Revisjon etter veiledertilbakemelding
 
