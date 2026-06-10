@@ -8,7 +8,7 @@
 
 Forfatter(e): Marthe Slåtta Bjerke, Erik Brendehaug, Joseph James, Pål Rånes
 
-Totalt antall sider inkludert forsiden: 29
+Totalt antall sider inkludert forsiden: 37
 
 Molde, Innleveringsdato: 28.05.2026
 
@@ -92,7 +92,7 @@ Dato: 28.05.2026
 
 ## Antall ord <!-- omit in toc -->
 
-Rapportens hovedtekst (kap. 1 Innledning til og med kap. 10 Konklusjon) er på omtrent 5 300 ord. Sammendrag, abstract, forside, litteraturliste og vedlegg er holdt utenfor tellingen.
+Rapportens hovedtekst (kap. 1 Innledning til og med kap. 10 Konklusjon) er på omtrent 7 800 ord. Sammendrag, abstract, forside, litteraturliste og vedlegg er holdt utenfor tellingen.
 
 ## Forfattererklæring <!-- omit in toc -->
 
