@@ -6,7 +6,7 @@
 \includegraphics{extracted_images/image_0.png}
 \end{center}
 
-Forfatter(e): Erik Brendehaug, Joseph James, Pål Rånes, Marthe Slåtta Bjerke
+Forfatter(e): Marthe Slåtta Bjerke, Erik Brendehaug, Joseph James, Pål Rånes
 
 Totalt antall sider inkludert forsiden: 29
 
@@ -433,7 +433,7 @@ Tabell 5.4 oppsummerer antallsfordelingen mellom trenings- og testperioden.
 
 **Validitet.** Intern validitet styrkes gjennom tidsbasert oppsplitting (2022–2024 trening, 2025 test) som hindrer datalekkasje, og gjennom adskilt valideringsperiode (2024) for hyperparametertuning av Random Forest. Ekstern validitet er begrenset av at studien bygger på ett datasett fra én virksomhet, og generalisering til reelle dagligvarekjeder krever ny validering (jf. §1.3 og §9.5).
 
-**Reliabilitet.** Analysen er organisert som aktivitetsbaserte skript under `006 analysis/` med faste seeds for Random Forest og uten ad-hoc-manipulering av treningsgrunnlaget mellom aktiviteter. Pipeline fra rådata til endelige metrikker er reproduserbar.
+**Reliabilitet.** Analysen er organisert som aktivitetsbaserte skript med faste seeds for Random Forest og uten ad-hoc-manipulering av treningsgrunnlaget mellom aktiviteter. Pipeline fra rådata til endelige metrikker er reproduserbar.
 
 **Etiske hensyn.** Datasettet inneholder ingen personopplysninger eller annen sensitiv informasjon. Studien reiser dermed ikke personvern- eller forskningsetiske problemstillinger. Bruken av kunstig intelligens som verktøy i analyse- og rapportarbeidet er åpen og dokumentert i prosjektets endringslogg og obligatoriske egenerklæring.
 
@@ -819,18 +819,18 @@ Ulrich, M., Jahnke, H., Langrock, R., Pesch, R., & Senge, R. (2021). Distributio
 
 ## 12 Vedlegg
 
-Dette kapitlet samler referanser til stort eller detaljert datamateriale som ikke er limt direkte inn i rapporten, men som ligger som kildefiler under `006 analysis/`. Vedleggene A1–A7 gir leseren direkte tilgang til de underliggende analyseartefaktene.
+Dette kapitlet samler referanser til stort eller detaljert datamateriale som ikke er limt direkte inn i rapporten, men som følger som digitale vedlegg til rapporten. Vedleggene A1–A7 gir leseren tilgang til de underliggende analyseartefaktene.
 
-Tabell 12.1 lister vedleggene A1–A7 med innhold og tilhørende kildefil under `006 analysis/`.
+Tabell 12.1 lister vedleggene A1–A7 med innhold og tilhørende kildefil.
 
 | Vedlegg | Innhold | Kildefil |
 | --- | --- | --- |
-| A1 | Radvise prognoser for 2025 for alle tre modeller (3 312 rader) | [tab_prognoser_2025_detalj.csv](../006%20analysis/aktiviteter/12_prognoser_2025/tab_prognoser_2025_detalj.csv) |
-| A2 | Radvise prognosefeil og absoluttfeil for 2025 | [tab_prognosefeil_2025_detalj.csv](../006%20analysis/aktiviteter/13_rmse_og_mape/tab_prognosefeil_2025_detalj.csv) |
-| A3 | Full tuning-kandidatgrid for Random Forest | [tab_rf_tuning_kandidater.csv](../006%20analysis/aktiviteter/11_parameterjustering_random_forest/tab_rf_tuning_kandidater.csv) |
-| A4 | Full feature importance for tuned Random Forest | [tab_rf_tuned_feature_importance.csv](../006%20analysis/aktiviteter/15_viktige_variabler/tab_rf_tuned_feature_importance.csv) |
-| A5 | Full koeffisienttabell for lineær regresjon | [tab_lr_koeffisienter.csv](../006%20analysis/aktiviteter/08_lineaer_regresjon/tab_lr_koeffisienter.csv) |
-| A6 | Full RMSE og MAPE per måned i lang form | [tab_rmse_mape_maaned.csv](../006%20analysis/aktiviteter/13_rmse_og_mape/tab_rmse_mape_maaned.csv) |
-| A7 | Full segmentmetrikk per modell | [tab_segmentmetrikk_modell.csv](../006%20analysis/aktiviteter/16_tolke_modellresultater/tab_segmentmetrikk_modell.csv) |
+| A1 | Radvise prognoser for 2025 for alle tre modeller (3 312 rader) | `tab_prognoser_2025_detalj.csv` |
+| A2 | Radvise prognosefeil og absoluttfeil for 2025 | `tab_prognosefeil_2025_detalj.csv` |
+| A3 | Full tuning-kandidatgrid for Random Forest | `tab_rf_tuning_kandidater.csv` |
+| A4 | Full feature importance for tuned Random Forest | `tab_rf_tuned_feature_importance.csv` |
+| A5 | Full koeffisienttabell for lineær regresjon | `tab_lr_koeffisienter.csv` |
+| A6 | Full RMSE og MAPE per måned i lang form | `tab_rmse_mape_maaned.csv` |
+| A7 | Full segmentmetrikk per modell | `tab_segmentmetrikk_modell.csv` |
 
 : Tabell 12.1 Vedleggsreferanser til stort datamateriale som hører til analysen.
