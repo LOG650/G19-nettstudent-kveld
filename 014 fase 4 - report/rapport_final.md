@@ -6,7 +6,7 @@
 \includegraphics{extracted_images/image_0.png}
 \end{center}
 
-Forfatter(e): Erik Brendehaug, Joseph James, Pål Rånes, Marthe Slåtta Bjerke
+Forfatter(e): Marthe Slåtta Bjerke, Erik Brendehaug, Joseph James, Pål Rånes
 
 Totalt antall sider inkludert forsiden: 29
 
@@ -146,7 +146,7 @@ The tuned Random Forest is the overall best model with RMSE 578.26 and MAPE 43.9
 [9 Diskusjon](#9-diskusjon)\
 &nbsp;&nbsp;&nbsp;[9.1 Tolkning av hovedfunn mot problemstillingen](#91-tolkning-av-hovedfunn-mot-problemstillingen)\
 &nbsp;&nbsp;&nbsp;[9.2 Variablenes påvirkning](#92-variablenes-påvirkning)\
-&nbsp;&nbsp;&nbsp;[9.3 Teoretiske implikasjoner](#93-teoretiske-implikasjoner)\
+&nbsp;&nbsp;&nbsp;[9.3 Hvorfor presterer modellene så likt?](#93-hvorfor-presterer-modellene-så-likt)\
 &nbsp;&nbsp;&nbsp;[9.4 Praktisk nytte for Dagligvare](#94-praktisk-nytte-for-dagligvare)\
 &nbsp;&nbsp;&nbsp;[9.5 Metodiske begrensninger](#95-metodiske-begrensninger)\
 &nbsp;&nbsp;&nbsp;[9.6 Videre arbeid](#96-videre-arbeid)\
@@ -440,7 +440,7 @@ Tabell 5.4 oppsummerer antallsfordelingen mellom trenings- og testperioden.
 
 **Validitet.** Intern validitet styrkes gjennom tidsbasert oppsplitting (2022–2024 trening, 2025 test) som hindrer datalekkasje, og gjennom adskilt valideringsperiode (2024) for hyperparametertuning av Random Forest. Ekstern validitet er begrenset av at studien bygger på ett datasett fra én virksomhet, og generalisering til reelle dagligvarekjeder krever ny validering (jf. §1.3 og §9.5).
 
-**Reliabilitet.** Analysen er organisert som aktivitetsbaserte skript under `006 analysis/` med faste seeds for Random Forest og uten ad-hoc-manipulering av treningsgrunnlaget mellom aktiviteter. Pipeline fra rådata til endelige metrikker er reproduserbar.
+**Reliabilitet.** Analysen er organisert som aktivitetsbaserte skript med faste seeds for Random Forest og uten ad-hoc-manipulering av treningsgrunnlaget mellom aktiviteter. Pipeline fra rådata til endelige metrikker er reproduserbar.
 
 **Etiske hensyn.** Datasettet inneholder ingen personopplysninger eller annen sensitiv informasjon. Studien reiser dermed ikke personvern- eller forskningsetiske problemstillinger. Bruken av kunstig intelligens som verktøy i analyse- og rapportarbeidet er åpen og dokumentert i prosjektets endringslogg og obligatoriske egenerklæring.
 
@@ -670,6 +670,13 @@ Tabell 8.2 gir detaljert RMSE og MAPE per modell for alle 14 tolkningssegmentene
 
 Feature importance (jf. Tabell 7.3) støtter tolkningen av hvilke dimensjoner som driver variasjonen: kalendervariablene utgjør samlet $\sim 42\%$ av importance i topp 10, `Discount` er sterkeste enkeltvariabel med $11{,}48\%$, og regionvariablene bidrar med $\sim 5{,}8\%$. Den lineære modellen gir negativt fortegn på `Discount` (koeffisient $-166{,}35$), mens Random Forest rangerer samme variabel øverst. Forskjellen tolkes som et mulig tegn på en ikke-lineær eller interaktiv sammenheng mellom rabatt og salg som en lineær spesifikasjon ikke klarer å fange opp.
 
+Figur 8.3 viser korrelasjonsstrukturen mellom de numeriske variablene og salget i treningsdataene. Salget har tilnærmet null lineær korrelasjon med samtlige numeriske prediktorer (ingen overstiger $0{,}02$ i tallverdi), mens kalendervariablene `quarter`, `month` og `weekofyear` er sterkt innbyrdes korrelert fordi de koder samme kalender på ulik oppløsning.
+
+<div align="center">
+  <img src="../006 analysis/aktiviteter/07_eksplorativ_analyse_og_visualisering/fig_korrelasjon_numerisk.png" alt="Korrelasjonsvarmekart for numeriske variabler og salg" width="80%">
+  <p align="center"><small><i>Figur 8.3 Pearson-korrelasjon mellom numeriske variabler og salg (treningsdata 2022–2024). Ingen enkelt numerisk prediktor har en nevneverdig lineær sammenheng med salget, mens de mekanisk avledede kalendervariablene er sterkt innbyrdes korrelert.</i></small></p>
+</div>
+
 ---
 
 ## 9 Diskusjon
@@ -729,9 +736,15 @@ Det andre delproblemet gjelder hvilke faktorer som påvirker salget mest. Ranger
 
 Lineær regresjon peker i samme retning, men med annen fortegning. `Discount` ($-166{,}35$) har den største meningsfulle koeffisientverdien; `Region_North`-koeffisienten er isolert sett størst i tallverdi ($-277{,}20$), men bygger på én enkelt observasjon (jf. kap. 5.2) og bør tolkes som usikkerhet snarere enn en substansiell regioneffekt. Det negative fortegnet for `Discount` i den lineære modellen står i kontrast til dens høye feature importance i Random Forest, der retningen ikke er fiksert. Det mest sannsynlige er at sammenhengen mellom rabatt og salg er ikke-lineær eller samspillende med andre variabler – for eksempel at rabatteffekten avhenger av produktkategori eller sesong – slik at en lineær spesifikasjon overkompenserer med ett fortegn mens et tremodellbasert ensemble fanger opp flere betingede mønstre. Forskjellen er derfor ikke motstridende funn, men et tegn på at modellene svarer ulikt på det samme underliggende signalet. Variabelsignalene er prediktive, ikke kausale, og bør tolkes som indikatorer på hvilke dimensjoner som bærer prognoseverdien.
 
-### 9.3 Teoretiske implikasjoner
+### 9.3 Hvorfor presterer modellene så likt?
 
-Funnene gir et faglig bidrag utover Dagligvare-caset. At gapet mellom tuned Random Forest og benchmark lineær er marginalt på totalnivå (2,13 RMSE-enheter), men tydeligere på månedsnivå og i bestemte segmenter, illustrerer at ensemble-gevinsten er sterkt kontekstavhengig. På datasett med relativt lav strukturell ikke-linearitet, moderat størrelse (~7 700 treningsrader) og dominerende kalender- og rabattsignaler nærmer ensemble-fordelen seg null på samlemålene, mens den slår tydeligere ut når absolutt presisjon (RMSE) prioriteres på finere tidsoppløsning. Dette samsvarer med en generell forventning om at ensemble-metoder krever ikke-lineære interaksjoner og/eller store datamengder for å gi store gevinster — Carbonneau et al. (2008) finner tilsvarende at maskinlæringsmetoder gir tydeligst forbedring der etterspørselsmønsteret er komplekst og dataene er rike. Rapporten bidrar med et empirisk eksempel der disse forutsetningene bare delvis er oppfylt. Sprikende fortegn for `Discount` i lineær versus Random Forest (jf. §9.2) støtter samme tolkning: signalet ser ut til å være ikke-lineært eller betinget, ikke entydig negativt.
+Et påfallende trekk ved resultatene er hvor like tuned Random Forest (RMSE $578{,}26$, MAPE $43{,}97\%$) og benchmark lineær (RMSE $580{,}39$, MAPE $44{,}18\%$) er på samlenivå. Den viktigste forklaringen ligger i hvordan den tunede modellen ble til: vinnerkonfigurasjonen strammet inn skogen framfor å gjøre den mer fleksibel, med `max_depth=10`, `min_samples_leaf=4` og `max_features=sqrt`. Baseline Random Forest med ubegrenset dybde presterte dårligere (RMSE $589{,}28$), slik at innstrammingen forbedret modellen. Det betyr at den ekstra fleksibiliteten i et fritt voksende tre i hovedsak fanget støy, ikke et reelt ikke-lineært signal. Gjennom bias–varians-avveiingen (jf. §3.2) virker disse hyperparametrene som variansdemping, og modellen som vinner er dermed den som ligger nærmest en glatt, regularisert sammenheng — nettopp derfor lander den tett opp mot den lineære modellen.
+
+Begge modellene arbeider dessuten på det samme informasjonsgrunnlaget: et identisk sett på 67 features uten lag- eller autoregressive ledd som kunne gitt et tre-ensemble et fortrinn i å fange tidsavhengighet. At alle tre modellsporene viser det samme sesongavviket — systematisk underestimering i august–september (jf. §8) — understreker at begrensningen ligger i datagrunnlaget, ikke i den enkelte modellen. Når modellene deler både features og feilmønster, møter de også det samme feilgulvet. Den høye dagsvariasjonen i salget (standardavvik $578$ mot et snitt på $1\,497$) og en MAPE rundt $44\%$ (jf. §9.4) tilsier at en stor andel av variasjonen er irreduserbar støy som ingen av modellklassene kan forklare med de tilgjengelige variablene. Korrelasjonsstrukturen i treningsdataene (jf. Figur 8.3) underbygger dette: ingen enkelt numerisk prediktor har en nevneverdig lineær sammenheng med salget (alle korrelasjoner ligger under $0{,}02$ i tallverdi), slik at det er lite eksploaterbart bivariat signal for noen av modellklassene å gripe fatt i. Når støygulvet dominerer, betyr valg av modellklasse tilsvarende lite for samlet treffsikkerhet.
+
+Det forklarbare signalet er i tillegg additivt av natur. `Discount` og kalendervariablene står samlet for om lag $42\%$ av feature importance (jf. §9.2), og dette er effekter en lineær spesifikasjon fanger uten videre. Det utelukker ikke at det finnes ikke-linearitet: det sprikende fortegnet for `Discount` mellom lineær regresjon og Random Forest (jf. §9.2) tyder på en betinget eller samspillende rabatteffekt. Men at denne ikke-lineariteten ikke gir noe målbart løft i samlet presisjon — selv for en modell som er bygget for å fange den — styrker tolkningen om at de ikke-lineære bidragene er for svake til å forskyve det samlede feilnivået nevneverdig.
+
+Funnene gir et faglig bidrag utover Dagligvare-caset. At ensemble-gevinsten er marginal på samlemålene, men tydeligere på månedsnivå og i bestemte segmenter, illustrerer at fortrinnet til tre-baserte ensembler er sterkt kontekstavhengig. På et datasett med relativt lav strukturell ikke-linearitet, moderat størrelse (om lag $6\,700$ treningsrader) og dominerende kalender- og rabattsignaler nærmer ensemble-fordelen seg null på de samlede målene. Dette samsvarer med litteraturen: Carbonneau et al. (2008) finner at maskinlæring gir tydeligst forbedring når etterspørselsmønsteret er komplekst og dataene rike, mens Fildes et al. (2022) og Makridakis et al. (2018) viser at enkle modeller ofte er overraskende konkurransedyktige på aggregert nivå. For Dagligvare betyr dette at den marginale forskjellen ikke svekker anbefalingen om tuned Random Forest som hovedmodell (jf. §9.1, §9.4), men at den lineære modellen samtidig framstår som et fullverdig og mer tolkbart alternativ — et parsimoni-hensyn som taler for å beholde den som referanse og forklaringsstøtte snarere enn å forkaste den.
 
 ### 9.4 Praktisk nytte for Dagligvare
 
@@ -832,18 +845,18 @@ Ulrich, M., Jahnke, H., Langrock, R., Pesch, R., & Senge, R. (2021). Distributio
 
 ## 12 Vedlegg
 
-Dette kapitlet samler referanser til stort eller detaljert datamateriale som ikke er limt direkte inn i rapporten, men som ligger som kildefiler under `006 analysis/`. Vedleggene A1–A7 gir leseren direkte tilgang til de underliggende analyseartefaktene.
+Dette kapitlet samler referanser til stort eller detaljert datamateriale som ikke er limt direkte inn i rapporten, men som følger som digitale vedlegg til rapporten. Vedleggene A1–A7 gir leseren tilgang til de underliggende analyseartefaktene.
 
-Tabell 12.1 lister vedleggene A1–A7 med innhold og tilhørende kildefil under `006 analysis/`.
+Tabell 12.1 lister vedleggene A1–A7 med innhold og tilhørende kildefil.
 
 | Vedlegg | Innhold | Kildefil |
 | --- | --- | --- |
-| A1 | Radvise prognoser for 2025 for alle tre modeller (3 312 rader) | [tab_prognoser_2025_detalj.csv](../006%20analysis/aktiviteter/12_prognoser_2025/tab_prognoser_2025_detalj.csv) |
-| A2 | Radvise prognosefeil og absoluttfeil for 2025 | [tab_prognosefeil_2025_detalj.csv](../006%20analysis/aktiviteter/13_rmse_og_mape/tab_prognosefeil_2025_detalj.csv) |
-| A3 | Full tuning-kandidatgrid for Random Forest | [tab_rf_tuning_kandidater.csv](../006%20analysis/aktiviteter/11_parameterjustering_random_forest/tab_rf_tuning_kandidater.csv) |
-| A4 | Full feature importance for tuned Random Forest | [tab_rf_tuned_feature_importance.csv](../006%20analysis/aktiviteter/15_viktige_variabler/tab_rf_tuned_feature_importance.csv) |
-| A5 | Full koeffisienttabell for lineær regresjon | [tab_lr_koeffisienter.csv](../006%20analysis/aktiviteter/08_lineaer_regresjon/tab_lr_koeffisienter.csv) |
-| A6 | Full RMSE og MAPE per måned i lang form | [tab_rmse_mape_maaned.csv](../006%20analysis/aktiviteter/13_rmse_og_mape/tab_rmse_mape_maaned.csv) |
-| A7 | Full segmentmetrikk per modell | [tab_segmentmetrikk_modell.csv](../006%20analysis/aktiviteter/16_tolke_modellresultater/tab_segmentmetrikk_modell.csv) |
+| A1 | Radvise prognoser for 2025 for alle tre modeller (3 312 rader) | `tab_prognoser_2025_detalj.csv` |
+| A2 | Radvise prognosefeil og absoluttfeil for 2025 | `tab_prognosefeil_2025_detalj.csv` |
+| A3 | Full tuning-kandidatgrid for Random Forest | `tab_rf_tuning_kandidater.csv` |
+| A4 | Full feature importance for tuned Random Forest | `tab_rf_tuned_feature_importance.csv` |
+| A5 | Full koeffisienttabell for lineær regresjon | `tab_lr_koeffisienter.csv` |
+| A6 | Full RMSE og MAPE per måned i lang form | `tab_rmse_mape_maaned.csv` |
+| A7 | Full segmentmetrikk per modell | `tab_segmentmetrikk_modell.csv` |
 
 <p align="center"><small><i>Tabell 12.1 Vedleggsreferanser til stort datamateriale som hører til analysen.</i></small></p>
