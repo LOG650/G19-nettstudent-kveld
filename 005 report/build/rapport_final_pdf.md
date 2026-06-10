@@ -777,7 +777,7 @@ Rabatt og kalendervariabler er de mest påvirkningsrike prediktorene, der `Disco
 
 Rapporten bidrar både praktisk og faglig. Praktisk leverer den Dagligvare en konkret beslutningsmatrise for modellvalg på tvers av innkjøp, kampanje, ressursplanlegging og ledelsesrapportering, samt et eksplisitt forbehold om hvilken metrikk som bør prioriteres når. Faglig leverer den en kontrollert empirisk sammenligning av to modellfamilier på ett dagligvarecase med streng tidsbasert oppsplitting, der både samlede mål, månedsnivå, segmentnivå og bias-mønstre er rapportert — og dokumenterer at ensemble-fordelen kan være marginal på totalnivå selv når modellen vinner det store flertallet av månedene og segmentene.
 
----
+\newpage
 
 ## 11 Bibliografi
 
@@ -804,6 +804,8 @@ Mitra, A., Jain, A., Kishore, A., & Kumar, P. (2022). A comparative study of dem
 Spiliotis, E., Makridakis, S., Semenoglou, A.-A., & Assimakopoulos, V. (2022). Comparison of statistical and machine learning methods for daily SKU demand forecasting. *Operational Research*, 22(3), 3037–3061. <https://doi.org/10.1007/s12351-020-00605-2>
 
 Ulrich, M., Jahnke, H., Langrock, R., Pesch, R., & Senge, R. (2021). Distributional regression for demand forecasting in e-grocery. *European Journal of Operational Research*, 294(3), 831–842. <https://doi.org/10.1016/j.ejor.2019.11.029>
+
+\newpage
 
 ## 12 Vedlegg
 
