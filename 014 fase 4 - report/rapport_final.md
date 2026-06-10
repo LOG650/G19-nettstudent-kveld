@@ -126,6 +126,7 @@ The tuned Random Forest is the overall best model with RMSE 578.26 and MAPE 43.9
 &nbsp;&nbsp;&nbsp;[1.3 Avgrensinger](#13-avgrensinger)\
 &nbsp;&nbsp;&nbsp;[1.4 Antagelser](#14-antagelser)\
 [2 Litteratur](#2-litteratur)\
+&nbsp;&nbsp;&nbsp;[2.1 Forskningsgap og hvordan studien skiller seg ut](#21-forskningsgap-og-hvordan-studien-skiller-seg-ut)\
 [3 Teori](#3-teori)\
 &nbsp;&nbsp;&nbsp;[3.1 Multippel lineær regresjon](#31-multippel-lineær-regresjon)\
 &nbsp;&nbsp;&nbsp;[3.2 Random Forest Regressor](#32-random-forest-regressor)\
@@ -208,7 +209,13 @@ Random Forest representerer en nyere og mer fleksibel tilnærming. Breiman (2001
 
 Den empiriske litteraturen gir likevel ikke ett entydig svar på hvilken modellklasse som er best. Fildes et al. (2022) oppsummerer forskning og praksis innen varehandelsprognoser og påpeker at valg av metode avhenger sterkt av dataoppløsning, hierarkisk struktur og tilgang på forklaringsvariabler, og at enkle modeller ofte er overraskende konkurransedyktige på aggregert nivå. Spiliotis et al. (2022) studerer daglig etterspørsel på enkeltprodukt-nivå (SKU) i detaljhandel og viser at maskinlæring kan overgå statistiske metoder, men at fortrinnet er betinget av dataenes egenskaper og av hvordan modellene utnytter forklaringsvariabler. Makridakis et al. (2022) rapporterer fra M5-konkurransen, som baserte seg på daglige salgsdata fra varehandel, at gradient-boostede tremodeller systematisk slo både klassiske statistiske metoder og rene lineære modeller, men at gevinsten forutsatte rik feature-engineering og store datamengder. Samtidig viser Makridakis et al. (2018) at maskinlæring ikke automatisk er overlegen: på et bredt sett tidsrekker presterte enkle statistiske metoder bedre og krevde langt mindre beregning, et resultat senere arbeid nyanserer med at maskinlæringens fortrinn vokser med datamengden. Valget av evalueringsmetrikk påvirker også konklusjonen: RMSE og MAPE vektlegger henholdsvis absolutt og relativ feil ulikt, og MAPE er dessuten ustabil ved lave volum (Hyndman & Koehler, 2006), slik at de to målene ikke alltid peker på samme vinnermodell.
 
-Forskningsgapet denne rapporten adresserer ligger i krysningen mellom to forhold. For det første er sammenlignende empirisk arbeid som isolerer nettopp multippel lineær regresjon mot Random Forest for daglige salgsprognoser i dagligvaresektoren fortsatt begrenset; mye av litteraturen vektlegger enten større modellpaneler (Mitra et al., 2022; Makridakis et al., 2022) eller rikere eksterne variabler (Ulrich et al., 2021; Carbonneau et al., 2008). For det andre er effekten av streng tidsbasert oppsplitting på sammenligningens utfall sjelden isolert (Cerqueira et al., 2020). Studien bidrar med en kontrollert sammenligning på ett datasett der trening, validering og test er strengt adskilt i tid, og hvor både samlede og segmentvise metrikker rapporteres.
+### 2.1 Forskningsgap og hvordan studien skiller seg ut
+
+Litteraturen over har allerede besvart flere av de overordnede spørsmålene. Det er godt dokumentert *at* tre-baserte ensembler ofte slår lineære modeller når etterspørselen er sammensatt og datamengden stor (Makridakis et al., 2022; Mitra et al., 2022), *at* fortrinnet likevel er betinget av datakvalitet, oppløsning og feature-rikdom (Spiliotis et al., 2022; Fildes et al., 2022), og *at* valget av evalueringsmetrikk i seg selv kan flytte konklusjonen (Hyndman & Koehler, 2006). Mye av dette arbeidet henter imidlertid styrken sin fra rike eksterne variabler – konkurrentpriser, kampanjeflagg og kryss-kategorieffekter (Huang et al., 2014; Carbonneau et al., 2008) – eller fra store modellpaneler der lineær regresjon og Random Forest kun er to av mange kandidater (Mitra et al., 2022; Makridakis et al., 2022).
+
+Det vårt case bidrar med, ligger i krysningen mellom fire forhold som litteraturen sjelden isolerer samtidig. For det første gjennomfører studien en *direkte* sammenligning av nettopp multippel lineær regresjon mot Random Forest, uten et bredere modellpanel som tilslører hvilken av de to modellklassene som faktisk bærer en eventuell gevinst. For det andre bygger sammenligningen på et bevisst *internt og lett tilgjengelig* datagrunnlag – kalendervariabler, rabatt og kategoritilhørighet – uten de rike eksterne signalene som Huang et al. (2014) og Ulrich et al. (2021) framhever; dette speiler den datasituasjonen en mellomstor dagligvarekjede realistisk står i. For det tredje er trening, validering og test strengt adskilt i tid (2022–2024 mot 2025), slik at resultatene måler reell prediksjon framover og ikke en for optimistisk tilfeldig oppsplitting (Cerqueira et al., 2020). For det fjerde rapporteres ikke bare aggregerte metrikker, men også segmentvise resultater per måned, kvartal, rabattbånd, region og salgsnivå.
+
+Posisjoneringen begrunner samtidig de metodiske valgene caset hviler på. At rabatt er en sentral, men krevende prediktor i dagligvarehandel (Huang et al., 2014), gjør det relevant å undersøke hvordan de to modellklassene utnytter nettopp `Discount`. At absolutt presisjon er det operativt avgjørende kravet for innkjøp og lagerstyring av ferskvarer (van Donselaar et al., 2006), forklarer hvorfor RMSE prioriteres som primær metrikk. Og at tolkbarhet har selvstendig verdi i beslutningsstøtte – ikke bare prediksjonskraft – understøtter valget av en gjennomsiktig lineær benchmark ved siden av den mer fleksible ensemble-modellen (Rudin, 2019). Studien svarer dermed ikke på om maskinlæring «generelt» er best, men på det mer presise spørsmålet om hva en tolkbar lineærmodell og en Random Forest yter mot hverandre under realistiske databetingelser for Dagligvare.
 
 ---
 
@@ -825,6 +832,8 @@ Cerqueira, V., Torgo, L., & Mozetič, I. (2020). Evaluating time series forecast
 
 Fildes, R., Ma, S., & Kolassa, S. (2022). Retail forecasting: Research and practice. *International Journal of Forecasting*, 38(4), 1283–1318. <https://doi.org/10.1016/j.ijforecast.2019.06.004>
 
+Huang, T., Fildes, R., & Soopramanien, D. (2014). The value of competitive information in forecasting FMCG retail product sales and the variable selection problem. *European Journal of Operational Research*, 237(2), 738–748. <https://doi.org/10.1016/j.ejor.2014.02.022>
+
 Hyndman, R. J., & Koehler, A. B. (2006). Another look at measures of forecast accuracy. *International Journal of Forecasting*, 22(4), 679–688. <https://doi.org/10.1016/j.ijforecast.2006.03.001>
 
 James, G., Witten, D., Hastie, T., & Tibshirani, R. (2021). *An introduction to statistical learning: With applications in R* (2. utg.). Springer. <https://doi.org/10.1007/978-1-0716-1418-1>
@@ -837,9 +846,13 @@ Makridakis, S., Spiliotis, E., & Assimakopoulos, V. (2022). M5 accuracy competit
 
 Mitra, A., Jain, A., Kishore, A., & Kumar, P. (2022). A comparative study of demand forecasting models for a multi-channel retail company: A novel hybrid machine learning approach. *Operations Research Forum*, 3(4), 58. <https://doi.org/10.1007/s43069-022-00166-4>
 
+Rudin, C. (2019). Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead. *Nature Machine Intelligence*, 1(5), 206–215. <https://doi.org/10.1038/s42256-019-0048-x>
+
 Spiliotis, E., Makridakis, S., Semenoglou, A.-A., & Assimakopoulos, V. (2022). Comparison of statistical and machine learning methods for daily SKU demand forecasting. *Operational Research*, 22(3), 3037–3061. <https://doi.org/10.1007/s12351-020-00605-2>
 
 Ulrich, M., Jahnke, H., Langrock, R., Pesch, R., & Senge, R. (2021). Distributional regression for demand forecasting in e-grocery. *European Journal of Operational Research*, 294(3), 831–842. <https://doi.org/10.1016/j.ejor.2019.11.029>
+
+van Donselaar, K. H., van Woensel, T., Broekmeulen, R. A. C. M., & Fransoo, J. C. (2006). Inventory control of perishables in supermarkets. *International Journal of Production Economics*, 104(2), 462–472. <https://doi.org/10.1016/j.ijpe.2004.10.019>
 
 \newpage
 
