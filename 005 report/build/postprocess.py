@@ -38,7 +38,7 @@ LONGTABLE = re.compile(
 
 # Tabeller som er trange og bryter for mye i ordene med standard \small får
 # ett hakk mindre skrift (\footnotesize). Identifiseres på captionteksten.
-SMALLER_TABLES = ("Tabell 6.1", "Tabell 6.2")
+SMALLER_TABLES = ("Tabell 6.1", "Tabell 6.2", "Tabell 9.1")
 
 
 def convert_table(match: re.Match[str]) -> str:

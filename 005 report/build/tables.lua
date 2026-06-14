@@ -35,7 +35,11 @@ local LATEX_ESCAPES = {
 
 local LONG_WORD_THRESHOLD_BODY   = 14
 local LONG_WORD_THRESHOLD_HEADER = 10
-local LANDSCAPE_THRESHOLD = 10
+-- Terskel for å rotere brede tabeller til landskap. Ingen tabell har lenger
+-- så mange kolonner (Tabell 9.1 er restrukturert til 8 kolonner for å stå i
+-- portrett; 6.2 og 7.2 har også 8). Beholdes som sikring mot framtidige
+-- svært brede tabeller.
+local LANDSCAPE_THRESHOLD = 11
 
 -- Bare hyphen og slash brytes automatisk av LaTeX. Underscore, punktum
 -- og likhetstegn må gjennom \splitword for å bryte i smale kolonner.
@@ -111,25 +115,64 @@ local function bold_header_rows(rows)
   end
 end
 
+-- Returnerer true hvis en header-celle inneholder den gitte tekstbiten.
+-- Brukes til å kjenne igjen den teksttunge Tabell 9.1 (modellprofil) uten å
+-- hardkode tabellrekkefølge. Må kalles før header-ord brytes med \splitword,
+-- ellers gjemmes teksten i RawInline og stringify finner den ikke.
+local function header_contains(t, needle)
+  for _, row in ipairs(t.head.rows) do
+    for _, cell in ipairs(row.cells) do
+      for _, block in ipairs(cell.contents) do
+        if pandoc.utils.stringify(block):find(needle, 1, true) then
+          return true
+        end
+      end
+    end
+  end
+  return false
+end
+
 function Table(t)
   local ncols = #t.colspecs
   if ncols == 0 then
     return nil
   end
 
-  local width = 1.0 / ncols
-  for i = 1, ncols do
-    t.colspecs[i][2] = width
+  -- Tabell 9.1 (modellprofil) har to korte tallkolonner, to vinnerkolonner
+  -- og tre brede prosakolonner. Den kjennes igjen på «Hovedsvakhet»-headeren
+  -- og får en eksplisitt breddeprofil med smale ledende kolonner og brede
+  -- tekstkolonner; ellers ville lik bredde gjøre prosakolonnene for smale.
+  -- Den må detekteres her, før header-ord eventuelt brytes med \splitword.
+  local textheavy = (ncols == 8) and header_contains(t, "svakhet")
+
+  if textheavy then
+    -- Modell-rolle, RMSE, MAPE, Vinner-måneder, Vinner-segmenter,
+    -- Tolk-barhet, Hoved-styrke, Hoved-svakhet. Summerer til 1,0 slik at
+    -- tabellen fyller full tekstbredde på linje med de øvrige tabellene.
+    local widths = {0.12, 0.08, 0.08, 0.10, 0.11, 0.09, 0.21, 0.21}
+    for i = 1, ncols do
+      t.colspecs[i][2] = widths[i]
+    end
+  else
+    local width = 1.0 / ncols
+    for i = 1, ncols do
+      t.colspecs[i][2] = width
+    end
   end
 
   -- Bryt lange ubrudte ord. Hovedheaderen ligger på t.head.rows
   -- (terskel 10); intermediate header-rader på body.head (sjelden brukt)
   -- og data-rader på body.body får body-terskelen (14). foot prosesseres
   -- ikke siden rapporten ikke bruker foot-rader i tabellene.
-  process_rows(t.head.rows, break_long_str_header)
-  for _, body in ipairs(t.bodies) do
-    process_rows(body.head, break_long_str_header)
-    process_rows(body.body, break_long_str_body)
+  -- For den teksttunge Tabell 9.1 hoppes \splitword over helt: cellene er
+  -- norsk prosa uten kode-identifikatorer, så babels orddeling gir penere
+  -- linjebryting enn tegn-for-tegn-splitting i de smale kolonnene.
+  if not textheavy then
+    process_rows(t.head.rows, break_long_str_header)
+    for _, body in ipairs(t.bodies) do
+      process_rows(body.head, break_long_str_header)
+      process_rows(body.body, break_long_str_body)
+    end
   end
 
   -- Sett tittel-raden(e) i fet skrift.

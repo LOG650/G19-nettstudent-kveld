@@ -8,7 +8,7 @@
 
 Forfatter(e): Marthe Slåtta Bjerke, Erik Brendehaug, Joseph James, Pål Rånes
 
-Totalt antall sider inkludert forsiden: 37
+Totalt antall sider inkludert forsiden: 36
 
 Molde, Innleveringsdato: 28.05.2026
 
@@ -16,7 +16,11 @@ Molde, Innleveringsdato: 28.05.2026
 \includegraphics{extracted_images/image_1.png}
 \end{center}
 
+\thispagestyle{empty}
+
 \newpage
+
+\pagenumbering{roman}
 
 ## Obligatorisk egenerklæring/gruppeerklæring <!-- omit in toc -->
 
@@ -156,6 +160,8 @@ The tuned Random Forest is the overall best model with RMSE 578.26 and MAPE 43.9
 [12 Vedlegg](#12-vedlegg)
 
 \newpage
+
+\pagenumbering{arabic}
 
 ## 1 Innledning
 
@@ -701,45 +707,13 @@ Bias-mønsteret nyanserer dette ytterligere. Tuned Random Forest underestimerer 
 
 Tabell 9.1 sammenstiller modellprofilene og tydeliggjør differensieringen.
 
+| Modell-rolle | RMSE | MAPE (%) | Vinner-måneder | Vinner-segmenter | Tolk-barhet | Hoved-styrke | Hoved-svakhet |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| benchmark lineær | 580,39 | 44,18 | 1 / 3 | 1 / 4 | høy | Høy tolkbarhet og konkurransedyktig i enkelte segmenter. | Multikollinearitet og manglende regularisering svekker robust koeffisienttolkning. |
+| baseline RF | 589,28 | 44,12 | 0 / 6 | 0 / 4 | middels | Sterk lokal MAPE-ytelse og nyttig referansepunkt for RF. | Svakest samlet og uten RMSE-seire i måneder eller segmenter. |
+| tuned RF | 578,26 | 43,97 | 11 / 3 | 13 / 6 | middels | Best samlet 2025 og sterkest på absolutt feil. | MAPE er mer ujevn enn RMSE mellom måneder og segmenter. |
 
-\begin{landscape}
-
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}@{}}
-\toprule\noalign{}
-\multirow{2}{*}{\textbf{\splitword{Modellrolle}}} & \multicolumn{2}{l}{%
-\textbf{Samlet 2025}} & \multicolumn{2}{l}{%
-\textbf{\splitword{Vinnermåneder}}} & \multicolumn{2}{l}{%
-\textbf{\splitword{Vinnersegmenter}}} & \multirow{2}{*}{\textbf{Tolkbarhet}} & \multirow{2}{*}{\textbf{\splitword{Hovedstyrke}}} & \multirow{2}{*}{\textbf{\splitword{Hovedsvakhet}}} \\
-& \textbf{RMSE} & \textbf{MAPE~(\%)} & \textbf{RMSE} & \textbf{MAPE} & \textbf{RMSE} & \textbf{MAPE} \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-benchmark lineær & 580,39 & 44,18 & 1 & 3 & 1 & 4 & høy & Høy tolkbarhet og \splitword{konkurransedyktig} i enkelte
-segmenter. & \splitword{Multikollinearitet} og manglende regularisering svekker robust
-\splitword{koeffisienttolkning.} \\
-baseline RF & 589,28 & 44,12 & 0 & 6 & 0 & 4 & middels & Sterk lokal MAPE-ytelse og nyttig referansepunkt for RF. &
-Svakest samlet og uten RMSE-seire i måneder eller segmenter. \\
-tuned RF & 578,26 & 43,97 & 11 & 3 & 13 & 6 & middels & Best samlet 2025 og sterkest på absolutt feil. & MAPE er mer
-ujevn enn RMSE mellom måneder og segmenter. \\
-\end{longtable}
-
-\end{landscape}
-
-\begin{center}
-{\small\itshape Tabell 9.1 Modellprofil med samlet RMSE/MAPE, antall vinnermåneder og -segmenter, tolkbarhetsnivå samt hovedstyrke og hovedsvakhet per modell.}
-\end{center}
-
+: Tabell 9.1 Modellprofil per modell: samlet RMSE og MAPE for 2025, vinnermåneder og vinnersegmenter (oppgitt som RMSE-vinnere / MAPE-vinnere), tolkbarhetsnivå samt hovedstyrke og hovedsvakhet.
 
 ### 9.2 Variablenes påvirkning
 
