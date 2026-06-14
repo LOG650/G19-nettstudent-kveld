@@ -85,6 +85,32 @@ local function process_rows(rows, walker)
   end
 end
 
+-- Wrapper inline-innholdet i en blokk (typisk Plain/Para i en header-celle)
+-- i \textbf, slik at tittel-raden settes i fet skrift. Eventuelle RawInline
+-- (`\splitword{}`/`\splitcode{}`) som allerede er satt inn, beholdes inne i
+-- Strong-wrapperen.
+local function bold_blocks(blocks)
+  local out = {}
+  for _, block in ipairs(blocks) do
+    if block.t == "Plain" then
+      out[#out + 1] = pandoc.Plain({ pandoc.Strong(block.content) })
+    elseif block.t == "Para" then
+      out[#out + 1] = pandoc.Para({ pandoc.Strong(block.content) })
+    else
+      out[#out + 1] = block
+    end
+  end
+  return out
+end
+
+local function bold_header_rows(rows)
+  for _, row in ipairs(rows) do
+    for _, cell in ipairs(row.cells) do
+      cell.contents = bold_blocks(cell.contents)
+    end
+  end
+end
+
 function Table(t)
   local ncols = #t.colspecs
   if ncols == 0 then
@@ -104,6 +130,12 @@ function Table(t)
   for _, body in ipairs(t.bodies) do
     process_rows(body.head, break_long_str_header)
     process_rows(body.body, break_long_str_body)
+  end
+
+  -- Sett tittel-raden(e) i fet skrift.
+  bold_header_rows(t.head.rows)
+  for _, body in ipairs(t.bodies) do
+    bold_header_rows(body.head)
   end
 
   if ncols >= LANDSCAPE_THRESHOLD then

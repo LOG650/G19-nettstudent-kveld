@@ -598,11 +598,11 @@ Tabell 8.1 viser eksakte månedlige RMSE- og MAPE-verdier per modell, med RMSE o
   >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}@{}}
 \toprule\noalign{}
-\multirow{2}{*}{Måned} & \multicolumn{2}{l}{%
-Benchmark lineær} & \multicolumn{2}{l}{%
-Baseline RF} & \multicolumn{2}{l@{}}{%
-Tuned RF} \\
-& RMSE & MAPE~(\%) & RMSE & MAPE~(\%) & RMSE & MAPE~(\%) \\
+\multirow{2}{*}{\textbf{Måned}} & \multicolumn{2}{l}{%
+\textbf{Benchmark lineær}} & \multicolumn{2}{l}{%
+\textbf{Baseline RF}} & \multicolumn{2}{l@{}}{%
+\textbf{Tuned RF}} \\
+& \textbf{RMSE} & \textbf{MAPE~(\%)} & \textbf{RMSE} & \textbf{MAPE~(\%)} & \textbf{RMSE} & \textbf{MAPE~(\%)} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -653,11 +653,11 @@ Tabell 8.2 gir detaljert RMSE og MAPE per modell for alle 14 tolkningssegmentene
   >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}@{}}
 \toprule\noalign{}
-\multirow{2}{*}{Dimensjon} & \multirow{2}{*}{Verdi} & \multicolumn{2}{l}{%
-Benchmark lineær} & \multicolumn{2}{l}{%
-Baseline RF} & \multicolumn{2}{l@{}}{%
-Tuned RF} \\
-& & RMSE & MAPE~(\%) & RMSE & MAPE~(\%) & RMSE & MAPE~(\%) \\
+\multirow{2}{*}{\textbf{Dimensjon}} & \multirow{2}{*}{\textbf{Verdi}} & \multicolumn{2}{l}{%
+\textbf{Benchmark lineær}} & \multicolumn{2}{l}{%
+\textbf{Baseline RF}} & \multicolumn{2}{l@{}}{%
+\textbf{Tuned RF}} \\
+& & \textbf{RMSE} & \textbf{MAPE~(\%)} & \textbf{RMSE} & \textbf{MAPE~(\%)} & \textbf{RMSE} & \textbf{MAPE~(\%)} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -716,11 +716,11 @@ Tabell 9.1 sammenstiller modellprofilene og tydeliggjør differensieringen.
   >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 18\tabcolsep) * \real{0.1000}}@{}}
 \toprule\noalign{}
-\multirow{2}{*}{\splitword{Modellrolle}} & \multicolumn{2}{l}{%
-Samlet 2025} & \multicolumn{2}{l}{%
-\splitword{Vinnermåneder}} & \multicolumn{2}{l}{%
-\splitword{Vinnersegmenter}} & \multirow{2}{*}{Tolkbarhet} & \multirow{2}{*}{\splitword{Hovedstyrke}} & \multirow{2}{*}{\splitword{Hovedsvakhet}} \\
-& RMSE & MAPE~(\%) & RMSE & MAPE & RMSE & MAPE \\
+\multirow{2}{*}{\textbf{\splitword{Modellrolle}}} & \multicolumn{2}{l}{%
+\textbf{Samlet 2025}} & \multicolumn{2}{l}{%
+\textbf{\splitword{Vinnermåneder}}} & \multicolumn{2}{l}{%
+\textbf{\splitword{Vinnersegmenter}}} & \multirow{2}{*}{\textbf{Tolkbarhet}} & \multirow{2}{*}{\textbf{\splitword{Hovedstyrke}}} & \multirow{2}{*}{\textbf{\splitword{Hovedsvakhet}}} \\
+& \textbf{RMSE} & \textbf{MAPE~(\%)} & \textbf{RMSE} & \textbf{MAPE} & \textbf{RMSE} & \textbf{MAPE} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -773,7 +773,7 @@ Tabell 9.2 oppsummerer beslutningsmatrisen med anbefalt modellrolle, prioritert 
   >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
   >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}@{}}
 \toprule\noalign{}
-\splitword{Beslutningsområde} & Anbefalt modell & Prioritert metrikk & Praktisk nytte & \splitword{Hovedforbehold} \\
+\textbf{\splitword{Beslutningsområde}} & \textbf{Anbefalt modell} & \textbf{Prioritert metrikk} & \textbf{Praktisk nytte} & \textbf{\splitword{Hovedforbehold}} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
