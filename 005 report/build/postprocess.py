@@ -36,6 +36,11 @@ LONGTABLE = re.compile(
 )
 
 
+# Tabeller som er trange og bryter for mye i ordene med standard \small får
+# ett hakk mindre skrift (\footnotesize). Identifiseres på captionteksten.
+SMALLER_TABLES = ("Tabell 6.1", "Tabell 6.2")
+
+
 def convert_table(match: re.Match[str]) -> str:
     colspec, body = match.group(1), match.group(2)
 
@@ -47,6 +52,10 @@ def convert_table(match: re.Match[str]) -> str:
     if cap_m:
         caption = cap_m.group(1).strip()
         body = body[: cap_m.start()] + body[cap_m.end():]
+
+    size = "\\small"
+    if caption and any(caption.startswith(t) for t in SMALLER_TABLES):
+        size = "\\footnotesize"
 
     # Fjern longtable-maskineriet.
     body = re.sub(r"\\endfirsthead.*?\\endhead", "", body, flags=re.DOTALL)  # duplisert header
@@ -69,7 +78,7 @@ def convert_table(match: re.Match[str]) -> str:
         data_tex += "\\bottomrule\n" if i == len(rows) - 1 else "\\midrule\n"
 
     out = (
-        "\\begin{center}\n\\small\n"
+        "\\begin{center}\n" + size + "\n"
         "\\begin{tabular}{" + colspec + "}\n"
         + head + "\n\\midrule\n"
         + data_tex
