@@ -499,7 +499,7 @@ Tabell 6.2 viser de fem beste parameterkombinasjonene fra rutenettsøket, sorter
 
 | Kandidat | n_estimators | max_depth | min_samples_leaf | max_features | RMSE validering | MAPE validering (%) | Delta RMSE vs. baseline |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| rf_tune_30 (vinner) | 400 | 10 | 4 | sqrt | 577,27 | 43,56 | −13,04 |
+| **rf_tune_30 (vinner)** | **400** | **10** | **4** | **sqrt** | **577,27** | **43,56** | **−13,04** |
 | rf_tune_28 | 400 | 10 | 2 | sqrt | 577,29 | 43,57 | −13,02 |
 | rf_tune_10 | 200 | 10 | 2 | sqrt | 577,36 | 43,58 | −12,94 |
 | rf_tune_26 | 400 | 10 | 1 | sqrt | 577,65 | 43,60 | −12,65 |
@@ -517,7 +517,7 @@ Tabell 7.1 oppsummerer den samlede ytelsen på 2025 for de tre modellsporene. Tu
 | --- | --- | --- |
 | Benchmark lineær | 580,39 | 44,18 % |
 | Baseline Random Forest | 589,28 | 44,12 % |
-| Tuned Random Forest | 578,26 | 43,97 % |
+| Tuned Random Forest | **578,26** | **43,97 %** |
 
 <p align="center"><small><i>Tabell 7.1 Samlet prognoseytelse på 2025 (3 312 observasjoner).</i></small></p>
 
@@ -533,8 +533,8 @@ Tabell 7.2 viser hvor mange av de tolv månedene i 2025 hver modell vinner på h
 | Modell | RMSE-vinner (av 12) | MAPE-vinner (av 12) |
 | --- | --- | --- |
 | Benchmark lineær | 1 | 3 |
-| Baseline Random Forest | 0 | 6 |
-| Tuned Random Forest | 11 | 3 |
+| Baseline Random Forest | 0 | **6** |
+| Tuned Random Forest | **11** | 3 |
 
 <p align="center"><small><i>Tabell 7.2 Månedlig vinnertelling per metrikk i 2025.</i></small></p>
 
